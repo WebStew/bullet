@@ -1,0 +1,29 @@
+{
+	"expo" : {
+		"name" : "bullet",
+		"description" : "No description",
+		"slug" : "bullet",
+		"privacy" : "public",
+		"sdkVersion" : "18.0.0",
+		"version" : "1.0.0",
+		"orientation" : "portrait",
+		"primaryColor" : "#cccccc",
+		"icon" : "./assets/icons/application.png",
+		"notification" : {
+			"icon" : "./assets/icons/notification-icon.png",
+			"color" : "#000000"
+		},
+		"loading" : {
+			"backgroundColor"  : "#ffffff",
+			"backgroundImage"  : "",
+			"icon" : "./assets/icons/watermark.png",
+			"hideExponentText" : true
+		},
+		"packagerOpts" : {
+			"assetExts" : ["ttf"]
+		},
+		"ios" : {
+			"supportsTablet" : true
+		}
+	}
+}
