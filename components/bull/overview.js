@@ -1,6 +1,7 @@
 
 import 		React 			from 'react';
-import { 	Text ,
+import { 	Image 		,
+			Text 		,
 			View 		} 	from 'react-native';
 import 		Heading 		from '../utilities/headings';
 import 		Sections 		from '../utilities/sections';
@@ -8,6 +9,7 @@ import 		strings 		from '../../properties/strings';
 import 		layout 			from '../../styles/layout';
 import 		style 			from '../../styles/section';
 import 		bull 			from '../../styles/bull';
+import 		images 			from '../../api/images';
 
 export default class Overview extends React.Component {
 
@@ -20,12 +22,22 @@ export default class Overview extends React.Component {
 
 		return (
 
-			<View style = { layout.fill }>
-				
-				<Heading 
-					title 	= { this.props.bull.name + ' ( ' +  this.props.bull.symbol + ' )' } 
-					type 	= '1'
-				/>
+			<View 		style = { layout.fill 	}>
+				<View 	style = { layout.row 	}>
+
+					<Image 	
+						style 	= { bull.icon }
+						source 	= {{
+							uri : images.currencies.large ( this.props.bull.id ) 
+						}}
+					/>
+					
+					<Heading 
+						title 	= { this.props.bull.name + ' ( ' +  this.props.bull.symbol + ' )' } 
+						type 	= '1'
+					/>
+
+				</View>
 
 				<Sections sections = {[
 

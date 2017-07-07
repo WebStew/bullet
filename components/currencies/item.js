@@ -19,7 +19,7 @@ export default class Item extends React.Component {
 
 	setCurrency () {
 
-		console.log ( this.props )
+		//console.log ( this.props )
 		// Actions [ routes.catalogue.detail ] ({
 		// 	product : this.props.product
 		// });
@@ -39,11 +39,11 @@ export default class Item extends React.Component {
 					}} 
 					onPress = { this.setCurrency 	}
 				>
-				
+
 					<Image 	
 						style 	= { style.icon }
 						source 	= {{
-							uri : images.currencies.icon ( currency.id ) 
+							uri : images.currencies.small ( currency.id ) 
 						}}
 					/>
 					

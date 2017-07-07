@@ -49,12 +49,14 @@ export default function (
 
 		case constants.set 		:
 
-			let bull = state;
+			let bull = {
+					rating : 0
+				};
 			
 			Object.keys ( action.currencies ).forEach ( function ( key ) {
 
 				if ( 
-					action.currencies [ key ].rating > state.rating && 
+					action.currencies [ key ].rating > bull.rating && 
 					!isNaN ( action.currencies [ key ].rating )
 				) {
 					
@@ -62,8 +64,6 @@ export default function (
 				}
 
 			});
-
-			console.log ( bull )
 
 			return Object.assign (
 				{} 		,

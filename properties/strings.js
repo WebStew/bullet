@@ -45,7 +45,7 @@ const strings = {
 						title 		: 'Market' 				,
 						total 		: 'Supply Total' 		,
 						updated 	: 'Last Updated' 		,
-						volume 		: 'Volume'
+						volume 		: '24 Hour Volume'
 					} 										,
 
 					rating 			: 'BULLet rating' 		,

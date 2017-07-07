@@ -14,9 +14,9 @@ export default class Integer extends React.Component {
 		return (
 			
 			<Text style = {{
-				...style 			,
 				...styles.default 	,
-				...this.props.style
+				...this.props.style ,
+				...style 			,
 			}}>
 				{ this.props.value }
 			</Text>

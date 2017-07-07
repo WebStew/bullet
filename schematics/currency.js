@@ -38,7 +38,7 @@ export default {
 				} ,
 
 				rank 			: numbers.rank ( currency [ 'rank' 	]) ,
-				rating 			: currency [ 'market_cap_usd' 		] ? parseFloat ( currency [ '24h_volume_usd' ] / currency [ 'market_cap_usd' ]).toFixed ( 5 )  : strings.errors [ '500' ] ,
+				rating 			: currency [ 'market_cap_usd' 		] ? ( parseFloat ( currency [ '24h_volume_usd' ]) / parseFloat ( currency [ 'market_cap_usd' ]) * parseFloat ( currency [ 'price_usd' ]) * currency [ 'percent_change_1h' ]).toFixed ( 5 ) : strings.errors [ '500' ] ,
 
 				supply : {
 					available 	: currency [ 'available_supply' 	] ,
