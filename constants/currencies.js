@@ -5,8 +5,8 @@
  */
 export default {
 
-	error 	: 'currencies:error' 	,
-	receive : 'currencies:receive' 	,
-	request : 'currencies:request'
+	error 	: 'currencies:error' 	, 	
+	get 	: 'currencies:get' 		,
+	set 	: 'currencies:set'
 	
 };

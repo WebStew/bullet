@@ -1,8 +1,12 @@
 
 import api 			from '../api/currencies';
 import constants 	from '../constants/currencies';
+import bull 		from '../actions/bull';
+import schematic 	from '../schematics/currency';
 
-const 	error = function ( data ) {
+const 	currencies = { 
+	
+		error : function ( data ) {
 
 			return {
 				error 	: data ,
@@ -10,19 +14,22 @@ const 	error = function ( data ) {
 			};
 		} ,
 
-		receive = function () {
+		set : function ( data ) {
 
 			return {
-				type 	: constants.receive
+				items 	: data ,
+				type 	: constants.set
 			};
 		} ,
 
-		request = function () {
+		get : function () {
 
 			return {
-				type 	: constants.request
+				type 	: constants.get
 			};
-		};
+		}
+
+	};
 
 export default {
 
@@ -30,19 +37,33 @@ export default {
 
 		return function ( dispatch ) {
 
-			dispatch ( request ());
+			dispatch ( currencies.get 	());
+			dispatch ( bull.get 		());
 
-			return api.get ().then ( function ( response ) {
+			// Get the currencies
+			return api.get ()
 
-				console.log ( 'DEBUG' , response )
-
-				return response.json ();
+				// Transform the reponse
+				.then (( response ) => response.json ())
 				
-			}).then ( function ( data ) {
+				// Dispatch the data
+				.then ( function ( data ) {
 
-				dispatch ( receive 	());
+					// Rewrite the API response to our data schema
+					const normalised = schematic.get ( data );
 
-			}).catch ( data => dispatch ( error ( data )));
+					dispatch ( currencies. set 	( normalised ));
+					dispatch ( bull.set 		( normalised ));
+				
+				})
+				
+				// Or dispatch an error
+				.catch ( function ( data ) {
+
+					dispatch ( bull.error 		( data ));
+					dispatch ( currencies.error ( data ));
+
+				});
 		}
 	}
 };

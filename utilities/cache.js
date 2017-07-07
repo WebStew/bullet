@@ -6,12 +6,12 @@ import { 	Asset 	,
 
 const cache = {
 
-	fonts 	: function ( fonts ) {
+	fonts ( fonts ) {
 
 		return fonts.map ( font => Font.loadAsync ( font ));
 	} ,
 	
-	images 	: function ( images ) {
+	images ( images ) {
 
 		return images.map ( image => {
 
@@ -30,7 +30,7 @@ const cache = {
 
 export default {
 	
-	assets : function cacheAssetsAsync ({ 
+	assets ({ 
 		images 	= [] , 
 		fonts 	= [] 
 	}) {

@@ -1,73 +1,71 @@
 
-/**
- * @flow
- */
 import 		React 				from 'react';
-import { 	FontAwesome 	} 	from '@expo/vector-icons';
+import { 	Ionicons 		} 	from '@expo/vector-icons';
 import { 	TabNavigator 	, 
 			TabBarBottom 	} 	from 'react-navigation';
-import 		home 				from '../screens/home';
-import 		links 				from '../screens/links';
-import 		settings 			from '../screens/settings';
+import 		Bull 				from '../screens/bull';
+import 		Currencies 			from '../screens/currencies';
+import 		style 				from '../styles/tabbar';
 import 		theme 				from '../styles/theme';
 
 export default TabNavigator (
+
 	{
-		home 		: {
-			screen 	: home
+		bull 		: {
+			screen 	: Bull
 		} ,
-		links 		: {
-			screen 	: links
-		} ,
-		settings 	: {
-			screen 	: settings
+		currencies 	: {
+			screen 	: Currencies
 		}
 	} ,
+
 	{
-		navigationOptions : ({ navigation }) => ({
+		animationEnabled 	: true ,
 
-			// Set the tab bar icon
-			tabBarIcon : ({ focused }) => {
+		navigationOptions 	: function ({ navigation }) {
 
-				const { routeName } = navigation.state;
-				let 	name;
+			return {
 
-				switch ( routeName ) {
+				// Set the tab bar icon
+				tabBarIcon : ({ focused }) => {
 
-					case 'home':
-						name = 'home';
-						break;
+					const { routeName } = navigation.state;
+					let 	name;
 
-					case 'links':
-						name = 'book';
-						break;
+					switch ( routeName ) {
 
-					case 'settings':
-						name = 'cog';
-						break;
+						case 'bull':
+							name = 'ios-trending-up-outline';
+							break;
 
+						case 'currencies':
+							name = 'ios-stats-outline';
+							break;
+
+					}
+
+					return (
+						<Ionicons
+							name 	= { name 												}
+							size 	= { 32 													}
+							color 	= { focused ? theme.primaries [ 1 ] : theme.accents [ 2 ]}
+						/>
+					);
 				}
-
-				return (
-					<FontAwesome
-						name 	= { name 												}
-						size 	= { 32 													}
-						color 	= { focused ? theme.primaries [ 1 ] : theme.accents [ 0 ]}
-					/>
-				);
 			}
-		}) ,
+		} ,
+
+		swipeEnabled 		: true ,
 
 		// Put tab bar on bottom of screen on both platforms
-		tabBarComponent : TabBarBottom 	,
-		tabBarPosition 	: 'bottom'		,
-
-		// Disable animation so that iOS/Android have same behaviors
-		animationEnabled : false ,
+		tabBarComponent 	: TabBarBottom 	,
+		tabBarPosition 		: 'bottom'		,
 
 		// Don't show the labels
-		tabBarOptions : {
-			showLabel : false
+		tabBarOptions 		: {
+			showLabel 		: false ,
+			...style
+
 		}
 	}
 );

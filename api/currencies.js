@@ -1,21 +1,21 @@
 
 const api = {
-		doman 	: 'https://coinmarketcap.com/api' ,
-		path 	:'/ticker' ,
+		domain 	: 'https://api.coinmarketcap.com' 	,
+		path 	:'/v1/ticker/' 						,
 		headers : {
-			Accept 	: 'application/json' ,
+			Accept 	: 'application/json' 			,
 			headers : {
 				'Content-Type' : 'application/json'
 			}
 		}
-	}
+	};
 
 export default {
 	
 	get : async function () {
 
 		return fetch ( api.domain + api.path , {
-			...headers ,
+			...api.headers ,
 			method : 'GET'
 		});
 	}

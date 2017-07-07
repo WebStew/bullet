@@ -7,13 +7,13 @@ import { 	Platform 	,
 import { 	Provider 	} 	from 'react-redux';
 
 import { 	AppLoading 	} 	from 'expo';
-import { 	FontAwesome } 	from '@expo/vector-icons';
+import { 	Ionicons } 		from '@expo/vector-icons';
 import 		Navigation 		from './navigations/root';
 import 		cache 			from './utilities/cache';
 import 		strings 		from './properties/strings';
 import 		styles 			from './styles/main';
+import 		configuration 	from './configuration/store';
 
-import 		configuration 			from './configuration/store';
 const store = configuration ();
 
 export default class Application extends React.Component {
@@ -30,7 +30,7 @@ export default class Application extends React.Component {
 
 				images 	: [] ,
 				fonts 	: [
-					FontAwesome.font ,
+					Ionicons.font ,
 					{ 
 						'space-mono' : require ( './assets/fonts/SpaceMono-Regular.ttf' )
 					}
@@ -60,7 +60,6 @@ export default class Application extends React.Component {
 
 		this.setCache ();
 	}
-
 
 	render () {
 

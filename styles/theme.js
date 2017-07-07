@@ -3,13 +3,19 @@ const themes = {
 	
 		default : {
 
-			accents 	: [
-				'#dcdcdc'
+			accents 		: [
+				'#dcdcdc' 	,
+				'#333' 		,
+				'#acacac' 	,
+				'#f9f9f9' 	,
+				'#fff'
 			] ,
 
-			primaries 	: [
+			primaries 		: [
 				'#000' 		,
-				'#00ffff'
+				'#00d7ff' 	,
+				'#00cc00' 	,
+				'#cc0000'
 			]
 			
 		}

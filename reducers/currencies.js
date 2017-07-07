@@ -1,12 +1,12 @@
 
-import constants 		from '../constants/currencies';
+import constants from '../constants/currencies';
 
 export default function (
 
 	state 	= {
 		error 	: null 	,
-		items 	: [] 	,
-		loading : false
+		items 	: {} 	,
+		loading : true
 	} , 
 
 	action 	= {}
@@ -26,22 +26,18 @@ export default function (
 				}
 			);
 
-		break;
-
-		case constants.receive 	:
+		case constants.set 	:
 
 			return Object.assign (
 				{} 		,
 				state 	,
 				{
-					items 		: action.items ,
-					loading 	: false
+					items 	: action.items ,
+					loading : false
 				}
 			);
 
-		break;
-
-		case constants.request 	:
+		case constants.get 	:
 
 			return Object.assign (
 				{} 		,
@@ -50,8 +46,6 @@ export default function (
 					loading : true
 				}
 			);
-
-		break;
 
 		default :
 			return state;

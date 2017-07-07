@@ -17,7 +17,9 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-18.0.1.tar.gz",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.5",
-    "redux": "^3.7.1"
+    "redux": "^3.7.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "jest-expo": "~18.0.0"
