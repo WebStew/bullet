@@ -32,7 +32,8 @@ export default function (
 				{} 		,
 				state 	,
 				{
-					error : action.error
+					error 	: action.error ,
+					loading : false
 				}
 			);
 		
@@ -42,6 +43,7 @@ export default function (
 				{} 		,
 				state 	,
 				{
+					error 	: null ,
 					loading : true
 				}
 			);

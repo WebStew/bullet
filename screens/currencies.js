@@ -4,6 +4,7 @@ import { 	connect } 		from 'react-redux';
 import {	RefreshControl 	,
 			Text 			,
 			View 	} 		from 'react-native';
+import 		Error 			from '../components/errors/ajax';
 import 		Loader 			from '../components/utilities/loader';
 import 		List 			from '../components/utilities/list';
 import 		Currency 		from '../components/currencies/item';
@@ -70,8 +71,14 @@ export default connect (
 			<View style = { styleScene.default }>
 
 				<Loader
-					loading = { this.props.currencies.loading }
-					size 	= 'large'
+					loading 	= { this.props.currencies.loading 		}
+					size 		= 'large'
+				/>
+
+				<Error 
+					error 		= { this.props.currencies.error 		}
+					press 		= { this.refresh 						}
+					text 		= { strings.errors.ajax 				}
 				/>
 
 				<List 

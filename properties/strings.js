@@ -23,7 +23,9 @@ const strings = {
 			} ,
 
 			errors : {
-				500 			: 'Unavailable'
+				500 			: 'Unavailable' ,
+				ajax 			: 'There was an error retrieving the data. Please try again.' ,
+				default 		: 'Oops - an error has occurred. Please restart the application.'
 			} ,
 
 

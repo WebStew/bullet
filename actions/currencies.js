@@ -52,7 +52,7 @@ export default {
 					// Rewrite the API response to our data schema
 					const normalised = schematic.get ( data );
 
-					dispatch ( currencies. set 	( normalised ));
+					dispatch ( currencies.set 	( normalised ));
 					dispatch ( bull.set 		( normalised ));
 				
 				})

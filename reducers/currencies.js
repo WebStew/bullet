@@ -32,7 +32,8 @@ export default function (
 				{} 		,
 				state 	,
 				{
-					items 	: action.items ,
+					error 	: null 			,
+					items 	: action.items 	,
 					loading : false
 				}
 			);
@@ -43,6 +44,7 @@ export default function (
 				{} 		,
 				state 	,
 				{
+					error 	: null ,
 					loading : true
 				}
 			);
