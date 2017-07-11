@@ -1,12 +1,13 @@
 
 import 		React 			from 'react';
 import { 	connect } 		from 'react-redux';
-import {
-			Text 	,
+import {	RefreshControl 	,
+			Text 			,
 			View 	} 		from 'react-native';
 import 		Loader 			from '../components/utilities/loader';
 import 		List 			from '../components/utilities/list';
 import 		Currency 		from '../components/currencies/item';
+import 		actions 		from '../actions/currencies';
 import 		strings 		from '../properties/strings';
 import 		styleScene 		from '../styles/scene';
 import 		styleSeperator 	from '../styles/seperators';
@@ -25,6 +26,13 @@ export default connect (
 		headerTitle : strings.screens.currencies.title ,
 		title 		: strings.screens.currencies.title
 	};
+
+	constructor ( props ) {
+
+		super ( props );
+
+		this.refresh = this.refresh.bind ( this );
+	}
 
 	renderCurrency ( currency , section , row , highlight ) {
 
@@ -50,6 +58,11 @@ export default connect (
 		);
 	}
 
+	refresh () {
+		
+		this.props.dispatch ( actions.get ());
+	}
+
 	render () {
 
 		return (
@@ -64,6 +77,12 @@ export default connect (
 				<List 
 					items 			= { this.props.currencies.items 	}
 					loading 		= { this.props.currencies.loading 	}
+					refresh 		= {
+						<RefreshControl
+							refreshing 	= { this.props.currencies.loading 	}
+							onRefresh 	= { this.refresh 					}
+						/>
+					}
 					setRow 			= { this.renderCurrency 			}
 					setSeparator 	= { this.setSeparator 				}
 					style 			= { styleCurrency.list 				}

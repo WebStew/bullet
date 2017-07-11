@@ -1,7 +1,7 @@
 {
 	"expo" : {
 		"name" : "bullet",
-		"description" : "No description",
+		"description" : "The latest Bull on crytpo coins and blockchain tokens.",
 		"slug" : "bullet",
 		"privacy" : "public",
 		"sdkVersion" : "18.0.0",
@@ -22,7 +22,11 @@
 		"packagerOpts" : {
 			"assetExts" : ["ttf"]
 		},
+		"android": {
+			"package": "com.webstew.bullet"
+    	} ,
 		"ios" : {
+			"bundleIdentifier": "com.webstew.bullet" ,
 			"supportsTablet" : true
 		}
 	}

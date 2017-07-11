@@ -29,6 +29,7 @@ export default class List extends React.Component {
 				dataSource 			= { this.datasource.cloneWithRows ( this.props.items 												)}
 				renderRow 			= {( items , section , row , highlight ) => this.props.setRow ( items , section , row , highlight 	)}
 				renderSeparator 	= { this.props.setSeparator 																		}
+				refreshControl 		= { this.props.refresh 																				}
 				style 				= { this.props.style 																				}
 			/>
 		);
