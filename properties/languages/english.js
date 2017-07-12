@@ -33,7 +33,7 @@ export default {
 
 			bull 			: {
 
-				404 		: 'No Bull today sorry' ,
+				404 		: 'Looks like there has been in a problem in some of the data. We have been unable to calculate the latest Bull - sorry!' ,
 
 				changes 	: {
 					hour 	: 'Last Hour' 	,
