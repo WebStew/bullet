@@ -3,13 +3,18 @@ import 		React 		from 'react';
 import { 	Text 	} 	from 'react-native';
 import 		styles 		from '../../styles/integer';
 import 		strings 	from '../../utilities/string';
+import 		numbers 	from '../../utilities/numbers';
 
 export default class Integer extends React.Component {
 
 	render () {
 
 		// Styles are available are highligt ( two options for gt lt 0 ) and default
-		const style = this.props.type === 'highlight' && ! isNaN ( parseFloat ( this.props.value )) ? strings.contains ( this.props.value , '-' ) ? styles.negative : styles.positive : {};
+		const 	number 	= ! isNaN ( this.props.value ) 																				,
+				style 	= this.props.type === 'highlight' && number ? this.props.value > 0 ? styles.positive : styles.negative : {} ,
+				prefix 	= this.props.prefix || '' 																					,
+				suffix 	= this.props.suffix || '' 																					,
+				text 	= number ? prefix + numbers.format ( this.props.value ) + suffix : this.props.value;
 
 		return (
 			
@@ -18,7 +23,7 @@ export default class Integer extends React.Component {
 				...this.props.style ,
 				...style 			,
 			}}>
-				{ this.props.value }
+				{ text }
 			</Text>
 		);
 	}

@@ -3,6 +3,7 @@ import 		React 			from 'react';
 import { 	connect } 		from 'react-redux';
 import {	RefreshControl 	,
 			Text 			,
+			TouchableOpacity ,
 			View 	} 		from 'react-native';
 import 		Error 			from '../components/errors/ajax';
 import 		Loader 			from '../components/utilities/loader';
@@ -10,10 +11,12 @@ import 		List 			from '../components/utilities/list';
 import 		Currency 		from '../components/currencies/item';
 import 		actions 		from '../actions/currencies';
 import 		strings 		from '../properties/strings';
+import 		list 			from '../styles/list';
+import 		style 			from '../styles/currencies';
 import 		styleScene 		from '../styles/scene';
 import 		styleSeperator 	from '../styles/seperators';
-import 		styleCurrency 	from '../styles/currencies';
 import 		stripe 			from '../styles/stripe';
+import 		theme 			from '../styles/theme';
 
 export default connect (
 
@@ -32,14 +35,13 @@ export default connect (
 
 		super ( props );
 
-		this.refresh = this.refresh.bind ( this );
+		this.header 	= this.header.bind 	( this );
+		this.refresh 	= this.refresh.bind ( this );
 	}
 
-	renderCurrency ( currency , section , row , highlight ) {
+	row ( currency , section , row , highlight ) {
 
-		let style = row % 2 === 0 ? stripe.primary : stripe.secondary;
-
-		//dispatch 	= { this.props.dispatch	}
+		let style = row % 2 === 0 ? stripe.secondary : stripe.primary;
 
 		return ( 
 			<Currency
@@ -49,7 +51,7 @@ export default connect (
 		);
 	}
 
-	setSeparator ( section , row , highlighted ) {
+	separator ( section , row , highlighted ) {
 
 		return (
 			<View
@@ -64,6 +66,101 @@ export default connect (
 		this.props.dispatch ( actions.get ());
 	}
 
+	// Rewrite this to a loop noob
+	header () {
+
+		let active = {};		
+		
+		active [ this.props.currencies.order ] = {
+			color : theme.accents [ 2 ]
+		}
+
+		return (
+			<View>
+				<View 
+					style = {{ 
+						...list.row , 
+						...list.head 
+					}}
+				>
+					<TouchableOpacity 
+						style = {{ 
+							...list.cell ,
+							...style.head
+						}}
+						onPress = {() => {
+							
+							this.props.dispatch ( actions.order ( 'rank' ));
+						}}
+					>
+						<Text  
+							style = {{ 
+								...list 	[ 'head-text' 	] ,
+								...active 	[ 'rank' 		]
+							}}
+						>
+							{ strings.screens.currencies.headers.rank }
+						</Text>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						style 	= { list.cell }
+						onPress = {() => {	
+
+							this.props.dispatch ( actions.order ( 'rating' ));
+						}}
+					>
+						<Text 
+							style = {{ 
+								...list 	[ 'head-text' 	] 	,
+								...style.text  					,
+								...active 	[ 'rating' 		]
+							}}
+						>
+							{ strings.screens.currencies.headers.rating }
+						</Text>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						style 	= { list.cell }
+						onPress = {() => {
+
+							this.props.dispatch ( actions.order ( 'change' ));
+						}}
+					>
+						<Text 
+							style = {{ 
+								...list 	[ 'head-text' 	] 	,
+								...style.change  				,
+								...active 	[ 'change' 		]
+							}}
+						>
+							{ strings.screens.currencies.headers.change }
+						</Text>
+					</TouchableOpacity>
+					
+					<TouchableOpacity
+						style 	= { list.cell }
+						onPress = {() => {
+							
+							this.props.dispatch ( actions.order ( 'price' ));
+						}}
+					>
+						<Text 
+							style = {{
+								...list 	[ 'head-text' 	] 	,
+								...style.price  				,
+								...active 	[ 'price' 		]
+							}}
+						>
+							{ strings.screens.currencies.headers.price }
+						</Text>
+					</TouchableOpacity>
+				</View>
+			</View>
+		);
+	}
+
 	render () {
 
 		return (
@@ -71,28 +168,29 @@ export default connect (
 			<View style = { styleScene.default }>
 
 				<Loader
-					loading 	= { this.props.currencies.loading 		}
-					size 		= 'large'
+					loading = { this.props.currencies.loading 		}
+					size 	= 'large'
 				/>
 
 				<Error 
-					error 		= { this.props.currencies.error 		}
-					press 		= { this.refresh 						}
-					text 		= { strings.errors.ajax 				}
+					error 	= { this.props.currencies.error 		}
+					press 	= { this.refresh 						}
+					text 	= { strings.errors.ajax 				}
 				/>
 
 				<List 
-					items 			= { this.props.currencies.items 	}
-					loading 		= { this.props.currencies.loading 	}
-					refresh 		= {
+					fixed 	= { true 							}
+					header 	= { this.header 					}
+					items 	= { this.props.currencies.items 	}
+					loading = { this.props.currencies.loading 	}
+					refresh = {
 						<RefreshControl
 							refreshing 	= { this.props.currencies.loading 	}
 							onRefresh 	= { this.refresh 					}
 						/>
 					}
-					setRow 			= { this.renderCurrency 			}
-					setSeparator 	= { this.setSeparator 				}
-					style 			= { styleCurrency.list 				}
+					row 		= { this.row 			}
+					separator 	= { this.separator 		}
 				/>
 
 			</View>

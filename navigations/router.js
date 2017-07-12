@@ -48,7 +48,7 @@ export default TabNavigator (
 						<Ionicons
 							name 	= { name 												}
 							size 	= { 32 													}
-							color 	= { focused ? theme.primaries [ 1 ] : theme.accents [ 2 ]}
+							color 	= { focused ? theme.accents [ 2 ] : theme.primaries [ 1 ]}
 						/>
 					);
 				}

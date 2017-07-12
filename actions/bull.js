@@ -3,7 +3,7 @@ import constants from '../constants/bull';
 
 export default {
 
-	error : function ( data ) {
+	error ( data ) {
 
 		return {
 			error 	: data ,
@@ -11,7 +11,7 @@ export default {
 		};
 	} ,
 	
-	get : function () {
+	get () {
 
 		return {
 			loading : true ,
@@ -19,7 +19,7 @@ export default {
 		};
 	} ,
 
-	set : function ( currencies ) {
+	set ( currencies ) {
 
 		return {
 			currencies 	: currencies 	,

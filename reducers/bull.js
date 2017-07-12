@@ -51,19 +51,19 @@ export default function (
 
 		case constants.set 		:
 
-			let 	bull = {
+			let bull = {
 					rating 	: 0 ,
 					loading : false
 				};
-			
-			Object.keys ( action.currencies ).forEach ( function ( key ) {
+
+			action.currencies.forEach (( currency ) => {
 
 				if ( 
-					action.currencies [ key ].rating > bull.rating && 
-					!isNaN ( action.currencies [ key ].rating )
+					! isNaN ( currency.rating ) &&
+					currency.rating > bull.rating
 				) {
 					
-					bull = action.currencies [ key ];
+					bull = currency;
 				}
 
 			});

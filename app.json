@@ -1,11 +1,11 @@
 {
 	"expo" : {
-		"name" : "bullet",
+		"name" : "CryptoBULLography",
 		"description" : "The latest Bull on crytpo coins and blockchain tokens.",
 		"slug" : "bullet",
 		"privacy" : "public",
 		"sdkVersion" : "18.0.0",
-		"version" : "1.0.0",
+		"version" : "1.1.0",
 		"orientation" : "portrait",
 		"primaryColor" : "#dcdcdc",
 		"icon" : "./assets/icons/application.png",

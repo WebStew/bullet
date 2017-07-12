@@ -52,9 +52,9 @@ export default {
 					volume 		: '24 Hour Volume'
 				} 										,
 
-				rating 			: 'BULLet rating' 		,
+				rating 			: 'Bull Rating' 		,
 
-				title 			: 'The BULLet' 			,
+				title 			: 'The Latest Bull' 	,
 
 				values 			: {
 					title 		: 'Prices'
@@ -63,7 +63,13 @@ export default {
 			} ,
 
 			currencies 		: {
-				title 		:'All Crypto Currencies'
+				title 		:'Crypto Currencies' ,
+				headers 	: {
+					rank 	: 'Rank' 	,
+					change 	: '24H' 	,
+					price 	: 'Price' 	,
+					rating 	: 'Rating' 
+				}
 			}
 
 		}

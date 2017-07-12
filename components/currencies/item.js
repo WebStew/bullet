@@ -5,8 +5,11 @@ import { 	Image 				,
 			TouchableOpacity 	,
 			View				} 	from 'react-native';
 import 		Integer 				from '../utilities/integer';
-import style 						from '../../styles/currencies';
-import images 						from '../../api/images';
+import 		list 					from '../../styles/list';
+import 		style 					from '../../styles/currencies';
+import 		images 					from '../../api/images';
+import 		numbers 				from '../../utilities/numbers';
+import 		strings 				from '../../properties/strings';
 
 export default class Item extends React.Component {
 
@@ -34,34 +37,60 @@ export default class Item extends React.Component {
 			<View>
 				<TouchableOpacity 
 					style 	= {{
-						...style.item 		,
+						...list.row 		,
 						...this.props.style
 					}} 
 					onPress = { this.setCurrency 	}
 				>
 
-					<Image 	
-						style 	= { style.icon }
-						source 	= {{
-							uri : images.currencies.small ( currency.id ) 
-						}}
-					/>
-					
-					<Text style = { style.name }>
-						{ currency.name }
-					</Text>
+					<View style = {{
+						...list.cell ,
+						...style.head 
+					}}>
+						<Image 	
+							style 	= { style.icon }
+							source 	= {{
+								uri : images.currencies.small ( currency.id ) 
+							}}
+						/>
+						
+						<Text 
+							style = {{
+								...list [ 'cell-text' ] ,
+								...style.name
+							}}
+						>
+							{ currency.name }
+						</Text>
+					</View>
 
-					<Text style = { style.text }>
-						{ currency.rating }
+					<Text 
+						style = {{
+							...list.cell 			,
+							...list [ 'cell-text' ] ,
+							...style.text
+						}}
+					>
+						{ numbers.format ( currency.rating )}
 					</Text>
 
 					<Integer 
+						style 	= {{
+							...list.cell 			,
+							...list [ 'cell-text' ] ,
+							...style.change
+						}}
+						suffix 	= '%'
 						type 	= 'highlight' 
-						value 	= { currency.change.day } 
+						value 	= { currency.change.day }
 					/>
 
-					<Text style = { style.price }>
-						{ currency.prices.usd }
+					<Text style = {{
+						...list.cell 			,
+						...list [ 'cell-text' ] ,
+						...style.price
+					}}>
+						{ strings.denominations.usd.symbol + numbers.format ( currency.prices.usd )}
 					</Text>
 						
 				</TouchableOpacity>

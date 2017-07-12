@@ -13,7 +13,7 @@ const themes = {
 
 			primaries 		: [
 				'#000' 		,
-				'#00d7ff' 	,
+				'#00c9f1' 	,
 				'#00cc00' 	,
 				'#cc0000'
 			]

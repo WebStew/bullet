@@ -1,6 +1,7 @@
 
-import 		React 		from 'react';
-import { 	ListView } 	from 'react-native';
+import 		React 			from 'react';
+import { 	ListView 	} 	from 'react-native';
+import 		style 			from '../../styles/list';
 
 export default class List extends React.Component {
 
@@ -17,20 +18,27 @@ export default class List extends React.Component {
 
 	render () {
 
+		const sticky = this.props.fixed ? [ 0 ] : false;
+
 		// If we're loading the content or have an empty list
-		if ( this.props.loading || Object.keys ( this.props.items ).length === 0 ) {
+		if ( this.props.loading || this.props.items.length === 0 ) {
 			return null;
 		}
 
 		return (
 			
 			<ListView
-				enableEmptySections = { true 																							}
-				dataSource 			= { this.datasource.cloneWithRows ( this.props.items 												)}
-				renderRow 			= {( items , section , row , highlight ) => this.props.setRow ( items , section , row , highlight 	)}
-				renderSeparator 	= { this.props.setSeparator 																		}
-				refreshControl 		= { this.props.refresh 																				}
-				style 				= { this.props.style 																				}
+				enableEmptySections = { true 																						}
+				dataSource 			= { this.datasource.cloneWithRows ( this.props.items 											)}
+				renderHeader 		= { this.props.header }
+				renderRow 			= {( items , section , row , highlight ) => this.props.row ( items , section , row , highlight 	)}
+				renderSeparator 	= { this.props.separator 																		}
+				refreshControl 		= { this.props.refresh 																			}
+				stickyHeaderIndices = { sticky 																						}
+				style 				= {{
+					...style.body 	,
+					...this.props.style
+				}}
 			/>
 		);
 	}	

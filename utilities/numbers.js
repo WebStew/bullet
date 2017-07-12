@@ -12,27 +12,27 @@ export default {
 		let suffix;
 		
 		// Assign according to the last number
-		switch ( parseInt ( number.slice ( -1 ) , 10 )) {
+		switch ( number.toString ().slice ( -1 )) {
 
-			case 0 :
-			case 4 :
-			case 5 :
-			case 6 :
-			case 7 :
-			case 8 :
-			case 9 :
+			case '0' :
+			case '4' :
+			case '5' :
+			case '6' :
+			case '7' :
+			case '8' :
+			case '9' :
 				suffix = 'th';
 				break;
 			
-			case 1 :
+			case '1' :
 				suffix = 'st';
 				break;
 			
-			case 2 :
+			case '2' :
 				suffix = 'nd';
 				break;
 			
-			case 3 :
+			case '3' :
 				suffix = 'rd';
 				break;
 
@@ -43,5 +43,27 @@ export default {
 		}
 
 		return number + suffix;
+	} ,
+
+	/**
+	 * Returns a formatted number with comma deliminated thousands.
+	 * 
+	 * @param 	{Number} number The number to format.
+	 * @returns {String} 		The formatted number.
+	 */
+	format ( number ) {
+
+		let parts;
+
+		if ( ! number ) {
+
+			return number;
+		}
+		
+		parts 		= number.toString ().split ( '.' );
+		parts [ 0 ] = parts [ 0 ].replace (/\B(?=(\d{3})+(?!\d))/g , ',' );
+
+		return parts.join ( '.' );
 	}
+
 };

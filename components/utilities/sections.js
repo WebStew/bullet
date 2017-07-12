@@ -30,10 +30,12 @@ export default class Sections extends React.Component {
 								{ item.property }
 							</Text>	
 							<Integer 
+								prefix 	= { item.prefix }
 								style 	= {{
 									...layout.fill ,
 									...style.row
 								}}
+								suffix 	= { item.suffix }
 								type 	= { item.type 	}
 								value 	= { item.value 	}
 							/>

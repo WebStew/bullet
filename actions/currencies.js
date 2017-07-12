@@ -6,7 +6,7 @@ import schematic 	from '../schematics/currency';
 
 const 	currencies = { 
 	
-		error : function ( data ) {
+		error ( data ) {
 
 			return {
 				error 	: data ,
@@ -14,18 +14,26 @@ const 	currencies = {
 			};
 		} ,
 
-		set : function ( data ) {
+		get () {
+
+			return {
+				type 	: constants.get
+			};
+		} ,
+
+		order ( order ) {
+			
+			return {
+				order 	: order ,
+				type 	: constants.order
+			};
+		} ,
+
+		set ( data ) {
 
 			return {
 				items 	: data ,
 				type 	: constants.set
-			};
-		} ,
-
-		get : function () {
-
-			return {
-				type 	: constants.get
 			};
 		}
 
@@ -33,7 +41,7 @@ const 	currencies = {
 
 export default {
 
-	get : function () {
+	get () {
 
 		return function ( dispatch ) {
 
@@ -65,5 +73,7 @@ export default {
 
 				});
 		}
-	}
+	} ,
+
+	order : currencies.order
 };

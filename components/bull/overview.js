@@ -10,6 +10,7 @@ import 		layout 			from '../../styles/layout';
 import 		style 			from '../../styles/section';
 import 		bull 			from '../../styles/bull';
 import 		images 			from '../../api/images';
+import 		numbers 		from '../../utilities/numbers';
 
 export default class Overview extends React.Component {
 
@@ -24,6 +25,8 @@ export default class Overview extends React.Component {
 			return null;
 		}
 
+		console.log ( numbers.rank ( 121 ));
+		
 		return (
 
 			<View 		style = { layout.fill 	}>
@@ -50,16 +53,19 @@ export default class Overview extends React.Component {
 						data 		: [
 							{
 								property 	: strings.screens.bull.changes.hour ,
+								suffix 		: '%' 								,
 								type 		: 'highlight' 						,
 								value 		: this.props.bull.change.hour
 							} 													, 
 							{
 								property 	: strings.screens.bull.changes.day 	,
+								suffix 		: '%' 								,
 								type 		: 'highlight' 						,
 								value 		: this.props.bull.change.day
 							} 													,
 							{
 								property 	: strings.screens.bull.changes.week ,
+								suffix 		: '%' 								,
 								type 		: 'highlight' 						,
 								value 		: this.props.bull.change.week
 							}
@@ -70,10 +76,12 @@ export default class Overview extends React.Component {
 						title 		: strings.screens.bull.values.title 		,
 						data 		: [
 							{
+								prefix 		: strings.denominations.usd.symbol 	,
 								property 	: strings.denominations.usd.name 	,
 								value 		: this.props.bull.prices.usd
 							} , 
 							{
+								prefix 		: strings.denominations.btc.symbol 	,
 								property 	: strings.denominations.btc.name 	,
 								value 		: this.props.bull.prices.btc
 							}
@@ -84,12 +92,13 @@ export default class Overview extends React.Component {
 						title 		: strings.screens.bull.market.title 			,
 						data 		: [
 							{
+								prefix 		: strings.denominations.usd.symbol 		,
 								property 	: strings.screens.bull.market.cap 		,
 								value 		: this.props.bull.market.usd
 							} 														,
 							{
 								property 	: strings.screens.bull.market.rank 		,
-								value 		: this.props.bull.rank
+								value 		: numbers.rank ( this.props.bull.rank )
 							} 														,
 							{
 								property 	: strings.screens.bull.market.available ,
@@ -100,6 +109,7 @@ export default class Overview extends React.Component {
 								value 		: this.props.bull.supply.total
 							} 														, 
 							{
+								prefix 		: strings.denominations.usd.symbol 		,
 								property 	: strings.screens.bull.market.volume 	,
 								value 		: this.props.bull.volume.usd
 							} 														, 
@@ -117,8 +127,8 @@ export default class Overview extends React.Component {
 						title 	= { strings.screens.bull.rating }
 						type 	= '2'
 					/>
-					<Text style = { bull.rating 				}>
-						{ this.props.bull.rating 				}
+					<Text style = { bull.rating 					}>
+						{ numbers.format ( this.props.bull.rating 	)}
 					</Text>
 				</View>
 				
