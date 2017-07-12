@@ -7,6 +7,7 @@ import 		Error 				from '../components/errors/ajax';
 import 		Loader 				from '../components/utilities/loader';
 import 		Notification 		from '../components/utilities/notification';
 import 		Overview 			from '../components/bull/overview';
+import 		NotFound 			from '../components/bull/404';
 import 		actions 			from '../actions/currencies';
 import 		style 				from '../styles/bull';
 import 		styleScene 			from '../styles/scene';
@@ -66,6 +67,10 @@ export default connect (
 					error 		= { this.props.bull.error 	}
 					press 		= { this.refresh 			}
 					text 		= { strings.errors.ajax 	}
+				/>
+
+				<NotFound 
+					bull 		= { this.props.bull 		}
 				/>
 
 				<Overview 

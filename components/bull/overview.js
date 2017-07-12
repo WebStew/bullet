@@ -15,8 +15,12 @@ export default class Overview extends React.Component {
 
 	render () {
 
-		// If we're loading don't draw Le Bull
-		if ( this.props.bull.loading || this.props.bull.error ) {
+		// If we're loading, there is no bull or an error - don't draw Le Bull
+		if ( 
+			this.props.bull.loading || 
+			this.props.bull.error 	||
+			this.props.bull.rating === 0
+		) {
 			return null;
 		}
 

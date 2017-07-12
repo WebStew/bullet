@@ -33,6 +33,8 @@ export default {
 
 			bull 			: {
 
+				404 		: 'No Bull today sorry' ,
+
 				changes 	: {
 					hour 	: 'Last Hour' 	,
 					day 	: 'Last Day' 	,

@@ -7,5 +7,4 @@ const strings = {
 
 	language = 'en';
 
-
 export default strings [ language ];

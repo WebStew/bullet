@@ -51,8 +51,9 @@ export default function (
 
 		case constants.set 		:
 
-			let bull = {
-					rating : 0
+			let 	bull = {
+					rating 	: 0 ,
+					loading : false
 				};
 			
 			Object.keys ( action.currencies ).forEach ( function ( key ) {
