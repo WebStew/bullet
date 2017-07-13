@@ -9,7 +9,8 @@ export default {
 	
 	cell : {
 		flex 				: 1 ,
-		paddingHorizontal 	: 2
+		paddingHorizontal 	: 2 ,
+		paddingVertical 	: 10
 	} ,
 
 	'cell-text' : {
@@ -31,7 +32,6 @@ export default {
 		alignItems 			: 'center' 	,
 		flex 				: 1 		,
 		flexDirection 		: 'row' 	,
-		paddingVertical 	: 10 		,
 		paddingHorizontal 	: 8
 	}
 

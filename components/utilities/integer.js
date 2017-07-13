@@ -18,11 +18,14 @@ export default class Integer extends React.Component {
 
 		return (
 			
-			<Text style = {{
-				...styles.default 	,
-				...this.props.style ,
-				...style 			,
-			}}>
+			<Text 
+				numberOfLines 	= { 1 }
+				style 			= {{
+					...styles.default 	,
+					...this.props.style ,
+					...style
+				}}
+			>
 				{ text }
 			</Text>
 		);

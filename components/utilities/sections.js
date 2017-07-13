@@ -21,12 +21,16 @@ export default class Sections extends React.Component {
 				data 	= section.data.map (( item , index ) => {
 
 					return ( 
-						<View 	style 	= { layout.row 	} 
-								key 	= { index 		}>
-							<Text style = {{
-								...layout.fill ,
-								...style.row
-							}}>
+						<View 	
+							style 	= { layout.row 	} 
+							key 	= { index 	}
+						>
+							<Text 
+								style = {{
+									...layout.fill ,
+									...style.row
+								}}
+							>
 								{ item.property }
 							</Text>	
 							<Integer 

@@ -24,8 +24,6 @@ export default class Overview extends React.Component {
 		) {
 			return null;
 		}
-
-		console.log ( numbers.rank ( 121 ));
 		
 		return (
 

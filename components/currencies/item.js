@@ -55,7 +55,8 @@ export default class Item extends React.Component {
 						/>
 						
 						<Text 
-							style = {{
+							numberOfLines 	= { 1 }
+							style 			= {{
 								...list [ 'cell-text' ] ,
 								...style.name
 							}}
@@ -65,6 +66,7 @@ export default class Item extends React.Component {
 					</View>
 
 					<Text 
+						numberOfLines 	= { 1 }
 						style = {{
 							...list.cell 			,
 							...list [ 'cell-text' ] ,
@@ -85,11 +87,14 @@ export default class Item extends React.Component {
 						value 	= { currency.change.day }
 					/>
 
-					<Text style = {{
-						...list.cell 			,
-						...list [ 'cell-text' ] ,
-						...style.price
-					}}>
+					<Text 
+						numberOfLines 	= { 1 }
+						style = {{
+							...list.cell 			,
+							...list [ 'cell-text' ] ,
+							...style.price
+						}}
+					>
 						{ strings.denominations.usd.symbol + numbers.format ( currency.prices.usd )}
 					</Text>
 						

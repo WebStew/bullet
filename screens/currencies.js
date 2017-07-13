@@ -84,7 +84,7 @@ export default connect (
 					}}
 				>
 					<TouchableOpacity 
-						style = {{ 
+						style = {{
 							...list.cell ,
 							...style.head
 						}}
