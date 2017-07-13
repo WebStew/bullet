@@ -37,6 +37,7 @@ export default connect (
 
 		this.header 	= this.header.bind 	( this );
 		this.refresh 	= this.refresh.bind ( this );
+		this.row 		= this.row.bind 	( this );
 	}
 
 	row ( currency , section , row , highlight ) {
@@ -45,8 +46,9 @@ export default connect (
 
 		return ( 
 			<Currency
-				currency 	= { currency 	}
-				style 		= { style 		}
+				currency 	= { currency 				}
+				navigation 	= { this.props.navigation 	}
+				style 		= { style 					}
 			/>
 		);
 	}

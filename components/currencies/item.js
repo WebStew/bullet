@@ -17,15 +17,18 @@ export default class Item extends React.Component {
 
 		super ( props );
 
-		this.setCurrency = this.setCurrency.bind ( this );
+		this.detail = this.detail.bind ( this );
 	}
 
-	setCurrency () {
+	detail () {
 
-		//console.log ( this.props )
-		// Actions [ routes.catalogue.detail ] ({
-		// 	product : this.props.product
-		// });
+		this.props.navigation.navigate ( 
+			'Detail', 
+			{
+				currency : this.props.currency
+			}
+		);
+
 	}
 
 	render () {
@@ -40,7 +43,7 @@ export default class Item extends React.Component {
 						...list.row 		,
 						...this.props.style
 					}} 
-					onPress = { this.setCurrency 	}
+					onPress = { this.detail 	}
 				>
 
 					<View style = {{

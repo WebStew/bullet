@@ -1,10 +1,9 @@
 
 import 		React 				from 'react';
-// import { 	Notifications 	} 	from 'expo';
 import { 	StackNavigator 	} 	from 'react-navigation';
 import 		router 				from './router';
+// import { 	Notifications 	} 	from 'expo';
 // import 		push 				from '../api/push-notifications';
-import 		style 				from '../styles/header';
 
 const Root = StackNavigator (
 
@@ -15,10 +14,7 @@ const Root = StackNavigator (
 	} ,
 
 	{
-		navigationOptions : () => ({
-			headerStyle 		: style.default.header ,
-			headerTitleStyle 	: style.default.title
-		})
+		headerMode : 'none'
 	}
 
 );

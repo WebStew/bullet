@@ -10,7 +10,7 @@ import 		Overview 			from '../components/bull/overview';
 import 		NotFound 			from '../components/bull/404';
 import 		actions 			from '../actions/currencies';
 import 		style 				from '../styles/bull';
-import 		styleScene 			from '../styles/scene';
+import 		scene 				from '../styles/scene';
 import 		strings 			from '../properties/strings';
 
 export default connect (
@@ -56,7 +56,7 @@ export default connect (
 		// { this.notification ()}
 
 		return (
-			<View style 		= { styleScene.default 		}>
+			<View style 		= { scene.default 		}>
 
 				<Loader
 					loading 	= { this.props.bull.loading }

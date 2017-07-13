@@ -44,8 +44,8 @@ export default {
 					total 		: parseFloat ( currency [ 'total_supply' 		])
 				} ,
 
-				symbol 			: currency [ 'symbol' 				] ,
-				updated 		: currency [ 'last_updated' 		] ,
+				symbol 			: currency [ 'symbol' ] ,
+				updated 		: new Date ( parseInt ( currency [ 'last_updated' ])).toLocaleDateString (),
 
 				volume : {
 					usd 		: parseFloat ( currency [ '24h_volume_usd' ]).toFixed ( 2 )

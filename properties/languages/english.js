@@ -2,8 +2,12 @@
 export default {
 	
 	en : {
+
+		actions 		: {
+			return 		: 'Back'
+		} ,
 	
-		denominations 		: {
+		denominations 	: {
 
 			btc 		: {
 				name 	: 'BitCoin' 	,
@@ -70,6 +74,10 @@ export default {
 					price 	: 'Price' 	,
 					rating 	: 'Rating' 
 				}
+			} ,
+
+			detail 			: {
+				title 		: 'Detail'
 			}
 
 		}

@@ -1,14 +1,18 @@
 
-import 		React 				from 'react';
-import { 	Ionicons 		} 	from '@expo/vector-icons';
-import { 	TabNavigator 	, 
-			TabBarBottom 	} 	from 'react-navigation';
-import 		Bull 				from '../screens/bull';
-import 		Currencies 			from '../screens/currencies';
-import 		style 				from '../styles/tabbar';
-import 		theme 				from '../styles/theme';
+import 		React 					from 'react';
+import { 	Ionicons 			} 	from '@expo/vector-icons';
+import { 	StackNavigator 	,
+			TabNavigator 	, 
+			TabBarBottom 		} 	from 'react-navigation';
+import { 	Image 				} 	from 'react-native';
+import 		Bull 					from '../screens/bull';
+import 		Currencies 				from '../screens/currencies';
+import 		Detail					from '../screens/detail';
+import 		style 					from '../styles/tabbar';
+import 		banner 					from '../styles/header';
+import 		theme 					from '../styles/theme';
 
-export default TabNavigator (
+const Root = TabNavigator (
 
 	{
 		bull 		: {
@@ -41,7 +45,6 @@ export default TabNavigator (
 						case 'currencies':
 							name = 'ios-stats-outline';
 							break;
-
 					}
 
 					return (
@@ -69,3 +72,25 @@ export default TabNavigator (
 		}
 	}
 );
+
+export default StackNavigator (
+	{
+
+		Root : {
+			screen : Root
+		} ,
+
+		Detail : {
+			screen : Detail
+		}
+	} ,
+
+	{
+		navigationOptions : () => ({
+			headerBackTitleStyle 	: banner.default.back 	,
+			headerStyle 			: banner.default.header ,
+			headerTitleStyle 		: banner.default.title
+		})
+	}
+);
+

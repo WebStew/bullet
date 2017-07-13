@@ -110,10 +110,6 @@ export default class Overview extends React.Component {
 								prefix 		: strings.denominations.usd.symbol 		,
 								property 	: strings.screens.bull.market.volume 	,
 								value 		: this.props.bull.volume.usd
-							} 														, 
-							{
-								property 	: strings.screens.bull.market.updated 	,
-								value 		: this.props.bull.updated
 							}
 						]
 					}
