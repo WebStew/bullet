@@ -1,7 +1,7 @@
 
 const api = {
 		domain 	: 'https://api.coinmarketcap.com' 	,
-		path 	:'/v1/ticker/' 						,
+		path 	:'/v1/ticker/?limit=100' 			,
 		headers : {
 			Accept 	: 'application/json' 			,
 			headers : {
