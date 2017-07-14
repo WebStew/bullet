@@ -3,9 +3,12 @@ import 		React 				from 'react';
 import { 	Image 			,
 			View 			,
 			Text 			} 	from 'react-native';
+import { 	connect 		} 	from 'react-redux';
+import 		actions 			from '../actions/graphs';
 import 		Back 				from '../components/utilities/back';
 import 		Heading 			from '../components/utilities/headings';
 import 		Sections 			from '../components/utilities/sections';
+import 		Tree 				from '../components/graphs/tree';
 import 		strings 			from '../properties/strings';
 import 		images 				from '../api/images';
 import 		banner 				from '../styles/header';
@@ -14,7 +17,13 @@ import 		scene 				from '../styles/scene';
 import 		style 				from '../styles/detail';
 import 		numbers 			from '../utilities/numbers';
 
-export default class Detail extends React.Component {
+export default connect (
+
+	state => ({
+		graphs : state.graphs
+	})
+
+) (  class Detail extends React.Component {
 
 	static navigationOptions = ({ navigation }) => ({
 
@@ -32,6 +41,12 @@ export default class Detail extends React.Component {
 			}}
 		/>
 	});
+
+	constructor ( props ) {
+		super ( props );
+
+		// this.props.dispatch ( actions.get ( this.props.navigation.state.params.currency.id ));
+	}
 
 	render () {
 
@@ -137,4 +152,4 @@ export default class Detail extends React.Component {
 		);
 
 	}
-};
+});
