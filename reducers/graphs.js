@@ -4,7 +4,8 @@ import constants 	from '../constants/graphs';
 export default function (
 
 	state 	= {
-		data 	: null ,
+		prices 	: {} ,
+		market 	: {} ,
 		loading : true
 	} , 
 
@@ -43,8 +44,9 @@ export default function (
 				{} 		,
 				state 	,
 				{
-					data 	: action.data ,
-					loading : false
+					loading : false 		,
+					prices 	: action.prices ,
+					volume 	: action.volume
 				}
 			);
 

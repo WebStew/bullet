@@ -1,6 +1,7 @@
 
 import 		React 			from 'react';
 import { 	Image 		,
+			ScrollView 	,
 			Text 		,
 			View 		} 	from 'react-native';
 import 		Heading 		from '../utilities/headings';
@@ -27,7 +28,7 @@ export default class Overview extends React.Component {
 		
 		return (
 
-			<View 		style = { layout.fill 	}>
+			<ScrollView style = { layout.fill 	}>
 				<View 	style = { layout.row 	}>
 
 					<Image 	
@@ -126,7 +127,7 @@ export default class Overview extends React.Component {
 					</Text>
 				</View>
 				
-			</View>
+			</ScrollView>
 		);
 	}
 };

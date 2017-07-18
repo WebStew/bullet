@@ -2,6 +2,7 @@
 import 		React 				from 'react';
 import { 	Image 			,
 			View 			,
+			ScrollView 		,
 			Text 			} 	from 'react-native';
 import { 	connect 		} 	from 'react-redux';
 import 		actions 			from '../actions/graphs';
@@ -43,9 +44,13 @@ export default connect (
 	});
 
 	constructor ( props ) {
+		
 		super ( props );
+	}
 
-		// this.props.dispatch ( actions.get ( this.props.navigation.state.params.currency.id ));
+	componentWillMount () {
+		
+		this.props.dispatch ( actions.get ( this.props.navigation.state.params.currency.id ));
 	}
 
 	render () {
@@ -53,7 +58,7 @@ export default connect (
 		const currency = this.props.navigation.state.params.currency;
 
 		return (
-			<View style = { scene.default }>
+			<ScrollView style = { scene.default }>
 
 				<View 		style = { layout.fill 	}>
 					<View 	style = { layout.row 	}>
@@ -147,8 +152,13 @@ export default connect (
 
 					]}/>
 
+					<Tree 
+						data 	= { this.props.graphs.prices 	}
+						loading = { this.props.graphs.loading 	}
+					/>
+
 				</View>
-			</View>
+			</ScrollView>
 		);
 
 	}

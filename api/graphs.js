@@ -1,4 +1,7 @@
 
+import environment 	from '../configuration/environment';
+import graphs 		from '../mock/graphs';
+
 const api = {
 		domain 	: 'https://graphs.coinmarketcap.com' 	,
 		path 	:'/currencies/' 						,
@@ -14,10 +17,10 @@ export default {
 	
 	get : async function ( id ) {
 
-		return fetch ( api.domain + api.path + id , {
+		return ( environment.data.mock ? graphs : fetch ( api.domain + api.path + id , {
 			...api.headers ,
 			method : 'GET'
-		});
+		}));
 	}
 
 };

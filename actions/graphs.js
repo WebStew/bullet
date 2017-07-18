@@ -1,6 +1,8 @@
 
 import api 			from '../api/graphs';
 import constants 	from '../constants/graphs';
+import environment 	from '../configuration/environment';
+import schematic 	from '../schematics/graphs';
 
 const 	graphs = { 
 	
@@ -22,7 +24,8 @@ const 	graphs = {
 		set ( data ) {
 
 			return {
-				data 	: data ,
+				market 	: data.market 	,
+				prices 	: data.prices 	,
 				type 	: constants.set
 			};
 		}
@@ -41,12 +44,22 @@ export default {
 			return api.get ( id )
 
 				// Transform the reponse
-				.then (( response ) => response.json ())
+				.then ( function ( response ) {
+
+					if ( environment.data.mock ) {
+
+						return response;
+					}
+
+					return response.json ();
+				})
 				
 				// Dispatch the data
 				.then ( function ( data ) {
 
-					dispatch ( graphs.set ( data ));
+					const normalised = schematic.get ( data );
+
+					dispatch ( graphs.set ( normalised ));
 				
 				})
 				

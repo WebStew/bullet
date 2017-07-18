@@ -48,7 +48,11 @@ export default connect (
 
 	refresh () {
 
-		this.props.dispatch ( actions.get ());
+		// Gets the first 100 tokens from the API
+		this.props.dispatch ( actions.get 		());
+
+		// Gets the entire list of tokens from the API in the background
+		this.props.dispatch ( actions.stream 	());
 	}
 
 	render () {
