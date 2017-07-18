@@ -2,6 +2,7 @@
 import 		React 			from 'react';
 import { 	ListView 	,
 			View		} 	from 'react-native';
+import 		Error 			from '../errors/ajax';
 import 		Loader 			from '../utilities/loader';
 import 		AxisY 			from './axis-y';
 import { 	scaleLinear ,
@@ -93,6 +94,17 @@ export default class ChartTree extends React.Component {
 						size 		= 'small'
 					/>
 				</View>
+			);
+		}
+
+		if ( this.props.error ) {
+			
+			return (
+				<Error 
+					error 	= { this.props.error 	}
+					press 	= { this.props.refresh 	}
+					text 	= { strings.errors.ajax }
+				/>
 			);
 		}
 

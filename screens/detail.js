@@ -46,9 +46,15 @@ export default connect (
 	constructor ( props ) {
 		
 		super ( props );
+
+		this.graph = this.graph.bind ( this );
 	}
 
 	componentWillMount () {
+		this.graph ();
+	}
+
+	graph () {
 		
 		this.props.dispatch ( actions.get ( this.props.navigation.state.params.currency.id ));
 	}
@@ -154,6 +160,8 @@ export default connect (
 
 					<Tree 
 						data 	= { this.props.graphs.prices 	}
+						error 	= { this.props.graphs.error 	}
+						refresh = { this.graph 					}
 						loading = { this.props.graphs.loading 	}
 					/>
 
