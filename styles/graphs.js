@@ -61,23 +61,23 @@ export default {
 		section : {
 
 			text : {
-				backgroundColor : theme.accents [ 3 ] 	,
-				borderWidth 	: 1 					,
-				borderColor 	: theme.accents [ 0 ] 	,
 				color 			: theme.accents [ 1 ] 	,
+				bottom 			: -65 					,
 				fontSize 		: 10 					,
-				left 			: -141 					,
-				paddingTop 		: 1 					,
-				paddingLeft 	: 3 					,
-				width 			: 152
+				left 			: -68 					,
+				transform 	: [{ 
+					rotate 	: '270deg'
+				}] ,
+				width : 150
 			} ,
 
 			view : {
-				height 		: 10 		,
-				transform 	: [{ 
-					rotate 	: '270deg'
-				}] 						,
-				width 		: 10
+				backgroundColor 	: theme.accents [ 3 ] 	,
+				borderLeftWidth 	: 1 					,
+				borderRightWidth 	: 1 					,
+				borderColor 		: theme.accents [ 0 ] 	,
+				height 				: 150 					,
+				width 				: 16
 			}
 		} ,
 

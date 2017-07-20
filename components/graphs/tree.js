@@ -1,6 +1,6 @@
 
 import 		React 			from 'react';
-import { 	SectionList ,
+import { 	ListView ,
 			Text 		,
 			View		} 	from 'react-native';
 import { 	scaleLinear } 	from 'd3-scale';
@@ -22,6 +22,13 @@ export default class ChartTree extends React.Component {
 
 		super ( props );
 
+		this.datasource = new ListView.DataSource ({
+			getSectionData 			: ( data , section 			) => data [ section ] 				,
+			getRowData 				: ( data , section , row 	) => data [ section + ':' + row ] 	,
+			rowHasChanged 			: ( old , update 			) => old !== update 				,
+			sectionHeaderHasChanged : ( old , update 			) => old !== update
+		});
+
 		this.header 	= this.header.bind 		( this 		);
 		this.row 		= this.row.bind 		( this 		);
 		this.section 	= this.section.bind 	( this 		);
@@ -30,24 +37,32 @@ export default class ChartTree extends React.Component {
 
 	data () {
 
-		let mydata = [];
+		let blob 		= {} ,
+			sections 	= [] ,
+			rows 		= [] ;
 
-		this.props.data.forEach ( function ( item , index ) {
+		this.props.data.forEach (( item , index ) => {
 
-			if ( index === 0 || item [ 0 ] - mydata [ mydata.length - 1 ].title > time.month ) {
-
-				mydata .push ({
-					data 	: [ item 	[ 1 ]] ,
-					title 	: item 		[ 0 ]
-				})
+			let section;
+			
+			if ( index === 0 || item [ 0 ] - blob [ sections [ 0 ]] > time.month ) {
+				
+				sections.unshift 	( index );
+				rows.unshift 		([]);
+				
+				blob [ index ] 	= item [ 0 	];
+				section 		= index + ':' + index;
 			}
 
 			else {
-				mydata [ mydata.length - 1 ].data.unshift ( item [ 1 ])
+
+				section = sections [ 0 ] + ':' + index;
 			}
+			rows [ 0 ].unshift ( index );
+			blob [ section ] = parseInt ( this.scales.height ( item [ 1 ]) , 10 );
 		});
 
-		return mydata.reverse ().slice ( 0 , 24 );
+		return this.datasource.cloneWithRowsAndSections ( blob , sections , rows );
 	}
 
 	header () {
@@ -74,7 +89,7 @@ export default class ChartTree extends React.Component {
 		);
 	}
 
-	row ({ item }) {
+	row ( item , section , row , highlight ) {
 
 		return ( 
 			<View 	style = { style.tree.bar.view }>
@@ -82,7 +97,7 @@ export default class ChartTree extends React.Component {
 					style = {{
 						...style.tree.bar.highlight , 
 						...{
-							height : this.scales.height ( item )
+							height : item
 						}
 					}}
 				/>
@@ -90,12 +105,12 @@ export default class ChartTree extends React.Component {
 		);
 	}
 
-	section ({ section }) {
+	section ( section ) {
 
 		return (
 			<View style 	= { style.tree.section.view }>
 				<Text style = { style.tree.section.text }>
-					{ this.format ( section.title )}
+					{ this.format ( section )}
 				</Text>
 			</View>
 		);
@@ -147,18 +162,19 @@ export default class ChartTree extends React.Component {
 		this.setScales ();
 
 		return (
+			
 			<View style = { style.tree.view }>
 
 				{ this.header ()}
 
-				<SectionList
+				<ListView
 					contentOffset 					= {{ x : 1 							}}
+					enableEmptySections 			= { true 							}
+					dataSource 						= { this.data 						()}
 					horizontal 						= { true 							}
 					initialNumToRender 				= { Math.round ( device.width / 5 	)}
-					keyExtractor 					= {() =>  Math.random 				()}
-					renderItem 						= { this.row 						}
-					renderSectionHeader 			= { this.section 					}
-					sections 						= { this.data 						()}
+					renderRow 						= { this.row 						}
+					renderSectionHeader  			= { this.section 					}
 					showsHorizontalScrollIndicator 	= { false 							}
 					showsVerticalScrollIndicator 	= { false 							}
 					style 							= { style.tree.chart 				}
