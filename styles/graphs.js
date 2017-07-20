@@ -4,37 +4,45 @@ import theme from './theme';
 export default {
 
 	tree : {
-		
-		align : {
-			alignItems : 'flex-end'
-		} ,
 
 		axis : {
 
 			y : {
 
 				cell : {
-					flex 			: 1 ,
-					flexDirection 	: 'column'
+					flex 			: 1 		,
+					flexDirection 	: 'column' 	,
+					justifyContent : 'center'
 				} ,
 
 				text : {
-					fontSize 	: 10 	,
-					padding  	: 2 	,
+					color 		: theme.accents [ 1 ] 	,
+					fontSize 	: 10 					,
+					padding  	: 2 					,
 					textAlign 	: 'right'
 				} ,
 
 				view : {
 					borderRightWidth 	: 1 					,
 					borderRightColor 	: theme.accents [ 0 ] 	,
-					flexDirection 		: 'column'				,
+					height 				: 150 					,
+					flexDirection 		: 'column'
 				}
 			}
 		} ,
 
 		bar : { 
-			backgroundColor : theme.primaries [ 2 ] ,
-			width 			: 4
+
+			highlight : {
+				backgroundColor : theme.primaries [ 2 ] ,
+				width 			: 5
+			} ,
+
+			view : { 
+				flex 			: 1 		, 
+				flexDirection 	: 'column' 	,
+				justifyContent 	: 'flex-end'
+			}
 		} ,
 
 		chart : {
@@ -48,6 +56,36 @@ export default {
 			height 			: 150 		,
 			justifyContent 	: 'center' 	,
 			paddingVertical : 15
+		} ,
+
+		section : {
+
+			text : {
+				backgroundColor : theme.accents [ 3 ] 	,
+				borderWidth 	: 1 					,
+				borderColor 	: theme.accents [ 0 ] 	,
+				color 			: theme.accents [ 1 ] 	,
+				fontSize 		: 10 					,
+				left 			: -141 					,
+				paddingTop 		: 1 					,
+				paddingLeft 	: 3 					,
+				width 			: 152
+			} ,
+
+			view : {
+				height 		: 10 		,
+				transform 	: [{ 
+					rotate 	: '270deg'
+				}] 						,
+				width 		: 10
+			}
+		} ,
+
+		view : {
+			borderBottomWidth 	: 1 					,
+			borderBottomColor 	: theme.accents [ 0 ] 	,
+			flexDirection 		: 'row' 				,
+			flex 				: 1
 		}
 	}
 

@@ -51,6 +51,7 @@ export default connect (
 	}
 
 	componentWillMount () {
+
 		this.graph ();
 	}
 
@@ -159,10 +160,10 @@ export default connect (
 					]}/>
 
 					<Tree 
-						data 	= { this.props.graphs.prices 	}
-						error 	= { this.props.graphs.error 	}
-						refresh = { this.graph 					}
-						loading = { this.props.graphs.loading 	}
+						data 	= { this.props.graphs.prices.usd 	}
+						error 	= { this.props.graphs.error 		}
+						refresh = { this.graph 						}
+						loading = { this.props.graphs.loading 		}
 					/>
 
 				</View>

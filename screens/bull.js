@@ -1,10 +1,10 @@
 
 import 		React 				from 'react';
 import { 	connect 		} 	from 'react-redux';
-import { 	View 			,
+import { 	RefreshControl 	,
+			ScrollView 		,
 			Text 			} 	from 'react-native';
 import 		Error 				from '../components/errors/ajax';
-import 		Loader 				from '../components/utilities/loader';
 import 		Notification 		from '../components/utilities/notification';
 import 		Overview 			from '../components/bull/overview';
 import 		NotFound 			from '../components/bull/404';
@@ -49,7 +49,7 @@ export default connect (
 	refresh () {
 
 		// Gets the first 100 tokens from the API
-		this.props.dispatch ( actions.get 		());
+		// this.props.dispatch ( actions.get 		());
 
 		// Gets the entire list of tokens from the API in the background
 		this.props.dispatch ( actions.stream 	());
@@ -60,12 +60,15 @@ export default connect (
 		// { this.notification ()}
 
 		return (
-			<View style 		= { scene.default 		}>
-
-				<Loader
-					loading 	= { this.props.bull.loading }
-					size 		= 'large'
-				/>
+			<ScrollView 
+				refreshControl 	= {
+					<RefreshControl
+						refreshing 	= { this.props.bull.loading }
+						onRefresh 	= { this.refresh 				}
+					/>
+				}
+				style 			= { scene.default }
+			>
 
 				<Error 
 					error 		= { this.props.bull.error 	}
@@ -81,7 +84,7 @@ export default connect (
 					bull 		= { this.props.bull 		}
 				/>
 				
-			</View>
+			</ScrollView>
 		);
 
 	}

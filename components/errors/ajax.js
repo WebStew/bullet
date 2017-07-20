@@ -9,7 +9,6 @@ import 		strings 				from '../../properties/strings';
 import 		layout 					from '../../styles/layout';
 import 		theme 					from '../../styles/theme';
 
-
 export default class Error extends React.Component {
 
 	render () {

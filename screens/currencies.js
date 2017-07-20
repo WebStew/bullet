@@ -1,22 +1,21 @@
 
-import 		React 			from 'react';
-import { 	connect } 		from 'react-redux';
-import {	RefreshControl 	,
-			Text 			,
-			TouchableOpacity ,
-			View 	} 		from 'react-native';
-import 		Error 			from '../components/errors/ajax';
-import 		Loader 			from '../components/utilities/loader';
-import 		List 			from '../components/utilities/list';
-import 		Currency 		from '../components/currencies/item';
-import 		actions 		from '../actions/currencies';
-import 		strings 		from '../properties/strings';
-import 		list 			from '../styles/list';
-import 		style 			from '../styles/currencies';
-import 		styleScene 		from '../styles/scene';
-import 		styleSeperator 	from '../styles/seperators';
-import 		stripe 			from '../styles/stripe';
-import 		theme 			from '../styles/theme';
+import 		React 					from 'react';
+import { 	connect 			} 	from 'react-redux';
+import {	RefreshControl 		,
+			Text 				,
+			TouchableOpacity 	,
+			View 				} 	from 'react-native';
+import 		Error 					from '../components/errors/ajax';
+import 		List 					from '../components/utilities/list';
+import 		Currency 				from '../components/currencies/item';
+import 		actions 				from '../actions/currencies';
+import 		strings 				from '../properties/strings';
+import 		list 					from '../styles/list';
+import 		style 					from '../styles/currencies';
+import 		styleScene 				from '../styles/scene';
+import 		styleSeperator 			from '../styles/seperators';
+import 		stripe 					from '../styles/stripe';
+import 		theme 					from '../styles/theme';
 
 export default connect (
 
@@ -65,10 +64,11 @@ export default connect (
 
 	refresh () {
 		
-		this.props.dispatch ( actions.get ());
+		// this.props.dispatch ( actions.get 		());
+		this.props.dispatch ( actions.stream 	());
 	}
 
-	// Rewrite this to a loop noob
+	// Rewrite this to a data map noob
 	header () {
 
 		let active = {};		
@@ -169,15 +169,10 @@ export default connect (
 			
 			<View style = { styleScene.default }>
 
-				<Loader
-					loading = { this.props.currencies.loading 		}
-					size 	= 'large'
-				/>
-
 				<Error 
-					error 	= { this.props.currencies.error 		}
-					press 	= { this.refresh 						}
-					text 	= { strings.errors.ajax 				}
+					error 	= { this.props.currencies.error 	}
+					press 	= { this.refresh 					}
+					text 	= { strings.errors.ajax 			}
 				/>
 
 				<List 
