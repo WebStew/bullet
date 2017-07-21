@@ -2,12 +2,8 @@
 import 		React 			from 'react';
 import { 	Text 	,
 			View 		} 	from 'react-native';
-
-//import 		strings 		from '../../properties/strings';
-
 import 		Heading 		from '../utilities/headings';
 import 		Integer 		from '../utilities/integer';
-
 import 		style 			from '../../styles/section';
 import 		layout 			from '../../styles/layout';
 

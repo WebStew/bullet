@@ -23,8 +23,10 @@ export default {
 				} ,
 
 				view : {
+					borderColor 		: theme.accents [ 0 ] 	,
+					borderBottomWidth 	: 1 					,
 					borderRightWidth 	: 1 					,
-					borderRightColor 	: theme.accents [ 0 ] 	,
+					borderTopWidth 		: 1 					,
 					height 				: 150 					,
 					flexDirection 		: 'column'
 				}
@@ -34,13 +36,17 @@ export default {
 		bar : { 
 
 			highlight : {
-				backgroundColor : theme.primaries [ 2 ] ,
-				width 			: 5
+				backgroundColor 	: theme.primaries [ 2 ] ,
+				borderColor 		: theme.accents [ 0 ] 	,
+				borderBottomWidth 	: 1 					,
+				width 				: 5
 			} ,
 
-			view : { 
-				flex 			: 1 		, 
-				flexDirection 	: 'column' 	,
+			view : {
+				borderColor 		: theme.accents [ 0 ] 	,
+				borderTopWidth 		: 1 					,
+				flex 			: 1 					, 
+				flexDirection 	: 'column' 				,
 				justifyContent 	: 'flex-end'
 			}
 		} ,
@@ -82,10 +88,8 @@ export default {
 		} ,
 
 		view : {
-			borderBottomWidth 	: 1 					,
-			borderBottomColor 	: theme.accents [ 0 ] 	,
-			flexDirection 		: 'row' 				,
-			flex 				: 1
+			flexDirection 	: 'row' 				,
+			flex 			: 1
 		}
 	}
 

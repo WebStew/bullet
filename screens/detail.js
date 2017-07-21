@@ -43,20 +43,8 @@ export default connect (
 		/>
 	});
 
-	constructor ( props ) {
-		
-		super ( props );
-
-		this.graph = this.graph.bind ( this );
-	}
-
 	componentWillMount () {
 
-		this.graph ();
-	}
-
-	graph () {
-		
 		this.props.dispatch ( actions.get ( this.props.navigation.state.params.currency.id ));
 	}
 
@@ -68,7 +56,12 @@ export default connect (
 			<ScrollView style = { scene.default }>
 
 				<View 		style = { layout.fill 	}>
-					<View 	style = { layout.row 	}>
+					<View 	
+						style = {{
+							...layout.row ,
+							...scene.header
+						}}
+					>
 
 						<Image 	
 							style 	= { style.icon }
@@ -82,6 +75,12 @@ export default connect (
 							type 	= '1'
 						/>
 					</View>
+
+					<Tree 
+						data 	= { this.props.graphs.prices.usd 	}
+						error 	= { this.props.graphs.error 		}
+						loading = { this.props.graphs.loading 		}
+					/>
 
 					<Sections sections = {[
 						{
@@ -158,13 +157,6 @@ export default connect (
 						}
 
 					]}/>
-
-					<Tree 
-						data 	= { this.props.graphs.prices.usd 	}
-						error 	= { this.props.graphs.error 		}
-						refresh = { this.graph 						}
-						loading = { this.props.graphs.loading 		}
-					/>
 
 				</View>
 			</ScrollView>

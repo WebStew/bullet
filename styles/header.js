@@ -22,7 +22,7 @@ export default {
 		} ,
 
 		header 	: {
-			backgroundColor 	: theme.accents [ 3 ] ,
+			backgroundColor 	: theme.accents [ 4 ] ,
 			borderBottomColor 	: theme.accents [ 0 ] 
 		} ,
 

@@ -8,6 +8,7 @@ import 		Sections 		from '../utilities/sections';
 import 		strings 		from '../../properties/strings';
 import 		layout 			from '../../styles/layout';
 import 		style 			from '../../styles/section';
+import 		scene 			from '../../styles/scene';
 import 		bull 			from '../../styles/bull';
 import 		images 			from '../../api/images';
 import 		numbers 		from '../../utilities/numbers';
@@ -27,8 +28,13 @@ export default class Overview extends React.Component {
 		
 		return (
 
-			<View 		style = { layout.fill 	}>
-				<View 	style = { layout.row 	}>
+			<View 	style = { layout.fill 	}>
+				<View 	
+					style = {{
+						...layout.row ,
+						...scene.header
+					}}
+				>
 
 					<Image 	
 						style 	= { bull.icon }
@@ -42,6 +48,19 @@ export default class Overview extends React.Component {
 						type 	= '1'
 					/>
 
+				</View>
+				
+				<View style 	= {{
+					...bull.view 	,
+					...style.default 			
+				}}>
+					<Heading 
+						title 	= { strings.screens.bull.rating }
+						type 	= '2'
+					/>
+					<Text style = { bull.rating 					}>
+						{ numbers.format ( this.props.bull.rating 	)}
+					</Text>
 				</View>
 
 				<Sections sections = {[
@@ -115,16 +134,6 @@ export default class Overview extends React.Component {
 					}
 
 				]} />
-
-				<View style 	= { style.default 				}>
-					<Heading 
-						title 	= { strings.screens.bull.rating }
-						type 	= '2'
-					/>
-					<Text style = { bull.rating 					}>
-						{ numbers.format ( this.props.bull.rating 	)}
-					</Text>
-				</View>
 				
 			</View>
 		);
