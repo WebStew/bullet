@@ -68,14 +68,87 @@ export default connect (
 		this.props.dispatch ( actions.stream 	());
 	}
 
-	// Rewrite this to a data map noob
-	header () {
+	cells () {
 
-		let active = {};		
-		
+		return this.headers ().map (( item , index ) => {
+
+			return (
+
+				<TouchableOpacity 
+					key 	= { index 					}
+					onPress = { item.press.bind ( this )}
+					style 	= { item.styles.touch 		}
+				>
+					<Text  style = { item.styles.text 	}>
+						{ item.text }
+					</Text>
+				</TouchableOpacity>
+
+			);
+		});
+	}
+
+	headers () {
+
+		let active 	= {};
+
 		active [ this.props.currencies.order ] = {
 			color : theme.accents [ 2 ]
-		}
+		};
+
+		return [{
+			press 		: () => this.props.dispatch ( actions.order ( 'rank' )) 	, 
+			styles 		: {
+				text 	: { 
+					...list 	[ 'head-text' 	] 									,
+					...active 	[ 'rank' 		]
+				} 																	,
+				touch 	: {
+					...list.cell 													,
+					...style.head
+				}
+			} 																		,
+			text 		: strings.screens.currencies.headers.rank
+		} 																			,
+		{
+			press 		: () => this.props.dispatch ( actions.order ( 'rating' )) 	,
+			styles 		: {
+				text 	: {
+					...list 	[ 'head-text' 	] 									,
+					...style.text  													,
+					...active 	[ 'rating' 		]
+				} 																	,
+				touch 	: list.cell
+			} 																		,
+			text 		: strings.screens.currencies.headers.rating
+		} 																			,
+		{
+			press 		: () => this.props.dispatch ( actions.order ( 'change' )) 	,
+			styles 		: {
+				text 	: {
+					...list 	[ 'head-text' 	] 									,
+					...style.change  												,
+					...active 	[ 'change' 		]
+				} 																	,
+				touch 	: list.cell 
+			} 																		,
+			text 		: strings.screens.currencies.headers.change
+		} ,
+		{
+			press 		: () => this.props.dispatch ( actions.order ( 'price' )) 	,
+			styles 		: {
+				text 	: {
+					...list 	[ 'head-text' 	] 									,
+					...style.price  												,
+					...active 	[ 'price' 		]
+				} ,
+				touch 	: list.cell
+			} ,
+			text 		: strings.screens.currencies.headers.price
+		}];
+	}
+
+	header () {
 
 		return (
 			<View>
@@ -85,79 +158,7 @@ export default connect (
 						...list.head 
 					}}
 				>
-					<TouchableOpacity 
-						style = {{
-							...list.cell ,
-							...style.head
-						}}
-						onPress = {() => {
-							
-							this.props.dispatch ( actions.order ( 'rank' ));
-						}}
-					>
-						<Text  
-							style = {{ 
-								...list 	[ 'head-text' 	] ,
-								...active 	[ 'rank' 		]
-							}}
-						>
-							{ strings.screens.currencies.headers.rank }
-						</Text>
-					</TouchableOpacity>
-
-					<TouchableOpacity
-						style 	= { list.cell }
-						onPress = {() => {	
-
-							this.props.dispatch ( actions.order ( 'rating' ));
-						}}
-					>
-						<Text 
-							style = {{ 
-								...list 	[ 'head-text' 	] 	,
-								...style.text  					,
-								...active 	[ 'rating' 		]
-							}}
-						>
-							{ strings.screens.currencies.headers.rating }
-						</Text>
-					</TouchableOpacity>
-
-					<TouchableOpacity
-						style 	= { list.cell }
-						onPress = {() => {
-
-							this.props.dispatch ( actions.order ( 'change' ));
-						}}
-					>
-						<Text 
-							style = {{ 
-								...list 	[ 'head-text' 	] 	,
-								...style.change  				,
-								...active 	[ 'change' 		]
-							}}
-						>
-							{ strings.screens.currencies.headers.change }
-						</Text>
-					</TouchableOpacity>
-					
-					<TouchableOpacity
-						style 	= { list.cell }
-						onPress = {() => {
-							
-							this.props.dispatch ( actions.order ( 'price' ));
-						}}
-					>
-						<Text 
-							style = {{
-								...list 	[ 'head-text' 	] 	,
-								...style.price  				,
-								...active 	[ 'price' 		]
-							}}
-						>
-							{ strings.screens.currencies.headers.price }
-						</Text>
-					</TouchableOpacity>
+					{ this.cells ()}
 				</View>
 			</View>
 		);
