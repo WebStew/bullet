@@ -107,8 +107,8 @@ export default {
 				.catch ( function ( data ) {
 					
 					// We are not tracking errors here as the requests are all background
-					// dispatch ( bull.error 		( data ));
-					// dispatch ( currencies.error ( data ));
+					dispatch ( bull.error 		( data ));
+					dispatch ( currencies.error ( data ));
 
 				});
 		}

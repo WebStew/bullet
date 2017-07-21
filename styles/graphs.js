@@ -43,8 +43,8 @@ export default {
 			} ,
 
 			view : {
-				borderColor 		: theme.accents [ 0 ] 	,
-				borderTopWidth 		: 1 					,
+				borderColor 	: theme.accents [ 0 ] 	,
+				borderTopWidth 	: 1 					,
 				flex 			: 1 					, 
 				flexDirection 	: 'column' 				,
 				justifyContent 	: 'flex-end'

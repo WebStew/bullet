@@ -46,12 +46,8 @@ export default {
 				// Transform the reponse
 				.then ( function ( response ) {
 
-					if ( environment.data.mock ) {
+					return environment.data.mock ? response : response.json ();
 
-						return response;
-					}
-
-					return response.json ();
 				})
 				
 				// Dispatch the data

@@ -59,31 +59,40 @@ export default connect (
 		
 		// { this.notification ()}
 
+		if ( this.props.bull.error ) {
+
+			return (
+				<Error 
+					error 	= { this.props.bull.error 	}
+					press 	= { this.refresh 			}
+					text 	= { strings.errors.ajax 	}
+				/>
+			);
+
+		}
+
+		if ( this.props.bull.rating === 0 ) {
+
+			return (
+				<NotFound 
+					bull = { this.props.bull }
+				/>
+			);
+		}
+
 		return (
 			<ScrollView 
 				refreshControl 	= {
 					<RefreshControl
-						refreshing 	= { this.props.bull.loading }
+						refreshing 	= { this.props.bull.loading 	}
 						onRefresh 	= { this.refresh 				}
 					/>
 				}
-				style 			= { scene.default }
+				style 			= { scene.default 					}
 			>
-
-				<Error 
-					error 		= { this.props.bull.error 	}
-					press 		= { this.refresh 			}
-					text 		= { strings.errors.ajax 	}
-				/>
-
-				<NotFound 
-					bull 		= { this.props.bull 		}
-				/>
-
 				<Overview 
-					bull 		= { this.props.bull 		}
+					bull 		= { this.props.bull 				}
 				/>
-				
 			</ScrollView>
 		);
 

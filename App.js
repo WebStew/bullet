@@ -7,7 +7,7 @@ import { 	Platform 	,
 import { 	Provider 	} 	from 'react-redux';
 
 import { 	AppLoading 	} 	from 'expo';
-import { 	Ionicons } 		from '@expo/vector-icons';
+import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		Navigation 		from './navigations/root';
 import 		cache 			from './utilities/cache';
 import 		strings 		from './properties/strings';
@@ -19,7 +19,7 @@ const store = configuration ();
 export default class Application extends React.Component {
 
 	state = {
-		ready: false,
+		ready : false
 	};
 
 	async setCache () {

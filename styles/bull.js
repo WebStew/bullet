@@ -3,6 +3,10 @@ import theme from './theme';
 
 export default {
 
+	'404' 				: {
+		backgroundColor : theme.accents [ 4 ]
+	} ,
+
 	icon 				: {
 		height 			: 32 			,
 		marginLeft 		: 15 			,

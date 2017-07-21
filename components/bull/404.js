@@ -6,6 +6,7 @@ import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		theme 			from '../../styles/theme';
 import 		layout 			from '../../styles/layout';
 import 		style 			from '../../styles/errors';
+import 		bull 			from '../../styles/bull';
 import 		strings 		from '../../properties/strings';
 
 export default class NotFound extends React.Component {
@@ -24,8 +25,9 @@ export default class NotFound extends React.Component {
 		return (
 			
 			<View style = {{
-				...layout.fill ,
-				...layout.row
+				...layout.fill 	,
+				...layout.row 	,
+				...bull [ '404' ]
 			}}>
 				
 				<View style 	= { style.ajax.view 	}>
