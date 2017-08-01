@@ -65,7 +65,7 @@ export default connect (
 	refresh () {
 		
 		// this.props.dispatch ( actions.get 		());
-		this.props.dispatch ( actions.stream 	());
+		this.props.dispatch ( actions.stream ());
 	}
 
 	cells () {

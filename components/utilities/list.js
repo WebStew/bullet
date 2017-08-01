@@ -20,11 +20,6 @@ export default class List extends React.Component {
 
 		const sticky = this.props.fixed ? [ 0 ] : false;
 
-		// If we're loading the content or have an empty list
-		if ( this.props.loading || this.props.items.length === 0 ) {
-			return null;
-		}
-
 		return (
 			
 			<ListView

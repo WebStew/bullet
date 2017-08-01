@@ -38,6 +38,38 @@ const 	currencies = {
 			};
 		}
 
+	} ,
+
+	callbacks 	= {
+
+		// Dispatch an error
+		error ( data , dispatch ) {
+
+			dispatch ( bull.error 		( data ));
+			dispatch ( currencies.error ( data ));
+		} ,
+
+		// Dispatch that we are getting data
+		get ( dispatch ) {
+			
+			dispatch ( currencies.get 	());
+			dispatch ( bull.get 		());
+		} ,
+
+		// Rewrite the API response to our data schema			
+		normalise ( data , dispatch ) {
+
+			const normalised = schematic.get ( data );
+
+			dispatch ( currencies.set 	( normalised ));
+			dispatch ( bull.set 		( normalised ));
+		} ,
+
+		// Return correct response depending on environment
+		response ( response ) {
+			
+			return environment.data.mock ? response : response.json ();
+		}
 	};
 
 export default {
@@ -46,36 +78,13 @@ export default {
 
 		return function ( dispatch ) {
 
-			dispatch ( currencies.get 	());
-			dispatch ( bull.get 		());
+			callbacks.get ( dispatch );
 
 			// Get the currencies
 			return api.get ()
-
-				// Transform the reponse
-				.then ( function ( response ) {
-
-					return environment.data.mock ? response : response.json ();
-				})
-				
-				// Dispatch the data
-				.then ( function ( data ) {
-
-					// Rewrite the API response to our data schema
-					const normalised = schematic.get ( data );
-
-					dispatch ( currencies.set 	( normalised ));
-					dispatch ( bull.set 		( normalised ));
-				
-				})
-				
-				// Or dispatch an error
-				.catch ( function ( data ) {
-
-					dispatch ( bull.error 		( data ));
-					dispatch ( currencies.error ( data ));
-
-				});
+				.then 	( callbacks.response 	)
+				.then 	(( data 				) => callbacks.normalise 	( data , dispatch ))
+				.catch 	(( data 				) => callbacks.error 		( data , dispatch ));
 		}
 	} ,
 
@@ -83,34 +92,13 @@ export default {
 
 		return function ( dispatch ) {
 
+			callbacks.get ( dispatch );
+
 			// Get the currencies
 			return api.stream ()
-
-				// Transform the reponse
-				.then ( function ( response ) {
-					
-					return environment.data.mock ? response : response.json ();
-				})
-				
-				// Dispatch the data
-				.then ( function ( data ) {
-
-					// Rewrite the API response to our data schema
-					const normalised = schematic.get ( data );
-
-					dispatch ( currencies.set 	( normalised ));
-					dispatch ( bull.set 		( normalised ));
-				
-				})
-				
-				// Or dispatch an error
-				.catch ( function ( data ) {
-					
-					// We are not tracking errors here as the requests are all background
-					dispatch ( bull.error 		( data ));
-					dispatch ( currencies.error ( data ));
-
-				});
+				.then 	( callbacks.response 	)
+				.then 	(( data 				) => callbacks.normalise 	( data , dispatch ))
+				.catch 	(( data 				) => callbacks.error 		( data , dispatch ));
 		}
 	} ,
 

@@ -88,8 +88,9 @@ export default connect (
 						onRefresh 	= { this.refresh 				}
 					/>
 				}
-				style 			= { scene.default 					}
+				style 				= { scene.default 				}
 			>
+
 				<Overview 
 					bull 		= { this.props.bull 				}
 				/>
