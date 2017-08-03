@@ -7,14 +7,14 @@
 		"sdkVersion" : "18.0.0",
 		"version" : "1.1.0",
 		"orientation" : "portrait",
-		"primaryColor" : "#f9f9f9",
+		"primaryColor" : "#d9d9d9",
 		"icon" : "./assets/icons/application.png",
 		"notification" : {
 			"icon" : "./assets/icons/notification-icon.png",
 			"color" : "#dcdcdc"
 		},
 		"loading" : {
-			"backgroundColor"  : "#f9f9f9",
+			"backgroundColor"  : "#d9d9d9",
 			"backgroundImage"  : "",
 			"icon" : "./assets/icons/watermark.png",
 			"hideExponentText" : true

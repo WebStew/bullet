@@ -5,6 +5,7 @@ import { 	RefreshControl 	,
 			ScrollView 		,
 			Text 			} 	from 'react-native';
 import 		Error 				from '../components/errors/ajax';
+import 		Loader 				from '../components/utilities/loader';
 import 		Notification 		from '../components/utilities/notification';
 import 		Overview 			from '../components/bull/overview';
 import 		NotFound 			from '../components/bull/404';
@@ -81,18 +82,14 @@ export default connect (
 		}
 
 		return (
-			<ScrollView 
-				refreshControl 	= {
-					<RefreshControl
-						refreshing 	= { this.props.bull.loading 	}
-						onRefresh 	= { this.refresh 				}
-					/>
-				}
-				style 				= { scene.default 				}
-			>
+			<ScrollView style 	= { scene.default }>
+				<Loader 
+					loading = { this.props.bull.loading }
+					size = 'large'
+				/>
 
 				<Overview 
-					bull 		= { this.props.bull 				}
+					bull = { this.props.bull }
 				/>
 			</ScrollView>
 		);

@@ -150,6 +150,11 @@ export default connect (
 
 	header () {
 
+		if ( this.props.currencies.loading ) {
+			
+			return null;
+		}
+
 		return (
 			<View>
 				<View 
