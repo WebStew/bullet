@@ -27,6 +27,15 @@ export default [
 		name 		: 'Coinbase' ,
 		url 		: 'https://www.coinbase.com/join/591ea5b87e4844089e92e8ae'
 	} ,
+	
+	{
+		brand 		: {
+			primary 	: '#f48435' ,
+			secondary 	: '#fff'
+		} ,
+		name 		: 'Local Bitcoins' ,
+		url 		: 'https://localbitcoins.com/?ch=dni3'
+	} ,
 
 	{
 		brand 		: {
@@ -48,8 +57,8 @@ export default [
 	
 	{
 		brand 		: {
-			primary 	: '#b9d500' ,
-			secondary 	: '#f68d1e'
+			primary 	: '#143603' ,
+			secondary 	: '#ffdb3f'
 		} ,
 		name 		: '247 Exchange' ,
 		url 		: 'https://www.247exchange.com/?rId=103493'
