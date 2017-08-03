@@ -4,6 +4,11 @@ export default {
 	en : {
 
 		actions 		: {
+			all 		: 'all' 			,
+			calculating : 'Calculating...' 	,
+			load 		: 'Load' 			,
+			loading 	: 'Loading...' 		,
+			refresh 	: 'Refresh' 		,
 			return 		: 'Back'
 		} ,
 	
@@ -32,7 +37,6 @@ export default {
 			default 		: 'Oops - an error has occurred. Please restart the application.'
 		} ,
 
-
 		screens : {
 
 			bull 			: {
@@ -45,6 +49,8 @@ export default {
 					title 	: 'Movement' 	,
 					week 	: 'Last Week'
 				} ,
+
+				notice 		: 'This rating is based off of a calculation from the top {{placeholder}} crypto currencies.' ,
 
 				market 			: {
 					available 	: 'Supply Available' 	,
@@ -67,7 +73,7 @@ export default {
 			} ,
 
 			currencies 		: {
-				title 		:'Crypto Currencies' ,
+				title 		:'Top {{length}} Currencies' ,
 				headers 	: {
 					rank 	: 'Rank' 	,
 					change 	: '24H' 	,

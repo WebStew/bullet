@@ -8,6 +8,8 @@ import {	RefreshControl 		,
 import 		Error 					from '../components/errors/ajax';
 import 		List 					from '../components/utilities/list';
 import 		Currency 				from '../components/currencies/item';
+import 		All 					from '../components/currencies/load-all';
+import 		Header 					from '../components/currencies/header';
 import 		actions 				from '../actions/currencies';
 import 		strings 				from '../properties/strings';
 import 		list 					from '../styles/list';
@@ -16,6 +18,7 @@ import 		styleScene 				from '../styles/scene';
 import 		styleSeperator 			from '../styles/seperators';
 import 		stripe 					from '../styles/stripe';
 import 		theme 					from '../styles/theme';
+import 		api 					from '../api/currencies';
 
 export default connect (
 
@@ -25,14 +28,14 @@ export default connect (
 
 ) ( class Currencies extends React.Component {
 
-	static navigationOptions = {
-		headerTitle : strings.screens.currencies.title ,
+	static navigationOptions = ({ navigation }) => ({
+		headerRight : <All 		/> ,
+		headerTitle : <Header 	/> ,
 		title 		: strings.screens.currencies.title
-	};
+	});
 
 	constructor ( props ) {
-
-		super ( props );
+		super 	( props );
 
 		this.header 	= this.header.bind 	( this );
 		this.refresh 	= this.refresh.bind ( this );
@@ -64,8 +67,13 @@ export default connect (
 
 	refresh () {
 		
-		// this.props.dispatch ( actions.get 		());
-		this.props.dispatch ( actions.stream ());
+		if ( this.props.currencies.items.length > api.limit ) {
+			this.props.dispatch ( actions.stream 	());
+		}
+
+		else {
+			this.props.dispatch ( actions.get 		());
+		}
 	}
 
 	cells () {
@@ -150,7 +158,7 @@ export default connect (
 
 	header () {
 
-		if ( this.props.currencies.loading ) {
+		if (( this.props.currencies.loading && this.props.currencies.items === 0 ) || this.props.currencies.error ) {
 			
 			return null;
 		}
@@ -171,15 +179,20 @@ export default connect (
 
 	render () {
 
-		return (
-			
-			<View style = { styleScene.default }>
+		if ( this.props.currencies.error ) {
 
+			return (
 				<Error 
 					error 	= { this.props.currencies.error 	}
 					press 	= { this.refresh 					}
 					text 	= { strings.errors.ajax 			}
 				/>
+			);
+		}
+
+		return (
+			
+			<View style = { styleScene.default }>
 
 				<List 
 					fixed 	= { true 							}

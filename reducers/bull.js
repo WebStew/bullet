@@ -5,19 +5,20 @@ import constants 	from '../constants/bull';
 export default function (
 
 	state 	= {
-		change 	: {} 	,
-		error 	: null 	,
-		id 		: null 	,
-		loading : true 	,
-		market 	: {} 	,
-		name 	: null 	,
-		prices 	: {} 	,
-		rank 	: null 	,
-		rating 	: 0 	,
-		supply 	: {} 	,
-		symbol 	: null 	,
-		updated : null 	,
-		volume 	: {}
+		change 		: {} 	,
+		competitors : 0 	,
+		error 		: null 	,
+		id 			: null 	,
+		loading 	: true 	,
+		market 		: {} 	,
+		name 		: null 	,
+		prices 		: {} 	,
+		rank 		: null 	,
+		rating 		: 0 	,
+		supply 		: {} 	,
+		symbol 		: null 	,
+		updated 	: null 	,
+		volume 		: {}
 	} , 
 
 	action 	= {}
@@ -52,8 +53,7 @@ export default function (
 		case constants.set 		:
 
 			let bull = {
-					rating 	: 0 ,
-					loading : false
+					rating 		: 0
 				};
 
 			action.currencies.forEach (( currency ) => {
@@ -67,6 +67,9 @@ export default function (
 				}
 
 			});
+			
+			bull.loading 		= false;
+			bull.competitors 	= action.currencies.length;
 
 			return Object.assign (
 				{} 		,

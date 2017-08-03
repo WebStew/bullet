@@ -1,14 +1,16 @@
 
 import 		React 				from 'react';
 import { 	connect 		} 	from 'react-redux';
-import { 	RefreshControl 	,
-			ScrollView 		,
-			Text 			} 	from 'react-native';
+import { 	ScrollView 		,
+			Text 			,
+			View 			} 	from 'react-native';
 import 		Error 				from '../components/errors/ajax';
 import 		Loader 				from '../components/utilities/loader';
 import 		Notification 		from '../components/utilities/notification';
+import 		Header 				from '../components/bull/header';
 import 		Overview 			from '../components/bull/overview';
 import 		NotFound 			from '../components/bull/404';
+import 		Refresh 			from '../components/bull/refresh';
 import 		actions 			from '../actions/currencies';
 import 		style 				from '../styles/bull';
 import 		scene 				from '../styles/scene';
@@ -22,16 +24,14 @@ export default connect (
 
 ) ( class Bull extends React.Component {
 
-	static navigationOptions = {
-
-		headerTitle : strings.screens.bull.title ,
-		tabBarLabel : strings.screens.bull.title
-
-	};
+	static navigationOptions = ({ navigation }) => ({
+		headerRight : <Refresh 	/> ,
+		headerTitle : <Header 	/> ,
+		title 		: strings.screens.bull.title
+	});
 
 	constructor ( props ) {
-
-		super ( props );
+		super 	( props );
 		
 		this.refresh = this.refresh.bind ( this );
 		this.refresh ();
@@ -50,15 +50,27 @@ export default connect (
 	refresh () {
 
 		// Gets the first 100 tokens from the API
-		// this.props.dispatch ( actions.get 		());
+		this.props.dispatch ( actions.get 		());
 
 		// Gets the entire list of tokens from the API in the background
-		this.props.dispatch ( actions.stream 	());
+		//this.props.dispatch ( actions.stream 	());
 	}
 
 	render () {
 		
 		// { this.notification ()}
+
+		if ( this.props.bull.loading ) {
+
+			return (
+				<View  style 	= { scene.default }>
+					<Loader 
+						loading = { this.props.bull.loading }
+						size = 'large'
+					/>
+				</View>
+			);
+		}
 
 		if ( this.props.bull.error ) {
 
@@ -83,11 +95,6 @@ export default connect (
 
 		return (
 			<ScrollView style 	= { scene.default }>
-				<Loader 
-					loading = { this.props.bull.loading }
-					size = 'large'
-				/>
-
 				<Overview 
 					bull = { this.props.bull }
 				/>

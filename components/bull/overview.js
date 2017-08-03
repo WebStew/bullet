@@ -58,6 +58,11 @@ export default class Overview extends React.Component {
 						title 	= { strings.screens.bull.rating }
 						type 	= '2'
 					/>
+
+					<Text style = { bull.notice }>
+						{ strings.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors )}
+					</Text>
+
 					<Text style = { bull.rating 					}>
 						{ numbers.format ( this.props.bull.rating 	)}
 					</Text>

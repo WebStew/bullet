@@ -23,7 +23,6 @@ export default {
 				} ,
 
 				id 				: currency [ 'id' 					] ,
-				loading 		: false ,
 
 				market : {
 					usd 		: currency [ 'market_cap_usd' 		] ? parseFloat ( currency [ 'market_cap_usd' ]).toFixed ( 2 ) : strings.errors [ '500' ]

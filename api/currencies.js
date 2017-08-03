@@ -2,21 +2,23 @@
 import environment 	from '../configuration/environment';
 import currencies 	from '../mock/currencies';
 
-const api = {
-		domain 	: 'https://api.coinmarketcap.com' 	,
-		path 	:'/v1/ticker/' 						,
-		params 	: '?limit=100' 						,
-		headers : {
-			Accept 	: 'application/json' 			,
+const 	limit 	= 100 ,
+
+		api 	= {
+			domain 	: 'https://api.coinmarketcap.com' 	,
+			path 	:'/v1/ticker/' 						,
+			params 	: '?limit=' + limit 				,
 			headers : {
-				'Content-Type' : 'application/json'
+				Accept 	: 'application/json' 			,
+				headers : {
+					'Content-Type' : 'application/json'
+				}
 			}
-		}
-	};
+		};
 
 export default {
 	
-	get : async function () {
+	get 	: async function () {
 
 		return environment.data.mock ? currencies : fetch ( api.domain + api.path + api.params , {
 			...api.headers ,
@@ -24,7 +26,9 @@ export default {
 		});
 	} ,
 
-	stream : async function () {
+	limit 	: limit ,
+
+	stream 	: async function () {
 
 		return environment.data.mock ? currencies : fetch ( api.domain + api.path , {
 			...api.headers ,

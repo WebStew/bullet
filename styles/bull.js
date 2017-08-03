@@ -14,6 +14,10 @@ export default {
 		width 			: 32 
 	} ,
 
+	notice 				: {
+		paddingBottom 	: 5
+	} ,
+
 	rating 				: {
 		color 			: theme.primaries [ 2 ] ,
 		flexDirection 	: 'row' 				,
