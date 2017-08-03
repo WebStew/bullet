@@ -8,6 +8,7 @@ import { 	Image 				} 	from 'react-native';
 import 		Bull 					from '../screens/bull';
 import 		Currencies 				from '../screens/currencies';
 import 		Detail					from '../screens/detail';
+import 		Exchanges 				from '../screens/exchanges';
 import 		style 					from '../styles/tabbar';
 import 		banner 					from '../styles/header';
 import 		theme 					from '../styles/theme';
@@ -18,8 +19,13 @@ const Root = TabNavigator (
 		bull 		: {
 			screen 	: Bull
 		} ,
+
 		currencies 	: {
 			screen 	: Currencies
+		} ,
+
+		exchanges 	: {
+			screen 	: Exchanges
 		}
 	} ,
 
@@ -44,6 +50,10 @@ const Root = TabNavigator (
 
 						case 'currencies':
 							name = 'ios-stats-outline';
+							break;
+
+						case 'exchanges':
+							name = 'ios-basket-outline';
 							break;
 					}
 

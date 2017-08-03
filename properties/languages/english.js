@@ -84,6 +84,10 @@ export default {
 
 			detail 			: {
 				title 		: 'Detail'
+			} ,
+
+			exchanges 		: {
+				title 		: 'Buy Crypto'
 			}
 
 		}
