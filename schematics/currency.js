@@ -31,23 +31,23 @@ export default {
 				name 			: currency [ 'name' 				] ,
 
 				prices : {
-					btc 		: parseFloat ( currency [ 'price_btc' 	]) ,
-					usd 		: parseFloat ( currency [ 'price_usd' 	]).toFixed ( 2 )
+					btc 		: currency [ 'price_btc' 	] ? parseFloat ( currency [ 'price_btc' ]) 					: strings.errors [ '500' ] ,
+					usd 		: currency [ 'price_usd' 	] ? parseFloat ( currency [ 'price_usd' ]).toFixed ( 2 ) 	: strings.errors [ '500' ]
 				} ,
 
 				rank 			: parseFloat ( currency [ 'rank' 		]) ,
 				rating 			: currency [ 'market_cap_usd' ] && ( currency [ 'percent_change_1h' ] || currency [ 'percent_change_24h' ]) ? ( parseFloat ( currency [ '24h_volume_usd' ]) / parseFloat ( currency [ 'market_cap_usd' ]) * parseFloat ( currency [ 'price_usd' ]) * ( currency [ 'percent_change_1h' ] ? parseFloat ( currency [ 'percent_change_1h' ]) : parseFloat ( currency [ 'percent_change_24h' ]))).toFixed ( 2 ) : strings.errors [ '500' ] ,
 
 				supply : {
-					available 	: parseFloat ( currency [ 'available_supply' 	]) ,
-					total 		: parseFloat ( currency [ 'total_supply' 		])
+					available 	: currency [ 'available_supply' 	] ? parseFloat ( currency [ 'available_supply' 	]).toFixed ( 2 ) : strings.errors [ '500' ] ,
+					total 		: currency [ 'total_supply' 		] ? parseFloat ( currency [ 'total_supply' 		]).toFixed ( 2 ) : strings.errors [ '500' ]
 				} ,
 
 				symbol 			: currency [ 'symbol' ] ,
 				updated 		: new Date ( parseInt ( currency [ 'last_updated' ])).toLocaleDateString (),
 
 				volume : {
-					usd 		: parseFloat ( currency [ '24h_volume_usd' ]).toFixed ( 2 )
+					usd 		: currency [ '24h_volume_usd' ] ? parseFloat ( currency [ '24h_volume_usd' ]).toFixed ( 2 ) : strings.errors [ '500' ]
 				}
 			});
 
