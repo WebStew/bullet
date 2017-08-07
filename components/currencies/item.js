@@ -23,12 +23,11 @@ export default class Item extends React.Component {
 	detail () {
 
 		this.props.navigation.navigate ( 
-			'Detail', 
+			'Detail' , 
 			{
 				currency : this.props.currency
 			}
 		);
-
 	}
 
 	render () {

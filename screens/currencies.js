@@ -9,6 +9,8 @@ import 		Error 					from '../components/errors/ajax';
 import 		List 					from '../components/utilities/list';
 import 		Currency 				from '../components/currencies/item';
 import 		All 					from '../components/currencies/load-all';
+import 		SearchIcon 				from '../components/search/icon';
+import 		SearchInput 			from '../components/search/input';
 import 		Header 					from '../components/currencies/header';
 import 		actions 				from '../actions/currencies';
 import 		strings 				from '../properties/strings';
@@ -23,14 +25,16 @@ import 		api 					from '../api/currencies';
 export default connect (
 
 	state => ({
-		currencies : state.currencies
+		currencies 	: state.currencies ,
+		search 		: state.search
 	})
 
 ) ( class Currencies extends React.Component {
 
 	static navigationOptions = ({ navigation }) => ({
-		headerRight : <All 		/> ,
-		headerTitle : <Header 	/> ,
+		headerLeft 	: <All 			/> ,
+		headerRight : <SearchIcon 	/> ,
+		headerTitle : <Header 		/> ,
 		title 		: strings.screens.currencies.title
 	});
 
@@ -179,6 +183,8 @@ export default connect (
 
 	render () {
 
+		let items;
+
 		if ( this.props.currencies.error ) {
 
 			return (
@@ -190,14 +196,23 @@ export default connect (
 			);
 		}
 
+		// If there is a search term - filter the currencies by it
+		items = this.props.search.term ? this.props.currencies.items.filter (( item , index ) => {
+
+			return item.name.toLowerCase ().indexOf ( this.props.search.term.toLowerCase ()) > -1;
+
+		}) : this.props.currencies.items;
+
 		return (
-			
-			<View style = { styleScene.default }>
+
+			<View 	style = { styleScene.default 				}>
+
+				<SearchInput />
 
 				<List 
 					fixed 	= { true 							}
 					header 	= { this.header 					}
-					items 	= { this.props.currencies.items 	}
+					items 	= { items 							}
 					loading = { this.props.currencies.loading 	}
 					refresh = {
 						<RefreshControl
@@ -212,5 +227,4 @@ export default connect (
 			</View>
 		);
 	}
-
 });

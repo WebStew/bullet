@@ -9,7 +9,8 @@ export default {
 			load 		: 'Load' 			,
 			loading 	: 'Loading...' 		,
 			refresh 	: 'Refresh' 		,
-			return 		: 'Back'
+			return 		: 'Back' 			,
+			search 		: 'Please enter a currency name'
 		} ,
 	
 		denominations 	: {
