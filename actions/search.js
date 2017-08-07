@@ -3,19 +3,19 @@ import constants from '../constants/search';
 
 export default {
 	
-	active ( boolean ) {
+	on ( boolean ) {
 
 		return {
 			value 	: boolean ,
-			type 	: constants.active
+			type 	: constants.on
 		};
 	} ,
 
-	term ( term ) {
+	set ( value ) {
 
 		return {
-			value 	: term ,
-			type 	: constants.term
+			value 	: value ,
+			type 	: constants.set
 		};
 	}
 

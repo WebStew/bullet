@@ -10,7 +10,7 @@ export default {
 			loading 	: 'Loading...' 		,
 			refresh 	: 'Refresh' 		,
 			return 		: 'Back' 			,
-			search 		: 'Please enter a currency name'
+			search 		: 'Please enter a search term' 
 		} ,
 	
 		denominations 	: {
@@ -80,7 +80,8 @@ export default {
 					change 	: '24H' 	,
 					price 	: 'Price' 	,
 					rating 	: 'Rating' 
-				}
+				} ,
+				none 		: 'No currencies found for search term'
 			} ,
 
 			detail 			: {

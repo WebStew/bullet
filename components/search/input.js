@@ -21,23 +21,23 @@ export default connect (
 	constructor ( props ) {
 		super 	( props );
 
-		this.change 	= this.change.bind 		( this );
-		this.deactivate = this.deactivate.bind 	( this );
+		this.set = this.set.bind ( this );
+		this.off = this.off.bind ( this );
 	}
 
-	change ( term ) {
+	set ( term ) {
 
-		this.props.dispatch ( actions.term ( term ));
+		this.props.dispatch ( actions.set ( term ));
 	}
 
-	deactivate () {
+	off () {
 
-		this.props.dispatch ( actions.active ( false ));
+		this.props.dispatch ( actions.on ( false ));
 	}
 
 	render () {
 
-		if ( ! this.props.search.active ) {
+		if ( ! this.props.search.on ) {
 			
 			return null;
 		}
@@ -50,15 +50,27 @@ export default connect (
 						autoFocus 				= { true 						}
 						placeholder 			= { strings.actions.search 		}
 						placeholderTextColor 	= { theme.accents 			[ 2 ]}
-						onChangeText 			= { this.change 				}
+						onChangeText 			= { this.set 					}
 						selectionColor 			= { theme.primaries 		[ 1 ]}
 						style 					= { style.input 				}
-						value 					= { this.props.search.term 		}
+						value 					= { this.props.search.value 	}
 					/>
 
 					<TouchableOpacity
-						style 		= { style.close 		}
-						 onPress 	= { this.deactivate 	}>
+						style 		= { style.close 			}
+						 onPress 	= {() => this.set 	( null )}
+					>
+						<Ionicons
+							name 	= { 'ios-refresh-outline' 	}
+							size 	= { 32 						}
+							color 	= { theme.primaries 	[ 1 ]}
+						/>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						style 		= { style.close 	}
+						 onPress 	= { this.off 		}
+					>
 						<Ionicons
 							name 	= { 'ios-close-outline' 	}
 							size 	= { 32 						}

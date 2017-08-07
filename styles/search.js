@@ -5,7 +5,7 @@ export default {
 
 	close : {
 		marginLeft 	: 5 	,
-		marginRight : 15 	,
+		marginRight : 10 	,
 		marginTop 	: 3
 	} ,
 	

@@ -100,6 +100,53 @@ export default connect (
 		});
 	}
 
+	contents () {
+
+		const items = this.data ();
+
+		if ( items.length ) {
+
+			return (
+
+				<List 
+					fixed 	= { true 							}
+					header 	= { this.header 					}
+					items 	= { items 							}
+					loading = { this.props.currencies.loading 	}
+					refresh = {
+						<RefreshControl
+							refreshing 	= { this.props.currencies.loading 	}
+							onRefresh 	= { this.refresh 					}
+						/>
+					}
+					row 		= { this.row 			}
+					separator 	= { this.separator 		}
+				/>
+			);
+		}
+
+		return ( 
+			<View 		style = { style [ '404' ].view 			}>
+				<Text 	style = { style [ '404' ].text 			}>
+					{ strings.screens.currencies.none + ' "' 	}
+					<Text style = { style [ '404' ].term 		}>
+						{ this.props.search.value + '"' 		}
+					</Text>
+				</Text>
+			</View> 
+		);
+	}
+
+	data () {
+
+		// If there is a search term - filter the currencies by it
+		return this.props.search.value ? this.props.currencies.items.filter (( item , index ) => {
+
+			return item.name.toLowerCase ().indexOf ( this.props.search.value.toLowerCase ()) > -1;
+
+		}) : this.props.currencies.items;
+	}
+
 	headers () {
 
 		let active 	= {};
@@ -183,8 +230,6 @@ export default connect (
 
 	render () {
 
-		let items;
-
 		if ( this.props.currencies.error ) {
 
 			return (
@@ -196,33 +241,12 @@ export default connect (
 			);
 		}
 
-		// If there is a search term - filter the currencies by it
-		items = this.props.search.term ? this.props.currencies.items.filter (( item , index ) => {
-
-			return item.name.toLowerCase ().indexOf ( this.props.search.term.toLowerCase ()) > -1;
-
-		}) : this.props.currencies.items;
-
 		return (
 
 			<View 	style = { styleScene.default 				}>
 
-				<SearchInput />
-
-				<List 
-					fixed 	= { true 							}
-					header 	= { this.header 					}
-					items 	= { items 							}
-					loading = { this.props.currencies.loading 	}
-					refresh = {
-						<RefreshControl
-							refreshing 	= { this.props.currencies.loading 	}
-							onRefresh 	= { this.refresh 					}
-						/>
-					}
-					row 		= { this.row 			}
-					separator 	= { this.separator 		}
-				/>
+				<SearchInput 		/>
+				{ this.contents 	()}
 
 			</View>
 		);

@@ -3,30 +3,47 @@ import theme from './theme';
 
 export default {
 
-	change : {
+	404 		: {
+
+		term 	: {
+			fontWeight : 'bold'
+		} ,
+
+		text 	: {
+			color 		: theme.accents [ 1 ] ,
+			fontSize 	: 18
+		} ,
+
+		view : {
+			paddingHorizontal 	: 10 ,
+			paddingVertical 	: 20
+		}
+	} ,
+
+	change 	: {
 		textAlign : 'center'
 	} ,
 
-	head : {
+	head 	: {
 		flex 			: 2 	,
 		flexDirection 	: 'row'
 	} ,
 
-	icon : {
+	icon 	: {
 		height 			: 16 	, 
 		marginRight 	: 5 	,
 		width 			: 16 
 	} ,
 
-	name : {
+	name 	: {
 		fontWeight 	: 'bold'
 	} ,
 
-	price : {
+	price 	: {
 		textAlign 	: 'right'
 	} ,
 
-	text : {
+	text 	: {
 		textAlign 	: 'left'
 	}
 

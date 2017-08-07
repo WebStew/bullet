@@ -18,12 +18,12 @@ export default connect (
 	constructor ( props ) {
 		super 	( props );
 
-		this.active = this.active.bind ( this );
+		this.on = this.on.bind ( this );
 	}
 
-	active () {
+	on () {
 
-		this.props.dispatch ( actions.active ( ! this.props.search.active ));
+		this.props.dispatch ( actions.on ( ! this.props.search.on ));
 	}
 
 	render () {
@@ -31,14 +31,14 @@ export default connect (
 		return (
 
 			<TouchableOpacity 
-				onPress = { this.active }
+				onPress = { this.on 	}
 				style 	= { style.icon 	}
 			>
 
 				<Ionicons
-					name 	= { 'ios-search-outline' 													}
-					size 	= { 24 																		}
-					color 	= { this.props.search.active ? theme.accents [ 2 ] : theme.primaries [ 1 	]}
+					name 	= { 'ios-search-outline' 												}
+					size 	= { 24 																	}
+					color 	= { this.props.search.on ? theme.accents [ 2 ] : theme.primaries [ 1 	]}
 				/>
 				
 			</TouchableOpacity>

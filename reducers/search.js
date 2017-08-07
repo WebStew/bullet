@@ -4,8 +4,8 @@ import constants from '../constants/search';
 export default function (
 
 	state 	= {
-		active 	: false ,
-		term 	: null
+		on 		: false ,
+		value 	: null
 	} , 
 
 	action 	= {}
@@ -14,24 +14,24 @@ export default function (
 
 	switch ( action.type ) {
 		
-		case constants.active :
+		case constants.on :
 
 			return Object.assign (
 				{} 		,
 				state 	,
 				{
 					
-					active : action.value
+					on : action.value
 				}
 			);
 		
-		case constants.term :
+		case constants.set :
 
 			return Object.assign (
 				{} 		,
 				state 	,
 				{
-					term : action.value
+					value : action.value
 				}
 			);
 

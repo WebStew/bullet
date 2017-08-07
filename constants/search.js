@@ -5,7 +5,7 @@
  */
 export default {
 
-	active 	: 'search:active' ,
-	term 	: 'search:term'
+	on 	: 'search:on' ,
+	set : 'search:set'
 
 };
