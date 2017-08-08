@@ -4,11 +4,11 @@ import theme from '../configuration/theme';
 export default {
 
 	container 	: {
-		backgroundColor : theme.primaries [ 0 ]
+		backgroundColor : theme.primary
 	} ,
 
 	text 		: {
-		color 			: theme.primaries [ 1 ]
+		color 			: theme.body
 	}
 	
 };

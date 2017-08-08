@@ -36,9 +36,9 @@ export default connect (
 			>
 
 				<Ionicons
-					name 	= { 'ios-search-outline' 												}
-					size 	= { 24 																	}
-					color 	= { this.props.search.on ? theme.accents [ 2 ] : theme.primaries [ 1 	]}
+					name 	= { 'ios-search-outline' 									}
+					size 	= { 24 														}
+					color 	= { this.props.search.on ? theme.disabled : theme.secondary }
 				/>
 				
 			</TouchableOpacity>

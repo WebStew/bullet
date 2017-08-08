@@ -4,12 +4,12 @@ import theme from '../configuration/theme';
 export default {
 
 	main : {
-		backgroundColor : theme.accents [ 3 ] ,
+		backgroundColor : theme.primary ,
 		flex 			: 1
 	} ,
 
 	statusbar : {
-		backgroundColor : theme.accents [ 3 ] ,
+		backgroundColor : theme.primary ,
 		height 			: 24
 	}
 	

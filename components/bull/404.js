@@ -35,7 +35,7 @@ export default class NotFound extends React.Component {
 					<Ionicons
 						name 	= 'ios-pulse-outline'
 						size 	= { 64 					}
-						color 	= { theme.primaries [ 1 ]}
+						color 	= { theme.secondary}
 					/>
 
 					<Text style = { style.ajax.text }>

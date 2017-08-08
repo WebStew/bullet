@@ -10,8 +10,8 @@ export default {
 	} ,
 	
 	field : {
-		flex 				: 1 					,
-		flexDirection 		: 'row' 				,
+		flex 				: 1 			,
+		flexDirection 		: 'row' 		,
 	} ,
 
 	icon : {
@@ -19,21 +19,21 @@ export default {
 	} ,
 
 	input : {
-		backgroundColor 	: theme.accents [ 4 ] 	,
-		borderColor 		: theme.accents [ 0 ] 	,
-		borderRadius 		: 3 					,
-		borderWidth 		: 1 					,
-		color 				: theme.accents [ 1 ] 	,
-		flex 				: 1 					,
-		fontSize 			: 16 					,
-		margin 				: 5 					,
+		backgroundColor 	: theme.base 	,
+		borderColor 		: theme.border 	,
+		borderRadius 		: 3 			,
+		borderWidth 		: 1 			,
+		color 				: theme.body 	,
+		flex 				: 1 			,
+		fontSize 			: 16 			,
+		margin 				: 5 			,
 		paddingHorizontal 	: 5
 	} ,
 
 	view : {
-		backgroundColor 	: theme.accents [ 3 ] 	,
-		borderBottomColor 	: theme.accents [ 0 ] 	,
-		borderBottomWidth 	: 1 					,
+		backgroundColor 	: theme.primary ,
+		borderBottomColor 	: theme.border 	,
+		borderBottomWidth 	: 1 			,
 		height 				: 40
 	}
 };

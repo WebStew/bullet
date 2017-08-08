@@ -10,7 +10,6 @@ import 		strings 				from '../properties/strings';
 import 		themes 					from '../properties/themes';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
-import 		color 					from '../utilities/colors';
 
 export default class Theme extends React.Component {
 
@@ -41,15 +40,15 @@ export default class Theme extends React.Component {
 					style 	= {{
 						...style.control ,
 						...{
-							backgroundColor : theme.primaries [ 0 ] ,
-							borderColor 	: color.shade ( theme.primaries [ 0 ] , -0.25 )
+							backgroundColor : theme.primary ,
+							borderColor 	: theme.border
 						}
 					}}
 				>
 					<Text style = {{
 						...style.text ,
 						...{
-							color : theme.primaries [ 1 ]
+							color : theme.secondary
 						}
 					}}>
 						{ theme.name }
@@ -57,7 +56,7 @@ export default class Theme extends React.Component {
 					<Ionicons
 						name 	= { 'ios-radio-button-off-outline' 	}
 						size 	= { 18 								}
-						color 	= { theme.primaries 			[ 1 ]}
+						color 	= { theme.secondary 				}
 					/>
 				</TouchableOpacity>
 			);

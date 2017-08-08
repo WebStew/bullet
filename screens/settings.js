@@ -37,7 +37,7 @@ export default class Settings extends React.Component {
 
 		return this.settings ().map (( setting , index ) => {
 
-			const background = index % 2 === 0 ? theme.accents [ 3 ] : theme.accents [ 4 ];
+			const background = index % 2 === 0 ? theme.primary : theme.base;
 
 			return (
 				<TouchableOpacity 
@@ -56,7 +56,7 @@ export default class Settings extends React.Component {
 					<Ionicons
 						name 	= { 'ios-arrow-forward-outline' }
 						size 	= { 18 							}
-						color 	= { theme.primaries 		[ 1 ]}
+						color 	= { theme.secondary 			}
 					/>
 				</TouchableOpacity>
 			);

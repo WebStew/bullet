@@ -16,18 +16,18 @@ export default {
 				} ,
 
 				text : {
-					color 		: theme.accents [ 1 ] 	,
-					fontSize 	: 10 					,
-					padding  	: 2 					,
+					color 		: theme.body 	,
+					fontSize 	: 10 			,
+					padding  	: 2 			,
 					textAlign 	: 'right'
 				} ,
 
 				view : {
-					borderColor 		: theme.accents [ 0 ] 	,
-					borderBottomWidth 	: 1 					,
-					borderRightWidth 	: 1 					,
-					borderTopWidth 		: 1 					,
-					height 				: 150 					,
+					borderColor 		: theme.border 	,
+					borderBottomWidth 	: 1 			,
+					borderRightWidth 	: 1 			,
+					borderTopWidth 		: 1 			,
+					height 				: 150 			,
 					flexDirection 		: 'column'
 				}
 			}
@@ -36,17 +36,17 @@ export default {
 		bar : { 
 
 			highlight : {
-				backgroundColor 	: theme.primaries [ 2 ] ,
-				borderColor 		: theme.accents [ 0 ] 	,
-				borderBottomWidth 	: 1 					,
+				backgroundColor 	: theme.positive 	,
+				borderColor 		: theme.border 		,
+				borderBottomWidth 	: 1 				,
 				width 				: 5
 			} ,
 
 			view : {
-				borderColor 	: theme.accents [ 0 ] 	,
-				borderTopWidth 	: 1 					,
-				flex 			: 1 					, 
-				flexDirection 	: 'column' 				,
+				borderColor 	: theme.border 	,
+				borderTopWidth 	: 1 			,
+				flex 			: 1 			, 
+				flexDirection 	: 'column' 		,
 				justifyContent 	: 'flex-end'
 			}
 		} ,
@@ -67,7 +67,7 @@ export default {
 		section : {
 
 			text : {
-				color 			: theme.accents [ 1 ] 	,
+				color 			: theme.body 	,
 				bottom 			: -65 					,
 				fontSize 		: 10 					,
 				left 			: -68 					,
@@ -78,17 +78,17 @@ export default {
 			} ,
 
 			view : {
-				backgroundColor 	: theme.accents [ 3 ] 	,
+				backgroundColor 	: theme.primary 	,
 				borderLeftWidth 	: 1 					,
 				borderRightWidth 	: 1 					,
-				borderColor 		: theme.accents [ 0 ] 	,
+				borderColor 		: theme.border 	,
 				height 				: 150 					,
 				width 				: 16
 			}
 		} ,
 
 		view : {
-			flexDirection 	: 'row' 				,
+			flexDirection 	: 'row' ,
 			flex 			: 1
 		}
 	}

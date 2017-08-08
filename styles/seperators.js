@@ -4,7 +4,7 @@ import theme from '../configuration/theme';
 export default  {
 
 	default : {
-		backgroundColor : theme.accents [ 0 ] ,
+		backgroundColor : theme.border ,
 		height 			: 1
 	}
 	

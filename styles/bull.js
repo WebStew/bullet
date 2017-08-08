@@ -4,7 +4,7 @@ import theme from '../configuration/theme';
 export default {
 
 	'404' 				: {
-		backgroundColor : theme.accents [ 4 ]
+		backgroundColor : theme.base
 	} ,
 
 	icon 				: {
@@ -19,14 +19,14 @@ export default {
 	} ,
 
 	rating 				: {
-		color 			: theme.primaries [ 2 ] ,
-		flexDirection 	: 'row' 				,
-		fontSize 		: 36 					,
+		color 			: theme.positive 	,
+		flexDirection 	: 'row' 			,
+		fontSize 		: 36 				,
 		textAlign 		: 'center'
 	} ,
 
 	view 				: {
-		borderColor 	: theme.accents [ 0 ]  	,
+		borderColor 	: theme.border  	,
 		borderTopWidth 	: 1
 	}
 };

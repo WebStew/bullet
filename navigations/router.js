@@ -70,9 +70,9 @@ const Root = TabNavigator (
 
 					return (
 						<Ionicons
-							name 	= { name 												}
-							size 	= { 32 													}
-							color 	= { focused ? theme.accents [ 2 ] : theme.primaries [ 1 ]}
+							name 	= { name 										}
+							size 	= { 32 											}
+							color 	= { focused ? theme.disabled : theme.secondary 	}
 						/>
 					);
 				}

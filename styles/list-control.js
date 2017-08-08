@@ -4,7 +4,7 @@ import theme from '../configuration/theme';
 export default {
 
 	control : {
-		borderColor 		: theme.accents [ 0 ] 	,
+		borderColor 		: theme.border 			,
 		borderWidth 		: 1 					,
 		borderTopWidth 		: 0 					,
 		flex 				: 1 					,
@@ -15,7 +15,7 @@ export default {
 	} ,
 
 	text 	: {
-		color 				: theme.accents [ 1 ] 	,
+		color 				: theme.body 			,
 		fontSize 			: 16
 	}
 };

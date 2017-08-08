@@ -152,7 +152,7 @@ export default connect (
 		let active 	= {};
 
 		active [ this.props.currencies.order ] = {
-			color : theme.accents [ 2 ]
+			color : theme.disabled
 		};
 
 		return [{

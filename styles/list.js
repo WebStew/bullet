@@ -14,17 +14,17 @@ export default {
 	} ,
 
 	'cell-text' : {
-		color  	: theme.accents [ 1 ]
+		color  	: theme.body
 	} ,
 
 	head : {
-		backgroundColor 	: theme.accents [ 3 ] ,
-		borderBottomColor 	: theme.accents [ 0 ] ,
+		backgroundColor 	: theme.primary ,
+		borderBottomColor 	: theme.border 	,
 		borderBottomWidth 	: 1
 	} ,
 
 	'head-text' : {
-		color  		: theme.primaries [ 1 ] ,
+		color  		: theme.secondary ,
 		fontSize 	: 16
 	} ,
 

@@ -17,8 +17,8 @@ export default {
 
 	notification : {
 
-		backgroundColor : theme.primaries [ 2 ] ,
-		borderColor 	: colors.shade ( theme.primaries [ 2 ] , -0.15 ) ,
+		backgroundColor : theme.positive ,
+		borderColor 	: colors.shade ( theme.positive , -0.15 ) ,
 
 	}
 	

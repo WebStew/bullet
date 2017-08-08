@@ -34,7 +34,7 @@ export default class Error extends React.Component {
 					<Ionicons
 						name 	= 'ios-refresh'
 						size 	= { 64 					}
-						color 	= { theme.primaries [ 1 ]}
+						color 	= { theme.secondary}
 					/>
 
 					<Text style = { style.ajax.text }>

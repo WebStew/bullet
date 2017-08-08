@@ -13,9 +13,9 @@ export default {
 			} ,
 
 			text : {
-				color 		: theme.primaries [ 1 ] ,
-				fontSize 	: 18 					,
-				fontWeight 	: 'normal' 				,
+				color 		: theme.secondary 	,
+				fontSize 	: 18 				,
+				fontWeight 	: 'normal' 			,
 				paddingLeft : 5
 			}
 
@@ -29,16 +29,16 @@ export default {
 			} ,
 
 			text : {
-				color 		: theme.primaries [ 1 ] ,
-				fontSize 	: 18 					,
-				fontWeight 	: 'normal' 				,
+				color 		: theme.secondary 	,
+				fontSize 	: 18 				,
+				fontWeight 	: 'normal' 			,
 				paddingLeft : 5
 			}
 		} ,
 
 		header 	: {
-			backgroundColor 	: theme.accents [ 4 ] ,
-			borderBottomColor 	: theme.accents [ 0 ] 
+			backgroundColor 	: theme.base 	,
+			borderBottomColor 	: theme.border 
 		} ,
 
 		icon : {

@@ -5,12 +5,12 @@ import theme 	from '../configuration/theme';
 export default {
 
 	default : {
-		backgroundColor : theme.accents [ 4 ] 	,
-		flex 			: 1 					,
+		backgroundColor : theme.base 	,
+		flex 			: 1 			,
 		height 			: device.height
 	} ,
 
 	header 	: {
-		backgroundColor : theme.accents [ 3 ]
+		backgroundColor : theme.primary
 	}
 };

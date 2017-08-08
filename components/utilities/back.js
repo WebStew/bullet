@@ -20,7 +20,7 @@ export default class Back extends React.Component {
 				<Ionicons
 					name 	= { 'ios-arrow-back-outline' 	}
 					size 	= { 18 							}
-					color 	= { theme.primaries [ 1 		]}
+					color 	= { theme.secondary 			}
 				/>
 
 				<Text style = { style.default.back.text }>

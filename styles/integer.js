@@ -8,11 +8,11 @@ export default {
 	} ,
 
 	negative 		: {
-		color 		: theme.primaries [ 3 ]
+		color 		: theme.negative
 	} ,
 
 	positive		: {
-		color 		: theme.primaries [ 2 ]
+		color 		: theme.positive
 	}
 
 };

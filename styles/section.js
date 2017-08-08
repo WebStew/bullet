@@ -4,17 +4,17 @@ import theme from '../configuration/theme';
 export default {
 
 	default : {
-		borderColor 		: theme.accents [ 0 ] 	,
-		borderBottomWidth 	: 1 					,
+		borderColor 		: theme.border 	,
+		borderBottomWidth 	: 1 			,
 		padding 			: 15
 	} ,
 
 	row 	: {
-		color 				: theme.accents [ 1 ] 	,
+		color 				: theme.body 	,
 		paddingBottom 		: 3
 	} ,
 
 	stripe 	: {
-		backgroundColor 	: theme.accents [ 3 ]
+		backgroundColor 	: theme.primary
 	}
 };

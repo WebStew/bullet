@@ -8,8 +8,8 @@ export default {
 	//inactiveBackgroundColor : theme.accents 	[ 0 ] ,
 	//inactiveTintColor 	: theme.primaries 	[ 1 ] ,
 	style 					: {
-		backgroundColor 	: theme.accents [ 4 ] ,
-		borderTopColor 		: theme.accents [ 0 ] 
+		backgroundColor 	: theme.base ,
+		borderTopColor 		: theme.border 
 	}
 
 };

@@ -10,7 +10,7 @@ export default {
 		} ,
 
 		text 	: {
-			color 		: theme.accents [ 1 ] ,
+			color 		: theme.body ,
 			fontSize 	: 18
 		} ,
 

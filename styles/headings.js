@@ -5,10 +5,10 @@ export default {
 
 	// H1
 	1 : {
-		color 				: theme.accents [ 1 ] 	,
-		fontSize 			: 21 					,
-		fontWeight 			: 'bold' 				,
-		paddingHorizontal 	: 15 					,
+		color 				: theme.body 	,
+		fontSize 			: 21 			,
+		fontWeight 			: 'bold' 		,
+		paddingHorizontal 	: 15 			,
 		paddingVertical 	: 12
 
 	} ,
@@ -16,9 +16,9 @@ export default {
 	// H2
 	2 : {
 
-		color 			: theme.accents [ 1 ] 	,
-		fontSize 		: 18 					,
-		fontWeight 		: 'bold' 				,
+		color 			: theme.body 		,
+		fontSize 		: 18 				,
+		fontWeight 		: 'bold' 			,
 		marginBottom 	: 12
 		
 	}
