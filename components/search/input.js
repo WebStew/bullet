@@ -49,9 +49,9 @@ export default connect (
 					<TextInput 
 						autoFocus 				= { true 						}
 						placeholder 			= { strings.actions.search 		}
-						placeholderTextColor 	= { theme.accents 			[ 2 ]}
+						placeholderTextColor 	= { theme.disabled 				}
 						onChangeText 			= { this.set 					}
-						selectionColor 			= { theme.primaries 		[ 1 ]}
+						selectionColor 			= { theme.secondary 			}
 						style 					= { style.input 				}
 						value 					= { this.props.search.value 	}
 					/>
@@ -63,7 +63,7 @@ export default connect (
 						<Ionicons
 							name 	= { 'ios-refresh-outline' 	}
 							size 	= { 32 						}
-							color 	= { theme.primaries 	[ 1 ]}
+							color 	= { theme.secondary 		}
 						/>
 					</TouchableOpacity>
 
@@ -74,7 +74,7 @@ export default connect (
 						<Ionicons
 							name 	= { 'ios-close-outline' 	}
 							size 	= { 32 						}
-							color 	= { theme.primaries 	[ 1 ]}
+							color 	= { theme.secondary 		}
 						/>
 					</TouchableOpacity>
 					

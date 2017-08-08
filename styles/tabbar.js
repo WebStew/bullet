@@ -8,7 +8,7 @@ export default {
 	//inactiveBackgroundColor : theme.accents 	[ 0 ] ,
 	//inactiveTintColor 	: theme.primaries 	[ 1 ] ,
 	style 					: {
-		backgroundColor 	: theme.base ,
+		backgroundColor 	: theme.chrome ,
 		borderTopColor 		: theme.border 
 	}
 

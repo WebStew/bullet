@@ -15,6 +15,7 @@ export default {
 	} ,
 
 	notice 				: {
+		color 			: theme.body 	,
 		paddingBottom 	: 5
 	} ,
 

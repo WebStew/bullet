@@ -37,7 +37,7 @@ export default {
 		} ,
 
 		header 	: {
-			backgroundColor 	: theme.base 	,
+			backgroundColor 	: theme.chrome 	,
 			borderBottomColor 	: theme.border 
 		} ,
 
@@ -48,7 +48,8 @@ export default {
 		} ,
 	
 		title 	: {
-			fontSize 	: 18 ,
+			color 		: theme.body 	,
+			fontSize 	: 18 			,
 			fontWeight 	: 'normal'
 		}
 	}
