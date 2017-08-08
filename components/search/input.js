@@ -7,8 +7,8 @@ import { 	TextInput 			,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		actions 				from '../../actions/search';
 import 		strings 				from '../../properties/strings';
+import 		theme 					from '../../configuration/theme';
 import 		style 					from '../../styles/search';
-import 		theme 					from '../../styles/theme';
 
 export default connect (
 

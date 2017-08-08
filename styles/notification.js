@@ -1,6 +1,6 @@
 
-import theme from './theme';
-import colors from '../utilities/colors'
+import theme 	from '../configuration/theme';
+import colors 	from '../utilities/colors'
 
 export default {
 

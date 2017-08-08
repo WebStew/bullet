@@ -14,12 +14,12 @@ import 		SearchInput 			from '../components/search/input';
 import 		Header 					from '../components/currencies/header';
 import 		actions 				from '../actions/currencies';
 import 		strings 				from '../properties/strings';
+import 		theme 					from '../configuration/theme';
 import 		list 					from '../styles/list';
 import 		style 					from '../styles/currencies';
 import 		styleScene 				from '../styles/scene';
 import 		styleSeperator 			from '../styles/seperators';
 import 		stripe 					from '../styles/stripe';
-import 		theme 					from '../styles/theme';
 import 		api 					from '../api/currencies';
 
 export default connect (
@@ -48,7 +48,7 @@ export default connect (
 
 	row ( currency , section , row , highlight ) {
 
-		let style = row % 2 === 0 ? stripe.secondary : stripe.primary;
+		const style = row % 2 === 0 ? stripe.secondary : stripe.primary;
 
 		return ( 
 			<Currency

@@ -4,7 +4,7 @@ import { 	TouchableOpacity 	,
 			Text 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		style 					from '../../styles/header';
-import 		theme 					from '../../styles/theme';
+import 		theme 					from '../../configuration/theme';
 
 export default class Back extends React.Component {
 

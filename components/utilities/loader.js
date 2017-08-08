@@ -2,7 +2,7 @@
 import React 							from 'react';
 import 			{ ActivityIndicator } 	from 'react-native';
 import style 							from '../../styles/loader';
-import theme 							from '../../styles/theme';
+import theme 							from '../../configuration/theme';
 
 export default class Loader extends React.Component {
 

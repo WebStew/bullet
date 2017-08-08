@@ -9,7 +9,7 @@ import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		scene 					from '../styles/scene';
 import 		exchanges 				from '../properties/exchanges';
 import 		strings 				from '../properties/strings';
-import 		style 					from '../styles/exchanges';
+import 		style 					from '../styles/list-control';
 import 		color 					from '../utilities/colors';
 
 export default class Exchanges extends React.Component {
@@ -44,7 +44,7 @@ export default class Exchanges extends React.Component {
 					</Text>
 					<Ionicons
 						name 	= { 'ios-arrow-forward-outline' }
-						size 	= { 24 							}
+						size 	= { 18 							}
 						color 	= { exchange.brand.secondary 	}
 					/>
 				</TouchableOpacity>

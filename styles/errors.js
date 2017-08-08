@@ -1,5 +1,5 @@
 
-import theme from './theme';
+import theme from '../configuration/theme';
 
 export default {
 

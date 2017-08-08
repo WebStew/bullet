@@ -5,7 +5,7 @@ import { 	TouchableOpacity 	} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		actions 				from '../../actions/search';
 import 		style 					from '../../styles/search';
-import 		theme 					from '../../styles/theme';
+import 		theme 					from '../../configuration/theme';
 
 export default connect (
 

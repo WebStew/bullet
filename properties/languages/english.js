@@ -90,6 +90,18 @@ export default {
 
 			exchanges 		: {
 				title 		: 'Buy Crypto'
+			} ,
+
+			language 		: {
+				title 		: 'Change Language'
+			} ,
+
+			settings 		: {
+				title 		: 'Settings'
+			} ,
+
+			theme 			: {
+				title 		: 'Change Theme'
 			}
 
 		}

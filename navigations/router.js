@@ -9,9 +9,12 @@ import 		Bull 					from '../screens/bull';
 import 		Currencies 				from '../screens/currencies';
 import 		Detail					from '../screens/detail';
 import 		Exchanges 				from '../screens/exchanges';
+import 		Language 				from '../screens/language';
+import 		Settings 				from '../screens/settings';
+import 		Theme 					from '../screens/theme';
 import 		style 					from '../styles/tabbar';
 import 		banner 					from '../styles/header';
-import 		theme 					from '../styles/theme';
+import 		theme 					from '../configuration/theme';
 
 const Root = TabNavigator (
 
@@ -26,6 +29,10 @@ const Root = TabNavigator (
 
 		exchanges 	: {
 			screen 	: Exchanges
+		} ,
+
+		settings 	: {
+			screen 	: Settings
 		}
 	} ,
 
@@ -54,6 +61,10 @@ const Root = TabNavigator (
 
 						case 'exchanges':
 							name = 'ios-basket-outline';
+							break;
+
+						case 'settings':
+							name = 'ios-settings-outline';
 							break;
 					}
 
@@ -92,6 +103,14 @@ export default StackNavigator (
 
 		Detail : {
 			screen : Detail
+		} ,
+
+		Language : {
+			screen : Language
+		} ,
+
+		Theme : {
+			screen : Theme
 		}
 	} ,
 
