@@ -8,6 +8,12 @@ export default {
 		marginRight : 10 	,
 		marginTop 	: 3
 	} ,
+
+	refresh : {
+		marginLeft 	: 10 	,
+		marginRight : 5 	,
+		marginTop 	: 3
+	} ,
 	
 	field : {
 		flex 				: 1 			,
@@ -25,7 +31,7 @@ export default {
 		borderWidth 		: 1 			,
 		color 				: theme.body 	,
 		flex 				: 1 			,
-		fontSize 			: 16 			,
+		fontSize 			: 14 			,
 		margin 				: 5 			,
 		paddingHorizontal 	: 5
 	} ,

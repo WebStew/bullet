@@ -1,10 +1,13 @@
 
-import constants from '../constants/currencies';
+import constants 	from '../constants/theme';
+import themes 		from '../properties/themes';
+import database 	from '../configuration/database';
 
 export default function (
 
+	// We set the default to the first array item in our configure theme properties
 	state 	= {
-		name  : 'default' ,
+		id 	: themes [ 0 ].id
 	} , 
 
 	action 	= {}
@@ -15,11 +18,14 @@ export default function (
 
 		case constants.set 	:
 
+			// Persist to the database
+			database.settings.set ( 'theme' , action.id );
+
 			return Object.assign (
 				{} 		,
 				state 	,
 				{
-					name : action.name
+					id : action.id
 				}
 			);
 

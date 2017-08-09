@@ -21,6 +21,22 @@ export default {
 
 		} ,
 
+		left 	: {
+
+			control : {
+				flexDirection 	: 'row' ,
+				paddingLeft 	: 5 	,
+				paddingRight 	: 10
+			} ,
+
+			text : {
+				color 		: theme.secondary 	,
+				fontSize 	: 18 				,
+				fontWeight 	: 'normal' 			,
+				paddingLeft : 5
+			}
+		} ,
+
 		right 	: {
 
 			control : {

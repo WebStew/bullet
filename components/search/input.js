@@ -46,6 +46,17 @@ export default connect (
 			<View 		style = { style.view 	}>
 				<View 	style = { style.field 	}>
 
+					<TouchableOpacity
+						style 		= { style.refresh 			}
+						 onPress 	= {() => this.set 	( null )}
+					>
+						<Ionicons
+							name 	= { 'ios-refresh-outline' 	}
+							size 	= { 32 						}
+							color 	= { theme.secondary 		}
+						/>
+					</TouchableOpacity>
+
 					<TextInput 
 						autoFocus 				= { true 						}
 						placeholder 			= { strings.actions.search 		}
@@ -55,17 +66,6 @@ export default connect (
 						style 					= { style.input 				}
 						value 					= { this.props.search.value 	}
 					/>
-
-					<TouchableOpacity
-						style 		= { style.close 			}
-						 onPress 	= {() => this.set 	( null )}
-					>
-						<Ionicons
-							name 	= { 'ios-refresh-outline' 	}
-							size 	= { 32 						}
-							color 	= { theme.secondary 		}
-						/>
-					</TouchableOpacity>
 
 					<TouchableOpacity
 						style 		= { style.close 	}

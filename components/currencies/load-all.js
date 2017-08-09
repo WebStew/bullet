@@ -45,10 +45,10 @@ export default connect (
 
 		return ( 
 			<TouchableOpacity 
-				style  	= { style.default.right.control }
+				style  	= { style.default.left.control 	}
 				onPress = { this.refresh 				}
 			>
-				<Text style = { style.default.right.text }>
+				<Text style = { style.default.left.text }>
 					{ action }
 				</Text>	
 			</TouchableOpacity>

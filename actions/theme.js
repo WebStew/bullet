@@ -3,11 +3,11 @@ import constants from '../constants/theme';
 
 export default {
 
-	set ( name ) {
+	set ( id ) {
 
 		return {
-			name : name ,
-			type : constants.set
+			id 		: id ,
+			type 	: constants.set
 		};
 	}
 
