@@ -37,6 +37,8 @@ export default {
 
 		if ( action.type === constants.save ) {
 
+			console.log ( 'MIDDLEWARE SAVING THEME' , action.id );
+
 			database.settings.set ( 'theme' , action.id , () => {
 
 				store.dispatch 	( actions.set ( action.id 	));

@@ -5,7 +5,7 @@ import { 	ScrollView 			,
 			TouchableOpacity 	} 	from 'react-native';
 import { 	connect 			} 	from 'react-redux';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
-import 		Back 					from '../components/utilities/back';
+//import 		Back 					from '../components/utilities/back';
 import 		actions 				from '../actions/theme';
 import 		strings 				from '../properties/strings';
 import 		themes 					from '../properties/themes';
@@ -32,29 +32,36 @@ export default connect (
 
 	themes () {
 
+		const current = this.props.screenProps.theme;
+
 		return Object.keys ( themes ).map (( theme , index ) => {
 
-			const icon = themes [ theme ] .id === this.props.theme.id ? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline';
+			const icon = themes [ theme ] .id === current.id ? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline';
 
 			return (
 				<TouchableOpacity 
 					key 	= { index 												}
-					onPress = {() => this.props.dispatch ( actions.save ( themes[ theme ].id 	))}
+					onPress = {() => {
+
+						console.log ( 'THEME TO ACTIVATE' , themes[ theme ].id );
+
+						this.props.dispatch ( actions.save ( themes[ theme ].id 	))
+					}}
 					style 	= {{
-						...style.control ,
+						...style ( current ).control ,
 						...{
-							backgroundColor : themes[ theme ].chrome ,
-							borderColor 	: themes[ theme ].border
+							backgroundColor : themes [ theme ].chrome ,
+							borderColor 	: themes [ theme ].border
 						}
 					}}
 				>
 					<Text style = {{
-						...style.text ,
+						...style ( current ).text ,
 						...{
 							color : themes [ theme ].secondary
 						}
 					}}>
-						{ themes[ theme ].name }
+						{ themes [ theme ].name }
 					</Text>
 					<Ionicons
 						name 	= { icon 						}
@@ -69,10 +76,10 @@ export default connect (
 	render () {
 
 		const theme = this.props.screenProps.theme
-//{ this.themes ()}
+
 		return (
 			<ScrollView style 	= { scene ( theme ).body 	}>
-				<Text>TEST</Text>				
+				{ this.themes ()}
 			</ScrollView>
 		);
 

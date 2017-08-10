@@ -32,7 +32,7 @@ export default function (
 			return Object.assign (
 				{} 		,
 				state 	,
-				...themes [ action.id ]
+				themes [ action.id ]
 			);
 
 		default :

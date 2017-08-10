@@ -4,6 +4,7 @@ import { 	connect 		} 	from 'react-redux';
 import { 	ScrollView 		,
 			Text 			,
 			View 			} 	from 'react-native';
+import { 	Ionicons 		} 	from '@expo/vector-icons';
 // import 		Error 				from '../components/errors/ajax';
 // import 		Loader 				from '../components/utilities/loader';
 // import 		Notification 		from '../components/utilities/notification';
@@ -11,6 +12,7 @@ import { 	ScrollView 		,
 //import 		Overview 			from '../components/bull/overview';
 // import 		NotFound 			from '../components/bull/404';
 //import 		Refresh 			from '../components/bull/refresh';
+
 import 		actions 			from '../actions/currencies';
 // import 		style 				from '../styles/bull';
 // import 		scene 				from '../styles/scene';
@@ -24,11 +26,24 @@ export default connect (
 
 ) ( class Bull extends React.Component {
 
-	static navigationOptions = ({ navigation }) => ({
-		// headerRight : <Refresh 	/> ,
-		// headerTitle : <Header 	/> ,
-		title 		: strings.screens.bull.title
-	});
+	static navigationOptions = ({ screenProps }) => {
+
+		return {
+			// headerRight : <Refresh 	/> ,
+			// headerTitle : <Header 	/> ,
+			tabBarIcon : ({ focused }) => {
+
+				return (
+					<Ionicons
+						name 	= 'ios-trending-up-outline'
+						size 	= { 32 																	}
+						color 	= { focused ? screenProps.theme.disabled : screenProps.theme.secondary 	}
+					/>
+				);
+			} ,
+			title 		: strings.screens.bull.title
+		};
+	};
 
 	constructor ( props ) {
 		super 	( props );

@@ -1,25 +1,20 @@
 
 import 		React 			from 'react';
-import { 	Platform 	, 
-			StatusBar 	, 
-			View 		} 	from 'react-native';
 import { 	Provider 	} 	from 'react-redux';
 import { 	AppLoading 	} 	from 'expo';
 import { 	Ionicons 	} 	from '@expo/vector-icons';
+import 		Main 			from './screens/main';
 import 		theme 			from './actions/theme';
 import 		configuration 	from './configuration/store';
-import 		Navigation 		from './navigations/router';
-import 		strings 		from './properties/strings';
-import 		styles 			from './styles/main';
 import 		cache 			from './utilities/cache';
+import 		strings 		from './properties/strings';
 
 const store = configuration ();
 
 export default class Application extends React.Component {
 
 	state = {
-		cache : false ,
-		theme : store.getState ().theme
+		cache : false
 	};
 
 	async setCache () {
@@ -42,7 +37,7 @@ export default class Application extends React.Component {
 		catch ( error ) {
 
 			console.warn 	( strings.development.cache );
-			console.log 	( error.message 				);
+			console.log 	( error.message 			);
 
 		} 
 		
@@ -69,15 +64,7 @@ export default class Application extends React.Component {
 			return (
 				
 				<Provider store = { store }>
-					<View style = { styles ( this.state.theme ).main }>
-						{ Platform.OS === 'ios' 	&& <StatusBar 	barStyle 	= 'default' 								/> }
-						{ Platform.OS === 'android' && <View 		style 		= { styles ( this.state.theme ).statusbar } /> }
-						<Navigation 
-							screenProps = {{
-								theme : this.state.theme 						
-							}} 
-						/>
-					</View>
+					<Main />
 				</Provider>
 			);
 		} 

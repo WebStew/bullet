@@ -5,7 +5,7 @@ import { 	Ionicons 		} 	from '@expo/vector-icons';
 import { 	StackNavigator 	,
 			TabNavigator 	, 
 			TabBarBottom 	} 	from 'react-navigation';
-import { 	Image 			} 	from 'react-native';
+//import { 	Image 			} 	from 'react-native';
 import 		Bull 				from '../screens/bull';
 // import 		Currencies 				from '../screens/currencies';
 // import 		Detail					from '../screens/detail';
@@ -15,7 +15,6 @@ import 		Settings 			from '../screens/settings';
 import 		Theme 				from '../screens/theme';
 import 		tabbar 				from '../styles/tabbar';
 import 		header 				from '../styles/header';
-//import 		theme 					from '../configuration/palette';
 
 const Root = TabNavigator (
 
@@ -40,47 +39,47 @@ const Root = TabNavigator (
 	{
 		animationEnabled 	: true ,
 
-		navigationOptions 	: function ({ navigation , screenProps }) {
+		// navigationOptions 	: function ({ navigation , screenProps }) {
 
-			const theme = screenProps.theme;
+		// 	const theme = screenProps.theme;
 
-			return {
+		// 	return {
 
-				// Set the tab bar icon
-				tabBarIcon : ({ focused }) => {
+		// 		// Set the tab bar icon
+		// 		tabBarIcon : ({ focused }) => {
 
-					const { routeName } = navigation.state;
-					let 	name;
+		// 			const { routeName } = navigation.state;
+		// 			let 	name;
 
-					switch ( routeName ) {
+		// 			switch ( routeName ) {
 
-						case 'bull':
-							name = 'ios-trending-up-outline';
-							break;
+		// 				case 'bull':
+		// 					name = 'ios-trending-up-outline';
+		// 					break;
 
-						case 'currencies':
-							name = 'ios-stats-outline';
-							break;
+		// 				case 'currencies':
+		// 					name = 'ios-stats-outline';
+		// 					break;
 
-						case 'exchanges':
-							name = 'ios-basket-outline';
-							break;
+		// 				case 'exchanges':
+		// 					name = 'ios-basket-outline';
+		// 					break;
 
-						case 'settings':
-							name = 'ios-settings-outline';
-							break;
-					}
+		// 				case 'settings':
+		// 					name = 'ios-settings-outline';
+		// 					break;
+		// 			}
 
-					return (
-						<Ionicons
-							name 	= { name 										}
-							size 	= { 32 											}
-							color 	= { focused ? theme.disabled : theme.secondary 	}
-						/>
-					);
-				}
-			}
-		} ,
+		// 			return (
+		// 				<Ionicons
+		// 					name 	= { name 										}
+		// 					size 	= { 32 											}
+		// 					color 	= { focused ? theme.disabled : theme.secondary 	}
+		// 				/>
+		// 			);
+		// 		}
+		// 	}
+		// } ,
 
 		swipeEnabled 		: true ,
 
@@ -91,7 +90,7 @@ const Root = TabNavigator (
 		// Don't show the labels
 		tabBarOptions 		: {
 			showLabel 		: false ,
-			//...tabbar ( this.props.theme )
+			// style 			: tabbar ( this.props.screenProps.theme )
 
 		}
 	}
@@ -122,8 +121,10 @@ export default StackNavigator (
 
 			const theme = screenProps.theme;
 
+			//console.log ( header ( theme ).back )
+
 			return {
-				headerBackTitleStyle 	: header ( theme ).back 	,
+				//headerBackTitleStyle 	: header ( theme ).back 	,
 				headerStyle 			: header ( theme ).header 	,
 				headerTitleStyle 		: header ( theme ).title
 			};

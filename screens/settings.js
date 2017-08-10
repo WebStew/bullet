@@ -11,9 +11,25 @@ import 		style 					from '../styles/list-control';
 
 export default class Settings extends React.Component {
 
-	static navigationOptions = ({ navigation }) => ({
-		title : strings.screens.settings.title
-	});
+	static navigationOptions = ({ screenProps }) => {
+
+		return {
+
+			tabBarIcon : ({ focused }) => {
+
+				return (
+					<Ionicons
+						name 	= { 'ios-settings-outline' 												}
+						size 	= { 32 																	}
+						color 	= { focused ? screenProps.theme.disabled : screenProps.theme.secondary 	}
+					/>
+				);
+
+			} ,
+			title : strings.screens.settings.title
+
+		};
+	};
 
 	settings () {
 
