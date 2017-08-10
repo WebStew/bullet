@@ -15,7 +15,7 @@ import { 	Ionicons 		} 	from '@expo/vector-icons';
 
 import 		actions 			from '../actions/currencies';
 // import 		style 				from '../styles/bull';
-// import 		scene 				from '../styles/scene';
+import 		scene 				from '../styles/scene';
 import 		strings 			from '../properties/strings';
 
 export default connect (
@@ -52,26 +52,28 @@ export default connect (
 		this.refresh ();
 	}
 
-	notification () {
+	// notification () {
 
-		if ( __DEV__ ) {
+	// 	if ( __DEV__ ) {
 			
-			return (
-				<Notification message = { strings.development.notification } />
-			);
-		}
-	}
+	// 		return (
+	// 			<Notification message = { strings.development.notification } />
+	// 		);
+	// 	}
+	// }
 
 	refresh () {
 
 		// Gets the first 100 tokens from the API
-		this.props.dispatch ( actions.get 		());
+		this.props.dispatch ( actions.get ());
 
 		// Gets the entire list of tokens from the API in the background
 		//this.props.dispatch ( actions.stream 	());
 	}
 
 	render () {
+
+		const theme = this.props.screenProps.theme;
 		
 		// { this.notification ()}
 
@@ -110,9 +112,9 @@ export default connect (
 		// 				<Overview 
 		// 			bull = { this.props.bull }
 		// 		/>
-//style 	= { scene.default }
+//
 		return (
-			<ScrollView >
+			<ScrollView style = { scene ( theme ).body }>
 				<Text>This is a test</Text>
 			</ScrollView>
 		);

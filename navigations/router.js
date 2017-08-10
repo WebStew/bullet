@@ -5,6 +5,9 @@ import { 	Ionicons 		} 	from '@expo/vector-icons';
 import { 	StackNavigator 	,
 			TabNavigator 	, 
 			TabBarBottom 	} 	from 'react-navigation';
+
+import 		Test 			from '../components/navigations/tabbar-bottom';
+
 //import { 	Image 			} 	from 'react-native';
 import 		Bull 				from '../screens/bull';
 // import 		Currencies 				from '../screens/currencies';
@@ -84,7 +87,7 @@ const Root = TabNavigator (
 		swipeEnabled 		: true ,
 
 		// Put tab bar on bottom of screen on both platforms
-		tabBarComponent 	: TabBarBottom 	,
+		tabBarComponent 	: Test 	,
 		tabBarPosition 		: 'bottom'		,
 
 		// Don't show the labels
