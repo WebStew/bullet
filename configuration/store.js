@@ -16,7 +16,7 @@ export default function ( state : Object = {}) {
 			applyMiddleware (
 				thunk 		,
 				theme.get 	,
-				theme.set
+				theme.save
 				//createLogger ()
 			)
 		)

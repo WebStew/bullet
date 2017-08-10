@@ -1,7 +1,7 @@
 
-export default [
+export default {
 
-	{
+	default : {
 		name 			: 'Default' ,
 		id 				: 'default' ,
 
@@ -16,7 +16,7 @@ export default [
 		secondary 		: '#00c9f1'
 	} ,
 
-	{
+	midnight : {
 		name 			: 'Midnight' ,
 		id 				: 'midnight' ,
 
@@ -31,4 +31,4 @@ export default [
 		secondary 		: '#00c4eb'
 	}
 
-];
+};

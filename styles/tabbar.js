@@ -1,15 +1,18 @@
 
-import theme from '../configuration/palette';
+//import themes from '../properties/themes';
 
-export default {
+export default ( theme ) => {
 
-	//activeBackgroundColor : theme.accents 	[ 0 ] ,
-	//activeTintColor 		: theme.primaries 	[ 0 ] ,
-	//inactiveBackgroundColor : theme.accents 	[ 0 ] ,
-	//inactiveTintColor 	: theme.primaries 	[ 1 ] ,
-	style 					: {
-		backgroundColor 	: theme.chrome ,
-		borderTopColor 		: theme.border 
+	return {
+
+		//activeBackgroundColor : theme.accents 	[ 0 ] ,
+		//activeTintColor 		: theme.primaries 	[ 0 ] ,
+		//inactiveBackgroundColor : theme.accents 	[ 0 ] ,
+		//inactiveTintColor 	: theme.primaries 	[ 1 ] ,
+		style 					: {
+			backgroundColor 	: theme.chrome ,
+			borderTopColor 		: theme.border 
+		}
 	}
 
 };

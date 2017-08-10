@@ -4,16 +4,16 @@ import { 	connect 		} 	from 'react-redux';
 import { 	ScrollView 		,
 			Text 			,
 			View 			} 	from 'react-native';
-import 		Error 				from '../components/errors/ajax';
-import 		Loader 				from '../components/utilities/loader';
-import 		Notification 		from '../components/utilities/notification';
-import 		Header 				from '../components/bull/header';
-import 		Overview 			from '../components/bull/overview';
-import 		NotFound 			from '../components/bull/404';
-import 		Refresh 			from '../components/bull/refresh';
+// import 		Error 				from '../components/errors/ajax';
+// import 		Loader 				from '../components/utilities/loader';
+// import 		Notification 		from '../components/utilities/notification';
+// import 		Header 				from '../components/bull/header';
+//import 		Overview 			from '../components/bull/overview';
+// import 		NotFound 			from '../components/bull/404';
+//import 		Refresh 			from '../components/bull/refresh';
 import 		actions 			from '../actions/currencies';
-import 		style 				from '../styles/bull';
-import 		scene 				from '../styles/scene';
+// import 		style 				from '../styles/bull';
+// import 		scene 				from '../styles/scene';
 import 		strings 			from '../properties/strings';
 
 export default connect (
@@ -25,8 +25,8 @@ export default connect (
 ) ( class Bull extends React.Component {
 
 	static navigationOptions = ({ navigation }) => ({
-		headerRight : <Refresh 	/> ,
-		headerTitle : <Header 	/> ,
+		// headerRight : <Refresh 	/> ,
+		// headerTitle : <Header 	/> ,
 		title 		: strings.screens.bull.title
 	});
 
@@ -60,44 +60,45 @@ export default connect (
 		
 		// { this.notification ()}
 
-		if ( this.props.bull.loading ) {
+		// if ( this.props.bull.loading ) {
 
-			return (
-				<View  style 	= { scene.default }>
-					<Loader 
-						loading = { this.props.bull.loading }
-						size = 'large'
-					/>
-				</View>
-			);
-		}
+		// 	return (
+		// 		<View  style 	= { scene.default }>
+		// 			<Loader 
+		// 				loading = { this.props.bull.loading }
+		// 				size = 'large'
+		// 			/>
+		// 		</View>
+		// 	);
+		// }
 
-		if ( this.props.bull.error ) {
+		// if ( this.props.bull.error ) {
 
-			return (
-				<Error 
-					error 	= { this.props.bull.error 	}
-					press 	= { this.refresh 			}
-					text 	= { strings.errors.ajax 	}
-				/>
-			);
+		// 	return (
+		// 		<Error 
+		// 			error 	= { this.props.bull.error 	}
+		// 			press 	= { this.refresh 			}
+		// 			text 	= { strings.errors.ajax 	}
+		// 		/>
+		// 	);
 
-		}
+		// }
 
-		if ( this.props.bull.rating === 0 ) {
+		// if ( this.props.bull.rating === 0 ) {
 
-			return (
-				<NotFound 
-					bull = { this.props.bull }
-				/>
-			);
-		}
-
+		// 	return (
+		// 		<NotFound 
+		// 			bull = { this.props.bull }
+		// 		/>
+		// 	);
+		// }
+		// 				<Overview 
+		// 			bull = { this.props.bull }
+		// 		/>
+//style 	= { scene.default }
 		return (
-			<ScrollView style 	= { scene.default }>
-				<Overview 
-					bull = { this.props.bull }
-				/>
+			<ScrollView >
+				<Text>This is a test</Text>
 			</ScrollView>
 		);
 

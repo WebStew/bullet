@@ -2,7 +2,7 @@
 import actions 		from '../actions/theme';
 import constants 	from '../constants/theme';
 import database 	from '../configuration/database';
-import themes 		from '../configuration/theme';
+//import // 		from '../configuration/theme';
 
 database.settings.setup ();
 
@@ -19,8 +19,8 @@ export default {
 				// Only set the theme again if one has been saved. 
 				// The default theme is already set in the reducer
 				if ( theme ) {
-					themes.set 		( theme 				);
-					store.dispatch 	( actions.set ( theme 	));
+					//themes.set 		( theme 				);
+					store.dispatch 	( actions.set ( theme ));
 
 				}
 				next ( action );
@@ -33,7 +33,7 @@ export default {
 		}
 	} ,
 
-	set : store => next => action => {
+	save : store => next => action => {
 
 		if ( action.type === constants.save ) {
 

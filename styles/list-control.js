@@ -1,21 +1,22 @@
 
-import theme from '../configuration/palette';
+export default ( theme ) => {
 
-export default {
+	return {
 
-	control : {
-		borderColor 		: theme.border 			,
-		borderWidth 		: 1 					,
-		borderTopWidth 		: 0 					,
-		flex 				: 1 					,
-		flexDirection 		: 'row' 				,
-		justifyContent 		: 'space-between' 		,
-		paddingHorizontal 	: 15 					,
-		paddingVertical 	: 15
-	} ,
+		control : {
+			borderColor 		: theme.border 			,
+			borderWidth 		: 1 					,
+			borderTopWidth 		: 0 					,
+			flex 				: 1 					,
+			flexDirection 		: 'row' 				,
+			justifyContent 		: 'space-between' 		,
+			paddingHorizontal 	: 15 					,
+			paddingVertical 	: 15
+		} ,
 
-	text 	: {
-		color 				: theme.body 			,
-		fontSize 			: 16
-	}
+		text 	: {
+			color 				: theme.body 			,
+			fontSize 			: 16
+		}
+	};
 };

@@ -1,16 +1,16 @@
 
-import theme from '../configuration/palette';
+export default ( theme ) => {
 
-export default {
+	return {
 
-	main : {
-		backgroundColor : theme.primary ,
-		flex 			: 1
-	} ,
+		main : {
+			backgroundColor : theme.primary ,
+			flex 			: 1
+		} ,
 
-	statusbar : {
-		backgroundColor : theme.primary ,
-		height 			: 24
+		statusbar : {
+			backgroundColor : theme.primary ,
+			height 			: 24
+		}
 	}
-	
 };

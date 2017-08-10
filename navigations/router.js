@@ -1,20 +1,21 @@
 
-import 		React 					from 'react';
-import { 	Ionicons 			} 	from '@expo/vector-icons';
+import 		React 				from 'react';
+import { 	connect 		} 	from 'react-redux';
+import { 	Ionicons 		} 	from '@expo/vector-icons';
 import { 	StackNavigator 	,
 			TabNavigator 	, 
-			TabBarBottom 		} 	from 'react-navigation';
-import { 	Image 				} 	from 'react-native';
-import 		Bull 					from '../screens/bull';
-import 		Currencies 				from '../screens/currencies';
-import 		Detail					from '../screens/detail';
-import 		Exchanges 				from '../screens/exchanges';
-import 		Language 				from '../screens/language';
-import 		Settings 				from '../screens/settings';
-import 		Theme 					from '../screens/theme';
-import 		style 					from '../styles/tabbar';
-import 		banner 					from '../styles/header';
-import 		theme 					from '../configuration/palette';
+			TabBarBottom 	} 	from 'react-navigation';
+import { 	Image 			} 	from 'react-native';
+import 		Bull 				from '../screens/bull';
+// import 		Currencies 				from '../screens/currencies';
+// import 		Detail					from '../screens/detail';
+// import 		Exchanges 				from '../screens/exchanges';
+//import 		Language 				from '../screens/language';
+import 		Settings 			from '../screens/settings';
+import 		Theme 				from '../screens/theme';
+import 		tabbar 				from '../styles/tabbar';
+import 		header 				from '../styles/header';
+//import 		theme 					from '../configuration/palette';
 
 const Root = TabNavigator (
 
@@ -23,13 +24,13 @@ const Root = TabNavigator (
 			screen 	: Bull
 		} ,
 
-		currencies 	: {
-			screen 	: Currencies
-		} ,
+		// currencies 	: {
+		// 	screen 	: Currencies
+		// } ,
 
-		exchanges 	: {
-			screen 	: Exchanges
-		} ,
+		// exchanges 	: {
+		// 	screen 	: Exchanges
+		// } ,
 
 		settings 	: {
 			screen 	: Settings
@@ -39,7 +40,9 @@ const Root = TabNavigator (
 	{
 		animationEnabled 	: true ,
 
-		navigationOptions 	: function ({ navigation }) {
+		navigationOptions 	: function ({ navigation , screenProps }) {
+
+			const theme = screenProps.theme;
 
 			return {
 
@@ -88,7 +91,7 @@ const Root = TabNavigator (
 		// Don't show the labels
 		tabBarOptions 		: {
 			showLabel 		: false ,
-			...style
+			//...tabbar ( this.props.theme )
 
 		}
 	}
@@ -101,13 +104,13 @@ export default StackNavigator (
 			screen : Root
 		} ,
 
-		Detail : {
-			screen : Detail
-		} ,
+		// Detail : {
+		// 	screen : Detail
+		// } ,
 
-		Language : {
-			screen : Language
-		} ,
+		// Language : {
+		// 	screen : Language
+		// } ,
 
 		Theme : {
 			screen : Theme
@@ -115,11 +118,16 @@ export default StackNavigator (
 	} ,
 
 	{
-		navigationOptions : () => ({
-			headerBackTitleStyle 	: banner.default.back 	,
-			headerStyle 			: banner.default.header ,
-			headerTitleStyle 		: banner.default.title
-		})
+		navigationOptions : ({ screenProps }) => {
+
+			const theme = screenProps.theme;
+
+			return {
+				headerBackTitleStyle 	: header ( theme ).back 	,
+				headerStyle 			: header ( theme ).header 	,
+				headerTitleStyle 		: header ( theme ).title
+			};
+		}
 	}
 );
 

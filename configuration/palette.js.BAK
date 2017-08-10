@@ -4,4 +4,4 @@ import themes 	from '../properties/themes';
 
 const id = theme.get ();
 
-export default themes.find (( palette ) => palette.id === id );
+export default themes [ id ];

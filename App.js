@@ -3,17 +3,15 @@ import 		React 			from 'react';
 import { 	Platform 	, 
 			StatusBar 	, 
 			View 		} 	from 'react-native';
-
 import { 	Provider 	} 	from 'react-redux';
-
 import { 	AppLoading 	} 	from 'expo';
 import { 	Ionicons 	} 	from '@expo/vector-icons';
-import 		Navigation 		from './navigations/root';
-import 		cache 			from './utilities/cache';
+import 		theme 			from './actions/theme';
+import 		configuration 	from './configuration/store';
+import 		Navigation 		from './navigations/router';
 import 		strings 		from './properties/strings';
 import 		styles 			from './styles/main';
-import 		configuration 	from './configuration/store';
-import 		theme 			from './actions/theme';
+import 		cache 			from './utilities/cache';
 
 const store = configuration ();
 
@@ -60,11 +58,8 @@ export default class Application extends React.Component {
 
 	componentWillMount () {
 
-		this.setCache ();
-
-		console.log ( this.state );
-
-		store.dispatch ( theme.get ())
+		this.setCache 	();
+		store.dispatch 	( theme.get ())
 	}
 
 	render () {
@@ -74,10 +69,14 @@ export default class Application extends React.Component {
 			return (
 				
 				<Provider store = { store }>
-					<View style = { styles.main }>
-						{ Platform.OS === 'ios' 	&& <StatusBar 	barStyle 	= 'default' 			/> }
-						{ Platform.OS === 'android' && <View 		style 		= { styles.statusbar } 	/> }
-						<Navigation />
+					<View style = { styles ( this.state.theme ).main }>
+						{ Platform.OS === 'ios' 	&& <StatusBar 	barStyle 	= 'default' 								/> }
+						{ Platform.OS === 'android' && <View 		style 		= { styles ( this.state.theme ).statusbar } /> }
+						<Navigation 
+							screenProps = {{
+								theme : this.state.theme 						
+							}} 
+						/>
 					</View>
 				</Provider>
 			);

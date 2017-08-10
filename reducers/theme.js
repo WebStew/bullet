@@ -2,11 +2,23 @@
 import constants 	from '../constants/theme';
 import themes 		from '../properties/themes';
 
+const initial = themes [ Object.keys ( themes ) [ 0 ]];
+
 export default function (
 
-	// We set the default to the first array item in our configure theme properties
+	// We set the default to the first theme in our theme properties
 	state 	= {
-		id 	: themes [ 0 ].id
+		id 			: initial.id 		,
+		base 		: initial.base 		,
+		body 		: initial.body 		,
+		border 		: initial.border 	,
+		chrome 		: initial.chrome 	,
+		disabled 	: initial.disabled 	,
+		name 		: initial.name 		,
+		negative 	: initial.negative 	,
+		positive 	: initial.positive 	,
+		primary 	: initial.primary 	,
+		secondary 	: initial.secondary
 	} , 
 
 	action 	= {}
@@ -20,9 +32,7 @@ export default function (
 			return Object.assign (
 				{} 		,
 				state 	,
-				{
-					id : action.id
-				}
+				...themes [ action.id ]
 			);
 
 		default :

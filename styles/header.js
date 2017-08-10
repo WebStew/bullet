@@ -1,9 +1,9 @@
 
-import theme from '../configuration/palette';
+//import theme from '../configuration/palette';
 
-export default {
+export default ( theme ) => {
 
-	default : {
+	return {
 
 		back 	: {
 
@@ -68,5 +68,5 @@ export default {
 			fontSize 	: 18 			,
 			fontWeight 	: 'normal'
 		}
-	}
+	};
 };

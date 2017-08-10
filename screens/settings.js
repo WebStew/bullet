@@ -7,7 +7,6 @@ import { 	ScrollView 			,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		scene 					from '../styles/scene';
 import 		strings 				from '../properties/strings';
-import 		theme 					from '../configuration/palette';
 import 		style 					from '../styles/list-control';
 
 export default class Settings extends React.Component {
@@ -33,7 +32,8 @@ export default class Settings extends React.Component {
 
 	contents () {
 
-		const 	navigate = this.props.navigation.navigate;
+		const 	navigate 	= this.props.navigation.navigate 	,
+				theme 		= this.props.screenProps.theme 		;
 
 		return this.settings ().map (( setting , index ) => {
 
@@ -44,13 +44,13 @@ export default class Settings extends React.Component {
 					key 	= { index 						}
 					onPress = {() => navigate ( setting.url )}
 					style 	= {{ 
-						...style.control ,
+						...style ( theme ).control ,
 						...{
 							backgroundColor : background
 						}
 					}}
 				>
-					<Text style = { style.text 				}>
+					<Text style = { style ( theme ).text 				}>
 						{ setting.name }
 					</Text>
 					<Ionicons
@@ -66,8 +66,10 @@ export default class Settings extends React.Component {
 
 	render () {
 
+		const theme = this.props.screenProps.theme;
+
 		return (
-			<ScrollView style 	= { scene.default 	}>
+			<ScrollView style 	= { scene ( theme ).body }>
 				{ this.contents ()}
 			</ScrollView>
 		);

@@ -1,16 +1,18 @@
 
 import device 	from '../properties/device';
-import theme 	from '../configuration/palette';
 
-export default {
+export default ( theme ) => {
 
-	default : {
-		backgroundColor : theme.base 	,
-		flex 			: 1 			,
-		height 			: device.height
-	} ,
+	return {
 
-	header 	: {
-		backgroundColor : theme.primary
-	}
+		body : {
+			backgroundColor : theme.base 	,
+			flex 			: 1 			,
+			height 			: device.height
+		} ,
+
+		header 	: {
+			backgroundColor : theme.primary
+		}
+	};
 };

@@ -56,7 +56,9 @@ export default class RootNavigator extends React.Component {
 
 	render () {
 
-		return <Root />;
+		console.log ( 'ROOT' , this.props );
+
+		return <Root screenProps = { this.props.theme }/>;
 	}
 
 }
