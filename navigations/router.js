@@ -14,7 +14,7 @@ import 		Settings 				from '../screens/settings';
 import 		Theme 					from '../screens/theme';
 import 		style 					from '../styles/tabbar';
 import 		banner 					from '../styles/header';
-import 		theme 					from '../configuration/theme';
+import 		theme 					from '../configuration/palette';
 
 const Root = TabNavigator (
 

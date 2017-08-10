@@ -1,6 +1,6 @@
 
 import device 	from '../properties/device';
-import theme 	from '../configuration/theme';
+import theme 	from '../configuration/palette';
 
 export default {
 

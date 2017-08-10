@@ -38,8 +38,8 @@ export default connect (
 
 			return (
 				<TouchableOpacity 
-					key 	= { index 								}
-					onPress = {() => this.props.dispatch ( actions.set ( theme.id ))}
+					key 	= { index 												}
+					onPress = {() => this.props.dispatch ( actions.save ( theme.id 	))}
 					style 	= {{
 						...style.control ,
 						...{

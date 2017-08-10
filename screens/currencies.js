@@ -14,7 +14,7 @@ import 		SearchInput 			from '../components/search/input';
 import 		Header 					from '../components/currencies/header';
 import 		actions 				from '../actions/currencies';
 import 		strings 				from '../properties/strings';
-import 		theme 					from '../configuration/theme';
+import 		theme 					from '../configuration/palette';
 import 		list 					from '../styles/list';
 import 		style 					from '../styles/currencies';
 import 		styleScene 				from '../styles/scene';

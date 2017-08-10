@@ -1,7 +1,6 @@
 
 import constants 	from '../constants/theme';
 import themes 		from '../properties/themes';
-import database 	from '../configuration/database';
 
 export default function (
 
@@ -16,10 +15,7 @@ export default function (
 
 	switch ( action.type ) {
 
-		case constants.set 	:
-
-			// Persist to the database
-			database.settings.set ( 'theme' , action.id );
+		case constants.set :
 
 			return Object.assign (
 				{} 		,

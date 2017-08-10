@@ -13,13 +13,15 @@ import 		cache 			from './utilities/cache';
 import 		strings 		from './properties/strings';
 import 		styles 			from './styles/main';
 import 		configuration 	from './configuration/store';
+import 		theme 			from './actions/theme';
 
 const store = configuration ();
 
 export default class Application extends React.Component {
 
 	state = {
-		ready : false
+		cache : false ,
+		theme : store.getState ().theme
 	};
 
 	async setCache () {
@@ -49,7 +51,7 @@ export default class Application extends React.Component {
 		finally {
 
 			this.setState ({
-				ready : true
+				cache : true
 			});
 		
 		}
@@ -59,11 +61,15 @@ export default class Application extends React.Component {
 	componentWillMount () {
 
 		this.setCache ();
+
+		console.log ( this.state );
+
+		store.dispatch ( theme.get ())
 	}
 
 	render () {
 
-		if ( this.state.ready ) {
+		if ( this.state.cache ) {
 
 			return (
 				
@@ -82,4 +88,4 @@ export default class Application extends React.Component {
 			return <AppLoading />;
 		}
 	}
-}
+};

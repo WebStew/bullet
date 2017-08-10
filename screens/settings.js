@@ -7,7 +7,7 @@ import { 	ScrollView 			,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		scene 					from '../styles/scene';
 import 		strings 				from '../properties/strings';
-import 		theme 					from '../configuration/theme';
+import 		theme 					from '../configuration/palette';
 import 		style 					from '../styles/list-control';
 
 export default class Settings extends React.Component {

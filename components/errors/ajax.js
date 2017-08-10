@@ -6,7 +6,7 @@ import { 	Text 				,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		style 					from '../../styles/errors';
 import 		strings 				from '../../properties/strings';
-import 		theme 					from '../../configuration/theme';
+import 		theme 					from '../../configuration/palette';
 import 		layout 					from '../../styles/layout';
 
 export default class Error extends React.Component {

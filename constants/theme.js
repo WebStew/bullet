@@ -5,6 +5,8 @@
  */
 export default {
 
-	set : 'theme:set'
+	get 	: 'theme:get' 	,
+	save 	: 'theme:save' 	,
+	set 	: 'theme:set'
 	
 };
