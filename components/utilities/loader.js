@@ -2,7 +2,6 @@
 import React 							from 'react';
 import 			{ ActivityIndicator } 	from 'react-native';
 import style 							from '../../styles/loader';
-import theme 							from '../../configuration/palette';
 
 export default class Loader extends React.Component {
 
@@ -15,10 +14,10 @@ export default class Loader extends React.Component {
 
 		return (
 			<ActivityIndicator
-				animating 	= { this.props.loading 	}
-				color 		= { this.props.color || theme.primary }
-				size 		= { this.props.size 	}
-				style 		= { style 				}
+				animating 	= { this.props.loading 									}
+				color 		= { this.props.color || this.props.theme.secondary 		}
+				size 		= { this.props.size 									}
+				style 		= { style ()											}
 			/>
 		);
 	}

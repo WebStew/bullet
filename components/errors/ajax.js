@@ -6,14 +6,14 @@ import { 	Text 				,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		style 					from '../../styles/errors';
 import 		strings 				from '../../properties/strings';
-import 		theme 					from '../../configuration/palette';
 import 		layout 					from '../../styles/layout';
 
 export default class Error extends React.Component {
 
 	render () {
 
-		const text = this.props.text || strings.errors.default;
+		const 	text 	= this.props.text || strings.errors.default ,
+				theme 	= this.props.theme;
 
 		// If there is no error return
 		if ( ! this.props.error ) {
@@ -28,8 +28,8 @@ export default class Error extends React.Component {
 			}}>
 				
 				<TouchableOpacity 
-					style 	= { style.ajax.view 	} 
-					onPress = { this.props.press 	}>
+					style 	= { style ( theme ).ajax.view 	} 
+					onPress = { this.props.press 			}>
 
 					<Ionicons
 						name 	= 'ios-refresh'
@@ -37,7 +37,7 @@ export default class Error extends React.Component {
 						color 	= { theme.secondary}
 					/>
 
-					<Text style = { style.ajax.text }>
+					<Text style = { style ( theme ).ajax.text }>
 						{ text }
 					</Text>
 

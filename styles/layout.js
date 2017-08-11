@@ -1,12 +1,15 @@
 
-export default {
+export default ( theme ) => {
 
-	fill 				: {
-		flex 			: 1
-	} ,
+	return {
+		
+		fill 				: {
+			flex 			: 1
+		} ,
 
-	row 				: {
-		flexDirection 	: 'row'
-	}
+		row 				: {
+			flexDirection 	: 'row'
+		}
+	};
 	
 };

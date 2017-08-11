@@ -1,18 +1,18 @@
 
-import theme from '../configuration/palette';
+export default ( theme ) => {
 
-export default {
+	return {
 
-	default 		: {
-		fontWeight 	: 'bold'
-	} ,
+		default 		: {
+			fontWeight 	: 'bold'
+		} ,
 
-	negative 		: {
-		color 		: theme.negative
-	} ,
+		negative 		: {
+			color 		: theme.negative
+		} ,
 
-	positive		: {
-		color 		: theme.positive
-	}
-
+		positive		: {
+			color 		: theme.positive
+		}
+	};
 };

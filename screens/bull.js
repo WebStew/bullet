@@ -5,16 +5,13 @@ import { 	ScrollView 		,
 			Text 			,
 			View 			} 	from 'react-native';
 import { 	Ionicons 		} 	from '@expo/vector-icons';
-// import 		Error 				from '../components/errors/ajax';
-// import 		Loader 				from '../components/utilities/loader';
-// import 		Notification 		from '../components/utilities/notification';
-// import 		Header 				from '../components/bull/header';
-//import 		Overview 			from '../components/bull/overview';
-// import 		NotFound 			from '../components/bull/404';
-//import 		Refresh 			from '../components/bull/refresh';
-
+import 		Error 				from '../components/errors/ajax';
+import 		Loader 				from '../components/utilities/loader';
+import 		Header 				from '../components/bull/header';
+import 		Overview 			from '../components/bull/overview';
+import 		NotFound 			from '../components/bull/404';
+import 		Refresh 			from '../components/bull/refresh';
 import 		actions 			from '../actions/currencies';
-// import 		style 				from '../styles/bull';
 import 		scene 				from '../styles/scene';
 import 		strings 			from '../properties/strings';
 
@@ -29,9 +26,9 @@ export default connect (
 	static navigationOptions = ({ screenProps }) => {
 
 		return {
-			// headerRight : <Refresh 	/> ,
-			// headerTitle : <Header 	/> ,
-			tabBarIcon : ({ focused }) => {
+			headerRight : <Refresh 	/> ,
+			headerTitle : <Header 	/> ,
+			tabBarIcon 	: ({ focused }) => {
 
 				return (
 					<Ionicons
@@ -52,70 +49,58 @@ export default connect (
 		this.refresh ();
 	}
 
-	// notification () {
-
-	// 	if ( __DEV__ ) {
-			
-	// 		return (
-	// 			<Notification message = { strings.development.notification } />
-	// 		);
-	// 	}
-	// }
-
 	refresh () {
 
 		// Gets the first 100 tokens from the API
 		this.props.dispatch ( actions.get ());
-
-		// Gets the entire list of tokens from the API in the background
-		//this.props.dispatch ( actions.stream 	());
 	}
 
 	render () {
 
 		const theme = this.props.screenProps.theme;
-		
-		// { this.notification ()}
 
-		// if ( this.props.bull.loading ) {
+		if ( this.props.bull.loading ) {
 
-		// 	return (
-		// 		<View  style 	= { scene.default }>
-		// 			<Loader 
-		// 				loading = { this.props.bull.loading }
-		// 				size = 'large'
-		// 			/>
-		// 		</View>
-		// 	);
-		// }
+			return (
+				<View  style 	= { scene ( theme ).body 	}>
+					<Loader 
+						loading = { this.props.bull.loading }
+						size 	= 'large' 
+						theme 	= { theme 					}
+					/>
+				</View>
+			);
+		}
 
-		// if ( this.props.bull.error ) {
+		if ( this.props.bull.error ) {
 
-		// 	return (
-		// 		<Error 
-		// 			error 	= { this.props.bull.error 	}
-		// 			press 	= { this.refresh 			}
-		// 			text 	= { strings.errors.ajax 	}
-		// 		/>
-		// 	);
+			return (
+				<Error 
+					error 	= { this.props.bull.error 	}
+					press 	= { this.refresh 			}
+					text 	= { strings.errors.ajax 	}
+					theme 	= { theme 					}
+				/>
+			);
 
-		// }
+		}
 
-		// if ( this.props.bull.rating === 0 ) {
+		if ( this.props.bull.rating === 0 ) {
 
-		// 	return (
-		// 		<NotFound 
-		// 			bull = { this.props.bull }
-		// 		/>
-		// 	);
-		// }
-		// 				<Overview 
-		// 			bull = { this.props.bull }
-		// 		/>
-//
+			return (
+				<NotFound 
+					bull 	= { this.props.bull }
+					theme 	= { theme 			}
+				/>
+			);
+		}
+
 		return (
-			<ScrollView style = { scene ( theme ).body }>
-				<Text>This is a test</Text>
+			<ScrollView style = { scene ( theme ).body 	}>
+				<Overview 
+					bull 	= { this.props.bull 		}
+					theme 	= { theme 					}
+				/>
 			</ScrollView>
 		);
 

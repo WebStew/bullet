@@ -11,7 +11,8 @@ import 		api 					from '../../api/currencies';
 export default connect (
 
 	state => ({
-		bull : state.bull
+		bull 	: state.bull ,
+		theme 	: state.theme
 	})
 
 ) ( class Refresh extends React.Component {
@@ -34,17 +35,19 @@ export default connect (
 
 	render () {
 
+		const theme = this.props.theme;
+
 		if ( this.props.bull.loading ) {
 			return null;
 		}
 
 		return ( 
 			<TouchableOpacity 
-				style  	= { style.default.right.control }
-				onPress = { this.refresh 				}
+				style  	= { style ( theme ).right.control 	}
+				onPress = { this.refresh 					}
 			>
-				<Text style = { style.default.right.text }>
-					{ strings.actions.refresh }
+				<Text style = { style ( theme ).right.text 	}>
+					{ strings.actions.refresh 				}
 				</Text>	
 			</TouchableOpacity>
 		);

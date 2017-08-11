@@ -8,12 +8,13 @@ export default class Headings extends React.Component {
 
 	render () {
 
-		const 	type 	= this.props.type || 1 ,
-				style 	= styles [ type ];
+		const 	type 	= this.props.type || 1 		,
+				theme 	= this.props.theme 			,
+				style 	= styles ( theme ) [ type ] ;
 
 		return (
 	
-			<Text style = { style } >
+			<Text style = { style  } >
 				{ this.props.title }
 			</Text>
 		);

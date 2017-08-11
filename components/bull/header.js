@@ -8,25 +8,28 @@ import 		style 					from '../../styles/header';
 export default connect (
 
 	state => ({
-		currencies : state.currencies
+		currencies 	: state.currencies ,
+		theme 		: state.theme
 	})
 
 ) ( class Header extends React.Component {
 
 	render () {
 
+		const theme = this.props.theme;
+
 		if ( this.props.currencies.loading ) {
 
 			return (
-				<Text style = { style.default.title }>
-					{ strings.actions.calculating }
+				<Text style = { style ( theme ).title 	}>
+					{ strings.actions.calculating 		}
 				</Text>
 			);
 		}
 
 		return ( 
-			<Text style = { style.default.title }>
-				{ strings.screens.bull.title }
+			<Text style = { style ( theme ).title 		}>
+				{ strings.screens.bull.title 			}
 			</Text>
 		);
 	}

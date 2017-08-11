@@ -10,21 +10,23 @@ import 		layout 			from '../../styles/layout';
 export default class Sections extends React.Component {
 
 	sections () {
+
+		const theme = this.props.theme;
 	
 		return this.props.sections.map (( section , index ) => {
 
-			let stripe 	= index % 2 === 0 ? { ...style.default , ...style.stripe } : style.default ,
+			let stripe 	= index % 2 === 0 ? { ...style ( theme ).body , ...style ( theme ).stripe } : style ( theme ).body ,
 				data 	= section.data.map (( item , index ) => {
 
 					return ( 
 						<View 	
-							style 	= { layout.row 	} 
-							key 	= { index 	}
+							style 	= { layout ( theme ).row 	} 
+							key 	= { index 					}
 						>
 							<Text 
 								style = {{
-									...layout.fill ,
-									...style.row
+									...layout 	( theme ).fill ,
+									...style 	( theme ).row
 								}}
 							>
 								{ item.property }
@@ -32,10 +34,11 @@ export default class Sections extends React.Component {
 							<Integer 
 								prefix 	= { item.prefix }
 								style 	= {{
-									...layout.fill ,
-									...style.row
+									...layout 	( theme ).fill ,
+									...style 	( theme ).row
 								}}
 								suffix 	= { item.suffix }
+								theme 	= { theme 		}
 								type 	= { item.type 	}
 								value 	= { item.value 	}
 							/>
@@ -46,8 +49,10 @@ export default class Sections extends React.Component {
 			return (
 
 				<View 	key 	= { index 			}
-						style 	= { stripe }>
+						style 	= { stripe 			}
+				>
 					<Heading 
+						theme 	= { theme 			}
 						title 	= { section.title 	}
 						type 	= '2'
 					/>

@@ -1,9 +1,12 @@
 
-export default {
+export default ( theme ) => {
 	
-	alignItems 		: 'center' 	,
-	flex 			: 1 		,
-	flexDirection 	: 'column'  ,
-	justifyContent 	: 'center'
-	
+	return {
+
+		alignItems 		: 'center' 	,
+		flex 			: 1 		,
+		flexDirection 	: 'column'  ,
+		justifyContent 	: 'center'
+
+	};
 };

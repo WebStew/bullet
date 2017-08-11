@@ -1,20 +1,21 @@
 
-import theme from '../configuration/palette';
+export default ( theme ) => {
 
-export default {
+	return {
 
-	default : {
-		borderColor 		: theme.border 	,
-		borderBottomWidth 	: 1 			,
-		padding 			: 15
-	} ,
+		body : {
+			borderColor 		: theme.border 	,
+			borderBottomWidth 	: 1 			,
+			padding 			: 15
+		} ,
 
-	row 	: {
-		color 				: theme.body 	,
-		paddingBottom 		: 3
-	} ,
+		row 	: {
+			color 				: theme.body 	,
+			paddingBottom 		: 3
+		} ,
 
-	stripe 	: {
-		backgroundColor 	: theme.primary
-	}
+		stripe 	: {
+			backgroundColor 	: theme.primary
+		}
+	};
 };
