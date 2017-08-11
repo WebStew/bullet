@@ -2,7 +2,7 @@
 import actions 		from '../actions/theme';
 import constants 	from '../constants/theme';
 import database 	from '../configuration/database';
-//import // 		from '../configuration/theme';
+import themes 		from '../properties/themes';
 
 database.settings.setup ();
 
@@ -18,10 +18,10 @@ export default {
 
 				// Only set the theme again if one has been saved. 
 				// The default theme is already set in the reducer
-				if ( theme ) {
-					//themes.set 		( theme 				);
+				// Only set the theme if it is still present in our properties file
+				if ( theme && themes [ theme ]) {
+					
 					store.dispatch 	( actions.set ( theme ));
-
 				}
 				next ( action );
 
@@ -36,8 +36,6 @@ export default {
 	save : store => next => action => {
 
 		if ( action.type === constants.save ) {
-
-			console.log ( 'MIDDLEWARE SAVING THEME' , action.id );
 
 			database.settings.set ( 'theme' , action.id , () => {
 

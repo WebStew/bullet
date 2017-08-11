@@ -52,7 +52,7 @@ export default connect (
 						...style ( current ).control 					,
 						...{
 							backgroundColor : themes [ theme ].chrome 	,
-							borderColor 	: themes [ theme ].border
+							borderColor 	: themes [ theme ].chrome
 						}
 					}}
 				>

@@ -37,7 +37,7 @@ export default ( theme ) => {
 		} ,
 
 		view : {
-			backgroundColor 	: theme.primary ,
+			backgroundColor 	: theme.chrome 	,
 			borderBottomColor 	: theme.border 	,
 			borderBottomWidth 	: 1 			,
 			height 				: 40

@@ -18,8 +18,8 @@ export default ( theme ) => {
 		} ,
 
 		head : {
-			backgroundColor 	: theme.primary ,
-			borderBottomColor 	: theme.border 	,
+			backgroundColor 	: theme.chrome ,
+			borderBottomColor 	: theme.border ,
 			borderBottomWidth 	: 1
 		} ,
 

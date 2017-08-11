@@ -54,7 +54,7 @@ export default ( theme ) => {
 
 		header 	: {
 			backgroundColor 	: theme.chrome 	,
-			borderBottomColor 	: theme.border 
+			borderBottomColor 	: theme.chrome
 		} ,
 
 		icon : {

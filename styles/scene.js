@@ -7,6 +7,8 @@ export default ( theme ) => {
 
 		body : {
 			backgroundColor : theme.base 	,
+			borderTopWidth 	: 1 			,
+			borderTopColor 	: theme.border 	,
 			flex 			: 1 			,
 			height 			: device.height
 		} ,

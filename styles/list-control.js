@@ -5,13 +5,11 @@ export default ( theme ) => {
 
 		control : {
 			borderColor 		: theme.border 			,
-			borderWidth 		: 1 					,
-			borderTopWidth 		: 0 					,
+			borderBottomWidth 	: 1 					,
 			flex 				: 1 					,
 			flexDirection 		: 'row' 				,
 			justifyContent 		: 'space-between' 		,
-			paddingHorizontal 	: 15 					,
-			paddingVertical 	: 15
+			padding 			: 15
 		} ,
 
 		text 	: {
