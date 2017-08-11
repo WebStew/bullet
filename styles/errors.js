@@ -6,7 +6,8 @@ export default ( theme ) => {
 		ajax : {
 
 			text : {
-				fontSize 	: 16 ,
+				color 		: theme.body 	,
+				fontSize 	: 16 			,
 				textAlign 	: 'center'
 			} ,
 

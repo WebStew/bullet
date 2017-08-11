@@ -7,7 +7,6 @@ import { 	TextInput 			,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		actions 				from '../../actions/search';
 import 		strings 				from '../../properties/strings';
-import 		theme 					from '../../configuration/palette';
 import 		style 					from '../../styles/search';
 
 export default connect (
@@ -37,17 +36,19 @@ export default connect (
 
 	render () {
 
+		const theme = this.props.theme;
+
 		if ( ! this.props.search.on ) {
 			
 			return null;
 		}
 
 		return (
-			<View 		style = { style.view 	}>
-				<View 	style = { style.field 	}>
+			<View 		style = { style ( theme ).view 	}>
+				<View 	style = { style ( theme ).field }>
 
 					<TouchableOpacity
-						style 		= { style.refresh 			}
+						style 		= { style ( theme ).refresh }
 						 onPress 	= {() => this.set 	( null )}
 					>
 						<Ionicons
@@ -63,13 +64,13 @@ export default connect (
 						placeholderTextColor 	= { theme.disabled 				}
 						onChangeText 			= { this.set 					}
 						selectionColor 			= { theme.secondary 			}
-						style 					= { style.input 				}
+						style 					= { style ( theme ).input 		}
 						value 					= { this.props.search.value 	}
 					/>
 
 					<TouchableOpacity
-						style 		= { style.close 	}
-						 onPress 	= { this.off 		}
+						style 		= { style ( theme ).close 	}
+						 onPress 	= { this.off 				}
 					>
 						<Ionicons
 							name 	= { 'ios-close-outline' 	}

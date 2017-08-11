@@ -2,8 +2,7 @@
 import 		React 				from 'react';
 import { 	Image 			,
 			View 			,
-			ScrollView 		,
-			Text 			} 	from 'react-native';
+			ScrollView 		} 	from 'react-native';
 import { 	connect 		} 	from 'react-redux';
 import 		actions 			from '../actions/graphs';
 import 		Back 				from '../components/utilities/back';
@@ -21,27 +20,33 @@ import 		numbers 			from '../utilities/numbers';
 export default connect (
 
 	state => ({
-		graphs : state.graphs
+		graphs 	: state.graphs ,
+		theme 	: state.theme
 	})
 
-) (  class Detail extends React.Component {
+) ( class Detail extends React.Component {
 
-	static navigationOptions = ({ navigation }) => ({
+	static navigationOptions = ({ navigation , screenProps }) => {
 
-		title 			: `${ navigation.state.params.currency.name } ${ strings.screens.detail.title }` ,
+		const theme = screenProps.theme;
 
-		headerLeft 		: <Back 
-			press 		= {() => navigation.goBack 	()} 
-			value 		= { strings.actions.return 	}
-		/> ,
+		return {
 
-		headerRight 	: <Image 
-			style 		= { banner.default.icon }
-			source 		= {{
-				uri 	: images.currencies.small ( navigation.state.params.currency.id ) 
-			}}
-		/>
-	});
+			title 			: `${ navigation.state.params.currency.name } ${ strings.screens.detail.title }` ,
+
+			headerLeft 		: <Back 
+				press 		= {() => navigation.goBack 	()} 
+				value 		= { strings.actions.return 	}
+			/> ,
+
+			headerRight 	: <Image 
+				style 		= { banner ( theme ).icon }
+				source 		= {{
+					uri 	: images.currencies.small ( navigation.state.params.currency.id ) 
+				}}
+			/>
+		};
+	};
 
 	componentWillMount () {
 
@@ -50,21 +55,22 @@ export default connect (
 
 	render () {
 
-		const currency = this.props.navigation.state.params.currency;
+		const currency 	= this.props.navigation.state.params.currency ,
+				theme 	= this.props.theme;
 
 		return (
-			<ScrollView style = { scene.default }>
+			<ScrollView style = { scene ( theme ).body 		}>
 
-				<View 		style = { layout.fill 	}>
+				<View 		style = { layout ( theme ).fill }>
 					<View 	
 						style = {{
-							...layout.row ,
-							...scene.header
+							...layout 	( theme ).row ,
+							...scene 	( theme ).header
 						}}
 					>
 
 						<Image 	
-							style 	= { style.icon }
+							style 	= { style ( theme ).icon }
 							source 	= {{
 								uri : images.currencies.large ( currency.id ) 
 							}}
@@ -72,6 +78,7 @@ export default connect (
 						
 						<Heading 
 							title 	= { currency.name + ' ( ' +  currency.symbol + ' )' } 
+							theme 	= { theme 											}
 							type 	= '1'
 						/>
 					</View>
@@ -80,87 +87,89 @@ export default connect (
 						data 	= { this.props.graphs.prices.usd 	}
 						error 	= { this.props.graphs.error 		}
 						loading = { this.props.graphs.loading 		}
+						theme 	= { theme 							}
 					/>
 
-					<Sections sections = {[
-						{
-							title 		: strings.screens.bull.changes.title 		,
-							data 		: [
-								{
-									property 	: strings.screens.bull.changes.hour ,
-									suffix 		: '%' 								,
-									type 		: 'highlight' 						,
-									value 		: currency.change.hour
-								} 													, 
-								{
-									property 	: strings.screens.bull.changes.day 	,
-									suffix 		: '%' 								,
-									type 		: 'highlight' 						,
-									value 		: currency.change.day
-								} 													,
-								{
-									property 	: strings.screens.bull.changes.week ,
-									suffix 		: '%' 								,
-									type 		: 'highlight' 						,
-									value 		: currency.change.week
-								}
-							]
-						} ,
+					<Sections 
+						theme 		= { theme }
+						sections 	= {[
+							{
+								title 		: strings.screens.bull.changes.title 		,
+								data 		: [
+									{
+										property 	: strings.screens.bull.changes.hour ,
+										suffix 		: '%' 								,
+										type 		: 'highlight' 						,
+										value 		: currency.change.hour
+									} 													, 
+									{
+										property 	: strings.screens.bull.changes.day 	,
+										suffix 		: '%' 								,
+										type 		: 'highlight' 						,
+										value 		: currency.change.day
+									} 													,
+									{
+										property 	: strings.screens.bull.changes.week ,
+										suffix 		: '%' 								,
+										type 		: 'highlight' 						,
+										value 		: currency.change.week
+									}
+								]
+							} ,
 
-						{
-							title 		: strings.screens.bull.values.title 		,
-							data 		: [
-								{
-									prefix 		: strings.denominations.usd.symbol 	,
-									property 	: strings.denominations.usd.name 	,
-									value 		: currency.prices.usd
-								} , 
-								{
-									prefix 		: strings.denominations.btc.symbol 	,
-									property 	: strings.denominations.btc.name 	,
-									value 		: currency.prices.btc
-								}
-							]
-						} ,
+							{
+								title 		: strings.screens.bull.values.title 		,
+								data 		: [
+									{
+										prefix 		: strings.denominations.usd.symbol 	,
+										property 	: strings.denominations.usd.name 	,
+										value 		: currency.prices.usd
+									} , 
+									{
+										prefix 		: strings.denominations.btc.symbol 	,
+										property 	: strings.denominations.btc.name 	,
+										value 		: currency.prices.btc
+									}
+								]
+							} ,
 
-						{
-							title 		: strings.screens.bull.market.title 			,
-							data 		: [
-								{
-									property 	: strings.screens.bull.rating 			,
-									type 		: 'highlight' 							,
-									value 		: numbers.format ( currency.rating )
-								} 														,
-								{
-									prefix 		: strings.denominations.usd.symbol 		,
-									property 	: strings.screens.bull.market.cap 		,
-									value 		: currency.market.usd
-								} 														,
-								{
-									property 	: strings.screens.bull.market.rank 		,
-									value 		: numbers.rank ( currency.rank )
-								} 														,
-								{
-									property 	: strings.screens.bull.market.available ,
-									value 		: currency.supply.available
-								} 														, 
-								{
-									property 	: strings.screens.bull.market.total 	,
-									value 		: currency.supply.total
-								} 														, 
-								{
-									prefix 		: strings.denominations.usd.symbol 		,
-									property 	: strings.screens.bull.market.volume 	,
-									value 		: currency.volume.usd
-								}
-							]
-						}
+							{
+								title 		: strings.screens.bull.market.title 			,
+								data 		: [
+									{
+										property 	: strings.screens.bull.rating 			,
+										type 		: 'highlight' 							,
+										value 		: numbers.format ( currency.rating )
+									} 														,
+									{
+										prefix 		: strings.denominations.usd.symbol 		,
+										property 	: strings.screens.bull.market.cap 		,
+										value 		: currency.market.usd
+									} 														,
+									{
+										property 	: strings.screens.bull.market.rank 		,
+										value 		: numbers.rank ( currency.rank )
+									} 														,
+									{
+										property 	: strings.screens.bull.market.available ,
+										value 		: currency.supply.available
+									} 														, 
+									{
+										property 	: strings.screens.bull.market.total 	,
+										value 		: currency.supply.total
+									} 														, 
+									{
+										prefix 		: strings.denominations.usd.symbol 		,
+										property 	: strings.screens.bull.market.volume 	,
+										value 		: currency.volume.usd
+									}
+								]
+							}
 
-					]}/>
-
+						]}
+					/>
 				</View>
 			</ScrollView>
 		);
-
 	}
 });

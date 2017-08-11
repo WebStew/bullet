@@ -93,7 +93,8 @@ export default {
 			} ,
 
 			language 		: {
-				title 		: 'Change Language'
+				title 		: 'Change Language' ,
+				coming 		: 'Support for mulitple languages is coming soon. Please come back and check this space.'
 			} ,
 
 			settings 		: {

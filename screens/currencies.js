@@ -5,6 +5,7 @@ import {	RefreshControl 		,
 			Text 				,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
+import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		Error 					from '../components/errors/ajax';
 import 		List 					from '../components/utilities/list';
 import 		Currency 				from '../components/currencies/item';
@@ -14,57 +15,75 @@ import 		SearchInput 			from '../components/search/input';
 import 		Header 					from '../components/currencies/header';
 import 		actions 				from '../actions/currencies';
 import 		strings 				from '../properties/strings';
-import 		theme 					from '../configuration/palette';
 import 		list 					from '../styles/list';
 import 		style 					from '../styles/currencies';
-import 		styleScene 				from '../styles/scene';
-import 		styleSeperator 			from '../styles/seperators';
+import 		scene 					from '../styles/scene';
+import 		seperator 				from '../styles/seperators';
 import 		stripe 					from '../styles/stripe';
 import 		api 					from '../api/currencies';
 
 export default connect (
 
 	state => ({
-		currencies 	: state.currencies ,
-		search 		: state.search
+		currencies 	: state.currencies 	,
+		search 		: state.search 		,
+		theme 		: state.theme
 	})
 
 ) ( class Currencies extends React.Component {
 
-	static navigationOptions = ({ navigation }) => ({
-		headerLeft 	: <All 			/> ,
-		headerRight : <SearchIcon 	/> ,
-		headerTitle : <Header 		/> ,
-		title 		: strings.screens.currencies.title
-	});
+	static navigationOptions = ({ screenProps }) => {
+
+		return {
+			headerLeft 	: <All 			/> ,
+			headerRight : <SearchIcon 	/> ,
+			headerTitle : <Header 		/> ,
+			tabBarIcon 	: ({ focused }) => {
+
+				return (
+					<Ionicons
+						name 	= 'ios-stats-outline'
+						size 	= { 32 																	}
+						color 	= { focused ? screenProps.theme.disabled : screenProps.theme.secondary 	}
+					/>
+				);
+			} ,
+			title 		: strings.screens.currencies.title
+		}
+	};
 
 	constructor ( props ) {
 		super 	( props );
 
-		this.header 	= this.header.bind 	( this );
-		this.refresh 	= this.refresh.bind ( this );
-		this.row 		= this.row.bind 	( this );
+		this.header 	= this.header.bind 		( this );
+		this.refresh 	= this.refresh.bind 	( this );
+		this.row 		= this.row.bind 		( this );
+		this.separator 	= this.separator.bind 	( this );
 	}
 
 	row ( currency , section , row , highlight ) {
 
-		const style = row % 2 === 0 ? stripe.secondary : stripe.primary;
+		const 	theme = this.props.theme ,
+				style = row % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary;
 
 		return ( 
 			<Currency
 				currency 	= { currency 				}
 				navigation 	= { this.props.navigation 	}
 				style 		= { style 					}
+				theme 		= { theme 					}
 			/>
 		);
 	}
 
 	separator ( section , row , highlighted ) {
 
+		const theme = this.props.theme;
+
 		return (
 			<View
 				key 	= { section + '-' + row 	}
-				style 	= { styleSeperator.default 	}
+				style 	= { seperator ( theme ) 	}
 			/>
 		);
 	}
@@ -81,6 +100,8 @@ export default connect (
 	}
 
 	cells () {
+
+		const theme = this.props.theme
 
 		return this.headers ().map (( item , index ) => {
 
@@ -102,7 +123,8 @@ export default connect (
 
 	contents () {
 
-		const items = this.data ();
+		const 	items = this.data () 	,
+				theme = this.props.theme;
 
 		if ( items.length ) {
 
@@ -121,16 +143,17 @@ export default connect (
 					}
 					row 		= { this.row 			}
 					separator 	= { this.separator 		}
+					theme 		= { theme 				}
 				/>
 			);
 		}
 
 		return ( 
-			<View 		style = { style [ '404' ].view 			}>
-				<Text 	style = { style [ '404' ].text 			}>
-					{ strings.screens.currencies.none + ' "' 	}
-					<Text style = { style [ '404' ].term 		}>
-						{ this.props.search.value + '"' 		}
+			<View 		style = { style ( theme ) [ '404' ].view 			}>
+				<Text 	style = { style ( theme ) [ '404' ].text 			}>
+					{ strings.screens.currencies.none + ' "' 				}
+					<Text style = { style ( theme ) [ '404' ].term 			}>
+						{ this.props.search.value + '"' 					}
 					</Text>
 				</Text>
 			</View> 
@@ -149,7 +172,8 @@ export default connect (
 
 	headers () {
 
-		let active 	= {};
+		const 	theme 	= this.props.theme;
+		let 	active 	= {};
 
 		active [ this.props.currencies.order ] = {
 			color : theme.disabled
@@ -159,12 +183,12 @@ export default connect (
 			press 		: () => this.props.dispatch ( actions.order ( 'rank' )) 	, 
 			styles 		: {
 				text 	: { 
-					...list 	[ 'head-text' 	] 									,
-					...active 	[ 'rank' 		]
+					...list 	( theme ) [ 'head-text' ] 							,
+					...active 	[ 'rank' 				]
 				} 																	,
 				touch 	: {
-					...list.cell 													,
-					...style.head
+					...list 	( theme ) .cell 									,
+					...style 	( theme ) .head
 				}
 			} 																		,
 			text 		: strings.screens.currencies.headers.rank
@@ -173,11 +197,11 @@ export default connect (
 			press 		: () => this.props.dispatch ( actions.order ( 'rating' )) 	,
 			styles 		: {
 				text 	: {
-					...list 	[ 'head-text' 	] 									,
-					...style.text  													,
-					...active 	[ 'rating' 		]
+					...list 	( theme ) [ 'head-text' 	] 						,
+					...style 	( theme ) .text  									,
+					...active 	[ 'rating' 					]
 				} 																	,
-				touch 	: list.cell
+				touch 	: list 	( theme ) .cell
 			} 																		,
 			text 		: strings.screens.currencies.headers.rating
 		} 																			,
@@ -185,11 +209,11 @@ export default connect (
 			press 		: () => this.props.dispatch ( actions.order ( 'change' )) 	,
 			styles 		: {
 				text 	: {
-					...list 	[ 'head-text' 	] 									,
-					...style.change  												,
-					...active 	[ 'change' 		]
+					...list 	( theme ) [ 'head-text' ] 							,
+					...style 	( theme ) .change  									,
+					...active 	[ 'change' 				]
 				} 																	,
-				touch 	: list.cell 
+				touch 	: list 	( theme ) .cell 
 			} 																		,
 			text 		: strings.screens.currencies.headers.change
 		} ,
@@ -197,17 +221,19 @@ export default connect (
 			press 		: () => this.props.dispatch ( actions.order ( 'price' )) 	,
 			styles 		: {
 				text 	: {
-					...list 	[ 'head-text' 	] 									,
-					...style.price  												,
+					...list 	( theme ) [ 'head-text' 	] 						,
+					...style 	( theme ) .price  									,
 					...active 	[ 'price' 		]
 				} ,
-				touch 	: list.cell
+				touch 	: list 	( theme ).cell
 			} ,
 			text 		: strings.screens.currencies.headers.price
 		}];
 	}
 
 	header () {
+
+		const theme = this.props.theme;
 
 		if (( this.props.currencies.loading && this.props.currencies.items === 0 ) || this.props.currencies.error ) {
 			
@@ -218,8 +244,8 @@ export default connect (
 			<View>
 				<View 
 					style = {{ 
-						...list.row , 
-						...list.head 
+						...list ( theme ).row , 
+						...list ( theme ).head 
 					}}
 				>
 					{ this.cells ()}
@@ -230,12 +256,15 @@ export default connect (
 
 	render () {
 
+		const theme = this.props.theme;
+
 		if ( this.props.currencies.error ) {
 
 			return (
 				<Error 
 					error 	= { this.props.currencies.error 	}
 					press 	= { this.refresh 					}
+					theme 	= { theme 							}
 					text 	= { strings.errors.ajax 			}
 				/>
 			);
@@ -243,11 +272,9 @@ export default connect (
 
 		return (
 
-			<View 	style = { styleScene.default 				}>
-
-				<SearchInput 		/>
-				{ this.contents 	()}
-
+			<View 				style = { scene ( theme ).body 	}>
+				<SearchInput 	theme = { theme 				}/>
+				{ this.contents ()}
 			</View>
 		);
 	}

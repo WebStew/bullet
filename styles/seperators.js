@@ -1,11 +1,8 @@
 
-import theme from '../configuration/palette';
+export default ( theme ) => {
 
-export default  {
-
-	default : {
+	return {
 		backgroundColor : theme.border ,
 		height 			: 1
-	}
-	
+	};
 };

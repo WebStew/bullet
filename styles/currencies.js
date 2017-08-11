@@ -1,50 +1,50 @@
 
-import theme from '../configuration/palette';
+export default ( theme ) => {
 
-export default {
+	return {
 
-	404 		: {
+		404 		: {
 
-		term 	: {
-			fontWeight : 'bold'
+			term 	: {
+				fontWeight : 'bold'
+			} ,
+
+			text 	: {
+				color 		: theme.body ,
+				fontSize 	: 18
+			} ,
+
+			view : {
+				paddingHorizontal 	: 10 ,
+				paddingVertical 	: 20
+			}
+		} ,
+
+		change 	: {
+			textAlign : 'center'
+		} ,
+
+		head 	: {
+			flex 			: 2 	,
+			flexDirection 	: 'row'
+		} ,
+
+		icon 	: {
+			height 			: 16 	, 
+			marginRight 	: 5 	,
+			width 			: 16 
+		} ,
+
+		name 	: {
+			fontWeight 	: 'bold'
+		} ,
+
+		price 	: {
+			textAlign 	: 'right'
 		} ,
 
 		text 	: {
-			color 		: theme.body ,
-			fontSize 	: 18
-		} ,
-
-		view : {
-			paddingHorizontal 	: 10 ,
-			paddingVertical 	: 20
+			textAlign 	: 'left'
 		}
-	} ,
-
-	change 	: {
-		textAlign : 'center'
-	} ,
-
-	head 	: {
-		flex 			: 2 	,
-		flexDirection 	: 'row'
-	} ,
-
-	icon 	: {
-		height 			: 16 	, 
-		marginRight 	: 5 	,
-		width 			: 16 
-	} ,
-
-	name 	: {
-		fontWeight 	: 'bold'
-	} ,
-
-	price 	: {
-		textAlign 	: 'right'
-	} ,
-
-	text 	: {
-		textAlign 	: 'left'
-	}
-
+	};
 };

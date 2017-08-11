@@ -18,7 +18,8 @@ import 		strings 			from '../properties/strings';
 export default connect (
 
 	state => ({
-		bull : state.bull
+		bull 	: state.bull ,
+		theme 	: state.theme
 	})
 
 ) ( class Bull extends React.Component {
@@ -57,7 +58,7 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.screenProps.theme;
+		const theme = this.props.theme;
 
 		if ( this.props.bull.loading ) {
 

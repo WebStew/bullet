@@ -1,5 +1,6 @@
 
 import 		React 					from 'react';
+import { 	connect 			} 	from 'react-redux';
 import { 	ScrollView 			,
 			Text 				,
 			TouchableOpacity 	,
@@ -9,25 +10,32 @@ import 		scene 					from '../styles/scene';
 import 		strings 				from '../properties/strings';
 import 		style 					from '../styles/list-control';
 
-export default class Settings extends React.Component {
+export default connect (
+
+	state => ({
+		theme 	: state.theme
+	})
+
+) ( class Settings extends React.Component {
 
 	static navigationOptions = ({ screenProps }) => {
 
+		const theme = screenProps.theme;
+
 		return {
 
-			tabBarIcon : ({ focused }) => {
+			title 		: strings.screens.settings.title ,
+			tabBarIcon 	: ({ focused }) => {
 
 				return (
 					<Ionicons
-						name 	= { 'ios-settings-outline' 												}
-						size 	= { 32 																	}
-						color 	= { focused ? screenProps.theme.disabled : screenProps.theme.secondary 	}
+						name 	= { 'ios-settings-outline' 						}
+						size 	= { 32 											}
+						color 	= { focused ? theme.disabled : theme.secondary 	}
 					/>
 				);
 
-			} ,
-			title : strings.screens.settings.title
-
+			}
 		};
 	};
 
@@ -49,7 +57,7 @@ export default class Settings extends React.Component {
 	contents () {
 
 		const 	navigate 	= this.props.navigation.navigate 	,
-				theme 		= this.props.screenProps.theme 		;
+				theme 		= this.props.theme 					;
 
 		return this.settings ().map (( setting , index ) => {
 
@@ -82,13 +90,13 @@ export default class Settings extends React.Component {
 
 	render () {
 
-		const theme = this.props.screenProps.theme;
+		const theme = this.props.theme;
 
 		return (
-			<ScrollView style 	= { scene ( theme ).body }>
+			<ScrollView style = { scene ( theme ).body }>
 				{ this.contents ()}
 			</ScrollView>
 		);
 
 	}
-};
+});

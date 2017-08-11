@@ -3,17 +3,13 @@ import 		React 				from 'react';
 import { 	connect 		} 	from 'react-redux';
 import { 	Ionicons 		} 	from '@expo/vector-icons';
 import { 	StackNavigator 	,
-			TabNavigator 	, 
-			TabBarBottom 	} 	from 'react-navigation';
-
-import 		Test 			from '../components/navigations/tabbar-bottom';
-
-//import { 	Image 			} 	from 'react-native';
+			TabNavigator 	} 	from 'react-navigation';
+import 		TabBar 				from '../components/navigations/tabbar-bottom';
 import 		Bull 				from '../screens/bull';
-// import 		Currencies 				from '../screens/currencies';
-// import 		Detail					from '../screens/detail';
-// import 		Exchanges 				from '../screens/exchanges';
-//import 		Language 				from '../screens/language';
+import 		Currencies 			from '../screens/currencies';
+import 		Detail				from '../screens/detail';
+import 		Exchanges 			from '../screens/exchanges';
+import 		Language 			from '../screens/language';
 import 		Settings 			from '../screens/settings';
 import 		Theme 				from '../screens/theme';
 import 		tabbar 				from '../styles/tabbar';
@@ -26,13 +22,13 @@ const Root = TabNavigator (
 			screen 	: Bull
 		} ,
 
-		// currencies 	: {
-		// 	screen 	: Currencies
-		// } ,
+		currencies 	: {
+			screen 	: Currencies
+		} ,
 
-		// exchanges 	: {
-		// 	screen 	: Exchanges
-		// } ,
+		exchanges 	: {
+			screen 	: Exchanges
+		} ,
 
 		settings 	: {
 			screen 	: Settings
@@ -40,60 +36,12 @@ const Root = TabNavigator (
 	} ,
 
 	{
-		animationEnabled 	: true ,
-
-		// navigationOptions 	: function ({ navigation , screenProps }) {
-
-		// 	const theme = screenProps.theme;
-
-		// 	return {
-
-		// 		// Set the tab bar icon
-		// 		tabBarIcon : ({ focused }) => {
-
-		// 			const { routeName } = navigation.state;
-		// 			let 	name;
-
-		// 			switch ( routeName ) {
-
-		// 				case 'bull':
-		// 					name = 'ios-trending-up-outline';
-		// 					break;
-
-		// 				case 'currencies':
-		// 					name = 'ios-stats-outline';
-		// 					break;
-
-		// 				case 'exchanges':
-		// 					name = 'ios-basket-outline';
-		// 					break;
-
-		// 				case 'settings':
-		// 					name = 'ios-settings-outline';
-		// 					break;
-		// 			}
-
-		// 			return (
-		// 				<Ionicons
-		// 					name 	= { name 										}
-		// 					size 	= { 32 											}
-		// 					color 	= { focused ? theme.disabled : theme.secondary 	}
-		// 				/>
-		// 			);
-		// 		}
-		// 	}
-		// } ,
-
-		swipeEnabled 		: true ,
-
-		// Put tab bar on bottom of screen on both platforms
-		tabBarComponent 	: Test 	,
-		tabBarPosition 		: 'bottom'		,
-
-		// Don't show the labels
+		animationEnabled 	: true 		,
+		swipeEnabled 		: true 		,
+		tabBarComponent 	: TabBar 	,
+		tabBarPosition 		: 'bottom'	,
 		tabBarOptions 		: {
-			showLabel 		: false ,
-			// style 			: tabbar ( this.props.screenProps.theme )
+			showLabel 		: false
 
 		}
 	}
@@ -106,13 +54,13 @@ export default StackNavigator (
 			screen : Root
 		} ,
 
-		// Detail : {
-		// 	screen : Detail
-		// } ,
+		Detail : {
+			screen : Detail
+		} ,
 
-		// Language : {
-		// 	screen : Language
-		// } ,
+		Language : {
+			screen : Language
+		} ,
 
 		Theme : {
 			screen : Theme
@@ -124,10 +72,7 @@ export default StackNavigator (
 
 			const theme = screenProps.theme;
 
-			//console.log ( header ( theme ).back )
-
 			return {
-				//headerBackTitleStyle 	: header ( theme ).back 	,
 				headerStyle 			: header ( theme ).header 	,
 				headerTitleStyle 		: header ( theme ).title
 			};

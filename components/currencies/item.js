@@ -32,25 +32,26 @@ export default class Item extends React.Component {
 
 	render () {
 
-		const currency = this.props.currency;
+		const 	currency 	= this.props.currency 	,
+				theme 		= this.props.theme 		;
 
 		return (
 
 			<View>
 				<TouchableOpacity 
 					style 	= {{
-						...list.row 		,
+						...list ( theme ).row 	,
 						...this.props.style
 					}} 
 					onPress = { this.detail 	}
 				>
 
 					<View style = {{
-						...list.cell ,
-						...style.head 
+						...list 	( theme ).cell ,
+						...style 	( theme ).head 
 					}}>
 						<Image 	
-							style 	= { style.icon }
+							style 	= { style ( theme ).icon }
 							source 	= {{
 								uri : images.currencies.small ( currency.id ) 
 							}}
@@ -59,8 +60,8 @@ export default class Item extends React.Component {
 						<Text 
 							numberOfLines 	= { 1 }
 							style 			= {{
-								...list [ 'cell-text' ] ,
-								...style.name
+								...list 	( theme ) [ 'cell-text' ] ,
+								...style 	( theme ).name
 							}}
 						>
 							{ currency.name }
@@ -70,9 +71,9 @@ export default class Item extends React.Component {
 					<Text 
 						numberOfLines 	= { 1 }
 						style = {{
-							...list.cell 			,
-							...list [ 'cell-text' ] ,
-							...style.text
+							...list 	( theme ).cell 				,
+							...list 	( theme ) [ 'cell-text' ] 	,
+							...style 	( theme ).text
 						}}
 					>
 						{ numbers.format ( currency.rating )}
@@ -80,11 +81,12 @@ export default class Item extends React.Component {
 
 					<Integer 
 						style 	= {{
-							...list.cell 			,
-							...list [ 'cell-text' ] ,
-							...style.change
+							...list 	( theme ).cell 				,
+							...list 	( theme ) [ 'cell-text' ] 	,
+							...style 	( theme ).change
 						}}
 						suffix 	= '%'
+						theme 	= { theme 				}
 						type 	= 'highlight' 
 						value 	= { currency.change.day }
 					/>
@@ -92,9 +94,9 @@ export default class Item extends React.Component {
 					<Text 
 						numberOfLines 	= { 1 }
 						style = {{
-							...list.cell 			,
-							...list [ 'cell-text' ] ,
-							...style.price
+							...list 	( theme ).cell 				,
+							...list 	( theme ) [ 'cell-text' ] 	,
+							...style 	( theme ).price
 						}}
 					>
 						{ strings.denominations.usd.symbol + numbers.format ( currency.prices.usd )}

@@ -67,8 +67,9 @@ export default class ChartTree extends React.Component {
 
 	header () {
 
-		let data 	= this.props.data ,
-			values 	= {};
+		const 	theme 	= this.props.theme;
+		let 	data 	= this.props.data ,
+				values 	= {};
 	
 		values.max 		= max ( data , ( item ) => item [ 1 ]);
 		values.min 		= min ( data , ( item ) => item [ 1 ]);
@@ -85,17 +86,20 @@ export default class ChartTree extends React.Component {
 					strings.denominations.usd.symbol + numbers.format ( values.opening.toFixed 	( 2 )) ,
 					strings.denominations.usd.symbol + numbers.format ( values.min.toFixed 		( 2 ))
 				]} 
+				theme = { theme }
 			/> 
 		);
 	}
 
 	row ( item , section , row , highlight ) {
 
+		const theme = this.props.theme;
+
 		return ( 
-			<View 	style = { style.tree.bar.view }>
+			<View 	style = { style ( theme ).tree.bar.view }>
 				<View 
 					style = {{
-						...style.tree.bar.highlight , 
+						...style ( theme ).tree.bar.highlight , 
 						...{
 							height : item
 						}
@@ -107,9 +111,11 @@ export default class ChartTree extends React.Component {
 
 	section ( section ) {
 
+		const theme = this.props.theme;
+
 		return (
-			<View style 	= { style.tree.section.view }>
-				<Text style = { style.tree.section.text }>
+			<View style 	= { style ( theme ).tree.section.view }>
+				<Text style = { style ( theme ).tree.section.text }>
 					{ this.format ( section )}
 				</Text>
 			</View>
@@ -136,13 +142,16 @@ export default class ChartTree extends React.Component {
 
 	render () {
 
+		const theme = this.props.theme;
+
 		if ( this.props.loading ) {
 
 			return (
-				<View style = { style.tree.loading }>
+				<View style = { style ( theme ).tree.loading }>
 					<Loader
-						loading 	= { this.props.loading }
+						loading 	= { this.props.loading 	}
 						size 		= 'small'
+						theme 		= { theme 				}
 					/>
 				</View>
 			);
@@ -155,6 +164,7 @@ export default class ChartTree extends React.Component {
 					error 	= { this.props.error 	}
 					press 	= { this.props.refresh 	}
 					text 	= { strings.errors.ajax }
+					theme 	= { theme 				}
 				/>
 			);
 		}
@@ -163,7 +173,7 @@ export default class ChartTree extends React.Component {
 
 		return (
 			
-			<View style = { style.tree.view }>
+			<View style = { style ( theme ).tree.view }>
 
 				{ this.header ()}
 
@@ -177,7 +187,8 @@ export default class ChartTree extends React.Component {
 					renderSectionHeader  			= { this.section 					}
 					showsHorizontalScrollIndicator 	= { false 							}
 					showsVerticalScrollIndicator 	= { false 							}
-					style 							= { style.tree.chart 				}
+					style 							= { style ( theme ).tree.chart 		}
+					theme 							= { theme 							}
 				/>
 
 			</View>

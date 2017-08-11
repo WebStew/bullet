@@ -1,4 +1,7 @@
 
-export default {
-	'fontFamily' : 'space-mono'
+export default ( theme ) => {
+
+	return {
+		'fontFamily' : 'space-mono'
+	};
 };

@@ -11,7 +11,8 @@ import 		api 					from '../../api/currencies';
 export default connect (
 
 	state => ({
-		currencies : state.currencies
+		currencies 	: state.currencies ,
+		theme 		: state.theme
 	})
 
 ) ( class All extends React.Component {
@@ -34,7 +35,8 @@ export default connect (
 
 	render () {
 
-		let action;
+		const 	theme = this.props.theme;
+		let 	action;
 
 		if ( this.props.currencies.loading ) {
 			return null;
@@ -45,11 +47,11 @@ export default connect (
 
 		return ( 
 			<TouchableOpacity 
-				style  	= { style.default.left.control 	}
-				onPress = { this.refresh 				}
+				style  	= { style ( theme ).left.control 	}
+				onPress = { this.refresh 					}
 			>
-				<Text style = { style.default.left.text }>
-					{ action }
+				<Text style = { style ( theme ).left.text 	}>
+					{ action 								}
 				</Text>	
 			</TouchableOpacity>
 		);

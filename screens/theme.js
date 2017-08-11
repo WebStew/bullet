@@ -5,7 +5,7 @@ import { 	ScrollView 			,
 			TouchableOpacity 	} 	from 'react-native';
 import { 	connect 			} 	from 'react-redux';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
-//import 		Back 					from '../components/utilities/back';
+import 		Back 					from '../components/utilities/back';
 import 		actions 				from '../actions/theme';
 import 		strings 				from '../properties/strings';
 import 		themes 					from '../properties/themes';
@@ -20,19 +20,23 @@ export default connect (
 
 ) ( class Theme extends React.Component {
 
-	static navigationOptions = ({ navigation }) => ({
+	static navigationOptions = ({ navigation , screenProps }) => {
 
-		title : strings.screens.theme.title ,
-		
-		// headerLeft 		: <Back 
-		// 	press 		= {() => navigation.goBack 	()} 
-		// 	value 		= { strings.actions.return 	}
-		// />
-	});
+		const theme = screenProps.theme;
+
+		return {
+			title 		: strings.screens.theme.title ,		
+			headerLeft 	: <Back 
+				press 	= {() => navigation.goBack 	()} 
+				theme 	= { theme 					}
+				value 	= { strings.actions.return 	}
+			/>
+		};
+	};
 
 	themes () {
 
-		const current = this.props.screenProps.theme;
+		const current = this.props.theme;
 
 		return Object.keys ( themes ).map (( theme , index ) => {
 
@@ -42,15 +46,12 @@ export default connect (
 				<TouchableOpacity 
 					key 	= { index 												}
 					onPress = {() => {
-
-						console.log ( 'THEME TO ACTIVATE' , themes[ theme ].id );
-
 						this.props.dispatch ( actions.save ( themes[ theme ].id 	))
 					}}
 					style 	= {{
-						...style ( current ).control ,
+						...style ( current ).control 					,
 						...{
-							backgroundColor : themes [ theme ].chrome ,
+							backgroundColor : themes [ theme ].chrome 	,
 							borderColor 	: themes [ theme ].border
 						}
 					}}
@@ -66,7 +67,7 @@ export default connect (
 					<Ionicons
 						name 	= { icon 						}
 						size 	= { 18 							}
-						color 	= { themes[ theme ].secondary 	}
+						color 	= { themes [ theme ].secondary 	}
 					/>
 				</TouchableOpacity>
 			);
@@ -75,13 +76,12 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.screenProps.theme
+		const theme = this.props.theme;
 
 		return (
-			<ScrollView style 	= { scene ( theme ).body 	}>
+			<ScrollView style = { scene ( theme ).body }>
 				{ this.themes ()}
 			</ScrollView>
 		);
-
 	}
 });

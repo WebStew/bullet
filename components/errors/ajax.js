@@ -23,8 +23,8 @@ export default class Error extends React.Component {
 		return (
 			
 			<View style = {{
-				...layout.fill ,
-				...layout.row
+				...layout ( theme ).fill ,
+				...layout ( theme ).row
 			}}>
 				
 				<TouchableOpacity 

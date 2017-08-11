@@ -1,14 +1,14 @@
 
-import theme from '../configuration/palette';
+export default ( theme ) => {
 
-export default {
+	return {
+		
+		primary 	: {
+			backgroundColor : theme.primary
+		} ,
 
-	primary 	: {
-		backgroundColor : theme.primary
-	} ,
-
-	secondary 	: {
-		backgroundColor : theme.base
-	}
-
+		secondary 	: {
+			backgroundColor : theme.base
+		}
+	};
 };

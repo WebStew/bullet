@@ -18,7 +18,8 @@ export default class List extends React.Component {
 
 	render () {
 
-		const sticky = this.props.fixed ? [ 0 ] : false;
+		const 	sticky 	= this.props.fixed ? [ 0 ] : false ,
+				theme 	= this.props.theme;
 
 		return (
 			
@@ -31,7 +32,7 @@ export default class List extends React.Component {
 				refreshControl 		= { this.props.refresh 																			}
 				stickyHeaderIndices = { sticky 																						}
 				style 				= {{
-					...style.body 	,
+					...style ( theme ).body ,
 					...this.props.style
 				}}
 			/>

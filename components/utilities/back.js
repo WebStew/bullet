@@ -1,20 +1,28 @@
 
 import 		React 					from 'react';
+import { 	connect 			} 	from 'react-redux';
 import { 	TouchableOpacity 	,
 			Text 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		style 					from '../../styles/header';
-import 		theme 					from '../../configuration/palette';
 
-export default class Back extends React.Component {
+export default connect (
+
+	state => ({
+		theme 	: state.theme
+	})
+
+) ( class Back extends React.Component {
 
 	render () {
+
+		const theme = this.props.theme;
 
 		return (
 
 			<TouchableOpacity 
-				style  	= { style.default.back.control 	}
-				onPress = { this.props.press 			}
+				style  	= { style ( theme ).back.control 	}
+				onPress = { this.props.press 				}
 			>
 
 				<Ionicons
@@ -23,12 +31,12 @@ export default class Back extends React.Component {
 					color 	= { theme.secondary 			}
 				/>
 
-				<Text style = { style.default.back.text }>
-					{ this.props.value }
+				<Text style = { style ( theme ).back.text 	}>
+					{ this.props.value 						}
 				</Text>
 				
 			</TouchableOpacity>
 		);
 
 	}
-};
+});

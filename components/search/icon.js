@@ -5,12 +5,12 @@ import { 	TouchableOpacity 	} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		actions 				from '../../actions/search';
 import 		style 					from '../../styles/search';
-import 		theme 					from '../../configuration/palette';
 
 export default connect (
 
 	state => ({
-		search : state.search
+		search 	: state.search ,
+		theme 	: state.theme
 	})
 
 ) ( class SearchIcon extends React.Component {
@@ -28,11 +28,13 @@ export default connect (
 
 	render () {
 
+		const theme = this.props.theme;
+
 		return (
 
 			<TouchableOpacity 
-				onPress = { this.on 	}
-				style 	= { style.icon 	}
+				onPress = { this.on 				}
+				style 	= { style ( theme ).icon 	}
 			>
 
 				<Ionicons
