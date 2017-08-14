@@ -1,8 +1,8 @@
 
 import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
-import {	Text 				,
-			TouchableOpacity 	} 	from 'react-native';
+import {	TouchableOpacity 	} 	from 'react-native';
+import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		actions 				from '../../actions/currencies';
 import 		style 					from '../../styles/header';
 import 		api 					from '../../api/currencies';
@@ -42,13 +42,18 @@ export default connect (
 		}
 
 		return ( 
+			
 			<TouchableOpacity 
-				style  	= { style ( theme ).right.control 	}
-				onPress = { this.refresh 					}
+				onPress = { this.refresh 				}
+				style 	= { style ( theme ).right.icon 	}
 			>
-				<Text style = { style ( theme ).right.text 	}>
-					{ this.props.language.actions.refresh 	}
-				</Text>	
+
+				<Ionicons
+					name 	= { 'ios-refresh-outline' 	}
+					size 	= { 32 						}
+					color 	= { theme.secondary 		}
+				/>
+				
 			</TouchableOpacity>
 		);
 	}

@@ -7,9 +7,9 @@ export default {
 		name 			: 'Malay' 			,
 
 		actions 		: {
-			all 		: 'semua' 			,
+			all 		: 'Semua' 			,
 			calculating : 'Menghitung...' 	,
-			load 		: 'Mendapat' 		,
+			load 		: '' 				,
 			loading 	: 'Memuatkan...' 	,
 			refresh 	: 'Menyegarkan' 	,
 			return 		: 'Belakang' 		,
@@ -29,8 +29,8 @@ export default {
 		} ,
 
 		errors : {
-			500 			: 'Tidak ada' ,
-			ajax 			: 'Terdapat ralat untuk mendapatkan semula data. Sila cuba lagi.' ,
+			500 			: 'Tidak ada' 														,
+			ajax 			: 'Terdapat ralat untuk mendapatkan semula data. Sila cuba lagi.' 	,
 			default 		: 'Oops - ralat telah berlaku. Sila mulakan semula aplikasi.'
 		} ,
 
@@ -50,18 +50,18 @@ export default {
 				notice 		: 'Enarafan ini didasarkan pada pengiraan dari {{placeholder}} mata wang utama crypto.' ,
 
 				market 			: {
-					available 	: 'Bekalan disediakan' 	,
-					cap 		: 'Kapasiti' 			,
-					rank 		: 'Kedudukan' 			,
-					title 		: 'Pasaran' 			,
-					total 		: 'Bekalan Jumlah' 		,
-					updated 	: 'Terakhir Dikemaskini' ,
+					available 	: 'Bekalan disediakan' 		,
+					cap 		: 'Kapasiti' 				,
+					rank 		: 'Kedudukan' 				,
+					title 		: 'Pasaran' 				,
+					total 		: 'Bekalan Jumlah' 			,
+					updated 	: 'Terakhir Dikemaskini' 	,
 					volume 		: '24 Jam Jilid'
-				} 										,
+				} ,
 
-				rating 			: 'Lembu Jantan Penilaian' 		,
+				rating 			: 'Lembu Jantan Penilaian' 	,
 
-				title 			: 'Yang Terbaru Lembu Jantan' 	,
+				title 			: 'Yang Terbaru Lembu Jantan' ,
 
 				values 			: {
 					title 		: 'Harga'

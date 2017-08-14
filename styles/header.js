@@ -49,6 +49,11 @@ export default ( theme ) => {
 				fontSize 	: 18 				,
 				fontWeight 	: 'normal' 			,
 				paddingLeft : 5
+			} ,
+
+			icon : {
+				marginHorizontal 	: 15 ,
+				marginTop 			: 2
 			}
 		} ,
 
