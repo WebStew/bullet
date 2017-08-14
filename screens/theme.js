@@ -40,7 +40,8 @@ export default connect (
 
 		return Object.keys ( themes ).map (( theme , index ) => {
 
-			const icon = themes [ theme ] .id === current.id ? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline';
+			const 	icon 		= themes [ theme ].id 	=== current.id 	? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline' ,
+					background 	= index % 2 			=== 0 			? current.primary 				: current.base;
 
 			return (
 				<TouchableOpacity 
@@ -51,23 +52,19 @@ export default connect (
 					style 	= {{
 						...style ( current ).control 					,
 						...{
-							backgroundColor : themes [ theme ].chrome 	,
-							borderColor 	: themes [ theme ].chrome
+							backgroundColor 	: background 
+							// backgroundColor 	: themes [ theme ].chrome 	,
+							// borderColor 		: themes [ theme ].chrome
 						}
 					}}
 				>
-					<Text style = {{
-						...style ( current ).text ,
-						...{
-							color : themes [ theme ].secondary
-						}
-					}}>
+					<Text style = { style ( current ).text }>
 						{ themes [ theme ].name }
 					</Text>
 					<Ionicons
-						name 	= { icon 						}
-						size 	= { 18 							}
-						color 	= { themes [ theme ].secondary 	}
+						name 	= { icon 				}
+						size 	= { 18 					}
+						color 	= { current.secondary 	}
 					/>
 				</TouchableOpacity>
 			);

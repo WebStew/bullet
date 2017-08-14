@@ -44,6 +44,8 @@ export default connect (
 
 		return exchanges.map (( exchange , index ) => {
 
+			const background = index % 2 === 0 ? theme.primary : theme.base;
+
 			return (
 				<TouchableOpacity 
 					key 	= { index 								}
@@ -51,23 +53,19 @@ export default connect (
 					style 	= {{
 						...style ( theme ).control 						,
 						...{
-							backgroundColor : exchange.brand.primary 	,
-							borderColor 	: color.shade ( exchange.brand.primary , -0.25 )
+							backgroundColor 	: background
+							// backgroundColor 	: exchange.brand.primary 	,
+							// borderColor 		: color.shade ( exchange.brand.primary , -0.25 )
 						}
 					}}
 				>
-					<Text style = {{
-						...style ( theme ).text ,
-						...{
-							color : exchange.brand.secondary
-						}
-					}}>
+					<Text style = { style ( theme ).text }>
 						{ exchange.name }
 					</Text>
 					<Ionicons
 						name 	= { 'ios-arrow-forward-outline' }
 						size 	= { 18 							}
-						color 	= { exchange.brand.secondary 	}
+						color 	= { theme.secondary 			}
 					/>
 				</TouchableOpacity>
 			);
