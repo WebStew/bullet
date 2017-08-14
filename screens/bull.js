@@ -13,18 +13,21 @@ import 		NotFound 			from '../components/bull/404';
 import 		Refresh 			from '../components/bull/refresh';
 import 		actions 			from '../actions/currencies';
 import 		scene 				from '../styles/scene';
-import 		strings 			from '../properties/strings';
 
 export default connect (
 
 	state => ({
-		bull 	: state.bull ,
-		theme 	: state.theme
+		bull 		: state.bull 		,
+		language 	: state.language 	,
+		theme 		: state.theme
 	})
 
 ) ( class Bull extends React.Component {
 
 	static navigationOptions = ({ screenProps }) => {
+
+		const 	language 	= screenProps.language 	,
+				theme 		= screenProps.theme 	;
 
 		return {
 			headerRight : <Refresh 	/> ,
@@ -34,12 +37,12 @@ export default connect (
 				return (
 					<Ionicons
 						name 	= 'ios-trending-up-outline'
-						size 	= { 32 																	}
-						color 	= { focused ? screenProps.theme.disabled : screenProps.theme.secondary 	}
+						size 	= { 32 											}
+						color 	= { focused ? theme.disabled : theme.secondary 	}
 					/>
 				);
 			} ,
-			title 		: strings.screens.bull.title
+			title 		: language.screens.bull.title
 		};
 	};
 
@@ -58,7 +61,8 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		;
 
 		if ( this.props.bull.loading ) {
 
@@ -77,10 +81,11 @@ export default connect (
 
 			return (
 				<Error 
-					error 	= { this.props.bull.error 	}
-					press 	= { this.refresh 			}
-					text 	= { strings.errors.ajax 	}
-					theme 	= { theme 					}
+					error 		= { this.props.bull.error 	}
+					language 	= { language 				}
+					press 		= { this.refresh 			}
+					text 		= { language.errors.ajax 	}
+					theme 		= { theme 					}
 				/>
 			);
 
@@ -90,8 +95,9 @@ export default connect (
 
 			return (
 				<NotFound 
-					bull 	= { this.props.bull }
-					theme 	= { theme 			}
+					bull 		= { this.props.bull }
+					language 	= { language 		}
+					theme 		= { theme 			}
 				/>
 			);
 		}
@@ -99,8 +105,9 @@ export default connect (
 		return (
 			<ScrollView style = { scene ( theme ).body 	}>
 				<Overview 
-					bull 	= { this.props.bull 		}
-					theme 	= { theme 					}
+					bull 		= { this.props.bull 	}
+					language 	= { language 			}
+					theme 		= { theme 				}
 				/>
 			</ScrollView>
 		);

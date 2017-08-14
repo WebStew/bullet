@@ -4,14 +4,14 @@ import { 	connect 			} 	from 'react-redux';
 import {	Text 				,
 			TouchableOpacity 	} 	from 'react-native';
 import 		actions 				from '../../actions/currencies';
-import 		strings 				from '../../properties/strings';
 import 		style 					from '../../styles/header';
 import 		api 					from '../../api/currencies';
 
 export default connect (
 
 	state => ({
-		currencies 	: state.currencies ,
+		currencies 	: state.currencies 	,
+		language 	: state.language 	,
 		theme 		: state.theme
 	})
 
@@ -35,15 +35,16 @@ export default connect (
 
 	render () {
 
-		const 	theme = this.props.theme;
+		const 	theme 		= this.props.theme 		,
+				language 	= this.props.language 	;
 		let 	action;
 
 		if ( this.props.currencies.loading ) {
 			return null;
 		}
 		
-		action = 	strings.actions.load + ' '; 
-		action += 	this.props.currencies.items.length > api.limit ? api.limit : strings.actions.all;
+		action = 	language.actions.load + ' '; 
+		action += 	this.props.currencies.items.length > api.limit ? api.limit : language.actions.all;
 
 		return ( 
 			<TouchableOpacity 

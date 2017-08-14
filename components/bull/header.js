@@ -2,13 +2,14 @@
 import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
 import {	Text 				} 	from 'react-native';
-import 		strings 				from '../../properties/strings';
 import 		style 					from '../../styles/header';
+
 
 export default connect (
 
 	state => ({
-		currencies 	: state.currencies ,
+		currencies 	: state.currencies 	,
+		language 	: state.language 	,
 		theme 		: state.theme
 	})
 
@@ -16,20 +17,13 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
-
-		if ( this.props.currencies.loading ) {
-
-			return (
-				<Text style = { style ( theme ).title 	}>
-					{ strings.actions.calculating 		}
-				</Text>
-			);
-		}
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		,
+				title 		= this.props.currencies.loading ? language.actions.calculating : language.screens.bull.title;
 
 		return ( 
-			<Text style = { style ( theme ).title 		}>
-				{ strings.screens.bull.title 			}
+			<Text style = { style ( theme ).title }>
+				{ title }
 			</Text>
 		);
 	}

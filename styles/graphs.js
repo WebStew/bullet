@@ -12,7 +12,7 @@ export default ( theme ) => {
 					cell : {
 						flex 			: 1 		,
 						flexDirection 	: 'column' 	,
-						justifyContent : 'center'
+						justifyContent 	: 'center'
 					} ,
 
 					text : {

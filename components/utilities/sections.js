@@ -11,7 +11,8 @@ export default class Sections extends React.Component {
 
 	sections () {
 
-		const theme = this.props.theme;
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		;
 	
 		return this.props.sections.map (( section , index ) => {
 
@@ -32,15 +33,16 @@ export default class Sections extends React.Component {
 								{ item.property }
 							</Text>	
 							<Integer 
-								prefix 	= { item.prefix }
-								style 	= {{
+								language 	= { language 	}
+								prefix 		= { item.prefix }
+								style 		= {{
 									...layout 	( theme ).fill ,
 									...style 	( theme ).row
 								}}
-								suffix 	= { item.suffix }
-								theme 	= { theme 		}
-								type 	= { item.type 	}
-								value 	= { item.value 	}
+								suffix 		= { item.suffix }
+								theme 		= { theme 		}
+								type 		= { item.type 	}
+								value 		= { item.value 	}
 							/>
 						</View>
 					);

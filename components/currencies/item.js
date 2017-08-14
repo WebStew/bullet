@@ -9,7 +9,6 @@ import 		list 					from '../../styles/list';
 import 		style 					from '../../styles/currencies';
 import 		images 					from '../../api/images';
 import 		numbers 				from '../../utilities/numbers';
-import 		strings 				from '../../properties/strings';
 
 export default class Item extends React.Component {
 
@@ -33,6 +32,7 @@ export default class Item extends React.Component {
 	render () {
 
 		const 	currency 	= this.props.currency 	,
+				language 	= this.props.language 	,
 				theme 		= this.props.theme 		;
 
 		return (
@@ -70,36 +70,37 @@ export default class Item extends React.Component {
 
 					<Text 
 						numberOfLines 	= { 1 }
-						style = {{
+						style 			= {{
 							...list 	( theme ).cell 				,
 							...list 	( theme ) [ 'cell-text' ] 	,
 							...style 	( theme ).text
 						}}
 					>
-						{ numbers.format ( currency.rating )}
+						{ currency.rating ? numbers.format ( currency.rating ) : language.errors [ 500 ]}
 					</Text>
 
 					<Integer 
-						style 	= {{
+						language 	= { language 			}
+						style 		= {{
 							...list 	( theme ).cell 				,
 							...list 	( theme ) [ 'cell-text' ] 	,
 							...style 	( theme ).change
 						}}
-						suffix 	= '%'
-						theme 	= { theme 				}
-						type 	= 'highlight' 
-						value 	= { currency.change.day }
+						suffix 		= '%'
+						theme 		= { theme 				}
+						type 		= 'highlight' 
+						value 		= { currency.change.day }
 					/>
 
 					<Text 
 						numberOfLines 	= { 1 }
-						style = {{
+						style 			= {{
 							...list 	( theme ).cell 				,
 							...list 	( theme ) [ 'cell-text' ] 	,
 							...style 	( theme ).price
 						}}
 					>
-						{ strings.denominations.usd.symbol + numbers.format ( currency.prices.usd )}
+						{ currency.prices.usd ? language.denominations.usd.symbol + numbers.format ( currency.prices.usd ) : language.errors [ 500 ]}
 					</Text>
 						
 				</TouchableOpacity>

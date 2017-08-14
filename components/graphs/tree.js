@@ -11,7 +11,6 @@ import 		Error 			from '../errors/ajax';
 import 		Loader 			from '../utilities/loader';
 import 		AxisY 			from './axis-y';
 import 		time 			from '../../constants/time';
-import 		strings 		from '../../properties/strings';
 import 		device 			from '../../properties/device';
 import 		numbers 		from '../../utilities/numbers';
 import 		style 			from '../../styles/graphs';
@@ -67,9 +66,10 @@ export default class ChartTree extends React.Component {
 
 	header () {
 
-		const 	theme 	= this.props.theme;
-		let 	data 	= this.props.data ,
-				values 	= {};
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		;
+		let 	data 		= this.props.data 		,
+				values 		= {} 					;
 	
 		values.max 		= max ( data , ( item ) => item [ 1 ]);
 		values.min 		= min ( data , ( item ) => item [ 1 ]);
@@ -80,11 +80,11 @@ export default class ChartTree extends React.Component {
 		return ( 
 			<AxisY 
 				data = {[ 
-					strings.denominations.usd.symbol + numbers.format ( values.max.toFixed 		( 2 )) ,
-					strings.denominations.usd.symbol + numbers.format ( values.closing.toFixed 	( 2 )) ,
-					strings.denominations.usd.symbol + numbers.format ( values.middle.toFixed 	( 2 )) ,
-					strings.denominations.usd.symbol + numbers.format ( values.opening.toFixed 	( 2 )) ,
-					strings.denominations.usd.symbol + numbers.format ( values.min.toFixed 		( 2 ))
+					language.denominations.usd.symbol + numbers.format ( values.max.toFixed 	( 2 )) ,
+					language.denominations.usd.symbol + numbers.format ( values.closing.toFixed ( 2 )) ,
+					language.denominations.usd.symbol + numbers.format ( values.middle.toFixed 	( 2 )) ,
+					language.denominations.usd.symbol + numbers.format ( values.opening.toFixed ( 2 )) ,
+					language.denominations.usd.symbol + numbers.format ( values.min.toFixed 	( 2 ))
 				]} 
 				theme = { theme }
 			/> 
@@ -142,7 +142,8 @@ export default class ChartTree extends React.Component {
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		;
 
 		if ( this.props.loading ) {
 
@@ -161,10 +162,10 @@ export default class ChartTree extends React.Component {
 
 			return (
 				<Error 
-					error 	= { this.props.error 	}
-					press 	= { this.props.refresh 	}
-					text 	= { strings.errors.ajax }
-					theme 	= { theme 				}
+					error 	= { this.props.error 		}
+					press 	= { this.props.refresh 		}
+					text 	= { language.errors.ajax 	}
+					theme 	= { theme 					}
 				/>
 			);
 		}

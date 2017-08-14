@@ -3,6 +3,9 @@ export default {
 	
 	en : {
 
+		id 				: 'en' 		,
+		name 			: 'English' ,
+
 		actions 		: {
 			all 		: 'all' 			,
 			calculating : 'Calculating...' 	,
@@ -23,13 +26,6 @@ export default {
 				name 	: 'US Dollar' 	,
 				symbol 	: '$'
 			}
-		} ,
-
-		development : {
-
-			cache 			: 'There was an error caching assets ( see: main.js ), perhaps due to a network timeout, so we skipped caching. Reload the app to try again.' ,
-			notification 	: 'Development mode is enabled, your app will run slightly slower but you have access to useful development tools.'
-
 		} ,
 
 		errors : {
@@ -93,8 +89,7 @@ export default {
 			} ,
 
 			language 		: {
-				title 		: 'Change Language' ,
-				coming 		: 'Support for mulitple languages is coming soon. Please come back and check this space.'
+				title 		: 'Change Language'
 			} ,
 
 			settings 		: {

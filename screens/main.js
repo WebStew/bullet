@@ -10,7 +10,8 @@ import 		styles 			from '../styles/main';
 export default connect (
 
 	state => ({
-		theme : state.theme
+		language 	: state.language ,
+		theme 		: state.theme
 	})
 
 ) ( class Main extends React.Component {
@@ -23,7 +24,8 @@ export default connect (
 				{ Platform.OS === 'android' && <View 		style 		= { styles ( this.props.theme ).statusbar } /> }
 				<Navigation 
 					screenProps = {{
-						theme : this.props.theme
+						language 	: this.props.language ,
+						theme 		: this.props.theme
 					}} 
 				/>
 			</View>

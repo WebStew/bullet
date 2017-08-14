@@ -4,15 +4,15 @@ import { 	connect 			} 	from 'react-redux';
 import {	Text 				,
 			TouchableOpacity 	} 	from 'react-native';
 import 		actions 				from '../../actions/currencies';
-import 		strings 				from '../../properties/strings';
 import 		style 					from '../../styles/header';
 import 		api 					from '../../api/currencies';
 
 export default connect (
 
 	state => ({
-		bull 	: state.bull ,
-		theme 	: state.theme
+		bull 		: state.bull 		,
+		language 	: state.language 	,
+		theme 		: state.theme
 	})
 
 ) ( class Refresh extends React.Component {
@@ -47,7 +47,7 @@ export default connect (
 				onPress = { this.refresh 					}
 			>
 				<Text style = { style ( theme ).right.text 	}>
-					{ strings.actions.refresh 				}
+					{ this.props.language.actions.refresh 	}
 				</Text>	
 			</TouchableOpacity>
 		);

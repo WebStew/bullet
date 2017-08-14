@@ -5,15 +5,15 @@ import { 	Text 				,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		style 					from '../../styles/errors';
-import 		strings 				from '../../properties/strings';
 import 		layout 					from '../../styles/layout';
 
 export default class Error extends React.Component {
 
 	render () {
 
-		const 	text 	= this.props.text || strings.errors.default ,
-				theme 	= this.props.theme;
+		const 	language 	= this.props.language 						,
+				text 		= this.props.text || language.errors.default ,
+				theme 		= this.props.theme;
 
 		// If there is no error return
 		if ( ! this.props.error ) {

@@ -7,24 +7,25 @@ import { 	ScrollView 			,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		scene 					from '../styles/scene';
-import 		strings 				from '../properties/strings';
 import 		style 					from '../styles/list-control';
 
 export default connect (
 
 	state => ({
-		theme 	: state.theme
+		language 	: state.language ,
+		theme 		: state.theme
 	})
 
 ) ( class Settings extends React.Component {
 
 	static navigationOptions = ({ screenProps }) => {
 
-		const theme = screenProps.theme;
+		const 	language 	= screenProps.language 	,
+				theme 		= screenProps.theme 	;
 
 		return {
 
-			title 		: strings.screens.settings.title ,
+			title 		: language.screens.settings.title ,
 			tabBarIcon 	: ({ focused }) => {
 
 				return (
@@ -41,14 +42,16 @@ export default connect (
 
 	settings () {
 
+		const language = this.props.language;
+
 		return [
 			{
-				name 	: strings.screens.theme.title 		,
+				name 	: language.screens.theme.title 		,
 				url 	: 'Theme'
 			} ,
 			
 			{
-				name 	: strings.screens.language.title 	,
+				name 	: language.screens.language.title 	,
 				url 	: 'Language'
 			}
 		];
@@ -74,7 +77,7 @@ export default connect (
 						}
 					}}
 				>
-					<Text style = { style ( theme ).text 				}>
+					<Text style = { style ( theme ).text 		}>
 						{ setting.name }
 					</Text>
 					<Ionicons

@@ -9,7 +9,6 @@ import 		Back 				from '../components/utilities/back';
 import 		Heading 			from '../components/utilities/headings';
 import 		Sections 			from '../components/utilities/sections';
 import 		Tree 				from '../components/graphs/tree';
-import 		strings 			from '../properties/strings';
 import 		images 				from '../api/images';
 import 		banner 				from '../styles/header';
 import 		layout 				from '../styles/layout';
@@ -20,23 +19,25 @@ import 		numbers 			from '../utilities/numbers';
 export default connect (
 
 	state => ({
-		graphs 	: state.graphs ,
-		theme 	: state.theme
+		graphs 		: state.graphs 		,
+		language 	: state.language 	,
+		theme 		: state.theme
 	})
 
 ) ( class Detail extends React.Component {
 
 	static navigationOptions = ({ navigation , screenProps }) => {
 
-		const theme = screenProps.theme;
+		const 	language 	= screenProps.language 	,
+				theme 		= screenProps.theme 	;
 
 		return {
 
-			title 			: `${ navigation.state.params.currency.name } ${ strings.screens.detail.title }` ,
+			title 			: `${ navigation.state.params.currency.name } ${ language.screens.detail.title }` ,
 
 			headerLeft 		: <Back 
-				press 		= {() => navigation.goBack 	()} 
-				value 		= { strings.actions.return 	}
+				press 		= {() => navigation.goBack 		()} 
+				value 		= { language.actions.return  	}
 			/> ,
 
 			headerRight 	: <Image 
@@ -55,13 +56,13 @@ export default connect (
 
 	render () {
 
-		const currency 	= this.props.navigation.state.params.currency ,
-				theme 	= this.props.theme;
+		const 	currency 	= this.props.navigation.state.params.currency 	,
+				language 	= this.props.language 							,
+				theme 		= this.props.theme 								;
 
 		return (
 			<ScrollView style = { scene ( theme ).body 		}>
-
-				<View 		style = { layout ( theme ).fill }>
+				<View 	style = { layout ( theme ).fill 	}>
 					<View 	
 						style = {{
 							...layout 	( theme ).row ,
@@ -84,83 +85,85 @@ export default connect (
 					</View>
 
 					<Tree 
-						data 	= { this.props.graphs.prices.usd 	}
-						error 	= { this.props.graphs.error 		}
-						loading = { this.props.graphs.loading 		}
-						theme 	= { theme 							}
+						data 		= { this.props.graphs.prices.usd 	}
+						error 		= { this.props.graphs.error 		}
+						language 	= { language 						}
+						loading 	= { this.props.graphs.loading 		}
+						theme 		= { theme 							}
 					/>
 
 					<Sections 
-						theme 		= { theme }
+						language 	= { language 	}
+						theme 		= { theme 		}
 						sections 	= {[
 							{
-								title 		: strings.screens.bull.changes.title 		,
+								title 		: language.screens.bull.changes.title 			,
 								data 		: [
 									{
-										property 	: strings.screens.bull.changes.hour ,
-										suffix 		: '%' 								,
-										type 		: 'highlight' 						,
+										property 	: language.screens.bull.changes.hour 	,
+										suffix 		: '%' 									,
+										type 		: 'highlight' 							,
 										value 		: currency.change.hour
-									} 													, 
+									} 														, 
 									{
-										property 	: strings.screens.bull.changes.day 	,
-										suffix 		: '%' 								,
-										type 		: 'highlight' 						,
+										property 	: language.screens.bull.changes.day 	,
+										suffix 		: '%' 									,
+										type 		: 'highlight' 							,
 										value 		: currency.change.day
-									} 													,
+									} 														,
 									{
-										property 	: strings.screens.bull.changes.week ,
-										suffix 		: '%' 								,
-										type 		: 'highlight' 						,
+										property 	: language.screens.bull.changes.week 	,
+										suffix 		: '%' 									,
+										type 		: 'highlight' 							,
 										value 		: currency.change.week
 									}
 								]
 							} ,
 
 							{
-								title 		: strings.screens.bull.values.title 		,
+								title 		: language.screens.bull.values.title 		,
 								data 		: [
 									{
-										prefix 		: strings.denominations.usd.symbol 	,
-										property 	: strings.denominations.usd.name 	,
+										prefix 		: language.denominations.usd.symbol ,
+										property 	: language.denominations.usd.name 	,
 										value 		: currency.prices.usd
 									} , 
 									{
-										prefix 		: strings.denominations.btc.symbol 	,
-										property 	: strings.denominations.btc.name 	,
+										prefix 		: language.denominations.btc.symbol ,
+										property 	: language.denominations.btc.name 	,
 										value 		: currency.prices.btc
 									}
 								]
 							} ,
 
 							{
-								title 		: strings.screens.bull.market.title 			,
+								title 		: language.screens.bull.market.title 			,
 								data 		: [
 									{
-										property 	: strings.screens.bull.rating 			,
+										property 	: language.screens.bull.rating 			,
 										type 		: 'highlight' 							,
 										value 		: numbers.format ( currency.rating )
 									} 														,
 									{
-										prefix 		: strings.denominations.usd.symbol 		,
-										property 	: strings.screens.bull.market.cap 		,
+										prefix 		: language.denominations.usd.symbol 	,
+										property 	: language.screens.bull.market.cap 		,
 										value 		: currency.market.usd
 									} 														,
 									{
-										property 	: strings.screens.bull.market.rank 		,
+										property 	: language.screens.bull.market.rank 	,
 										value 		: numbers.rank ( currency.rank )
 									} 														,
 									{
-										property 	: strings.screens.bull.market.available ,
+										property 	: language.screens.bull.market.available ,
 										value 		: currency.supply.available
 									} 														, 
 									{
-										property 	: strings.screens.bull.market.total 	,
+										property 	: language.screens.bull.market.total 	,
 										value 		: currency.supply.total
 									} 														, 
 									{
-										prefix 		: strings.denominations.usd.symbol 		,
-										property 	: strings.screens.bull.market.volume 	,
+										prefix 		: language.denominations.usd.symbol 	,
+										property 	: language.screens.bull.market.volume 	,
 										value 		: currency.volume.usd
 									}
 								]

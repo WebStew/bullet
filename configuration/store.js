@@ -6,6 +6,7 @@ import 		thunk 				from 'redux-thunk';
 //import { 	createLogger 	} 	from 'redux-logger';
 import 		reducers 			from '../reducers/index';
 import 		theme 				from '../middleware/theme';
+import 		language 			from '../middleware/language';
 
 export default function ( state : Object = {}) {
 
@@ -14,8 +15,10 @@ export default function ( state : Object = {}) {
 		state 		,
 		compose (
 			applyMiddleware (
-				thunk 		,
-				theme.get 	,
+				thunk 			,
+				language.get 	,
+				language.save 	,
+				theme.get 		,
 				theme.save
 				//createLogger ()
 			)

@@ -5,9 +5,10 @@ import { 	AppLoading 	} 	from 'expo';
 import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		Main 			from './screens/main';
 import 		theme 			from './actions/theme';
+import 		language 		from './actions/language';
+import 		database 		from './configuration/database';
 import 		configuration 	from './configuration/store';
 import 		cache 			from './utilities/cache';
-import 		strings 		from './properties/strings';
 
 const store = configuration ();
 
@@ -35,10 +36,7 @@ export default class Application extends React.Component {
 		} 
 		
 		catch ( error ) {
-
-			console.warn 	( strings.development.cache );
 			console.log 	( error.message 			);
-
 		} 
 		
 		finally {
@@ -54,7 +52,13 @@ export default class Application extends React.Component {
 	componentWillMount () {
 
 		this.setCache 	();
-		store.dispatch 	( theme.get ())
+
+		// Setup the local databases
+		database.settings.setup ();
+
+		// Get any data from the local databases
+		store.dispatch 	( theme.get 	());
+		store.dispatch 	( language.get 	());
 	}
 
 	render () {

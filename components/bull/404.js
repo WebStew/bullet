@@ -6,13 +6,13 @@ import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		layout 			from '../../styles/layout';
 import 		style 			from '../../styles/errors';
 import 		bull 			from '../../styles/bull';
-import 		strings 		from '../../properties/strings';
 
 export default class NotFound extends React.Component {
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 		= this.props.theme 		,
+				language 	= this.props.language 	;
 
 		// Only render if the bull rating is zero
 		if (
@@ -40,7 +40,7 @@ export default class NotFound extends React.Component {
 					/>
 
 					<Text style = { style ( theme ).ajax.text 	}>
-						{ strings.screens.bull [ '404' 			]}
+						{ language.screens.bull [ '404' 		]}
 					</Text>
 
 				</View>

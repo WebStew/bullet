@@ -14,7 +14,6 @@ import 		SearchIcon 				from '../components/search/icon';
 import 		SearchInput 			from '../components/search/input';
 import 		Header 					from '../components/currencies/header';
 import 		actions 				from '../actions/currencies';
-import 		strings 				from '../properties/strings';
 import 		list 					from '../styles/list';
 import 		style 					from '../styles/currencies';
 import 		scene 					from '../styles/scene';
@@ -26,6 +25,7 @@ export default connect (
 
 	state => ({
 		currencies 	: state.currencies 	,
+		language 	: state.language 	,
 		search 		: state.search 		,
 		theme 		: state.theme
 	})
@@ -33,6 +33,9 @@ export default connect (
 ) ( class Currencies extends React.Component {
 
 	static navigationOptions = ({ screenProps }) => {
+
+		const language 	= screenProps.language 	,
+				theme 	= screenProps.theme 	;
 
 		return {
 			headerLeft 	: <All 			/> ,
@@ -43,12 +46,12 @@ export default connect (
 				return (
 					<Ionicons
 						name 	= 'ios-stats-outline'
-						size 	= { 32 																	}
-						color 	= { focused ? screenProps.theme.disabled : screenProps.theme.secondary 	}
+						size 	= { 32 											}
+						color 	= { focused ? theme.disabled : theme.secondary 	}
 					/>
 				);
 			} ,
-			title 		: strings.screens.currencies.title
+			title 		: language.screens.currencies.title
 		}
 	};
 
@@ -69,6 +72,7 @@ export default connect (
 		return ( 
 			<Currency
 				currency 	= { currency 				}
+				language 	= { this.props.language 	}
 				navigation 	= { this.props.navigation 	}
 				style 		= { style 					}
 				theme 		= { theme 					}
@@ -123,8 +127,9 @@ export default connect (
 
 	contents () {
 
-		const 	items = this.data () 	,
-				theme = this.props.theme;
+		const 	items 		= this.data () 			,
+				language 	= this.props.language 	,
+				theme 		= this.props.theme 		;
 
 		if ( items.length ) {
 
@@ -151,7 +156,7 @@ export default connect (
 		return ( 
 			<View 		style = { style ( theme ) [ '404' ].view 			}>
 				<Text 	style = { style ( theme ) [ '404' ].text 			}>
-					{ strings.screens.currencies.none + ' "' 				}
+					{ language.screens.currencies.none + ' "' 				}
 					<Text style = { style ( theme ) [ '404' ].term 			}>
 						{ this.props.search.value + '"' 					}
 					</Text>
@@ -172,8 +177,9 @@ export default connect (
 
 	headers () {
 
-		const 	theme 	= this.props.theme;
-		let 	active 	= {};
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		;
+		let 	active 		= {} 					;
 
 		active [ this.props.currencies.order ] = {
 			color : theme.disabled
@@ -191,7 +197,7 @@ export default connect (
 					...style 	( theme ) .head
 				}
 			} 																		,
-			text 		: strings.screens.currencies.headers.rank
+			text 		: language.screens.currencies.headers.rank
 		} 																			,
 		{
 			press 		: () => this.props.dispatch ( actions.order ( 'rating' )) 	,
@@ -203,7 +209,7 @@ export default connect (
 				} 																	,
 				touch 	: list 	( theme ) .cell
 			} 																		,
-			text 		: strings.screens.currencies.headers.rating
+			text 		: language.screens.currencies.headers.rating
 		} 																			,
 		{
 			press 		: () => this.props.dispatch ( actions.order ( 'change' )) 	,
@@ -215,7 +221,7 @@ export default connect (
 				} 																	,
 				touch 	: list 	( theme ) .cell 
 			} 																		,
-			text 		: strings.screens.currencies.headers.change
+			text 		: language.screens.currencies.headers.change
 		} ,
 		{
 			press 		: () => this.props.dispatch ( actions.order ( 'price' )) 	,
@@ -227,7 +233,7 @@ export default connect (
 				} ,
 				touch 	: list 	( theme ).cell
 			} ,
-			text 		: strings.screens.currencies.headers.price
+			text 		: language.screens.currencies.headers.price
 		}];
 	}
 
@@ -256,16 +262,18 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		;
 
 		if ( this.props.currencies.error ) {
 
 			return (
 				<Error 
-					error 	= { this.props.currencies.error 	}
-					press 	= { this.refresh 					}
-					theme 	= { theme 							}
-					text 	= { strings.errors.ajax 			}
+					error 		= { this.props.currencies.error }
+					language 	= { language 					}
+					press 		= { this.refresh 				}
+					theme 		= { theme 						}
+					text 		= { strings.errors.ajax 		}
 				/>
 			);
 		}
@@ -273,7 +281,7 @@ export default connect (
 		return (
 
 			<View 				style = { scene ( theme ).body 	}>
-				<SearchInput 	theme = { theme 				}/>
+				<SearchInput  	/>
 				{ this.contents ()}
 			</View>
 		);

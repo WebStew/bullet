@@ -6,13 +6,14 @@ import { 	TextInput 			,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		actions 				from '../../actions/search';
-import 		strings 				from '../../properties/strings';
 import 		style 					from '../../styles/search';
 
 export default connect (
 
 	state => ({
-		search : state.search
+		language 	: state.language 	,
+		search 		: state.search 		,
+		theme 		: state.theme
 	})
 
 ) ( class SearchInput extends React.Component {
@@ -36,7 +37,8 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	language 	= this.props.language ,
+				theme 		= this.props.theme 		;
 
 		if ( ! this.props.search.on ) {
 			
@@ -60,7 +62,7 @@ export default connect (
 
 					<TextInput 
 						autoFocus 				= { true 						}
-						placeholder 			= { strings.actions.search 		}
+						placeholder 			= { language.actions.search 	}
 						placeholderTextColor 	= { theme.disabled 				}
 						onChangeText 			= { this.set 					}
 						selectionColor 			= { theme.secondary 			}
