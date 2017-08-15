@@ -10,8 +10,11 @@ import 		Currencies 			from '../screens/currencies';
 import 		Detail				from '../screens/detail';
 import 		Exchanges 			from '../screens/exchanges';
 import 		Language 			from '../screens/language';
+import 		Translations 		from '../screens/language-send';
 import 		Settings 			from '../screens/settings';
 import 		Theme 				from '../screens/theme';
+import 		Themes 				from '../screens/theme-send';
+import 		Donate 				from '../screens/donate';
 import 		tabbar 				from '../styles/tabbar';
 import 		header 				from '../styles/header';
 
@@ -50,20 +53,32 @@ const Root = TabNavigator (
 export default StackNavigator (
 	{
 
-		Root : {
-			screen : Root
+		Root 		: {
+			screen 	: Root
 		} ,
 
-		Detail : {
-			screen : Detail
+		Detail 		: {
+			screen 	: Detail
 		} ,
 
-		Language : {
-			screen : Language
+		Donate 		: {
+			screen 	: Donate
 		} ,
 
-		Theme : {
-			screen : Theme
+		Language 	: {
+			screen 	: Language
+		} ,
+
+		Theme 		: {
+			screen 	: Theme
+		} ,
+
+		Themes 		: {
+			screen 	: Themes
+		} ,
+
+		Translations 	: {
+			screen 		: Translations
 		}
 	} ,
 

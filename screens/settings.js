@@ -46,13 +46,28 @@ export default connect (
 
 		return [
 			{
-				name 	: language.screens.theme.title 		,
+				name 	: language.screens.theme.title 			,
 				url 	: 'Theme'
 			} ,
 			
 			{
-				name 	: language.screens.language.title 	,
+				name 	: language.screens.language.title 		,
 				url 	: 'Language'
+			} ,
+			
+			{
+				name 	: language.screens.themes.title  		,
+				url 	: 'Themes'
+			} ,
+			
+			{
+				name 	: language.screens.translations.title  	,
+				url 	: 'Translations'
+			} ,
+			
+			{
+				name 	: language.screens.donate.title  		,
+				url 	: 'Donate'
 			}
 		];
 	}

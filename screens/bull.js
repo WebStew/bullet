@@ -6,6 +6,7 @@ import { 	ScrollView 		,
 			View 			} 	from 'react-native';
 import { 	Ionicons 		} 	from '@expo/vector-icons';
 import 		Error 				from '../components/errors/ajax';
+import 		Action 				from '../components/utilities/header-action';
 import 		Loader 				from '../components/utilities/loader';
 import 		Header 				from '../components/bull/header';
 import 		Overview 			from '../components/bull/overview';
@@ -24,12 +25,19 @@ export default connect (
 
 ) ( class Bull extends React.Component {
 
-	static navigationOptions = ({ screenProps }) => {
+	static navigationOptions = ({ navigation , screenProps }) => {
 
 		const 	language 	= screenProps.language 	,
 				theme 		= screenProps.theme 	;
 
 		return {
+			headerLeft 	: <Action 
+				icon 	= 'logo-bitcoin'
+				press 	= {() => {
+					navigation.navigate ( 'Donate' );
+				}}
+				value 	= { language.screens.donate.title }
+			/> ,
 			headerRight : <Refresh 	/> ,
 			headerTitle : <Header 	/> ,
 			tabBarIcon 	: ({ focused }) => {

@@ -10,6 +10,7 @@ import 		actions 				from '../actions/theme';
 import 		themes 					from '../properties/themes';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
+import 		strings					from '../utilities/string';
 
 export default connect (
 
@@ -26,7 +27,7 @@ export default connect (
 				theme 		= screenProps.theme 	;
 
 		return {
-			title 		: language.screens.theme.title ,		
+			title 		: strings.capitalise ( language.screens.theme.title ) ,	
 			headerLeft 	: <Back 
 				press 	= {() => navigation.goBack 	()} 
 				theme 	= { theme 					}
@@ -44,8 +45,6 @@ export default connect (
 
 			const 	icon 		= theme 	=== current.id 	? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline' ,
 					background 	= index % 2 === 0 			? current.primary 				: current.base;
-
-			console.log ( themes [ theme ].names );
 
 			return (
 				<TouchableOpacity 

@@ -10,6 +10,7 @@ import 		actions 				from '../actions/language';
 import 		languages 				from '../properties/languages';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
+import 		strings					from '../utilities/string';
 
 export default connect (
 
@@ -25,7 +26,7 @@ export default connect (
 		const language 	= screenProps.language;
 
 		return {
-			title 		: language.screens.language.title ,
+			title 		: strings.capitalise ( language.screens.language.title ) ,
 			headerLeft 	: <Back 
 				press 		= {() => navigation.goBack 		()} 
 				value 		= { language.actions.return 	}

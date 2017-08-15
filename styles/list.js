@@ -14,7 +14,8 @@ export default ( theme ) => {
 		} ,
 
 		'cell-text' : {
-			color  	: theme.body
+			color  		: theme.body ,
+			fontSize 	: 14
 		} ,
 
 		head : {

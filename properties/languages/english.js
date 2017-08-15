@@ -65,7 +65,7 @@ export default {
 
 				rating 			: 'Bull Rating' 		,
 
-				title 			: 'The Latest Bull' 	,
+				title 			: 'Latest Bull' 	,
 
 				values 			: {
 					title 		: 'Prices'
@@ -93,7 +93,7 @@ export default {
 			} ,
 
 			language 		: {
-				title 		: 'Change Language'
+				title 			: 'Change language'
 			} ,
 
 			settings 		: {
@@ -101,9 +101,48 @@ export default {
 			} ,
 
 			theme 			: {
-				title 		: 'Change Theme'
-			}
+				title 		: 'Change theme'
+			} ,
 
+			translations 	: {
+				title 		: 'Submit translation' ,
+				action 		: 'Send a translation' ,
+				body 		: 'This application uses Google Translate to provide multilingual support for our users. It could probably be a lot better. If you speak another language and would like it added to the application please help by submitting a translation.'
+			} ,
+
+			themes 			: {
+				title 		: 'Submit theme',
+				action 		: 'Send a theme' ,
+				body 		: 'If you would like to submit a theme please send through your colour palette and theme name and we\'ll add it to the application.'
+			} ,
+
+			donate 		: {
+				action 		: 'Copy {{placeholder}} address' ,
+				title 		: 'Donate' ,
+				body 		: 'Please help this application stay ad free and further development by donating. Pressing the below buttons will copy the wallet address to your clipboard.' ,
+				wallets 	: [
+					{
+						name 	: 'Ethereum' ,
+						id 		: '0x790b032d497131296eae4250a4840785dfcfd83e'
+					} ,
+					{
+						name 	: 'BitCoin' ,
+						id 		: '1MGkY3ZtvPVZUrg68eMdeKcjAv5FwD7hhm'
+					} ,
+					{
+						name 	: 'LiteCoin' ,
+						id 		: 'Li5YUuaso9Dzmf1ZB9qrh9QBfy9TWeLTdJ'
+					} ,
+					{
+						name 	: 'Groestlcoin' ,
+						id 		: 'FqmnNi5CVUi3wPBhzCZkTWRyE666j6oYat'
+					} , 
+					{
+						name 	: 'NEO' ,
+						id 		: 'ARr1SNboRfbHEjnpnrdVkpApz9cNknS7hL'
+					}
+				]
+			}
 		}
 	}
 };
