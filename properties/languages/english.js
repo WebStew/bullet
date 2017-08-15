@@ -4,7 +4,11 @@ export default {
 	en : {
 
 		id 				: 'en' 		,
-		name 			: 'English' ,
+		names 			: {
+			en : 'English' 			,
+			ms : 'Bahasa Inggeris' 	,
+			zh : '英语'
+		} ,
 
 		actions 		: {
 			all 		: 'all' 			,

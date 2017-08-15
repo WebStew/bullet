@@ -14,7 +14,8 @@ import 		style 					from '../styles/list-control';
 export default connect (
 
 	state => ({
-		theme : state.theme
+		language 	: state.language ,
+		theme 		: state.theme
 	})
 
 ) ( class Theme extends React.Component {
@@ -36,12 +37,15 @@ export default connect (
 
 	themes () {
 
-		const current = this.props.theme;
+		const 	current 	= this.props.theme ,
+				language 	= this.props.language;
 
 		return Object.keys ( themes ).map (( theme , index ) => {
 
 			const 	icon 		= theme 	=== current.id 	? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline' ,
 					background 	= index % 2 === 0 			? current.primary 				: current.base;
+
+			console.log ( themes [ theme ].names );
 
 			return (
 				<TouchableOpacity 
@@ -56,13 +60,13 @@ export default connect (
 						}
 					}}
 				>
-					<Text style = { style ( current ).text 	}>
-						{ themes [ theme ].name 			}
+					<Text style = { style ( current ).text 		}>
+						{ themes [ theme ].names [ language.id 	]}
 					</Text>
 					<Ionicons
-						name 	= { icon 				}
-						size 	= { 18 					}
-						color 	= { current.secondary 	}
+						name 	= { icon 						}
+						size 	= { 18 							}
+						color 	= { current.secondary 			}
 					/>
 				</TouchableOpacity>
 			);

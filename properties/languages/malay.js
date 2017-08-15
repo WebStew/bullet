@@ -3,8 +3,12 @@ export default {
 	
 	ms : {
 
-		id 				: 'ms' 				,
-		name 			: 'Malay' 			,
+		id 				: 'ms' 		,
+		names 			: {
+			en 			: 'Malay' 	,
+			ms 			: 'Melayu' 	,
+			zh 			: '马来语'
+		} ,
 
 		actions 		: {
 			all 		: 'Semua' 			,

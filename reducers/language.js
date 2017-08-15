@@ -13,6 +13,7 @@ export default function (
 		denominations 	: initial.denominations ,
 		development 	: initial.development 	,
 		errors 			: initial.errors 		,
+		name 			: initial.name 			,
 		screens 		: initial.screens
 	} , 
 

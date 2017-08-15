@@ -4,7 +4,11 @@ export default {
 	zh : {
 
 		id 				: 'zh' 				,
-		name 			: 'Chinese' 		,
+		names 			: {
+			en 			: 'Chinese' 		,
+			ms 			: 'Cina' 			,
+			zh 			: '中文'
+		} ,
 
 		actions 		: {
 			all 		: '所有' 				,

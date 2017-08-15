@@ -56,13 +56,13 @@ export default connect (
 						}
 					}}
 				>
-					<Text style = { style ( theme ).text 	}>
-						{ languages [ language ].name 		}
+					<Text style = { style ( theme ).text 			}>
+						{ languages [ language ].names [ current.id ]}
 					</Text>
 					<Ionicons
-						name 	= { icon 				}
-						size 	= { 18 					}
-						color 	= { theme.secondary 	}
+						name 	= { icon 							}
+						size 	= { 18 								}
+						color 	= { theme.secondary 				}
 					/>
 				</TouchableOpacity>
 			);
