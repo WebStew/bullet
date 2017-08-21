@@ -4,6 +4,7 @@ export default {
 	windows : {
 		names 	: {
 			en 	: 'Windows 3.1' 	,
+			de 	: 'Windows 3.1' 	,
 			ms 	: 'Windows 3.1' 	,
 			zh 	: 'Windows 3.1'
 		} 							,

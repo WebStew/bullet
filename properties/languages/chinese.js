@@ -6,6 +6,7 @@ export default {
 		id 				: 'zh' 				,
 		names 			: {
 			en 			: 'Chinese' 		,
+			de 			: 'Chinesisch' 		,
 			ms 			: 'Cina' 			,
 			zh 			: '中文'
 		} ,

@@ -4,6 +4,7 @@ export default {
 	twitter : {
 		names 	: {
 			en 	: 'Twitter' 		,
+			de 	: 'Twitter' 		,
 			ms 	: 'Twitter' 		,
 			zh 	: '推特'
 		} 							,

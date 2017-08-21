@@ -4,6 +4,7 @@ export default {
 	mcdonalds : {
 		names 	: {
 			en 	: 'Mickey D\'s' 		,
+			de 	: 'Mcdonalds' 			,
 			ms 	: 'Mcdonalds' 			,
 			zh 	: '麦当劳'
 		} 								,

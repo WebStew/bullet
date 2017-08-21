@@ -4,6 +4,7 @@ export default {
 	matrix : {
 		names 	: {
 			en 	: 'The Matrix' 		,
+			de 	: 'Die Matrix' 		,
 			ms 	: 'The Matrix' 		,
 			zh 	: '矩阵'
 		} 							,

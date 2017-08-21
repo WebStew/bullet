@@ -3,17 +3,18 @@ export default {
 	
 	ms : {
 
-		id 				: 'ms' 		,
+		id 				: 'ms' 			,
 		names 			: {
-			en 			: 'Malay' 	,
-			ms 			: 'Melayu' 	,
+			en 			: 'Malay' 		,
+			de 			: 'Malaiisch' 	,
+			ms 			: 'Melayu' 		,
 			zh 			: '马来语'
 		} ,
 
 		actions 		: {
 			all 		: 'Semua' 			,
 			calculating : 'Menghitung...' 	,
-			load 		: '' 				,
+			load 		: 'Beban' 			,
 			loading 	: 'Memuatkan...' 	,
 			refresh 	: 'Menyegarkan' 	,
 			return 		: 'Belakang' 		,

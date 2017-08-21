@@ -25,7 +25,8 @@ export default ( theme ) => {
 		} ,
 
 		'head-text' : {
-			color  		: theme.secondary ,
+			color  		: theme.secondary 	,
+			flex 		: 1 				,
 			fontSize 	: 16
 		} ,
 

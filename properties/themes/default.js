@@ -4,6 +4,7 @@ export default {
 	default : {
 		names 	: {
 			en 	: 'Jedi Knight' 	,
+			de 	: 'Jedi Ritter' 	,
 			ms 	: 'Knight Jedi' 	,
 			zh 	: '绝地骑士'
 		} 							,

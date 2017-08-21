@@ -116,11 +116,13 @@ export default connect (
 			return (
 
 				<TouchableOpacity 
-					key 	= { index 					}
-					onPress = { item.press.bind ( this )}
-					style 	= { item.styles.touch 		}
+					key 			= { index 					}
+					onPress 		= { item.press.bind ( this )}
+					style 			= { item.styles.touch 		}
 				>
-					<Text  style = { item.styles.text 	}>
+					<Text  
+						numberOfLines 	= { 1 					} 
+						style 			= { item.styles.text 	}>
 						{ item.text }
 					</Text>
 				</TouchableOpacity>
