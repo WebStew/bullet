@@ -5,6 +5,7 @@ import { 	TextInput 			,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
+import 		analytics 				from '../../utilities/analytics';
 import 		actions 				from '../../actions/search';
 import 		style 					from '../../styles/search';
 
@@ -27,17 +28,19 @@ export default connect (
 
 	set ( term ) {
 
-		this.props.dispatch ( actions.set ( term ));
+		analytics.event 	( 'search' , 'term' , term 	);
+		this.props.dispatch ( actions.set ( term 		));
 	}
 
 	off () {
 
-		this.props.dispatch ( actions.on ( false ));
+		analytics.event 	( 'search' , 'toggle' , 'off' 	);
+		this.props.dispatch ( actions.on ( false 			));
 	}
 
 	render () {
 
-		const 	language 	= this.props.language ,
+		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		;
 
 		if ( ! this.props.search.on ) {

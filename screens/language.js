@@ -11,6 +11,7 @@ import 		languages 				from '../properties/languages';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
 import 		strings					from '../utilities/string';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -28,7 +29,11 @@ export default connect (
 		return {
 			title 		: strings.capitalise ( language.screens.language.title ) ,
 			headerLeft 	: <Back 
-				press 		= {() => navigation.goBack 		()} 
+				press 		= {() => {
+					
+					analytics.event 	( 'languages' , 'navigate' , 'back' );
+					navigation.goBack 	()
+				}}
 				value 		= { language.actions.return 	}
 			/>
 		};
@@ -48,7 +53,9 @@ export default connect (
 				<TouchableOpacity 
 					key 	= { index 	}
 					onPress = {() => 	{
-						this.props.dispatch ( actions.save ( language ))
+						
+						analytics.event 	( 'languages' , 'set' , language 	);
+						this.props.dispatch ( actions.save ( language 			));
 					}}
 					style 	= {{
 						...style ( theme ).control ,
@@ -74,8 +81,9 @@ export default connect (
 
 		const theme = this.props.theme;
 
-		return (
-			<ScrollView style = { scene ( theme ).body }>
+		analytics.screen 	( 'languages:200' 			);
+		return 				(
+			<ScrollView style = { scene ( theme ).body 	}>
 				{ this.languages ()}
 			</ScrollView>
 		);

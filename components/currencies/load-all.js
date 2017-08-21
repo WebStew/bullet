@@ -6,6 +6,7 @@ import {	Text 				,
 import 		actions 				from '../../actions/currencies';
 import 		style 					from '../../styles/header';
 import 		api 					from '../../api/currencies';
+import 		analytics 				from '../../utilities/analytics';
 
 export default connect (
 
@@ -26,10 +27,14 @@ export default connect (
 	refresh () {
 
 		if ( this.props.currencies.items.length > api.limit ) {
-			this.props.dispatch ( actions.get 		());
+
+			analytics.event 	( 'currencies' , 'load' , 'get' 	);
+			this.props.dispatch ( actions.get 						());
 		}
 		else {
-			this.props.dispatch ( actions.stream 	());
+
+			analytics.event 	( 'currencies' , 'load' , 'stream' 	);
+			this.props.dispatch ( actions.stream 					());
 		}
 	}
 

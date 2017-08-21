@@ -45,14 +45,11 @@ const Root = TabNavigator (
 		tabBarPosition 		: 'bottom'	,
 		tabBarOptions 		: {
 			showLabel 		: false
-
 		}
 	}
 );
 
-export default StackNavigator (
-	{
-
+export default StackNavigator ({
 		Root 		: {
 			screen 	: Root
 		} ,

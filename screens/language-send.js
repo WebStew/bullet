@@ -14,6 +14,7 @@ import 		Heading 				from '../components/utilities/headings';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/help';
 import 		strings					from '../utilities/string';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -26,13 +27,17 @@ export default connect (
 
 	static navigationOptions = ({ navigation , screenProps }) => {
 
-		const 	language 	= screenProps.language , 
+		const 	language 	= screenProps.language 	, 
 				theme 		= screenProps.theme 	;
 
 		return {
 			title 		: strings.capitalise ( language.screens.translations.title ) ,
 			headerLeft 	: <Back 
-				press 	= {() => navigation.goBack 	()} 
+				press 	= {() => {
+					
+					analytics.event 	( 'translations' , 'navigate' ,' back' );
+					navigation.goBack 	()
+				}} 
 				theme 	= { theme 					}
 				value 	= { language.actions.return }
 			/>
@@ -42,13 +47,14 @@ export default connect (
 	constructor ( props ) {
 		super 	( props );
 
-		this.translations 	= this.translations.bind 	( this );
+		this.translations 	= this.translations.bind ( this );
 	}
 
 	translations () {
 
 		const language = this.props.language;
 
+		analytics.event ( 'translations' , 'send' , 'email' );
 		Linking.openURL ( 
 			'mailto://' + application.email + '?subject=Translation Request&body=' + JSON.stringify ( 
 				language 	, 
@@ -62,7 +68,8 @@ export default connect (
 		const 	language 	= this.props.language ,
 				theme 		= this.props.theme;
 
-		return (
+		analytics.screen 	( 'translations:200' 											);
+		return 				(
 			<ScrollView style 	= { scene ( theme ).body 									}>
 				<Heading 
 					theme 	= { theme 														}

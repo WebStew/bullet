@@ -14,6 +14,7 @@ import 		Code 					from '../components/utilities/code';
 import 		Heading 				from '../components/utilities/headings';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/help';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -32,7 +33,11 @@ export default connect (
 		return {
 			title 		: language.screens.donate.title ,
 			headerLeft 	: <Back 
-				press 	= {() => navigation.goBack 	()} 
+				press 	= {() => {
+					
+					analytics.event 	( 'donate' , 'navigate' , 'back' );
+					navigation.goBack 	()
+				}} 
 				theme 	= { theme 					}
 				value 	= { language.actions.return }
 			/>
@@ -62,7 +67,9 @@ export default connect (
 					<Button 
 						key 	= { index }
 						press 	= {() => {
-							Clipboard.setString ( wallet.id );
+							
+							analytics.event 	( 'wallet' , 'copy' , wallet.name.toLowerCase ());
+							Clipboard.setString ( wallet.id 									);
 						}}
 						theme 	= { theme }
 						value 	= { label }
@@ -77,7 +84,8 @@ export default connect (
 		const 	language 	= this.props.language ,
 				theme 		= this.props.theme;
 
-		return (
+		analytics.screen 	( 'donate:200' 						);
+		return 				(
 			<ScrollView style 	= { scene ( theme ).body 		}>
 				<Heading 
 					theme 	= { theme 							}

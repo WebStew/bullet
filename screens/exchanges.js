@@ -10,6 +10,7 @@ import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		scene 					from '../styles/scene';
 import 		exchanges 				from '../properties/exchanges';
 import 		style 					from '../styles/list-control';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -51,7 +52,11 @@ export default connect (
 			return (
 				<TouchableOpacity 
 					key 	= { index 								}
-					onPress = {() => Linking.openURL ( exchange.url )}
+					onPress = {() => {
+						
+						analytics.event ( 'exchange' , 'open' , exchange.name.toLowerCase ());
+						Linking.openURL ( exchange.url 										)
+					}}
 					style 	= {{
 						...style ( theme ).control 						,
 						...{
@@ -76,11 +81,11 @@ export default connect (
 
 		const theme = this.props.theme
 
-		return (
-			<ScrollView style = { scene ( theme ).body }>
+		analytics.screen 	( 'exchanges:200' 			);
+		return 				(
+			<ScrollView style = { scene ( theme ).body 	}>
 				{ this.exchanges ()}
 			</ScrollView>
 		);
-
 	}
 });

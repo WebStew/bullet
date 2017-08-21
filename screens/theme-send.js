@@ -14,6 +14,7 @@ import 		Heading 				from '../components/utilities/headings';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/help';
 import 		strings					from '../utilities/string';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -32,7 +33,11 @@ export default connect (
 		return {
 			title 		: strings.capitalise ( language.screens.themes.title ) ,
 			headerLeft 	: <Back 
-				press 	= {() => navigation.goBack 	()} 
+				press 	= {() => {
+
+					analytics.event 	( 'theme' , 'navigate' , 'back' );
+					navigation.goBack 	();
+				}}
 				theme 	= { theme 					}
 				value 	= { language.actions.return }
 			/>
@@ -49,6 +54,7 @@ export default connect (
 
 		const theme = this.props.theme;
 
+		analytics.event 	( 'theme' , 'send' , 'email' );
 		Linking.openURL ( 
 			'mailto://' + application.email + '?subject=Theme Request&body=' + JSON.stringify ( 
 				theme 	, 
@@ -62,7 +68,8 @@ export default connect (
 		const 	language 	= this.props.language ,
 				theme 		= this.props.theme;
 
-		return (
+		analytics.screen 	( 'theme:200' );
+		return 				(
 			<ScrollView style 	= { scene ( theme ).body 							}>
 				<Heading 
 					theme 	= { theme 												}

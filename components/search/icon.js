@@ -3,6 +3,7 @@ import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
 import { 	TouchableOpacity 	} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
+import 		analytics 				from '../../utilities/analytics';
 import 		actions 				from '../../actions/search';
 import 		style 					from '../../styles/search';
 
@@ -23,7 +24,10 @@ export default connect (
 
 	on () {
 
-		this.props.dispatch ( actions.on ( ! this.props.search.on ));
+		const state = this.props.search.on ? 'off' : 'on';
+
+		analytics.event 	( 'search' , 'toggle' , state 			);
+		this.props.dispatch ( actions.on ( ! this.props.search.on 	));
 	}
 
 	render () {

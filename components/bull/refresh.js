@@ -6,6 +6,7 @@ import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		actions 				from '../../actions/currencies';
 import 		style 					from '../../styles/header';
 import 		api 					from '../../api/currencies';
+import 		analytics 				from '../../utilities/analytics';
 
 export default connect (
 
@@ -26,10 +27,14 @@ export default connect (
 	refresh () {
 
 		if ( this.props.bull.competitors > api.limit ) {
-			this.props.dispatch ( actions.stream 	());
+
+			analytics.event 	( 'bull' , 'refresh' , 'stream' );
+			this.props.dispatch ( actions.stream 				());
 		}
 		else {
-			this.props.dispatch ( actions.get 		());
+
+			analytics.event 	( 'bull' , 'refresh' , 'get' 	);
+			this.props.dispatch ( actions.get 					());
 		}
 	}
 

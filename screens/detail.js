@@ -15,6 +15,7 @@ import 		layout 				from '../styles/layout';
 import 		scene 				from '../styles/scene';
 import 		style 				from '../styles/detail';
 import 		numbers 			from '../utilities/numbers';
+import 		analytics 			from '../utilities/analytics';
 
 export default connect (
 
@@ -28,16 +29,21 @@ export default connect (
 
 	static navigationOptions = ({ navigation , screenProps }) => {
 
-		const 	language 	= screenProps.language 	,
-				theme 		= screenProps.theme 	;
+		const 	language 	= screenProps.language 					,
+				theme 		= screenProps.theme 					,
+				name 		= navigation.state.params.currency.name ;
 
 		return {
 
-			title 			: `${ navigation.state.params.currency.name } ${ language.screens.detail.title }` ,
+			title 			: `${ name } ${ language.screens.detail.title }` ,
 
 			headerLeft 		: <Back 
-				press 		= {() => navigation.goBack 		()} 
-				value 		= { language.actions.return  	}
+				press 		= {() => {
+
+					analytics.event 	( 'detail:' + name.toLowerCase () , 'navigate' , 'back'  );
+					navigation.goBack 	()
+				}} 
+				value 		= { language.actions.return }
 			/> ,
 
 			headerRight 	: <Image 
@@ -60,9 +66,10 @@ export default connect (
 				language 	= this.props.language 							,
 				theme 		= this.props.theme 								;
 
-		return (
-			<ScrollView style = { scene ( theme ).body 		}>
-				<View 	style = { layout ( theme ).fill 	}>
+		analytics.screen 	( 'detail:' + currency.name + ':200' 	);
+		return 				(
+			<ScrollView style = { scene 	( theme ).body 			}>
+				<View 	style = { layout 	( theme ).fill 			}>
 					<View 	
 						style = {{
 							...layout 	( theme ).row ,
@@ -89,6 +96,7 @@ export default connect (
 						error 		= { this.props.graphs.error 		}
 						language 	= { language 						}
 						loading 	= { this.props.graphs.loading 		}
+						name 		= { currency.name 					}
 						theme 		= { theme 							}
 					/>
 

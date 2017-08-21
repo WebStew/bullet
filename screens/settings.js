@@ -8,6 +8,7 @@ import { 	ScrollView 			,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -84,7 +85,11 @@ export default connect (
 			return (
 				<TouchableOpacity 
 					key 	= { index 						}
-					onPress = {() => navigate ( setting.url )}
+					onPress = {() => {
+					
+						analytics.event ( 'settings' , 'navigate' , setting.url.toLowerCase 	());
+						navigate 		( setting.url 											);
+					}}
 					style 	= {{ 
 						...style ( theme ).control ,
 						...{
@@ -110,7 +115,8 @@ export default connect (
 
 		const theme = this.props.theme;
 
-		return (
+		analytics.screen 	( 'settings:200' 			);
+		return 				(
 			<ScrollView style = { scene ( theme ).body }>
 				{ this.contents ()}
 			</ScrollView>

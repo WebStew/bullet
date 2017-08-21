@@ -6,6 +6,7 @@ import { 	Platform 	,
 import { 	connect 	} 	from 'react-redux';
 import 		Navigation 		from '../navigations/router';
 import 		styles 			from '../styles/main';
+import 		analytics 		from '../utilities/analytics';
 
 export default connect (
 
@@ -16,10 +17,25 @@ export default connect (
 
 ) ( class Main extends React.Component {
 
+	constructor ( props ) {
+		super 	( props );
+
+		// Only fire the application load data once
+		analytics.screen ( 'application:200' );
+	}
+
+	componentWillMount () {
+
+		// Everytime a theme or language is change update the hit data
+		analytics.dimension ( 'language' 	, this.props.language 	);
+		analytics.dimension ( 'theme' 		, this.props.theme 		);
+	}
+
 	render () {
 
-		return (
-			<View style = { styles ( this.props.theme ).main }>
+		analytics.screen 	( 'main:200' );
+		return 				(
+			<View style = { styles ( this.props.theme ).main 	}>
 				{ Platform.OS === 'ios' 	&& <StatusBar 	barStyle 	= 'default' 								/> }
 				{ Platform.OS === 'android' && <View 		style 		= { styles ( this.props.theme ).statusbar } /> }
 				<Navigation 

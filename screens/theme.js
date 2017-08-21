@@ -11,6 +11,8 @@ import 		themes 					from '../properties/themes';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
 import 		strings					from '../utilities/string';
+import 		analytics 				from '../utilities/analytics';
+
 
 export default connect (
 
@@ -29,7 +31,11 @@ export default connect (
 		return {
 			title 		: strings.capitalise ( language.screens.theme.title ) ,	
 			headerLeft 	: <Back 
-				press 	= {() => navigation.goBack 	()} 
+				press 	= {() => {
+					
+					analytics.event 	( 'themes' , 'navigate' , 'back' );
+					navigation.goBack 	();
+				}} 
 				theme 	= { theme 					}
 				value 	= { language.actions.return }
 			/>
@@ -50,7 +56,9 @@ export default connect (
 				<TouchableOpacity 
 					key 	= { index 	}
 					onPress = {() => 	{
-						this.props.dispatch ( actions.save ( theme ))
+						
+						analytics.event 	( 'themes' , 'set' , theme 	);
+						this.props.dispatch ( actions.save ( theme 		));
 					}}
 					style 	= {{
 						...style ( current ).control ,
@@ -76,7 +84,8 @@ export default connect (
 
 		const theme = this.props.theme;
 
-		return (
+		analytics.screen 	( 'themes:200' );
+		return 				(
 			<ScrollView style = { scene ( theme ).body }>
 				{ this.themes ()}
 			</ScrollView>

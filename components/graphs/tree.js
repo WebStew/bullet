@@ -13,6 +13,7 @@ import 		AxisY 			from './axis-y';
 import 		time 			from '../../constants/time';
 import 		device 			from '../../properties/device';
 import 		numbers 		from '../../utilities/numbers';
+import 		analytics 		from '../../utilities/analytics';
 import 		style 			from '../../styles/graphs';
 
 export default class ChartTree extends React.Component {
@@ -143,10 +144,11 @@ export default class ChartTree extends React.Component {
 	render () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				name 		= this.props.name 		;
 
 		if ( this.props.loading ) {
-
+			
 			return (
 				<View style = { style ( theme ).tree.loading }>
 					<Loader
@@ -160,19 +162,21 @@ export default class ChartTree extends React.Component {
 
 		if ( this.props.error ) {
 
-			return (
+			analytics.screen 	( 'graph: ' + name + ' :500' 	);
+			return 				(
 				<Error 
-					error 	= { this.props.error 		}
-					press 	= { this.props.refresh 		}
-					text 	= { language.errors.ajax 	}
-					theme 	= { theme 					}
+					error 	= { this.props.error 				}
+					press 	= { this.props.refresh 				}
+					text 	= { language.errors.ajax 			}
+					theme 	= { theme 							}
 				/>
 			);
 		}
 
 		this.setScales ();
 
-		return (
+		analytics.screen 	( 'graph: ' + name + ' :200' 	);
+		return 				(
 			
 			<View style = { style ( theme ).tree.view }>
 
@@ -184,6 +188,10 @@ export default class ChartTree extends React.Component {
 					dataSource 						= { this.data 						()}
 					horizontal 						= { true 							}
 					initialNumToRender 				= { Math.round ( device.width / 5 	)}
+					onChangeVisibleRows 			= {() => {
+
+						analytics.event 			( 'graph' , 'scroll' , name 		);
+					}}
 					renderRow 						= { this.row 						}
 					renderSectionHeader  			= { this.section 					}
 					showsHorizontalScrollIndicator 	= { false 							}

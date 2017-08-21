@@ -20,6 +20,7 @@ import 		scene 					from '../styles/scene';
 import 		seperator 				from '../styles/seperators';
 import 		stripe 					from '../styles/stripe';
 import 		api 					from '../api/currencies';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -95,11 +96,14 @@ export default connect (
 	refresh () {
 		
 		if ( this.props.currencies.items.length > api.limit ) {
-			this.props.dispatch ( actions.stream 	());
+
+			analytics.event 	( 'currencies' , 'refresh' , 'stream' 	);
+			this.props.dispatch ( actions.stream 						());
 		}
 
 		else {
-			this.props.dispatch ( actions.get 		());
+			analytics.event 	( 'currencies' , 'refresh' , 'get' 		);
+			this.props.dispatch ( actions.get 							());
 		}
 	}
 
@@ -186,7 +190,11 @@ export default connect (
 		};
 
 		return [{
-			press 		: () => this.props.dispatch ( actions.order ( 'rank' )) 	, 
+			press 		: () => {
+
+				analytics.event 	( 'currencies' , 'order' , 'rank' 	);
+				this.props.dispatch ( actions.order ( 'rank' 			));
+			} 																		, 
 			styles 		: {
 				text 	: { 
 					...list 	( theme ) [ 'head-text' ] 							,
@@ -200,7 +208,11 @@ export default connect (
 			text 		: language.screens.currencies.headers.rank
 		} 																			,
 		{
-			press 		: () => this.props.dispatch ( actions.order ( 'rating' )) 	,
+			press 		: () => {
+
+				analytics.event 	( 'currencies' , 'order' , 'rating' 	);
+				this.props.dispatch ( actions.order ( 'rating' 				));
+			} 																		,
 			styles 		: {
 				text 	: {
 					...list 	( theme ) [ 'head-text' 	] 						,
@@ -212,7 +224,11 @@ export default connect (
 			text 		: language.screens.currencies.headers.rating
 		} 																			,
 		{
-			press 		: () => this.props.dispatch ( actions.order ( 'change' )) 	,
+			press 		: () => {
+
+				analytics.event 	( 'currencies' , 'order' , 'change' );
+				this.props.dispatch ( actions.order ( 'change' 			));
+			} 																		,
 			styles 		: {
 				text 	: {
 					...list 	( theme ) [ 'head-text' ] 							,
@@ -224,7 +240,11 @@ export default connect (
 			text 		: language.screens.currencies.headers.change
 		} ,
 		{
-			press 		: () => this.props.dispatch ( actions.order ( 'price' )) 	,
+			press 		: () => {
+
+				analytics.event 	( 'currencies' , 'order' , 'price' 	);
+				this.props.dispatch ( actions.order ( 'price' 			));
+			} 																		,
 			styles 		: {
 				text 	: {
 					...list 	( theme ) [ 'head-text' 	] 						,
@@ -267,7 +287,8 @@ export default connect (
 
 		if ( this.props.currencies.error ) {
 
-			return (
+			analytics.screen 	( 'currencies:500' 				);
+			return 				(
 				<Error 
 					error 		= { this.props.currencies.error }
 					language 	= { language 					}
@@ -278,7 +299,8 @@ export default connect (
 			);
 		}
 
-		return (
+		analytics.screen 	( 'currencies:200' 					);
+		return 				(
 
 			<View 				style = { scene ( theme ).body 	}>
 				<SearchInput  	/>

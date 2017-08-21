@@ -14,6 +14,8 @@ import 		NotFound 			from '../components/bull/404';
 import 		Refresh 			from '../components/bull/refresh';
 import 		actions 			from '../actions/currencies';
 import 		scene 				from '../styles/scene';
+import 		api 				from '../api/currencies';
+import 		analytics 			from '../utilities/analytics';
 
 export default connect (
 
@@ -34,7 +36,9 @@ export default connect (
 			headerLeft 	: <Action 
 				icon 	= 'logo-bitcoin'
 				press 	= {() => {
-					navigation.navigate ( 'Donate' );
+
+					analytics.event 	( 'bull' , 'navigate'  , 'donate' 	);
+					navigation.navigate ( 'Donate' 							);
 				}}
 				value 	= { language.screens.donate.title }
 			/> ,
@@ -63,8 +67,16 @@ export default connect (
 
 	refresh () {
 
-		// Gets the first 100 tokens from the API
-		this.props.dispatch ( actions.get ());
+		if ( this.props.bull.competitors > api.limit ) {
+			
+			analytics.event 	( 'bull' , 'refresh' , 'stream' );
+			this.props.dispatch ( actions.stream 				());
+		}
+		else {
+
+			analytics.event 	( 'bull' , 'refresh' , 'get' 	);
+			this.props.dispatch ( actions.get 					());
+		}
 	}
 
 	render () {
@@ -87,7 +99,8 @@ export default connect (
 
 		if ( this.props.bull.error ) {
 
-			return (
+			analytics.screen 	( 'bull:500' 				);
+			return 				(
 				<Error 
 					error 		= { this.props.bull.error 	}
 					language 	= { language 				}
@@ -101,7 +114,8 @@ export default connect (
 
 		if ( this.props.bull.rating === 0 ) {
 
-			return (
+			analytics.screen 	( 'bull:404' 		);
+			return 				(
 				<NotFound 
 					bull 		= { this.props.bull }
 					language 	= { language 		}
@@ -110,7 +124,8 @@ export default connect (
 			);
 		}
 
-		return (
+		analytics.screen 	( 'bull:200' 				);
+		return 				(
 			<ScrollView style = { scene ( theme ).body 	}>
 				<Overview 
 					bull 		= { this.props.bull 	}
