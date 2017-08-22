@@ -12,5 +12,10 @@ export default {
 	contains ( subject , characters ) {
 
 		return ( subject.indexOf ( characters ) > -1 );
+	} ,
+
+	datalise ( phrase ) {
+
+		return phrase.toLowerCase ().replace ( /\s/g , '-' );
 	}
 };

@@ -22,13 +22,18 @@ export default connect (
 
 		// Only fire the application load data once
 		analytics.screen ( 'application:200' );
+		this.dimensions ();
 	}
 
-	componentWillMount () {
+	dimensions () {
+		
+		// Everytime a theme or language is changed update the GA dimension
+		analytics.dimension ( 'language' 	, this.props.language.names.en.toLowerCase	());
+		analytics.dimension ( 'theme' 		, this.props.theme.names.en.toLowerCase 	());
+	}
 
-		// Everytime a theme or language is change update the hit data
-		analytics.dimension ( 'language' 	, this.props.language 	);
-		analytics.dimension ( 'theme' 		, this.props.theme 		);
+	componentWillUpdate () {
+		this.dimensions ();
 	}
 
 	render () {

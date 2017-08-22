@@ -8,6 +8,7 @@ import 		theme 			from './actions/theme';
 import 		language 		from './actions/language';
 import 		database 		from './configuration/database';
 import 		configuration 	from './configuration/store';
+import 		analytics 		from './utilities/analytics';
 import 		cache 			from './utilities/cache';
 
 const store = configuration ();
@@ -55,6 +56,9 @@ export default class Application extends React.Component {
 
 		// Setup the local databases
 		database.settings.setup ();
+
+		// Setup the analytics
+		analytics.setup 		();
 
 		// Get any data from the local databases
 		store.dispatch 	( theme.get 	());

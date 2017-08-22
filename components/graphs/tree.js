@@ -162,7 +162,7 @@ export default class ChartTree extends React.Component {
 
 		if ( this.props.error ) {
 
-			analytics.screen 	( 'graph: ' + name + ' :500' 	);
+			analytics.screen 	( 'graph:' + name + ':500' 	);
 			return 				(
 				<Error 
 					error 	= { this.props.error 				}
@@ -175,7 +175,7 @@ export default class ChartTree extends React.Component {
 
 		this.setScales ();
 
-		analytics.screen 	( 'graph: ' + name + ' :200' 	);
+		analytics.screen 	( 'graph:' + name + ':200' 	);
 		return 				(
 			
 			<View style = { style ( theme ).tree.view }>

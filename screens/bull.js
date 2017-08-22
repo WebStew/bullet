@@ -69,13 +69,13 @@ export default connect (
 
 		if ( this.props.bull.competitors > api.limit ) {
 			
-			analytics.event 	( 'bull' , 'refresh' , 'stream' );
-			this.props.dispatch ( actions.stream 				());
+			analytics.event 	( 'bull' , 'load' , 'stream' , 'application' );
+			this.props.dispatch ( actions.stream 							());
 		}
 		else {
 
-			analytics.event 	( 'bull' , 'refresh' , 'get' 	);
-			this.props.dispatch ( actions.get 					());
+			analytics.event 	( 'bull' , 'load' , 'get' , 'application' 	);
+			this.props.dispatch ( actions.get 								());
 		}
 	}
 

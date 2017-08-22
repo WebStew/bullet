@@ -28,13 +28,13 @@ export default connect (
 
 		if ( this.props.currencies.items.length > api.limit ) {
 
-			analytics.event 	( 'currencies' , 'load' , 'get' 	);
-			this.props.dispatch ( actions.get 						());
+			analytics.event 	( 'currencies' , 'load' , 'get' , 'user' 	);
+			this.props.dispatch ( actions.get 								());
 		}
 		else {
 
-			analytics.event 	( 'currencies' , 'load' , 'stream' 	);
-			this.props.dispatch ( actions.stream 					());
+			analytics.event 	( 'currencies' , 'load' , 'stream' , 'user' );
+			this.props.dispatch ( actions.stream 							());
 		}
 	}
 

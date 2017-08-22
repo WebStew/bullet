@@ -1,46 +1,55 @@
 
-import { 	Platform 		} 	from 'react-native';
-import { 	Constants 		} 	from 'expo';
-import { 	Analytics 	,
-			Hits as GAHits 	} 	from 'react-native-google-analytics';
-import 		application 		from '../configuration/application';
+import { 	Platform 	} 	from 'react-native';
+import { 	Amplitude 	,
+			Constants 	} 	from 'expo';
+import 		application 	from '../configuration/application';
+import 		strings 		from './string';
 
 const configuration = {
 		agent 		: Platform.OS === 'ios' ? Constants.platform.ios.model : 'Android : ' + Constants.deviceName ,
-		client 		: Constants.deviceId 		,
-		uid 		: 'UA-104704272-1' 			,
+		client 		: Constants.deviceId 					,
+		name 		: Constants.deviceName 					,
+		uid 		: 'bdc55b3cbe9aa875abea6c2c4645b912' 	,
 		version 	: Platform.Version
-	} ,
-	
-	tracker 		= new Analytics ( 
-		configuration.uid 		, 
-		configuration.client 	, 
-		configuration.version 	, 
-		configuration.agent 
-	);
+	};
+
+let dimensions 		= {};
 
 export default {
 
-	dimension ( property , value ) {
+	setup () {
 
 		if ( ! __DEV__ ) {
 
-			tracker.addDimension ( property , value );
+			Amplitude.initialize 		( configuration.uid 	);
+			Amplitude.setUserId 		( configuration.client 	);
+			Amplitude.setUserProperties ({
+				agent 		: configuration.agent 	,
+				application : application.version 	,
+				name 		: configuration.name 	,
+				version 	: configuration.version
+			});
 		}
+	} ,
+
+	dimension ( property , value ) {
+
+		dimensions [ property ] = strings.datalise ( value );
 	} ,
 
 	event ( category , action , label , value ) {
 
+		let name = category + ':' + action;
+
+		name += label ? ':' + label : '';
+		name += value ? ':' + value : '';
+
 		if ( ! __DEV__ ) {
 
-			const data = new GAHits.Event ( 
-					category 	, 
-					action 		, 
-					label 		,
-					value
-				);	
-			
-			tracker.send ( data );
+			Amplitude.logEventWithProperties (
+				strings.datalise ( name ) , 
+				dimensions 	
+			);
 		}
 	} ,
 
@@ -48,14 +57,10 @@ export default {
 
 		if ( ! __DEV__ ) {
 
-			const data = new GAHits.ScreenView (
-				application.name 	,
-				screen 				,
-				configuration.agent ,
-				configuration.client
+			Amplitude.logEventWithProperties (
+				strings.datalise ( screen ) , 
+				dimensions 
 			);
-
-			tracker.send ( data );
 		}
 	}
 };

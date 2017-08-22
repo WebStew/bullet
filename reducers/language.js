@@ -11,9 +11,8 @@ export default function (
 		id 				: initial.id 			,
 		actions 		: initial.actions 		,
 		denominations 	: initial.denominations ,
-		development 	: initial.development 	,
 		errors 			: initial.errors 		,
-		name 			: initial.name 			,
+		names 			: initial.names 		,
 		screens 		: initial.screens
 	} , 
 

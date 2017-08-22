@@ -97,13 +97,13 @@ export default connect (
 		
 		if ( this.props.currencies.items.length > api.limit ) {
 
-			analytics.event 	( 'currencies' , 'refresh' , 'stream' 	);
-			this.props.dispatch ( actions.stream 						());
+			analytics.event 	( 'currencies' , 'refresh' , 'stream' , 'user' 	);
+			this.props.dispatch ( actions.stream 								());
 		}
 
 		else {
-			analytics.event 	( 'currencies' , 'refresh' , 'get' 		);
-			this.props.dispatch ( actions.get 							());
+			analytics.event 	( 'currencies' , 'refresh' , 'get' ,'user' 		);
+			this.props.dispatch ( actions.get 									());
 		}
 	}
 

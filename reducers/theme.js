@@ -14,7 +14,7 @@ export default function (
 		border 		: initial.border 	,
 		chrome 		: initial.chrome 	,
 		disabled 	: initial.disabled 	,
-		name 		: initial.name 		,
+		names 		: initial.names 	,
 		negative 	: initial.negative 	,
 		positive 	: initial.positive 	,
 		primary 	: initial.primary 	,
