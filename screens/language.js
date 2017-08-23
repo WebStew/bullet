@@ -1,15 +1,18 @@
 
 import 		React 					from 'react';
-import { 	connect 			} 	from 'react-redux';
-import { 	ScrollView 			,
+import { 	Linking 			,
+			ScrollView 			,
+			TouchableOpacity 	,
 			Text 				,
-			TouchableOpacity 	} 	from 'react-native';
+			View 				} 	from 'react-native';
+import { 	connect 			} 	from 'react-redux';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
+import 		application 			from '../configuration/application';
 import 		Back 					from '../components/utilities/back';
-import 		actions 				from '../actions/language';
-import 		languages 				from '../properties/languages';
+import 		Button 					from '../components/utilities/button';
+import 		Heading 				from '../components/utilities/headings';
 import 		scene 					from '../styles/scene';
-import 		style 					from '../styles/list-control';
+import 		style 					from '../styles/help';
 import 		strings					from '../utilities/string';
 import 		analytics 				from '../utilities/analytics';
 
@@ -20,73 +23,66 @@ export default connect (
 		theme 		: state.theme
 	})
 
-) ( class Language extends React.Component {
+) ( class Translations extends React.Component {
 
 	static navigationOptions = ({ navigation , screenProps }) => {
 
-		const language 	= screenProps.language;
+		const 	language 	= screenProps.language 	, 
+				theme 		= screenProps.theme 	;
 
 		return {
-			title 		: strings.capitalise ( language.screens.language.title ) ,
+			title 		: strings.capitalise ( language.screens.translations.title ) ,
 			headerLeft 	: <Back 
-				press 		= {() => {
-					
-					analytics.event 	( 'languages' , 'navigate' , 'back' );
-					navigation.goBack 	()
-				}}
-				value 		= { language.actions.return 	}
+				press 	= {() => navigation.goBack 	()} 
+				theme 	= { theme 					}
+				value 	= { language.actions.return }
 			/>
 		};
 	};
 
-	languages () {
+	constructor ( props ) {
+		super 	( props );
 
-		const 	current = this.props.language ,
-				theme 	= this.props.theme;
+		this.translations 	= this.translations.bind ( this );
+	}
 
-		return Object.keys ( languages ).map (( language , index ) => {
+	translations () {
 
-			const 	icon 		= language 	=== current.id 	? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline' ,
-					background 	= index % 2 === 0 			? theme.primary 				: theme.base;
+		const language = this.props.language;
 
-			return (
-				<TouchableOpacity 
-					key 	= { index 	}
-					onPress = {() => 	{
-						
-						analytics.event 	( 'languages' , 'set' , language 	);
-						this.props.dispatch ( actions.save ( language 			));
-					}}
-					style 	= {{
-						...style ( theme ).control ,
-						...{
-							backgroundColor : background
-						}
-					}}
-				>
-					<Text style = { style ( theme ).text 			}>
-						{ languages [ language ].names [ current.id ]}
-					</Text>
-					<Ionicons
-						name 	= { icon 							}
-						size 	= { 18 								}
-						color 	= { theme.secondary 				}
-					/>
-				</TouchableOpacity>
-			);
-		});
+		analytics.event ( 'language' , 'send' , 'email' );
+		Linking.openURL ( 
+			'mailto://' + application.email + '?subject=Translation Request&body=' + JSON.stringify ( 
+				language 	, 
+				null 		,
+				'\t' 
+			));
 	}
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	language 	= this.props.language ,
+				theme 		= this.props.theme;
 
-		analytics.screen 	( 'languages:200' 			);
+		analytics.screen 	( 'language:200' 												);
 		return 				(
-			<ScrollView style = { scene ( theme ).body 	}>
-				{ this.languages ()}
+			<ScrollView style 	= { scene ( theme ).body 									}>
+				<Heading 
+					theme 	= { theme 														}
+					title 	= { strings.capitalise ( language.screens.translations.title 	)}
+					type 	= { 1 															}
+				/>
+				<View 	style 	= { style ( theme ).body 			}>
+					<Text style = { style ( theme ).text 			}>
+						{ language.screens.translations.body 		}
+					</Text>
+					<Button
+						press = { this.translations 					}
+						theme = { theme 								}
+						value = { language.screens.translations.action 	}
+					/>
+				</View>
 			</ScrollView>
 		);
-
 	}
 });

@@ -9,7 +9,6 @@ import 		list 					from '../../styles/list';
 import 		style 					from '../../styles/currencies';
 import 		images 					from '../../api/images';
 import 		numbers 				from '../../utilities/numbers';
-import 		analytics 				from '../../utilities/analytics';
 
 export default class Item extends React.Component {
 
@@ -22,9 +21,8 @@ export default class Item extends React.Component {
 
 	detail () {
 
-		analytics.event 				( 'currencies' , 'navigate' , this.props.currency.name );
 		this.props.navigation.navigate 	( 
-			'Detail' , 
+			'detail' , 
 			{
 				currency : this.props.currency
 			}

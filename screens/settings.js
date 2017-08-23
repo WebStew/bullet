@@ -48,27 +48,27 @@ export default connect (
 		return [
 			{
 				name 	: language.screens.theme.title 			,
-				url 	: 'Theme'
+				url 	: 'themes'
 			} ,
 			
 			{
 				name 	: language.screens.language.title 		,
-				url 	: 'Language'
+				url 	: 'languages'
 			} ,
 			
 			{
 				name 	: language.screens.themes.title  		,
-				url 	: 'Themes'
+				url 	: 'theme'
 			} ,
 			
 			{
 				name 	: language.screens.translations.title  	,
-				url 	: 'Translations'
+				url 	: 'language'
 			} ,
 			
 			{
 				name 	: language.screens.donate.title  		,
-				url 	: 'Donate'
+				url 	: 'donate'
 			}
 		];
 	}
@@ -85,11 +85,7 @@ export default connect (
 			return (
 				<TouchableOpacity 
 					key 	= { index 						}
-					onPress = {() => {
-					
-						analytics.event ( 'settings' , 'navigate' , setting.url.toLowerCase 	());
-						navigate 		( setting.url 											);
-					}}
+					onPress = {() => navigate ( setting.url )}
 					style 	= {{ 
 						...style ( theme ).control ,
 						...{

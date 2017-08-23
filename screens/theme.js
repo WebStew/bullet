@@ -1,18 +1,20 @@
 
 import 		React 					from 'react';
-import { 	ScrollView 			,
+import { 	Linking 			,
+			ScrollView 			,
+			TouchableOpacity 	,
 			Text 				,
-			TouchableOpacity 	} 	from 'react-native';
+			View 				} 	from 'react-native';
 import { 	connect 			} 	from 'react-redux';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
+import 		application 			from '../configuration/application';
 import 		Back 					from '../components/utilities/back';
-import 		actions 				from '../actions/theme';
-import 		themes 					from '../properties/themes';
+import 		Button 					from '../components/utilities/button';
+import 		Heading 				from '../components/utilities/headings';
 import 		scene 					from '../styles/scene';
-import 		style 					from '../styles/list-control';
+import 		style 					from '../styles/help';
 import 		strings					from '../utilities/string';
 import 		analytics 				from '../utilities/analytics';
-
 
 export default connect (
 
@@ -29,65 +31,57 @@ export default connect (
 				theme 		= screenProps.theme 	;
 
 		return {
-			title 		: strings.capitalise ( language.screens.theme.title ) ,	
+			title 		: strings.capitalise ( language.screens.themes.title ) ,
 			headerLeft 	: <Back 
-				press 	= {() => {
-					
-					analytics.event 	( 'themes' , 'navigate' , 'back' );
-					navigation.goBack 	();
-				}} 
+				press 	= {() => navigation.goBack 	()}
 				theme 	= { theme 					}
 				value 	= { language.actions.return }
 			/>
 		};
 	};
 
+	constructor ( props ) {
+		super 	( props );
+
+		this.themes 		= this.themes.bind 			( this );
+	}
+
 	themes () {
 
-		const 	current 	= this.props.theme ,
-				language 	= this.props.language;
+		const theme = this.props.theme;
 
-		return Object.keys ( themes ).map (( theme , index ) => {
-
-			const 	icon 		= theme 	=== current.id 	? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline' ,
-					background 	= index % 2 === 0 			? current.primary 				: current.base;
-
-			return (
-				<TouchableOpacity 
-					key 	= { index 	}
-					onPress = {() => 	{
-						
-						analytics.event 	( 'themes' , 'set' , theme 	);
-						this.props.dispatch ( actions.save ( theme 		));
-					}}
-					style 	= {{
-						...style ( current ).control ,
-						...{
-							backgroundColor : background
-						}
-					}}
-				>
-					<Text style = { style ( current ).text 		}>
-						{ themes [ theme ].names [ language.id 	]}
-					</Text>
-					<Ionicons
-						name 	= { icon 						}
-						size 	= { 18 							}
-						color 	= { current.secondary 			}
-					/>
-				</TouchableOpacity>
-			);
-		});
+		analytics.event 	( 'theme' , 'send' , 'email' );
+		Linking.openURL ( 
+			'mailto://' + application.email + '?subject=Theme Request&body=' + JSON.stringify ( 
+				theme 	, 
+				null 	, 
+				'\t' 
+			));
 	}
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	language 	= this.props.language ,
+				theme 		= this.props.theme;
 
-		analytics.screen 	( 'themes:200' );
+		analytics.screen 	( 'theme:200' );
 		return 				(
-			<ScrollView style = { scene ( theme ).body }>
-				{ this.themes ()}
+			<ScrollView style 	= { scene ( theme ).body 							}>
+				<Heading 
+					theme 	= { theme 												}
+					title 	= { strings.capitalise ( language.screens.themes.title 	)}
+					type 	= { 1 													}
+				/>
+				<View 	style 	= { style ( theme ).body 		}>
+					<Text style = { style ( theme ).text 		}>
+						{ language.screens.themes.body 			}
+					</Text>					
+					<Button
+						press = { this.themes 						}
+						theme = { theme 							}
+						value = { language.screens.themes.action 	}
+					/>
+				</View>
 			</ScrollView>
 		);
 	}

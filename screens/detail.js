@@ -38,11 +38,7 @@ export default connect (
 			title 			: `${ name } ${ language.screens.detail.title }` ,
 
 			headerLeft 		: <Back 
-				press 		= {() => {
-
-					analytics.event 	( 'detail:' + name.toLowerCase () , 'navigate' , 'back'  );
-					navigation.goBack 	()
-				}} 
+				press 		= {() => navigation.goBack 	()} 
 				value 		= { language.actions.return }
 			/> ,
 

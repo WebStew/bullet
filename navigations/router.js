@@ -8,10 +8,10 @@ import 		Currencies 			from '../screens/currencies';
 import 		Detail				from '../screens/detail';
 import 		Exchanges 			from '../screens/exchanges';
 import 		Language 			from '../screens/language';
-import 		Translations 		from '../screens/language-send';
+import 		Languages 			from '../screens/languages';
 import 		Settings 			from '../screens/settings';
 import 		Theme 				from '../screens/theme';
-import 		Themes 				from '../screens/theme-send';
+import 		Themes 				from '../screens/themes';
 import 		Donate 				from '../screens/donate';
 import 		header 				from '../styles/header';
 
@@ -51,28 +51,28 @@ export default StackNavigator ({
 			screen 	: Root
 		} ,
 
-		Detail 		: {
+		detail 		: {
 			screen 	: Detail
 		} ,
 
-		Donate 		: {
+		donate 		: {
 			screen 	: Donate
 		} ,
 
-		Language 	: {
+		language 	: {
 			screen 	: Language
 		} ,
 
-		Theme 		: {
+		theme 		: {
 			screen 	: Theme
 		} ,
 
-		Themes 		: {
+		themes 		: {
 			screen 	: Themes
 		} ,
 
-		Translations 	: {
-			screen 		: Translations
+		languages 	: {
+			screen 		: Languages
 		}
 	} ,
 

@@ -33,11 +33,7 @@ export default connect (
 		return {
 			title 		: language.screens.donate.title ,
 			headerLeft 	: <Back 
-				press 	= {() => {
-					
-					analytics.event 	( 'donate' , 'navigate' , 'back' );
-					navigation.goBack 	()
-				}} 
+				press 	= {() => navigation.goBack 	()} 
 				theme 	= { theme 					}
 				value 	= { language.actions.return }
 			/>

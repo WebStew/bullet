@@ -35,12 +35,8 @@ export default connect (
 		return {
 			headerLeft 	: <Action 
 				icon 	= 'logo-bitcoin'
-				press 	= {() => {
-
-					analytics.event 	( 'bull' , 'navigate'  , 'donate' 	);
-					navigation.navigate ( 'Donate' 							);
-				}}
-				value 	= { language.screens.donate.title }
+				press 	= {() => navigation.navigate ( 'donate' )}
+				value 	= { language.screens.donate.title 		}
 			/> ,
 			headerRight : <Refresh 	/> ,
 			headerTitle : <Header 	/> ,
