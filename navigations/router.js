@@ -1,7 +1,5 @@
 
 import 		React 				from 'react';
-import { 	connect 		} 	from 'react-redux';
-import { 	Ionicons 		} 	from '@expo/vector-icons';
 import { 	StackNavigator 	,
 			TabNavigator 	} 	from 'react-navigation';
 import 		TabBar 				from '../components/navigations/tabbar-bottom';
@@ -15,7 +13,6 @@ import 		Settings 			from '../screens/settings';
 import 		Theme 				from '../screens/theme';
 import 		Themes 				from '../screens/theme-send';
 import 		Donate 				from '../screens/donate';
-import 		tabbar 				from '../styles/tabbar';
 import 		header 				from '../styles/header';
 
 const Root = TabNavigator (
