@@ -8,7 +8,6 @@ import { 	ScrollView 			,
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
-import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -111,7 +110,6 @@ export default connect (
 
 		const theme = this.props.theme;
 
-		analytics.screen 	( 'settings:200' 			);
 		return 				(
 			<ScrollView style = { scene ( theme ).body }>
 				{ this.contents ()}

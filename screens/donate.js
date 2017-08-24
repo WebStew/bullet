@@ -64,8 +64,8 @@ export default connect (
 						key 	= { index }
 						press 	= {() => {
 							
-							analytics.event 	( 'wallet' , 'copy' , wallet.name.toLowerCase ());
-							Clipboard.setString ( wallet.id 									);
+							analytics.event 	( 'wallet' , 'copy' , wallet.name 	);
+							Clipboard.setString ( wallet.id 						);
 						}}
 						theme 	= { theme }
 						value 	= { label }
@@ -79,8 +79,7 @@ export default connect (
 
 		const 	language 	= this.props.language ,
 				theme 		= this.props.theme;
-
-		analytics.screen 	( 'donate:200' 						);
+				
 		return 				(
 			<ScrollView style 	= { scene ( theme ).body 		}>
 				<Heading 

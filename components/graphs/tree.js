@@ -175,7 +175,6 @@ export default class ChartTree extends React.Component {
 
 		this.setScales ();
 
-		analytics.screen 	( 'graph:' + name + ':200' 	);
 		return 				(
 			
 			<View style = { style ( theme ).tree.view }>

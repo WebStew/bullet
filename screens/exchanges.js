@@ -54,8 +54,8 @@ export default connect (
 					key 	= { index 								}
 					onPress = {() => {
 						
-						analytics.event ( 'exchange' , 'open' , exchange.name.toLowerCase ());
-						Linking.openURL ( exchange.url 										)
+						analytics.event ( 'exchange' , 'open' , exchange.name 	);
+						Linking.openURL ( exchange.url 							)
 					}}
 					style 	= {{
 						...style ( theme ).control 						,
@@ -81,7 +81,6 @@ export default connect (
 
 		const theme = this.props.theme
 
-		analytics.screen 	( 'exchanges:200' 			);
 		return 				(
 			<ScrollView style = { scene ( theme ).body 	}>
 				{ this.exchanges ()}

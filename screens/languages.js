@@ -77,7 +77,6 @@ export default connect (
 
 		const theme = this.props.theme;
 
-		analytics.screen 	( 'languages:200' 			);
 		return 				(
 			<ScrollView style = { scene ( theme ).body 	}>
 				{ this.languages ()}

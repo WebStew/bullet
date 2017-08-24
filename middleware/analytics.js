@@ -9,8 +9,9 @@ export default {
 		// This will track all screen navigation
 		if ( action.type === constants.navigate ) {
 
-			analytics.event ( 'navigate' , action.current , 'from' , action.previous );
-			next ( action )
+			analytics.event 	( action.previous , 'navigate' , action.current );
+			analytics.screen 	( action.current 								);
+			next 				( action 										)
 		}
 
 		else {

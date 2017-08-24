@@ -80,7 +80,6 @@ export default connect (
 
 		const theme = this.props.theme;
 
-		analytics.screen 	( 'themes:200' );
 		return 				(
 			<ScrollView style = { scene ( theme ).body }>
 				{ this.themes ()}

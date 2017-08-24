@@ -23,7 +23,7 @@ export default connect (
 		super 	( props );
 
 		// Only fire the application load data once
-		analytics.screen 	( 'application:200' );
+		analytics.event 	( 'application' , 'loaded' );
 		this.dimensions 	();
 
 		this.navigate = this.navigate.bind ( this );
@@ -32,8 +32,8 @@ export default connect (
 	dimensions () {
 		
 		// Everytime a theme or language is changed update the GA dimension
-		analytics.dimension ( 'language' 	, this.props.language.names.en.toLowerCase	());
-		analytics.dimension ( 'theme' 		, this.props.theme.names.en.toLowerCase 	());
+		analytics.dimension ( 'language' 	, this.props.language.names.en 	);
+		analytics.dimension ( 'theme' 		, this.props.theme.names.en 	);
 	}
 
 	// When react-navigation is moved into redux we can remove this approach for screen tracking feature
@@ -49,7 +49,6 @@ export default connect (
 	render () {
 
 		this.dimensions 	();
-		analytics.screen 	( 'main:200' );
 		return 				(
 			<View style = { styles ( this.props.theme ).main }>
 				{ Platform.OS === 'ios' 	&& <StatusBar 	barStyle 	= 'default' 								/> }

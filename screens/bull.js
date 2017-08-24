@@ -120,7 +120,6 @@ export default connect (
 			);
 		}
 
-		analytics.screen 	( 'bull:200' 				);
 		return 				(
 			<ScrollView style = { scene ( theme ).body 	}>
 				<Overview 

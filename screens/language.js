@@ -63,8 +63,7 @@ export default connect (
 
 		const 	language 	= this.props.language ,
 				theme 		= this.props.theme;
-
-		analytics.screen 	( 'language:200' 												);
+				
 		return 				(
 			<ScrollView style 	= { scene ( theme ).body 									}>
 				<Heading 

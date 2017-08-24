@@ -301,7 +301,6 @@ export default connect (
 			);
 		}
 
-		analytics.screen 	( 'currencies:200' 					);
 		return 				(
 
 			<View 				style = { scene ( theme ).body 	}>

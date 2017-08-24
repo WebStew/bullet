@@ -53,7 +53,10 @@ export default connect (
 
 	componentWillMount () {
 
-		this.props.dispatch ( actions.get ( this.props.navigation.state.params.currency.id ));
+		const currency = this.props.navigation.state.params.currency;
+
+		analytics.event 	( 'graph' , 'get' , currency.name , 'application' 	);
+		this.props.dispatch ( actions.get ( currency.id 						));
 	}
 
 	render () {
@@ -62,7 +65,7 @@ export default connect (
 				language 	= this.props.language 							,
 				theme 		= this.props.theme 								;
 
-		analytics.screen 	( 'detail:' + currency.name + ':200' 	);
+		analytics.screen 	( 'detail:' + currency.name 			);
 		return 				(
 			<ScrollView style = { scene 	( theme ).body 			}>
 				<View 	style = { layout 	( theme ).fill 			}>
