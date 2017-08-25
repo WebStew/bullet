@@ -35,8 +35,6 @@ export default connect (
 		const 	language 	= screenProps.language 	,
 				theme 		= screenProps.theme 	;
 
-		console.log ( this.props );
-
 		return {
 			headerLeft 	: <Action 
 				icon 	= 'ios-share-outline'

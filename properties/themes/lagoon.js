@@ -15,8 +15,8 @@ export default {
 		border 			: '#4935bf' 	,
 		chrome 			: '#000063' 	,
 		disabled 		: '#444' 		,
-		negative 		: '#cc0000' 	,
-		positive 		: '#00cc00' 	,
+		negative 		: '#330000' 	,
+		positive 		: '#003300' 	,
 		primary 		: '#513fcc' 	,
 		secondary 		: '#ffb600'
 	}

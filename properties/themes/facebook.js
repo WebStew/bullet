@@ -12,12 +12,12 @@ export default {
 
 		base 			: '#f7f7f7' 	,
 		body 			: '#111' 		,
-		border 			: '#3b5998' 	,
+		border 			: '#8b9dc3' 	,
 		chrome 			: '#3b5998' 	,
 		disabled 		: '#444' 		,
 		negative 		: '#ec361b' 	,
-		positive 		: '#44ea35' 	,
-		primary 		: '#8b9dc3' 	,
+		positive 		: '#4ab200' 	,
+		primary 		: '#dfe3ee' 	,
 		secondary 		: '#dfe3ee'
 	}
 };

@@ -11,13 +11,13 @@ export default {
 		id 				: 'windows' ,
 
 		base 			: '#fff' 	,
-		body 			: '#333' 	,
-		border 			: '#4b4b4b' ,
-		chrome 			: '#c0c0c0' ,
-		disabled 		: '#444' 	,
+		body 			: '#000' 	,
+		border 			: '#c0c0c0' ,
+		chrome 			: '#000080' ,
+		disabled 		: '#c0c0c0' ,
 		negative 		: '#cc0000' ,
-		positive 		: '#00cc00' ,
-		primary 		: '#d7d7d7' ,
-		secondary 		: '#000080'
+		positive 		: '#00e134' ,
+		primary 		: '#fff' 	,
+		secondary 		: '#fff'
 	}
 };
