@@ -3,12 +3,13 @@ export default {
 	
 	zh : {
 
-		id 				: 'zh' 				,
-		names 			: {
-			en 			: 'Chinese' 		,
-			de 			: 'Chinesisch' 		,
-			ms 			: 'Cina' 			,
-			zh 			: '中文'
+		id 		: 'zh' 				,
+		names 	: {
+			en 	: 'Chinese' 		,
+			de 	: 'Chinesisch' 		,
+			ms 	: 'Cina' 			,
+			vi 	: 'Trung Quốc' 		,
+			zh 	: '中文'
 		} ,
 
 		actions 		: {
@@ -91,7 +92,7 @@ export default {
 			} ,
 
 			exchanges 		: {
-				title 		: '购买加密'
+				title 		: '采购'
 			} ,
 
 			language 		: {

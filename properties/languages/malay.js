@@ -3,12 +3,13 @@ export default {
 	
 	ms : {
 
-		id 				: 'ms' 			,
-		names 			: {
-			en 			: 'Malay' 		,
-			de 			: 'Malaiisch' 	,
-			ms 			: 'Melayu' 		,
-			zh 			: '马来语'
+		id 		: 'ms' 			,
+		names 	: {
+			en 	: 'Malay' 		,
+			de 	: 'Malaiisch' 	,
+			ms 	: 'Melayu' 		,
+			vi 	: 'Người Malay' ,
+			zh 	: '马来语'
 		} ,
 
 		actions 		: {
@@ -91,7 +92,7 @@ export default {
 			} ,
 
 			exchanges 		: {
-				title 		: 'Beli Crypto'
+				title 		: 'Pembelian'
 			} ,
 
 			language 		: {

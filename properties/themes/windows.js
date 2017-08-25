@@ -6,6 +6,7 @@ export default {
 			en 	: 'Windows 3.1' 	,
 			de 	: 'Windows 3.1' 	,
 			ms 	: 'Windows 3.1' 	,
+			vi 	: 'Windows 3.1' 	,
 			zh 	: 'Windows 3.1'
 		} 							,
 		id 				: 'windows' ,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#cc0000' ,
 		positive 		: '#00e134' ,
 		primary 		: '#fff' 	,
-		secondary 		: '#fff'
+		secondary 		: '#fff' 	,
+		loader 			: '#000080'
 	}
 };

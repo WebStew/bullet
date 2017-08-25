@@ -3,12 +3,13 @@ export default {
 	
 	de : {
 
-		id 				: 'de' 	,
-		names 			: {
-			en : 'German' 		,
-			de : 'Deutsche' 	,
-			ms : 'Jerman' 		,
-			zh : '德语'
+		id 		: 'de' 			,
+		names  	: {
+			en 	: 'German' 		,
+			de 	: 'Deutsche' 	,
+			ms 	: 'Jerman' 		,
+			vi 	: 'tiếng Đức' 	,
+			zh 	: '德语'
 		} ,
 
 		actions 		: {
@@ -91,7 +92,7 @@ export default {
 			} ,
 
 			exchanges 		: {
-				title 		: 'Krypto Kaufen'
+				title 		: 'Kauf'
 			} ,
 
 			language 		: {

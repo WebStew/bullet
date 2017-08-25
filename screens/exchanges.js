@@ -7,6 +7,7 @@ import { 	Linking 			,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
+import 		Back 					from '../components/utilities/back';
 import 		scene 					from '../styles/scene';
 import 		exchanges 				from '../properties/exchanges';
 import 		style 					from '../styles/list-control';
@@ -21,23 +22,28 @@ export default connect (
 
 ) ( class Exchanges extends React.Component {
 
-	static navigationOptions = ({ screenProps }) => {
+	static navigationOptions = ({ navigation , screenProps }) => {
 
 		const language 	= screenProps.language 	,
 				theme 	= screenProps.theme 	;
 
 		return {
 			title 		: language.screens.exchanges.title ,
-			tabBarIcon 	: ({ focused }) => {
+			headerLeft 	: <Back 
+				press 	= {() => navigation.goBack 	()}
+				theme 	= { theme 					}
+				value 	= { language.actions.return }
+			/>
+			// tabBarIcon 	: ({ focused }) => {
 
-				return (
-					<Ionicons
-						name 	= 'ios-basket-outline'
-						size 	= { 32 											}
-						color 	= { focused ? theme.disabled : theme.secondary 	}
-					/>
-				);
-			}
+			// 	return (
+			// 		<Ionicons
+			// 			name 	= 'ios-basket-outline'
+			// 			size 	= { 32 											}
+			// 			color 	= { focused ? theme.disabled : theme.secondary 	}
+			// 		/>
+			// 	);
+			// }
 		};
 	};
 

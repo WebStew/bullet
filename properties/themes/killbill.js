@@ -6,6 +6,7 @@ export default {
 			en 	: 'Kill Bill' 					,
 			de 	: 'Kill Bill' 					,
 			ms 	: 'Bunuh Rang Undang-Undang' 	,
+			vi 	: 'Giết Bill' 					,
 			zh 	: '杀死比尔'
 		} 										,
 		id 				: 'killbill' 			,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#a4070c' 			,
 		positive 		: '#006e00' 			,
 		primary 		: '#dcb046' 			,
-		secondary 		: '#a4070c'
+		secondary 		: '#a4070c' 			,
+		loader 			: '#a4070c'
 	}
 };

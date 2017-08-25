@@ -6,6 +6,7 @@ export default {
 			en 	: 'Google' 			,
 			de 	: 'Google' 			,
 			ms 	: 'Google' 			,
+			vi 	: 'Google' 			,
 			zh 	: '谷歌'
 		} 							,
 		id 				: 'google' 	,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#da452f' ,
 		positive 		: '#03a15b' ,
 		primary 		: '#fff' 	,
-		secondary 		: '#da452f'
+		secondary 		: '#da452f' ,
+		loader 			: '#da452f'
 	}
 };

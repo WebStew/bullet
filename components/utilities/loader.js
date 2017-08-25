@@ -15,7 +15,7 @@ export default class Loader extends React.Component {
 		return (
 			<ActivityIndicator
 				animating 	= { this.props.loading 									}
-				color 		= { this.props.color || this.props.theme.secondary 		}
+				color 		= { this.props.color || this.props.theme.loader 		}
 				size 		= { this.props.size 									}
 				style 		= { style ()											}
 			/>

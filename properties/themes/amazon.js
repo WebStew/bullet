@@ -6,6 +6,7 @@ export default {
 			en 	: 'Amazon' 			,
 			de 	: 'Amazonas' 		,
 			ms 	: 'Amazon' 			,
+			vi 	: 'Amazon' 			,
 			zh 	: '亚马逊'
 		} 							,
 		id 				: 'amazon' 	,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#c6000f' ,
 		positive 		: '#007a00' ,
 		primary 		: '#f7f7f7' ,
-		secondary 		: '#f99101'
+		secondary 		: '#f99101' ,
+		loader 			: '#f99101'
 	}
 };

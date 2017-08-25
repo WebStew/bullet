@@ -6,6 +6,7 @@ export default {
 			en 	: 'Twitter' 		,
 			de 	: 'Twitter' 		,
 			ms 	: 'Twitter' 		,
+			vi 	: 'Twitter' 		,
 			zh 	: '推特'
 		} 							,
 		id 				: 'twitter' ,
@@ -17,7 +18,8 @@ export default {
 		disabled 		: '#444' 	,
 		negative 		: '#cc0000' ,
 		positive 		: '#00cc00' ,
-		primary 		: '#c0deed' ,
-		secondary 		: '#0084b4'
+		primary 		: '#fff' 	,
+		secondary 		: '#fff' 	,
+		loader 			: '#1dcaff'
 	}
 };

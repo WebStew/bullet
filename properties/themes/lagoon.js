@@ -6,6 +6,7 @@ export default {
 			en 	: 'Blue Lagoon' 		,
 			de 	: 'Blaue Lagune' 		,
 			ms 	: 'Lagun Biru' 			,
+			vi 	: 'Đầm xanh' 			,
 			zh 	: '蓝色泻湖'
 		} 								,
 		id 				: 'lagoon' 		,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#330000' 	,
 		positive 		: '#003300' 	,
 		primary 		: '#513fcc' 	,
-		secondary 		: '#ffb600'
+		secondary 		: '#ffb600' 	,
+		loader 			: '#ffb600'
 	}
 };

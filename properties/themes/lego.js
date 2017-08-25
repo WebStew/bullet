@@ -6,6 +6,7 @@ export default {
 			en 	: 'Everything is awesome' 	,
 			de 	: 'Hier ist alles super' 	,
 			ms 	: 'Semuanya hebat' 			,
+			vi 	: 'Mọi thứ đều tuyệt vời' 	,
 			zh 	: '一切都很棒'
 		} 									,
 		id 				: 'lego' 			,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#ff0000' 		,
 		positive 		: '#00ff00' 		,
 		primary 		: '#fff' 			,
-		secondary 		: '#ffff00'
+		secondary 		: '#ffff00' 		,
+		loader 			: '#ffff00'
 	}
 };

@@ -3,12 +3,13 @@ export default {
 	
 	en : {
 
-		id 				: 'en' 		,
-		names 			: {
-			en : 'English' 			,
-			de : 'Englisch' 		,
-			ms : 'Bahasa Inggeris' 	,
-			zh : '英语'
+		id 		: 'en' 				,
+		names 	: {
+			en 	: 'English' 		,
+			de 	: 'Englisch' 		,
+			ms 	: 'Bahasa Inggeris' ,
+			vi 	: 'Anh' 			,
+			zh 	: '英语'
 		} ,
 
 		actions 		: {
@@ -91,7 +92,7 @@ export default {
 			} ,
 
 			exchanges 		: {
-				title 		: 'Buy Crypto'
+				title 		: 'Purchase'
 			} ,
 
 			language 		: {

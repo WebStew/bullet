@@ -69,7 +69,7 @@ export default connect (
 					<Ionicons
 						name 	= { icon 						}
 						size 	= { 18 							}
-						color 	= { current.secondary 			}
+						color 	= { current.loader 				}
 					/>
 				</TouchableOpacity>
 			);

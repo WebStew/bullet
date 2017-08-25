@@ -26,10 +26,6 @@ const Root = TabNavigator (
 			screen 	: Currencies
 		} ,
 
-		exchanges 	: {
-			screen 	: Exchanges
-		} ,
-
 		settings 	: {
 			screen 	: Settings
 		}
@@ -57,6 +53,10 @@ export default StackNavigator ({
 
 		donate 		: {
 			screen 	: Donate
+		} ,
+
+		exchanges 	: {
+			screen 	: Exchanges
 		} ,
 
 		language 	: {

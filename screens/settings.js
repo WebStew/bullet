@@ -46,6 +46,11 @@ export default connect (
 
 		return [
 			{
+				name 	: language.screens.exchanges.title 		,
+				url 	: 'exchanges'
+			} ,
+
+			{
 				name 	: language.screens.theme.title 			,
 				url 	: 'themes'
 			} ,

@@ -4,6 +4,7 @@ import midnight 	from './themes/midnight';
 import marley 		from './themes/marley';
 import amazon 		from './themes/amazon';
 import windows 		from './themes/windows';
+import heineken 	from './themes/heineken';
 import killbill 	from './themes/killbill';
 import facebook 	from './themes/facebook';
 import twitter 		from './themes/twitter';
@@ -16,15 +17,16 @@ import lagoon 		from './themes/lagoon';
 export default {
 	...defaults 	,
 	...midnight 	,
+	...google 		,
 	...marley 		,
-	...amazon 		,
+	...heineken 	,
+	...matrix 		,
+	...facebook 	,
 	...windows 		,
 	...killbill 	,
-	...facebook 	,
 	...twitter 		,
 	...mcdonalds 	,
-	...matrix 		,
-	...google 		,
+	...amazon 		,
 	...lego 		,
 	...lagoon
 };

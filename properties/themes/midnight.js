@@ -6,6 +6,7 @@ export default {
 			en 	: 'Sith Lord' 			,
 			de 	: 'Sith Herr' 			,
 			ms 	: 'Sith Tuan' 			,
+			vi 	: 'Sith Lord' 			,
 			zh 	: '西斯王'
 		} 								,
 		id 				: 'midnight' 	,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#cc0000' 	,
 		positive 		: '#00cc00' 	,
 		primary 		: '#050505' 	,
-		secondary 		: '#00c4eb'
+		secondary 		: '#00c4eb' 	,
+		loader 			: '#00c4eb'
 	}
 };

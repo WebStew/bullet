@@ -6,6 +6,7 @@ export default {
 			en 	: 'The Matrix' 		,
 			de 	: 'Die Matrix' 		,
 			ms 	: 'The Matrix' 		,
+			vi 	: 'Ma trận' 		,
 			zh 	: '矩阵'
 		} 							,
 		id 				: 'matrix' 	,
@@ -18,6 +19,7 @@ export default {
 		negative 		: '#cc0000' ,
 		positive 		: '#00ff00' ,
 		primary 		: '#000' 	,
-		secondary 		: '#00ff00'
+		secondary 		: '#00ff00' ,
+		loader 			: '#00ff00'
 	}
 };
