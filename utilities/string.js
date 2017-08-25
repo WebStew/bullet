@@ -16,6 +16,6 @@ export default {
 
 	datalise ( phrase ) {
 
-		return phrase.toLowerCase ().replace ( /\s/g , '-' );
+		return phrase ? phrase.toLowerCase ().replace ( /\s/g , '-' ) : null;
 	}
 };

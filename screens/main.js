@@ -23,7 +23,7 @@ export default connect (
 		super 	( props );
 
 		// Only fire the application load data once
-		analytics.event 	( 'application' , 'loaded' );
+		analytics.event 	( 'cryptobullography' , 'loaded' );
 		this.dimensions 	();
 
 		this.navigate = this.navigate.bind ( this );

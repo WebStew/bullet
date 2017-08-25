@@ -11,7 +11,7 @@ export default {
 
 			analytics.event 	( action.previous , 'navigate' , action.current );
 			analytics.screen 	( action.current 								);
-			next 				( action 										)
+			next 				( action 										);
 		}
 
 		else {

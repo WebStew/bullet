@@ -18,6 +18,7 @@ export default {
 			loading 	: '载入中...' 			,
 			refresh 	: '刷新' 				,
 			return 		: '背部' 				,
+			share 		: '分享' 				,
 			search 		: '请输入一个搜索词' 
 		} ,
 	
@@ -99,6 +100,11 @@ export default {
 
 			settings 		: {
 				title 		: '设置'
+			} ,
+
+			share 			: {
+				title 		: 'Cryptobullography' ,
+				summary 	: '找到最新的斗牛市场上最大的噪音！'
 			} ,
 
 			theme 			: {

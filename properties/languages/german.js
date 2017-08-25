@@ -18,6 +18,7 @@ export default {
 			loading 	: 'Laden...' 		,
 			refresh 	: 'Erneuern' 		,
 			return 		: 'Zurück' 			,
+			share 		: 'Aktie' 			,
 			search 		: 'Bitte geben Sie einen Suchbegriff ein' 
 		} ,
 	
@@ -99,6 +100,11 @@ export default {
 
 			settings 		: {
 				title 		: 'Einstellungen'
+			} ,
+
+			share 			: {
+				title 		: 'Cryptobullography' ,
+				summary 	: 'Finde den neuesten Stier auf dem Krypto-Markt, der den größten Lärm macht!'
 			} ,
 
 			theme 			: {

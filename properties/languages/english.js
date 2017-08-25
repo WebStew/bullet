@@ -18,6 +18,7 @@ export default {
 			loading 	: 'Loading...' 		,
 			refresh 	: 'Refresh' 		,
 			return 		: 'Back' 			,
+			share 		: 'Share' 			,
 			search 		: 'Please enter a search term' 
 		} ,
 	
@@ -99,6 +100,11 @@ export default {
 
 			settings 		: {
 				title 		: 'Settings'
+			} ,
+
+			share 			: {
+				title 		: 'Cryptobullography' ,
+				summary 	: 'Find the latest bull on the cryptocurrency market making the biggest noise!'
 			} ,
 
 			theme 			: {

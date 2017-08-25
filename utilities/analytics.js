@@ -80,25 +80,27 @@ export default {
 
 	event ( category , action , label , value ) {
 
-		let name 		= category + ':' + action ,
-			parameters 	= '';
+		let parameters 	= '';
 
 		if ( ! __DEV__ ) {
 			
-			name 		+= label ? ':' + label 			: '';
-			name 		+= value ? ':' + value 			: '';
-			
-			parameters 	+= label ? '&el=' 	+ label 												: '';
-			parameters 	+= value ? '&cd' 	+ ( Object.keys ( dimensions ).length + 1 ) +'='+ value : '';
+			parameters 	+= label ? '&el=' 	+ strings.datalise 	( label 		) 													: '';
+			parameters 	+= value ? '&cd' 	+ ( Object.keys 	( dimensions 	).length + 1 ) + '=' + strings.datalise ( value ) 	: '';
 	
 			Amplitude.logEventWithProperties (
-				strings.datalise (strings.datalise ( name )) , 
-				dimensions 	
+				strings.datalise ( category ) , 
+				{
+					...dimensions 			,
+					action 		: strings.datalise ( action 	) ,
+					category 	: strings.datalise ( category 	) ,
+					label 		: strings.datalise ( label 		) ,
+					value 		: strings.datalise ( value 		)
+				}
 			);
 			
 			// Send analytics to Google
 			fetch ( 
-				encodeURI ( google.endpoint + '&t=event&ec=' + category + '&ea=' + action + strings.datalise ( parameters ) + parametise ()) , 
+				encodeURI ( google.endpoint + '&t=event&ec=' + strings.datalise ( category ) + '&ea=' + strings.datalise ( action ) + parameters + parametise ()) , 
 				google.options 
 			).catch ( error );
 		}
@@ -110,8 +112,11 @@ export default {
 
 			// Send analytics to Amplitude
 			Amplitude.logEventWithProperties (
-				strings.datalise ( screen ) , 
-				dimensions 
+				'screen' 			,
+				{ 
+					...dimensions 	,
+					view : strings.datalise ( screen )
+				}
 			);
 			
 			// Send analytics to Google

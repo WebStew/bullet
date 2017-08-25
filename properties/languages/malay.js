@@ -18,7 +18,8 @@ export default {
 			loading 	: 'Memuatkan...' 	,
 			refresh 	: 'Menyegarkan' 	,
 			return 		: 'Belakang' 		,
-			search 		: 'Sila masukkan istilah carian' 
+			share 		: 'Berkongsi' 		,
+			search 		: 'Sila masukkan istilah carian'
 		} ,
 	
 		denominations 	: {
@@ -99,6 +100,11 @@ export default {
 
 			settings 		: {
 				title 		: 'Tetapan'
+			} ,
+
+			share 			: {
+				title 		: 'Cryptobullography' ,
+				summary 	: 'Cari lembu terbaru di pasaran cryptocurrency yang membuat bunyi terbesar!'
 			} ,
 
 			theme 			: {

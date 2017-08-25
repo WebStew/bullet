@@ -1,7 +1,9 @@
 
 import 		React 				from 'react';
 import { 	connect 		} 	from 'react-redux';
-import { 	ScrollView 		,
+import { 	Platform 		,
+			ScrollView 		,
+			Share 			,
 			Text 			,
 			View 			} 	from 'react-native';
 import { 	Ionicons 		} 	from '@expo/vector-icons';
@@ -16,6 +18,7 @@ import 		actions 			from '../actions/currencies';
 import 		scene 				from '../styles/scene';
 import 		api 				from '../api/currencies';
 import 		analytics 			from '../utilities/analytics';
+import 		application 		from '../configuration/application';
 
 export default connect (
 
@@ -32,11 +35,32 @@ export default connect (
 		const 	language 	= screenProps.language 	,
 				theme 		= screenProps.theme 	;
 
+		console.log ( this.props );
+
 		return {
 			headerLeft 	: <Action 
-				icon 	= 'logo-bitcoin'
-				press 	= {() => navigation.navigate ( 'donate' )}
-				value 	= { language.screens.donate.title 		}
+				icon 	= 'ios-share-outline'
+				press 	= {() => {
+
+					const 	platform 	= Platform.OS ,
+							link 		= platform === 'ios' ? application.stores.apple : application.stores.google;
+
+					analytics.event ( 'cryptobullography' , 'share' , 'open' , platform );
+					Share.share 	(
+						{
+							message 	: language.screens.share.summary 	,
+							title 		: language.screens.share.title 		,
+							url 		: link
+						} , 
+						{
+							dialogTitle : language.screens.share.title 		,
+							tintColor 	: theme.chrome
+						}
+					)
+					.then 	(() 		=> analytics.event ( 'cryptobullography' , 'share' , 'success' 	, platform 	))
+					.catch 	(( error ) 	=> analytics.event ( 'cryptobullography' , 'share' , 'error' 	, platform 	));
+				}}
+				value 	= { language.actions.share }
 			/> ,
 			headerRight : <Refresh 	/> ,
 			headerTitle : <Header 	/> ,
