@@ -4,10 +4,11 @@ export default {
 	mcdonalds : {
 		names 	: {
 			en 	: 'Mickey D\'s' 		,
-			de 	: 'Mcdonalds' 			,
-			ms 	: 'Mcdonalds' 			,
-			tr 	: 'Mcdonalds' 			,
-			vi 	: 'Mcdonalds' 			,
+			de 	: 'McDonald\'s' 		,
+			fr 	: 'McDonald\'s' 		,
+			ms 	: 'McDonald\'s' 		,
+			tr 	: 'McDonald\'s' 		,
+			vi 	: 'McDonald\'s' 		,
 			zh 	: '麦当劳'
 		} 								,
 		id 				: 'mcdonalds' 	,

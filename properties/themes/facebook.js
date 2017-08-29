@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'TheFacebook' 			,
 			de 	: 'DasFacebook' 			,
+			fr 	: 'LeFacebook' 				,
 			ms 	: 'TheFacebook' 			,
 			tr 	: 'Facebook' 				,
 			vi 	: 'Mạng xã hội Facebook' 	,

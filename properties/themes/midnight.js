@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Sith Lord' 			,
 			de 	: 'Sith Herr' 			,
+			fr 	: 'Sith Lord' 			,
 			ms 	: 'Sith Tuan' 			,
 			tr 	: 'Sith Lord' 			,
 			vi 	: 'Sith Lord' 			,

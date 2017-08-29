@@ -7,6 +7,7 @@ export default {
 		names 	: {
 			en 	: 'Vietnamese' 		,
 			de 	: 'Vietnamesisch' 	,
+			fr 	: 'Vietnamien' 		,
 			ms 	: 'Bahasa Inggeris' ,
 			vi 	: 'Tiếng Việt' 		,
 			tr 	: 'Vietnam' 		,

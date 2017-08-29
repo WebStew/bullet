@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'The Matrix' 		,
 			de 	: 'Die Matrix' 		,
+			fr 	: 'La Matrice' 		,
 			ms 	: 'The Matrix' 		,
 			tr 	: 'Matrix' 			,
 			vi 	: 'Ma trận' 		,

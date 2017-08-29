@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Amazon' 			,
 			de 	: 'Amazonas' 		,
+			fr 	: 'Amazone' 		,
 			ms 	: 'Amazon' 			,
 			tr 	: 'Amazon' 			,
 			vi 	: 'Amazon' 			,

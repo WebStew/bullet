@@ -7,6 +7,7 @@ export default {
 		names 	: {
 			en 	: 'Malay' 		,
 			de 	: 'Malaiisch' 	,
+			fr 	: 'Malais' 		,
 			ms 	: 'Melayu' 		,
 			tr 	: 'Malaya' 		,
 			vi 	: 'Người Malay' ,

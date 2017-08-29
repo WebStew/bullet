@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Everything is awesome' 	,
 			de 	: 'Hier ist alles super' 	,
+			fr 	: 'Tout est génial' 		,
 			ms 	: 'Semuanya hebat' 			,
 			tr 	: 'Herşey harika' 			,
 			vi 	: 'Mọi thứ đều tuyệt vời' 	,

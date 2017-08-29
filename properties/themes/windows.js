@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Windows 3.1' 	,
 			de 	: 'Windows 3.1' 	,
+			fr 	: 'Windows 3.1' 	,
 			ms 	: 'Windows 3.1' 	,
 			tr 	: 'Windows 3.1' 	,
 			vi 	: 'Windows 3.1' 	,

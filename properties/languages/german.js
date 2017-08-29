@@ -7,6 +7,7 @@ export default {
 		names  	: {
 			en 	: 'German' 		,
 			de 	: 'Deutsche' 	,
+			fr 	: 'Allemand' 	,
 			ms 	: 'Jerman' 		,
 			tr 	: 'Almanca' 	,
 			vi 	: 'tiếng Đức' 	,

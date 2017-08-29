@@ -7,6 +7,7 @@ export default {
 		names 	: {
 			en 	: 'English' 		,
 			de 	: 'Englisch' 		,
+			fr 	: 'Anglais' 		,
 			ms 	: 'Bahasa Inggeris' ,
 			tr 	: 'Ingilizce' 		,
 			vi 	: 'Anh' 			,

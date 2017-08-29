@@ -7,6 +7,7 @@ export default {
 		names 	: {
 			en 	: 'Turkish' 		,
 			de 	: 'Türkisch' 		,
+			fr 	: 'Turc' 			,
 			ms 	: 'Turki' 			,
 			tr 	: 'Türk' 			,
 			vi 	: 'Thổ' 			,

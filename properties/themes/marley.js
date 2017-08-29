@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Bob Marley' 		,
 			de 	: 'Bob Marley' 		,
+			fr 	: 'Bob Marley' 		,
 			ms 	: 'Bob Marley' 		,
 			tr 	: 'Bob Marley' 		,
 			vi 	: 'Bob Marley' 		,

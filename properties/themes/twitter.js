@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Twitter' 		,
 			de 	: 'Twitter' 		,
+			fr 	: 'Gazouillement' 	,
 			ms 	: 'Twitter' 		,
 			tr 	: 'Heyecan' 		,
 			vi 	: 'Twitter' 		,

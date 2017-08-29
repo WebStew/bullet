@@ -7,6 +7,7 @@ export default {
 		names 	: {
 			en 	: 'Chinese' 		,
 			de 	: 'Chinesisch' 		,
+			fr 	: 'Chinois' 		,
 			ms 	: 'Cina' 			,
 			tr 	: 'Çince' 			,
 			vi 	: 'Trung Quốc' 		,

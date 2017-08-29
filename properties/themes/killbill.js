@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Kill Bill' 					,
 			de 	: 'Kill Bill' 					,
+			fr 	: 'Kill Bill' 					,
 			ms 	: 'Bunuh Rang Undang-Undang' 	,
 			tr 	: 'Bill i öldür' 				,
 			vi 	: 'Giết Bill' 					,

@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Blue Lagoon' 		,
 			de 	: 'Blaue Lagune' 		,
+			fr 	: 'Lagon bleu' 			,
 			ms 	: 'Lagun Biru' 			,
 			tr 	: 'Mavi Lagün' 			,
 			vi 	: 'Đầm xanh' 			,

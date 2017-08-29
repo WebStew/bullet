@@ -5,6 +5,7 @@ export default {
 		names 	: {
 			en 	: 'Heineken' 			,
 			de 	: 'Heineken' 			,
+			fr 	: 'Heineken' 			,
 			ms 	: 'Heineken' 			,
 			tr 	: 'Heineken' 			,
 			vi 	: 'Heineken' 			,
