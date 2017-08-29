@@ -20,8 +20,8 @@ export default function (
 				{} 		,
 				state 	,
 				{
-					
-					on : action.value
+					on 		: action.value ,
+					value 	: null
 				}
 			);
 		

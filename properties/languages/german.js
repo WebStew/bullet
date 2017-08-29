@@ -8,6 +8,7 @@ export default {
 			en 	: 'German' 		,
 			de 	: 'Deutsche' 	,
 			ms 	: 'Jerman' 		,
+			tr 	: 'Almanca' 	,
 			vi 	: 'tiếng Đức' 	,
 			zh 	: '德语'
 		} ,

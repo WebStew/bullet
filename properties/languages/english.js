@@ -8,6 +8,7 @@ export default {
 			en 	: 'English' 		,
 			de 	: 'Englisch' 		,
 			ms 	: 'Bahasa Inggeris' ,
+			tr 	: 'Ingilizce' 		,
 			vi 	: 'Anh' 			,
 			zh 	: '英语'
 		} ,

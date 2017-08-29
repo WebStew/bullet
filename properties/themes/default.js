@@ -6,6 +6,7 @@ export default {
 			en 	: 'Jedi Knight' 	,
 			de 	: 'Jedi Ritter' 	,
 			ms 	: 'Knight Jedi' 	,
+			tr 	: 'Jedi Şövalye' 	,
 			vi 	: 'Hiệp sĩ Jedi' 	,
 			zh 	: '绝地骑士'
 		} 							,

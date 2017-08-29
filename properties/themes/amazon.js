@@ -6,6 +6,7 @@ export default {
 			en 	: 'Amazon' 			,
 			de 	: 'Amazonas' 		,
 			ms 	: 'Amazon' 			,
+			tr 	: 'Amazon' 			,
 			vi 	: 'Amazon' 			,
 			zh 	: '亚马逊'
 		} 							,

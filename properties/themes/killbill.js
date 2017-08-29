@@ -6,6 +6,7 @@ export default {
 			en 	: 'Kill Bill' 					,
 			de 	: 'Kill Bill' 					,
 			ms 	: 'Bunuh Rang Undang-Undang' 	,
+			tr 	: 'Bill i öldür' 				,
 			vi 	: 'Giết Bill' 					,
 			zh 	: '杀死比尔'
 		} 										,

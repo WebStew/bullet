@@ -6,6 +6,7 @@ export default {
 			en 	: 'The Matrix' 		,
 			de 	: 'Die Matrix' 		,
 			ms 	: 'The Matrix' 		,
+			tr 	: 'Matrix' 			,
 			vi 	: 'Ma trận' 		,
 			zh 	: '矩阵'
 		} 							,

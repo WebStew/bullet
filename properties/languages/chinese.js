@@ -8,6 +8,7 @@ export default {
 			en 	: 'Chinese' 		,
 			de 	: 'Chinesisch' 		,
 			ms 	: 'Cina' 			,
+			tr 	: 'Çince' 			,
 			vi 	: 'Trung Quốc' 		,
 			zh 	: '中文'
 		} ,

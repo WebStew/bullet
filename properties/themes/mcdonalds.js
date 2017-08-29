@@ -6,6 +6,7 @@ export default {
 			en 	: 'Mickey D\'s' 		,
 			de 	: 'Mcdonalds' 			,
 			ms 	: 'Mcdonalds' 			,
+			tr 	: 'Mcdonalds' 			,
 			vi 	: 'Mcdonalds' 			,
 			zh 	: '麦当劳'
 		} 								,

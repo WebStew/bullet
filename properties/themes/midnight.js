@@ -6,6 +6,7 @@ export default {
 			en 	: 'Sith Lord' 			,
 			de 	: 'Sith Herr' 			,
 			ms 	: 'Sith Tuan' 			,
+			tr 	: 'Sith Lord' 			,
 			vi 	: 'Sith Lord' 			,
 			zh 	: '西斯王'
 		} 								,

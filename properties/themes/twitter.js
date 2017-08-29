@@ -6,6 +6,7 @@ export default {
 			en 	: 'Twitter' 		,
 			de 	: 'Twitter' 		,
 			ms 	: 'Twitter' 		,
+			tr 	: 'Heyecan' 		,
 			vi 	: 'Twitter' 		,
 			zh 	: '推特'
 		} 							,

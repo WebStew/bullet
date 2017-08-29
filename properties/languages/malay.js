@@ -8,6 +8,7 @@ export default {
 			en 	: 'Malay' 		,
 			de 	: 'Malaiisch' 	,
 			ms 	: 'Melayu' 		,
+			tr 	: 'Malaya' 		,
 			vi 	: 'Người Malay' ,
 			zh 	: '马来语'
 		} ,

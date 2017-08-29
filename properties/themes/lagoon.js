@@ -6,6 +6,7 @@ export default {
 			en 	: 'Blue Lagoon' 		,
 			de 	: 'Blaue Lagune' 		,
 			ms 	: 'Lagun Biru' 			,
+			tr 	: 'Mavi Lagün' 			,
 			vi 	: 'Đầm xanh' 			,
 			zh 	: '蓝色泻湖'
 		} 								,

@@ -25,7 +25,7 @@ export default connect (
 
 	static navigationOptions = ({ navigation , screenProps }) => {
 
-		const 	language 	= screenProps.language , 
+		const 	language 	= screenProps.language 	, 
 				theme 		= screenProps.theme 	;
 
 		return {

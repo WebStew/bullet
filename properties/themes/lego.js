@@ -6,6 +6,7 @@ export default {
 			en 	: 'Everything is awesome' 	,
 			de 	: 'Hier ist alles super' 	,
 			ms 	: 'Semuanya hebat' 			,
+			tr 	: 'Herşey harika' 			,
 			vi 	: 'Mọi thứ đều tuyệt vời' 	,
 			zh 	: '一切都很棒'
 		} 									,

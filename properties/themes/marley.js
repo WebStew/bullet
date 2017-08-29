@@ -6,6 +6,7 @@ export default {
 			en 	: 'Bob Marley' 		,
 			de 	: 'Bob Marley' 		,
 			ms 	: 'Bob Marley' 		,
+			tr 	: 'Bob Marley' 		,
 			vi 	: 'Bob Marley' 		,
 			zh 	: '鲍勃·马利'
 		} 							,
@@ -20,6 +21,6 @@ export default {
 		positive 		: '#3eb308' ,
 		primary 		: '#e20d0d' ,
 		secondary 		: '#dbc600' ,
-		loader 			: '#dbc600'
+		loader 			: '#3eb308'
 	}
 };

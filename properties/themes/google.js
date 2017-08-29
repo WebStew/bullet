@@ -6,6 +6,7 @@ export default {
 			en 	: 'Google' 			,
 			de 	: 'Google' 			,
 			ms 	: 'Google' 			,
+			tr 	: 'Google' 			,
 			vi 	: 'Google' 			,
 			zh 	: '谷歌'
 		} 							,

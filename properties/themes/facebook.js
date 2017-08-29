@@ -6,6 +6,7 @@ export default {
 			en 	: 'TheFacebook' 			,
 			de 	: 'DasFacebook' 			,
 			ms 	: 'TheFacebook' 			,
+			tr 	: 'Facebook' 				,
 			vi 	: 'Mạng xã hội Facebook' 	,
 			zh 	: 'TheFacebook'
 		} 									,

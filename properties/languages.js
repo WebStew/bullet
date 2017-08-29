@@ -3,6 +3,7 @@ import chinese 		from './languages/chinese';
 import english 		from './languages/english';
 import german 		from './languages/german';
 import malay 		from './languages/malay';
+import turkish 		from './languages/turkish';
 import vietnamese 	from './languages/vietnamese';
 
 export default {
@@ -10,5 +11,6 @@ export default {
 	...chinese 		,
 	...malay 		,
 	...german 		,
+	...turkish 		,
 	...vietnamese
 };

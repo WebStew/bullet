@@ -6,6 +6,7 @@ export default {
 			en 	: 'Heineken' 			,
 			de 	: 'Heineken' 			,
 			ms 	: 'Heineken' 			,
+			tr 	: 'Heineken' 			,
 			vi 	: 'Heineken' 			,
 			zh 	: '喜力'
 		} 								,

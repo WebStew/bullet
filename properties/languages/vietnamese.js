@@ -9,6 +9,7 @@ export default {
 			de 	: 'Vietnamesisch' 	,
 			ms 	: 'Bahasa Inggeris' ,
 			vi 	: 'Tiếng Việt' 		,
+			tr 	: 'Vietnam' 		,
 			zh 	: '英语'
 		} ,
 
