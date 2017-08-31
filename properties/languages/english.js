@@ -88,6 +88,11 @@ export default {
 				} ,
 				none 		: 'No currencies found for search term'
 			} ,
+			
+			converter 		: {
+				title 		: 'Converter' ,
+				placeholder : 'Amount'
+			} ,
 
 			detail 			: {
 				title 		: 'Detail'

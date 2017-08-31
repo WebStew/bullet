@@ -88,6 +88,11 @@ export default {
 				} ,
 				none 		: 'Không tìm thấy đơn vị tiền tệ cho cụm từ tìm kiếm'
 			} ,
+			
+			converter 		: {
+				title 		: 'Chuyển đổi' ,
+				placeholder : 'Số tiền'
+			} ,
 
 			detail 			: {
 				title 		: 'Chi tiết'

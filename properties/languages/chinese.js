@@ -89,6 +89,11 @@ export default {
 				none 		: '找不到搜索字词的货币'
 			} ,
 
+			converter 		: {
+				title 		: '变流器' ,
+				placeholder : '量'
+			} ,
+
 			detail 			: {
 				title 		: '详情'
 			} ,

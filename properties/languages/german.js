@@ -88,6 +88,11 @@ export default {
 				} ,
 				none 		: 'eine Währungen für Suchbegriff gefunden'
 			} ,
+			
+			converter 		: {
+				title 		: 'Konverter' ,
+				placeholder : 'Menge'
+			} ,
 
 			detail 			: {
 				title 		: 'Detail'

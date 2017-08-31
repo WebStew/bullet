@@ -10,6 +10,7 @@ export default ( theme ) => {
 			borderTopWidth 	: 1 			,
 			borderTopColor 	: theme.border 	,
 			flex 			: 1 			,
+			flexDirection 	: 'column' 		,
 			height 			: device.height
 		} ,
 

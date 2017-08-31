@@ -77,6 +77,11 @@ export default {
 				}
 
 			} ,
+			
+			converter 		: {
+				title 		: 'Penukar' ,
+				placeholder : 'Jumlah'
+			} ,
 
 			currencies 		: {
 				title 		:'{{length}} Mata Wang Teratas' ,

@@ -4,6 +4,7 @@ import { 	StackNavigator 	,
 			TabNavigator 	} 	from 'react-navigation';
 import 		TabBar 				from '../components/navigations/tabbar-bottom';
 import 		Bull 				from '../screens/bull';
+import 		Converter 			from '../screens/converter';
 import 		Currencies 			from '../screens/currencies';
 import 		Detail				from '../screens/detail';
 import 		Exchanges 			from '../screens/exchanges';
@@ -24,6 +25,10 @@ const Root = TabNavigator (
 
 		currencies 	: {
 			screen 	: Currencies
+		} ,
+
+		converter 	: {
+			screen 	: Converter
 		} ,
 
 		settings 	: {

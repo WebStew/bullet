@@ -4,7 +4,6 @@ import { 	connect 		} 	from 'react-redux';
 import { 	Platform 		,
 			ScrollView 		,
 			Share 			,
-			Text 			,
 			View 			} 	from 'react-native';
 import { 	Ionicons 		} 	from '@expo/vector-icons';
 import 		Error 				from '../components/errors/ajax';

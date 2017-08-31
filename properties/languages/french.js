@@ -88,6 +88,11 @@ export default {
 				} ,
 				one 		: 'Aucune devise trouvée pour le terme de recherche'
 			} ,
+			
+			converter 		: {
+				title 		: 'Convertisseur' ,
+				placeholder : 'Montant'
+			} ,
 
 			detail 			: {
 				title 		: 'Détail'

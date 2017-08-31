@@ -88,6 +88,11 @@ export default {
 				} ,
 				none 		: 'Arama terimi için para birimi bulunamadı'
 			} ,
+			
+			converter 		: {
+				title 		: 'Dönüştürücü' ,
+				placeholder : 'Tutar'
+			} ,
 
 			detail 			: {
 				title 		: 'Detay'
@@ -98,7 +103,7 @@ export default {
 			} ,
 
 			language 		: {
-				title 			: 'Dili değiştir'
+				title 		: 'Dili değiştir'
 			} ,
 
 			settings 		: {
