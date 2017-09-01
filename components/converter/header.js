@@ -19,7 +19,7 @@ export default connect (
 
 		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
-				title 		= this.props.currencies.loading ? language.actions.calculating : language.screens.converter.title;
+				title 		= this.props.currencies.loading ? language.actions.loading : language.screens.converter.title;
 
 		return ( 
 			<Text style = { style ( theme ).title }>

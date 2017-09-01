@@ -1,16 +1,18 @@
 
-import 		React 			from 'react';
-import { 	connect 	} 	from 'react-redux';
-import { 	Picker 		,
-			TextInput  	,
-			View 		} 	from 'react-native';
-import { 	Ionicons 	} 	from '@expo/vector-icons';
-import 		Loader 			from '../components/utilities/loader';
-import 		Header 			from '../components/converter/header';
-import 		layout 			from '../styles/layout';
-import 		scene 			from '../styles/scene';
-import 		style 			from '../styles/converter';
-import 		analytics 		from '../utilities/analytics';
+import 		React 							from 'react';
+import { 	connect 					} 	from 'react-redux';
+import { 	Keyboard 					,
+			Picker 						,
+			TextInput  					,
+			TouchableWithoutFeedback 	,
+			View 						} 	from 'react-native';
+import { 	Ionicons 					} 	from '@expo/vector-icons';
+import 		Loader 							from '../components/utilities/loader';
+import 		Header 							from '../components/converter/header';
+import 		layout 							from '../styles/layout';
+import 		scene 							from '../styles/scene';
+import 		style 							from '../styles/converter';
+import 		analytics 						from '../utilities/analytics';
 
 export default connect (
 
@@ -117,66 +119,68 @@ export default connect (
 		}
 
 		return (
-			<View 		style = { scene 	( theme ).body }>
-				<View 	style = { layout 	( theme ).fill }>
-					<TextInput 
-						defaultValue 	= { this.state.result 		}
-						editable 		= { false 					}
-						selectionColor 	= { theme.secondary 		}
-						style 			= { style ( theme ).result 	}
-					/>
-				</View>
-
-				<View 		style = { style ( theme ).pickers.view }>
-					<View 	style = {{
-						...style ( theme ).pickers.column ,
-						...{
-							marginLeft : 15
-						}
-					}}>
-						<Picker 
-							onValueChange 	= {( value ) => this.set ( 'from' , value 	)}
-							selectedValue 	= { this.state.from 						}
-							style 			= { style ( theme ).picker 					}>
-							{ this.options ()}
-						</Picker>
-					</View>
-					<View 	style 	= { style ( theme ).icon 		}>
-						<Ionicons
-							name 	= { 'ios-arrow-forward-outline' }
-							size 	= { 32 							}
-							color 	= { theme.secondary 			}
+			<TouchableWithoutFeedback 	onPress = { Keyboard.dismiss 		}>
+				<View 					style 	= { scene 	( theme ).body 	}>
+					<View 				style 	= { layout 	( theme ).fill 	}>
+						<TextInput 
+							defaultValue 	= { this.state.result 		}
+							editable 		= { false 					}
+							selectionColor 	= { theme.secondary 		}
+							style 			= { style ( theme ).result 	}
 						/>
 					</View>
-					<View 	style = {{
-						...style ( theme ).pickers.column ,
+
+					<View 		style = { style ( theme ).pickers.view }>
+						<View 	style = {{
+							...style ( theme ).pickers.column ,
+							...{
+								marginLeft : 15
+							}
+						}}>
+							<Picker 
+								onValueChange 	= {( value ) => this.set ( 'from' , value 	)}
+								selectedValue 	= { this.state.from 						}
+								style 			= { style ( theme ).picker 					}>
+								{ this.options ()}
+							</Picker>
+						</View>
+						<View 	style 	= { style ( theme ).icon 		}>
+							<Ionicons
+								name 	= { 'ios-arrow-forward-outline' }
+								size 	= { 32 							}
+								color 	= { theme.secondary 			}
+							/>
+						</View>
+						<View 	style = {{
+							...style ( theme ).pickers.column ,
+							...{
+								marginRight : 15
+							}
+						}}>
+							<Picker 
+								onValueChange 	= {( value ) => this.set ( 'to' , value )}
+								selectedValue 	= { this.state.to 						}
+								style 			= { style ( theme ).picker 				}>
+								{ this.options ()}
+							</Picker>
+						</View>
+					</View>
+
+					<View 	style 			= {{
+						...layout ( theme ).center ,
 						...{
-							marginRight : 15
-						}
-					}}>
-						<Picker 
-							onValueChange 	= {( value ) => this.set ( 'to' , value )}
-							selectedValue 	= { this.state.to 						}
-							style 			= { style ( theme ).picker 				}>
-							{ this.options ()}
-						</Picker>
+							backgroundColor : theme.primary
+						}}}>
+						<TextInput 
+							defaultValue 	= { this.state.base 						}
+							keyboardType 	= 'numeric' 
+							onChangeText 	= {( value ) => this.set ( 'base' , value 	)}
+							selectionColor 	= { theme.secondary 						}
+							style 			= { style ( theme ).input 					}
+						/>
 					</View>
 				</View>
-
-				<View 	style 			= {{
-					...layout ( theme ).center ,
-					...{
-						backgroundColor : theme.primary
-					}}}>
-					<TextInput 
-						defaultValue 	= { this.state.base 						}
-						keyboardType 	= 'numeric' 
-						onChangeText 	= {( value ) => this.set ( 'base' , value 	)}
-						selectionColor 	= { theme.secondary 						}
-						style 			= { style ( theme ).input 					}
-					/>
-				</View>
-			</View>
+			</TouchableWithoutFeedback>
 		);
 	}
 });
