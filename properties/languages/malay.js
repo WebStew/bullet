@@ -16,7 +16,9 @@ export default {
 
 		actions 		: {
 			all 		: 'Semua' 			,
+			add 		: 'Tambah' 			,
 			calculating : 'Menghitung...' 	,
+			cancel 		: 'Batalkan' 		,
 			load 		: 'Beban' 			,
 			loading 	: 'Memuatkan...' 	,
 			refresh 	: 'Menyegarkan' 	,
@@ -41,6 +43,11 @@ export default {
 			500 			: 'Tidak ada' 														,
 			ajax 			: 'Terdapat ralat untuk mendapatkan semula data. Sila cuba lagi.' 	,
 			default 		: 'Oops - ralat telah berlaku. Sila mulakan semula aplikasi.'
+		} ,
+		
+		labels : {
+			amount 	: 'Jumlah' ,
+			total 	: 'Jumlah'
 		} ,
 
 		screens : {
@@ -95,7 +102,8 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Terperinci'
+				title 		: 'Terperinci' ,
+				portfolio 	: 'Tambah kepada portfolio'
 			} ,
 
 			exchanges 		: {
@@ -104,6 +112,12 @@ export default {
 
 			language 		: {
 				title 		: 'Tukar bahasa'
+			} ,
+
+			portfolio 		: {
+				404 		: 'Anda belum menambahkan sebarang mata wang ke portfolio anda. Sila tambahkan mereka dari skrin terperinci mata wang dan kami akan dapat menasihati anda tentang nilai anggaran untuk pengumpulan duit syiling anda' ,
+				description : 'Tambah {{placeholder}} ke senarai portfolio anda untuk menyimpan trek semua syiling anda dan nilai gabungan mereka.' ,
+				title 		: 'Portfolio'
 			} ,
 
 			settings 		: {

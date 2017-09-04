@@ -16,7 +16,9 @@ export default {
 
 		actions 		: {
 			all 		: 'alle' 			,
+			add 		: 'Hinzufügen' 		,
 			calculating : 'Berechnen...' 	,
+			cancel 		: 'Stornieren' 		,
 			load 		: 'Belastung' 		,
 			loading 	: 'Laden...' 		,
 			refresh 	: 'Erneuern' 		,
@@ -41,6 +43,11 @@ export default {
 			500 			: 'Nicht verfügbar' ,
 			ajax 			: 'Es gab einen Fehler beim Abrufen der Daten. Bitte versuche es erneut.' ,
 			default 		: 'Oops - ein Fehler ist aufgetreten. Bitte starten Sie die Anwendung neu.'
+		} ,
+		
+		labels : {
+			amount 	: 'Menge' ,
+			total 	: 'Gesamt'
 		} ,
 
 		screens : {
@@ -95,7 +102,8 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Detail'
+				title 		: 'Detail' ,
+				portfolio 	: 'Zum Portfolio hinzufügen'
 			} ,
 
 			exchanges 		: {
@@ -104,6 +112,12 @@ export default {
 
 			language 		: {
 				title 		: 'Sprache ändern'
+			} ,
+			
+			portfolio 		: {
+				404 		: 'Sie haben Ihrem Portfolio keine Währungen hinzugefügt. Bitte fügen Sie sie aus dem Währungsdetailbildschirm hinzu und wir beraten Sie gerne von einem geschätzten Wert für Ihre Münzsammlung' ,
+				description : 'Fügen Sie {{placeholder}} zu Ihrer Portfolio-Liste hinzu, um einen Überblick über alle Ihre Münzen und ihre kombinierten Wert zu halten.' ,
+				title 		: 'Mappe'
 			} ,
 
 			settings 		: {

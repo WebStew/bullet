@@ -10,6 +10,7 @@ import 		Detail				from '../screens/detail';
 import 		Exchanges 			from '../screens/exchanges';
 import 		Language 			from '../screens/language';
 import 		Languages 			from '../screens/languages';
+import 		Portfolio 			from '../screens/portfolio';
 import 		Settings 			from '../screens/settings';
 import 		Theme 				from '../screens/theme';
 import 		Themes 				from '../screens/themes';
@@ -25,6 +26,10 @@ const Root = TabNavigator (
 
 		currencies 	: {
 			screen 	: Currencies
+		} ,
+
+		portfolio 	: {
+			screen 	: Portfolio
 		} ,
 
 		converter 	: {

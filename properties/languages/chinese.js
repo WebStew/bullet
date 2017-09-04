@@ -16,7 +16,9 @@ export default {
 
 		actions 		: {
 			all 		: '所有' 				,
+			add 		: '加' 				,
 			calculating : '计算...' 			,
+			cancel 		: '取消' 				,
 			load 		: '加载' 				,
 			loading 	: '载入中...' 			,
 			refresh 	: '刷新' 				,
@@ -41,6 +43,11 @@ export default {
 			500 			: '不可用' ,
 			ajax 			: '检索数据时出错。请再试一次。' ,
 			default 		: '糟糕 - 发生错误. 请重新启动应用程序。'
+		} ,
+
+		labels : {
+			amount	: '量' ,
+			total 	: '总'
 		} ,
 
 		screens : {
@@ -95,7 +102,8 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: '详情'
+				title 		: '详情' ,
+				portfolio 	: '加入投资组合'
 			} ,
 
 			exchanges 		: {
@@ -104,6 +112,12 @@ export default {
 
 			language 		: {
 				title 		: '改变语言'
+			} ,
+
+			portfolio 		: {
+				404 		: '您尚未将任何货币加入投资组合。 请从货币详细信息屏幕添加它们，我们将能够为您的硬币收集提供建议' ,
+				description : '将{{placeholder}}添加到您的投资组合列表中，以跟踪所有硬币及其合并价值。' ,
+				title 		: '投资组合'
 			} ,
 
 			settings 		: {

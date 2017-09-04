@@ -27,8 +27,7 @@ export default ( theme ) => {
 		} ,
 
 		view 				: {
-			borderColor 	: theme.border  	,
-			borderTopWidth 	: 1
+			backgroundColor : theme.primary
 		}
 	};
 };

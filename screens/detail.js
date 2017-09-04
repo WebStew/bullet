@@ -2,11 +2,15 @@
 import 		React 				from 'react';
 import { 	Image 			,
 			View 			,
-			ScrollView 		} 	from 'react-native';
+			ScrollView 		,
+			Text 			,
+			TextInput 		} 	from 'react-native';
 import { 	connect 		} 	from 'react-redux';
 import 		actions 			from '../actions/graphs';
+import 		Button 				from '../components/utilities/button';
 import 		Back 				from '../components/utilities/back';
 import 		Heading 			from '../components/utilities/headings';
+import 		Modal 				from '../components/portfolio/modal-add';
 import 		Sections 			from '../components/utilities/sections';
 import 		Tree 				from '../components/graphs/tree';
 import 		images 				from '../api/images';
@@ -51,12 +55,29 @@ export default connect (
 		};
 	};
 
+	constructor ( props ) {
+		super 	( props );
+
+		this.close = this.close.bind ( this );
+		this.state = { 
+			amount 	: 0 ,
+			modal 	: false 
+		};
+	}
+
 	componentWillMount () {
 
 		const currency = this.props.navigation.state.params.currency;
 
 		analytics.event 	( 'graph' , 'get' , currency.name , 'application' 	);
 		this.props.dispatch ( actions.get ( currency.id 						));
+	}
+
+	close () {
+
+		this.setState ({ 
+			modal 	: false 
+		});
 	}
 
 	render () {
@@ -99,7 +120,29 @@ export default connect (
 						theme 		= { theme 							}
 					/>
 
-					<Sections 
+					<View 	style 	= { style ( theme ).button 			}>
+						<Button
+							press 	= {() => {
+								this.setState ({
+									modal : true
+								});
+							}}
+							theme = { theme 							}
+							value = { language.screens.detail.portfolio }
+						/>
+					</View>
+					
+					<Modal 
+						active 		= { this.state.modal 	}
+						amount 		= { this.state.amount 	}
+						currency 	= { currency 			}
+						dispatch 	= { this.props.dispatch }
+						language 	= { language 			}
+						reset 		= { this.close 			}
+						theme 		= { theme 				}
+					/>
+
+					<Sections  
 						language 	= { language 	}
 						theme 		= { theme 		}
 						sections 	= {[

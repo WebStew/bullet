@@ -16,7 +16,9 @@ export default {
 
 		actions 		: {
 			all 		: 'all' 			,
+			add 		: 'Add' 			,
 			calculating : 'Calculating...' 	,
+			cancel 		: 'Cancel' 			,
 			load 		: 'Load' 			,
 			loading 	: 'Loading...' 		,
 			refresh 	: 'Refresh' 		,
@@ -41,6 +43,11 @@ export default {
 			500 			: 'Unavailable' ,
 			ajax 			: 'There was an error retrieving the data. Please try again.' ,
 			default 		: 'Oops - an error has occurred. Please restart the application.'
+		} ,
+		
+		labels : {
+			amount 	: 'Amount' ,
+			total 	: 'Total'
 		} ,
 
 		screens : {
@@ -95,7 +102,8 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Detail'
+				title 		: 'Detail' ,
+				portfolio 	: 'Add to portfolio'
 			} ,
 
 			exchanges 		: {
@@ -104,6 +112,12 @@ export default {
 
 			language 		: {
 				title 			: 'Change language'
+			} ,
+			
+			portfolio 		: {
+				404 		: 'You have not added any currencies to your portfolio. Please add them from the currency detail screen and we\'ll be able to advise you of an estimated worth for your coin collection' ,
+				description : 'Add {{placeholder}} to your portfolio list to keep a track of all your coins and their combined worth.' ,
+				title 		: 'Portfolio'
 			} ,
 
 			settings 		: {

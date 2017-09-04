@@ -52,25 +52,6 @@ export default class Overview extends React.Component {
 					/>
 
 				</View>
-				
-				<View style 	= {{
-					...bull 	( theme ).view 	,
-					...style 	( theme ).body			
-				}}>
-					<Heading 
-						theme 	= { theme 							}
-						title 	= { language.screens.bull.rating 	}
-						type 	= '2'
-					/>
-
-					<Text style = { bull ( theme ).notice 															}>
-						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors 	)}
-					</Text>
-
-					<Text style = { bull ( theme ).rating 			}>
-						{ this.props.bull.rating ? numbers.format ( this.props.bull.rating 	) : language.errors [ '500' ]}
-					</Text>
-				</View>
 
 				<Sections 
 					language 	= { language 	}
@@ -147,6 +128,25 @@ export default class Overview extends React.Component {
 
 					]} 
 				/>
+
+				<View style 	= {{
+					...bull 	( theme ).view 	,
+					...style 	( theme ).body			
+				}}>
+					<Heading 
+						theme 	= { theme 							}
+						title 	= { language.screens.bull.rating 	}
+						type 	= '2'
+					/>
+
+					<Text style = { bull ( theme ).notice 															}>
+						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors 	)}
+					</Text>
+
+					<Text style = { bull ( theme ).rating 			}>
+						{ this.props.bull.rating ? numbers.format ( this.props.bull.rating 	) : language.errors [ '500' ]}
+					</Text>
+				</View>
 			</View>
 		);
 	}

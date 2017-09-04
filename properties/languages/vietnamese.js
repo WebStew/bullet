@@ -16,7 +16,9 @@ export default {
 
 		actions 		: {
 			all 		: 'mọi điều' 	,
+			add 		: 'Thêm vào' 	,
 			calculating : 'Tính...' 	,
+			cancel 		: 'Hủy' 		,
 			load 		: 'Tải' 		,
 			loading 	: 'Tải...' 		,
 			refresh 	: 'Tải lại' 	,
@@ -41,6 +43,11 @@ export default {
 			500 			: 'Không có sẵn' ,
 			ajax 			: 'Đã xảy ra lỗi khi truy xuất dữ liệu. Vui lòng thử lại.' ,
 			default 		: 'Rất tiếc - đã xảy ra lỗi. Vui lòng khởi động lại ứng dụng.'
+		} ,
+		
+		labels : {
+			amount 	: 'Số tiền' ,
+			total 	: 'Toàn bộ'
 		} ,
 
 		screens : {
@@ -95,7 +102,8 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Chi tiết'
+				title 		: 'Chi tiết' ,
+				portfolio 	: 'Thêm vào danh mục đầu tư'
 			} ,
 
 			exchanges 		: {
@@ -104,6 +112,12 @@ export default {
 
 			language 		: {
 				title 		: 'Thay đổi ngôn ngữ'
+			} ,
+			
+			portfolio 		: {
+				404 		: 'Bạn chưa thêm bất kỳ loại tiền tệ nào vào danh mục đầu tư của mình. Vui lòng thêm chúng từ màn hình chi tiết tiền tệ và chúng tôi sẽ có thể cho bạn biết giá trị ước tính cho bộ sưu tập tiền xu của bạn' ,
+				description : 'Thêm {{placeholder}} vào danh mục danh mục đầu tư của bạn để theo dõi tất cả đồng tiền của bạn và giá trị kết hợp của chúng.' ,
+				title 		: 'Danh mục'
 			} ,
 
 			settings 		: {

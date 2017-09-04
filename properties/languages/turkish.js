@@ -16,7 +16,9 @@ export default {
 
 		actions 		: {
 			all 		: 'herşey' 			,
+			add 		: 'Eklemek' 		,
 			calculating : 'Hesaplama...' 	,
+			cancel 		: 'İptal etmek' 	,
 			load 		: 'Yük' 			,
 			loading 	: 'Yükleniyor...' 	,
 			refresh 	: 'Yenile' 			,
@@ -41,6 +43,11 @@ export default {
 			500 			: 'Kullanım dışı' ,
 			ajax 			: 'Verilerin alınmasında bir hata oluştu. Lütfen tekrar deneyin.' ,
 			default 		: 'Hata! Bir hata oluştu. Lütfen uygulamayı yeniden başlatın.'
+		} ,
+		
+		labels : {
+			amount 	: 'Tutar' ,
+			total 	: 'Genel Toplam'
 		} ,
 
 		screens : {
@@ -95,7 +102,8 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Detay'
+				title 		: 'Detay' ,
+				portfolio 	: 'Portföyüne ekle'
 			} ,
 
 			exchanges 		: {
@@ -104,6 +112,12 @@ export default {
 
 			language 		: {
 				title 		: 'Dili değiştir'
+			} ,
+			
+			portfolio 		: {
+				404 		: 'Portföyünüze para birimi eklemediniz. Lütfen bunları para birimi detay ekranından ekleyin ve bozuk para grubunuz için tahmini bir değer önerebiliriz.' ,
+				description : 'Tüm madeni paralarınızı ve bunların birleşik değerlerini takip etmek için portföy listesine {{placeholder}} ekleyin.' ,
+				title 		: 'Portföy'
 			} ,
 
 			settings 		: {

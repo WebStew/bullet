@@ -13,8 +13,9 @@ export default ( theme ) => {
 	
 		input 	: {
 			backgroundColor 	: theme.base 	,
-			borderWidth 		: 1 			,
 			borderColor 		: theme.border 	,
+			borderRadius 		: 5 			,
+			borderWidth 		: 1 			,
 			color 				: theme.body 	,
 			height 				: 40 			,
 			fontSize 			: 24 			,
@@ -32,7 +33,7 @@ export default ( theme ) => {
 			column : {
 				backgroundColor : theme.base 	,
 				borderColor 	: theme.border 	,
-				borderRadius 	: 3 			,
+				borderRadius 	: 5 			,
 				borderWidth 	: 1 			,
 				flex 			: 1 			,
 				flexDirection 	: 'column' 		,
@@ -49,7 +50,7 @@ export default ( theme ) => {
 		result : {
 			backgroundColor : theme.primary 	,
 			borderWidth 	: 0 				,
-			color 			: theme.secondary 	,
+			color 			: theme.disabled 	,
 			flex 			: 1 				,
 			fontSize 		: 24 				,
 			height 			: 40 				,

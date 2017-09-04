@@ -7,11 +7,14 @@ import { 	Keyboard 					,
 			TouchableWithoutFeedback 	,
 			View 						} 	from 'react-native';
 import { 	Ionicons 					} 	from '@expo/vector-icons';
+import 		Error 					from '../components/errors/ajax';
 import 		Loader 							from '../components/utilities/loader';
 import 		Header 							from '../components/converter/header';
 import 		layout 							from '../styles/layout';
 import 		scene 							from '../styles/scene';
 import 		style 							from '../styles/converter';
+import 		actions 						from '../actions/currencies';
+import 		api 							from '../api/currencies';
 import 		analytics 						from '../utilities/analytics';
 
 export default connect (
@@ -35,7 +38,7 @@ export default connect (
 
 				return (
 					<Ionicons
-						name 	= 'ios-git-compare-outline'
+						name 	= 'ios-calculator-outline'
 						size 	= { 32 											}
 						color 	= { focused ? theme.disabled : theme.secondary 	}
 					/>
@@ -50,12 +53,38 @@ export default connect (
 
 		this.calculate 	= this.calculate.bind 	( this );
 		this.set 		= this.set.bind 		( this );
+		this.refresh 	= this.refresh.bind 	( this );
 		this.state 		= {
 			base 		: '1' 		,
 			from 		: 'bitcoin' ,
 			result		: '1' 		,
 			to 			: 'bitcoin'
 		};
+	}
+
+	refresh () {
+		
+		if ( this.props.currencies.items.length > api.limit ) {
+
+			analytics.event 	( 
+				'converter' 	, 
+				'refresh' 		, 
+				'stream' 		, 
+				'user' 	
+			);
+			this.props.dispatch ( actions.stream ());
+		}
+
+		else {
+			
+			analytics.event 	( 
+				'converter' 	, 
+				'refresh' 		, 
+				'get' 			,
+				'user' 		
+			);
+			this.props.dispatch ( actions.get ());
+		}
 	}
 
 	options () {
@@ -118,6 +147,20 @@ export default connect (
 			);
 		}
 
+		if ( this.props.currencies.error ) {
+			
+			analytics.screen 	( 'converter:500' 				);
+			return 				(
+				<Error 
+					error 		= { this.props.currencies.error }
+					language 	= { language 					}
+					press 		= { this.refresh 				}
+					theme 		= { theme 						}
+					text 		= { language.errors.ajax 		}
+				/>
+			);
+		}
+
 		return (
 			<TouchableWithoutFeedback 	onPress = { Keyboard.dismiss 		}>
 				<View 					style 	= { scene 	( theme ).body 	}>
@@ -172,7 +215,7 @@ export default connect (
 							backgroundColor : theme.primary
 						}}}>
 						<TextInput 
-							defaultValue 	= { this.state.base 						}
+							value 			= { this.state.base 						}
 							keyboardType 	= 'numeric' 
 							onChangeText 	= {( value ) => this.set ( 'base' , value 	)}
 							selectionColor 	= { theme.secondary 						}

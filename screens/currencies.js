@@ -148,6 +148,11 @@ export default connect (
 				language 	= this.props.language 	,
 				theme 		= this.props.theme 		;
 
+		if ( this.props.currencies.loading ) {
+			
+			return null;
+		}
+
 		if ( items.length ) {
 
 			return (
@@ -274,7 +279,10 @@ export default connect (
 
 		const theme = this.props.theme;
 
-		if (( this.props.currencies.loading && this.props.currencies.items === 0 ) || this.props.currencies.error ) {
+		if (
+			this.props.currencies.items.lenght === 0 || 
+			this.props.currencies.error 
+		) {
 			
 			return null;
 		}
@@ -307,14 +315,14 @@ export default connect (
 					language 	= { language 					}
 					press 		= { this.refresh 				}
 					theme 		= { theme 						}
-					text 		= { strings.errors.ajax 		}
+					text 		= { language.errors.ajax 		}
 				/>
 			);
 		}
 
 		return 				(
 
-			<View 				style = { scene ( theme ).body 	}>
+			<View style = { scene ( theme ).body 	}>
 				<SearchInput  	/>
 				{ this.contents ()}
 			</View>

@@ -16,7 +16,7 @@ export default class Sections extends React.Component {
 	
 		return this.props.sections.map (( section , index ) => {
 
-			let stripe 	= index % 2 === 0 ? { ...style ( theme ).body , ...style ( theme ).stripe } : style ( theme ).body ,
+			let stripe 	= index % 2 === 0 ? style ( theme ).body : { ...style ( theme ).body , ...style ( theme ).stripe } ,
 				data 	= section.data.map (( item , index ) => {
 
 					return ( 
@@ -68,8 +68,10 @@ export default class Sections extends React.Component {
 
 	render () {
 
+		const theme = this.props.theme;
+
 		return (
-			<View>
+			<View style = { style ( theme ).view }>
 				{ this.sections ()}
 			</View>
 		);

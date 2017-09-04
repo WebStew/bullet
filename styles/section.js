@@ -16,6 +16,11 @@ export default ( theme ) => {
 
 		stripe 	: {
 			backgroundColor 	: theme.primary
+		} ,
+
+		view 	: {
+			borderTopColor 		: theme.border ,
+			borderTopWidth 		: 1
 		}
 	};
 };

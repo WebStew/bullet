@@ -4,8 +4,9 @@ import { 	Provider 	} 	from 'react-redux';
 import { 	AppLoading 	} 	from 'expo';
 import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		Main 			from './screens/main';
-import 		theme 			from './actions/theme';
 import 		language 		from './actions/language';
+import 		theme 			from './actions/theme';
+import 		portfolio 		from './actions/portfolio';
 import 		database 		from './configuration/database';
 import 		configuration 	from './configuration/store';
 import 		analytics 		from './utilities/analytics';
@@ -55,7 +56,8 @@ export default class Application extends React.Component {
 		this.setCache 	();
 
 		// Setup the local databases
-		database.settings.setup ();
+		database.portfolio.setup 	();
+		database.settings.setup 	();
 
 		// Setup the analytics
 		analytics.setup 		();
@@ -63,6 +65,7 @@ export default class Application extends React.Component {
 		// Get any data from the local databases
 		store.dispatch 	( theme.get 	());
 		store.dispatch 	( language.get 	());
+		store.dispatch 	( portfolio.get ());
 	}
 
 	render () {

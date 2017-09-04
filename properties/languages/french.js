@@ -16,7 +16,9 @@ export default {
 
 		actions 		: {
 			all 		: 'tout' 			,
+			add 		: 'Ajouter' 		,
 			calculating : 'Calculateur...' 	,
+			cancel 		: 'Annuler' 		,
 			load 		: 'Charge' 			,
 			loading 	: 'Chargement...' 	,
 			refresh 	: 'Rafraîchir' 		,
@@ -41,6 +43,11 @@ export default {
 			500 			: 'Indisponible' ,
 			ajax 			: 'Une erreur s\'est produite lors de la récupération des données. Veuillez réessayer.' ,
 			default 		: 'Oups: une erreur s\'est produite. Redémarrez l\'application.'
+		} ,
+		
+		labels : {
+			amount 	: 'Montant' ,
+			total 	: 'Total'
 		} ,
 
 		screens : {
@@ -95,7 +102,8 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Détail'
+				title 		: 'Détail' ,
+				portfolio 	: 'Ajouter au portefeuille'
 			} ,
 
 			exchanges 		: {
@@ -104,6 +112,12 @@ export default {
 
 			language 		: {
 				title 		: 'Changer de langue'
+			} ,
+			
+			portfolio 		: {
+				404 		: 'Vous n\'avez ajouté aucune devise à votre portefeuille. Ajoutez-les à partir de l\'écran de détail de la devise et nous serons en mesure de vous informer d\'une estimation de votre collection de pièces.' ,
+				description : 'Ajoutez {{placeholder}} à votre liste de portefeuille pour garder une trace de toutes vos pièces de monnaie et de leur valeur combinée.' ,
+				title 		: 'Portefeuille'
 			} ,
 
 			settings 		: {

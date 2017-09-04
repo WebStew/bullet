@@ -14,14 +14,15 @@ export default class Button extends React.Component {
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 	= this.props.theme 	,
+				type 	= this.props.type 	? this.props.type : 'primary';
 
 		return (
 			<TouchableOpacity 
 				accessibilityLabel 	= { this.props.value 				}
 				onPress 			= { this.props.press 				}>
-				<View 		style 	= { style ( theme ).primary.view 	}>
-					<Text 	style 	= { style ( theme ).primary.text 	}>
+				<View 		style 	= { style ( theme ) [ type ].view 	}>
+					<Text 	style 	= { style ( theme ) [ type ].text 	}>
 						{ this.props.value.toUpperCase 					()}
 					</Text>
 				</View>

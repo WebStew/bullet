@@ -26,7 +26,7 @@ export default class List extends React.Component {
 			<ListView
 				enableEmptySections = { true 																						}
 				dataSource 			= { this.datasource.cloneWithRows ( this.props.items 											)}
-				renderHeader 		= { this.props.header }
+				renderHeader 		= { this.props.header 																			}
 				renderRow 			= {( items , section , row , highlight ) => this.props.row ( items , section , row , highlight 	)}
 				renderSeparator 	= { this.props.separator 																		}
 				refreshControl 		= { this.props.refresh 																			}

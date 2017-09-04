@@ -6,8 +6,9 @@ import 		thunk 				from 'redux-thunk';
 //import { 	createLogger 	} 	from 'redux-logger';
 import 		reducers 			from '../reducers/index';
 import 		analytics 			from '../middleware/analytics';
-import 		theme 				from '../middleware/theme';
 import 		language 			from '../middleware/language';
+import 		portfolio 			from '../middleware/portfolio';
+import 		theme 				from '../middleware/theme';
 
 export default function ( state : Object = {}) {
 
@@ -20,8 +21,10 @@ export default function ( state : Object = {}) {
 				analytics.navigate 	,
 				language.get 		,
 				language.save 		,
+				portfolio.get 		,
+				portfolio.save 		,
 				theme.get 			,
-				theme.save
+				theme.save		
 				//createLogger ()
 			)
 		)
