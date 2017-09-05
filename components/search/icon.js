@@ -32,13 +32,14 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		return (
 
 			<TouchableOpacity 
-				onPress = { this.on 				}
-				style 	= { style ( theme ).icon 	}
+				onPress = { this.on 		}
+				style 	= { appearance.icon }
 			>
 
 				<Ionicons

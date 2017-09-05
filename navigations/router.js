@@ -89,11 +89,12 @@ export default StackNavigator ({
 	{
 		navigationOptions : ({ screenProps }) => {
 
-			const theme = screenProps.theme;
+			const 	theme 		= screenProps.theme ,
+					appearance 	= header ( theme ) 	;
 
 			return {
-				headerStyle 			: header ( theme ).header 	,
-				headerTitleStyle 		: header ( theme ).title
+				headerStyle 		: appearance.header ,
+				headerTitleStyle 	: appearance.title
 			};
 		}
 	}

@@ -16,12 +16,13 @@ export default connect (
 
 	render () {
 
-		const 	language 	= this.props.language ,
+		const 	language 	= this.props.language 	,
 				title 		= this.props.currencies.loading ? language.actions.loading : language.screens.currencies.title.replace ( '{{length}}' , this.props.currencies.items.length ) ,
-				theme 		= this.props.theme;
+				theme 		= this.props.theme 		,
+				appearance 	= style ( theme ) 		;
 
 		return ( 
-			<Text style = { style ( theme ).title }>
+			<Text style = { appearance.title }>
 				{ title }
 			</Text>
 		);

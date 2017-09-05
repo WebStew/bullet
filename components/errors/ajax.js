@@ -11,9 +11,11 @@ export default class Error extends React.Component {
 
 	render () {
 
-		const 	language 	= this.props.language 						,
-				text 		= this.props.text || language.errors.default ,
-				theme 		= this.props.theme;
+		const 	language 	= this.props.language 							,
+				text 		= this.props.text || language.errors.default 	,
+				theme 		= this.props.theme 								,
+				arrange 	= layout 	( theme ) 							,
+				appearance 	= style 	( theme ) 							;
 
 		// If there is no error return
 		if ( ! this.props.error ) {
@@ -21,29 +23,24 @@ export default class Error extends React.Component {
 		}
 
 		return (
-			
 			<View style = {{
-				...layout ( theme ).fill ,
-				...layout ( theme ).row
+				...arrange.fill ,
+				...arrange.row
 			}}>
-				
 				<TouchableOpacity 
-					style 	= { style ( theme ).ajax.view 	} 
-					onPress = { this.props.press 			}>
-
+					style 	= { appearance.ajax.view 	} 
+					onPress = { this.props.press 		}
+				>
 					<Ionicons
 						name 	= 'ios-refresh'
 						size 	= { 64 					}
 						color 	= { theme.secondary}
 					/>
-
-					<Text style = { style ( theme ).ajax.text }>
+					<Text style = { appearance.ajax.text }>
 						{ text }
 					</Text>
-
 				</TouchableOpacity>
 			</View>
-			
 		);
 	}	
 };

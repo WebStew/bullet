@@ -13,7 +13,6 @@ import 		style 					from '../styles/list-control';
 import 		strings					from '../utilities/string';
 import 		analytics 				from '../utilities/analytics';
 
-
 export default connect (
 
 	state => ({
@@ -45,8 +44,9 @@ export default connect (
 
 		return Object.keys ( themes ).map (( theme , index ) => {
 
-			const 	icon 		= theme 	=== current.id 	? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline' ,
-					background 	= index % 2 === 0 			? current.primary 				: current.base;
+			const 	icon 		= theme 	=== current.id 	? 'ios-radio-button-on-outline' : 'ios-radio-button-off-outline' 	,
+					background 	= index % 2 === 0 			? current.primary 				: current.base 						,
+					appearance 	= style ( current ) 																			;
 
 			return (
 				<TouchableOpacity 
@@ -57,13 +57,13 @@ export default connect (
 						this.props.dispatch ( actions.save ( theme 		));
 					}}
 					style 	= {{
-						...style ( current ).control ,
+						...appearance.control ,
 						...{
 							backgroundColor : background
 						}
 					}}
 				>
-					<Text style = { style ( current ).text 		}>
+					<Text style = { appearance.text 			}>
 						{ themes [ theme ].names [ language.id 	]}
 					</Text>
 					<Ionicons
@@ -78,10 +78,11 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 	= this.props.theme 	,
+				scenery = scene ( theme ) 	;
 
-		return 				(
-			<ScrollView style = { scene ( theme ).body }>
+		return (
+			<ScrollView style = { scenery.body }>
 				{ this.themes ()}
 			</ScrollView>
 		);

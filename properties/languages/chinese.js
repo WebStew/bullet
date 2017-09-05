@@ -21,10 +21,12 @@ export default {
 			cancel 		: '取消' 				,
 			load 		: '加载' 				,
 			loading 	: '载入中...' 			,
+			remove 		: '去掉' 				,
 			refresh 	: '刷新' 				,
 			return 		: '背部' 				,
 			share 		: '分享' 				,
-			search 		: '请输入一个搜索词' 
+			search 		: '请输入一个搜索词' 	,
+			update 		: '更新'
 		} ,
 	
 		denominations 	: {
@@ -102,8 +104,9 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: '详情' ,
-				portfolio 	: '加入投资组合'
+				title 		: '详情' 	,
+				add 		: '加入投资组合' 	,
+				update 		: '更新投资组合'
 			} ,
 
 			exchanges 		: {
@@ -117,6 +120,12 @@ export default {
 			portfolio 		: {
 				404 		: '您尚未将任何货币加入投资组合。 请从货币详细信息屏幕添加它们，我们将能够为您的硬币收集提供建议' ,
 				description : '将{{placeholder}}添加到您的投资组合列表中，以跟踪所有硬币及其合并价值。' ,
+				headers 	: {
+					amount 	: '量' 	,
+					name 	: '名称' ,
+					price 	: '价钱' ,
+					total 	: '总'
+				} ,
 				title 		: '投资组合'
 			} ,
 

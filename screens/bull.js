@@ -99,12 +99,13 @@ export default connect (
 	render () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				scenery 	= scene ( theme ) 		;
 
 		if ( this.props.bull.loading ) {
 
 			return (
-				<View  style 	= { scene ( theme ).body 	}>
+				<View  style 	= { scenery.body 			}>
 					<Loader 
 						loading = { this.props.bull.loading }
 						size 	= 'large' 
@@ -142,7 +143,7 @@ export default connect (
 		}
 
 		return 				(
-			<ScrollView style = { scene ( theme ).body 	}>
+			<ScrollView style 	= { scenery.body 		}>
 				<Overview 
 					bull 		= { this.props.bull 	}
 					language 	= { language 			}

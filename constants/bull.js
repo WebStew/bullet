@@ -4,9 +4,7 @@
  * @type {Object}
  */
 export default {
-
 	error 	: 'bull:error' 	,
 	get 	: 'bull:get' 	,
 	set 	: 'bull:set'
-
 };

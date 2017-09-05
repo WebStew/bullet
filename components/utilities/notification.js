@@ -8,13 +8,14 @@ export default class Notification extends React.Component {
 
 	render () {
 
-		const 	type 	= this.props.type ,
-				style 	= styles [ type ] || styles.notification;
+		const 	type 		= this.props.type 									,
+				theme 		= this.props.theme 									,
+				appearance 	= styles ( theme ) 									,
+				style 		= appearance [ type ] || appearance.notification 	;
 
 		return (
-
 			<View style = {{
-				...styles.default ,
+				...appearance.default ,
 				...style
 			}}>
 				<Text>{ this.props.message }</Text>

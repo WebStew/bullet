@@ -17,12 +17,13 @@ export default connect (
 
 	render () {
 
-		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		,
-				title 		= this.props.currencies.loading ? language.actions.loading : language.screens.converter.title;
+		const 	language 	= this.props.language 																			,
+				theme 		= this.props.theme 																				,
+				title 		= this.props.currencies.loading ? language.actions.loading : language.screens.converter.title 	,
+				appearance 	= style ( theme ) 																				;
 
 		return ( 
-			<Text style = { style ( theme ).title }>
+			<Text style = { appearance.title }>
 				{ title }
 			</Text>
 		);

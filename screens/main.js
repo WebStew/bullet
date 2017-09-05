@@ -48,16 +48,20 @@ export default connect (
 
 	render () {
 
+		const 	theme 		= this.props.theme 		,
+				language 	= this.props.language 	,
+				appearance 	= styles ( theme ) 		;
+
 		this.dimensions 	();
 		return 				(
-			<View style = { styles ( this.props.theme ).main }>
-				{ Platform.OS === 'ios' 	&& <StatusBar 	barStyle 	= 'default' 								/> }
-				{ Platform.OS === 'android' && <View 		style 		= { styles ( this.props.theme ).statusbar } /> }
+			<View style = { appearance.main }>
+				{ Platform.OS === 'ios' 	&& <StatusBar 	barStyle 	= 'default' 				/> }
+				{ Platform.OS === 'android' && <View 		style 		= { appearance.statusbar } 	/> }
 				<Navigation 
 					onNavigationStateChange = { this.navigate }
 					screenProps 			= {{
-						language 	: this.props.language ,
-						theme 		: this.props.theme
+						language 	: language ,
+						theme 		: theme
 					}} 
 				/>
 			</View>

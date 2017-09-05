@@ -12,17 +12,16 @@ import 		Item 					from '../components/portfolio/item';
 import 		List 					from '../components/utilities/list';
 import 		Loader 					from '../components/utilities/loader';
 import 		Header 					from '../components/portfolio/header';
-
 import 		actions 				from '../actions/currencies';
+import 		portfolio 				from '../actions/portfolio';
 import 		api 					from '../api/currencies';
-
 import 		list 					from '../styles/list';
 import 		style 					from '../styles/portfolio';
 import 		scene 					from '../styles/scene';
 import 		seperator 				from '../styles/seperators';
 import 		stripe 					from '../styles/stripe';
 import 		numbers 				from '../utilities/numbers';
-import 		analytics 			from '../utilities/analytics';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -61,6 +60,7 @@ export default connect (
 
 		this.header 	= this.header.bind 		( this );
 		this.refresh 	= this.refresh.bind 	( this );
+		this.remove 	= this.remove.bind 		( this );
 		this.row 		= this.row.bind 		( this );
 		this.separator 	= this.separator.bind 	( this );
 	}
@@ -68,88 +68,63 @@ export default connect (
 	headers () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
-
-		// let 	active 		= {} 					;
-
-		// active [ this.props.currencies.order ] = {
-		// 	color : theme.disabled
-		// };
+				theme 		= this.props.theme 		,
+				items 		= list 	( theme ) 		,
+				appearance 	= style ( theme ) 		;
 
 		return [{
-			press 		: () => {
-
-				// analytics.event 	( 'currencies' , 'order' , 'rank' 	);
-				// this.props.dispatch ( actions.order ( 'rank' 			));
-			} 																		, 
+			press 		: () => {} , 
 			styles 		: {
-				text 	: { 
-					...list 	( theme ) [ 'head-text' ]
-					//...active 	[ 'rank' 				]
-				} 																	,
-				touch 	: list 	( theme ).cell
-			} 																		,
-			text 		: 'Name'
+				text 	: items [ 'head-text' ] ,
+				touch 	: items.cell
+			} ,
+			text 		: language.screens.portfolio.headers.name
 		} ,
 		{
-			press 		: () => {
-
-				// analytics.event 	( 'currencies' , 'order' , 'rank' 	);
-				// this.props.dispatch ( actions.order ( 'rank' 			));
-			} 																		, 
+			press 		: () => {} , 
 			styles 		: {
 				text 	: { 
-					...list 	( theme ) [ 'head-text' ] ,
-					...style 	( theme ).cell
-					//...active 	[ 'rank' 				]
-				} 																	,
-				touch 	: list 	( theme ).cell
-			} 																		,
-			text 		: 'Amount'
+					...items [ 'head-text' ] ,
+					...appearance.cell
+				} ,
+				touch 	: items.cell
+			} ,
+			text 		: language.screens.portfolio.headers.amount
 		} ,
 		{
-			press 		: () => {
-
-				// analytics.event 	( 'currencies' , 'order' , 'rank' 	);
-				// this.props.dispatch ( actions.order ( 'rank' 			));
-			} 																		, 
+			press 		: () => {} , 
 			styles 		: {
 				text 	: { 
-					...list 	( theme ) [ 'head-text' ] ,
-					...style 	( theme ).cell
-					//...active 	[ 'rank' 				]
-				} 																	,
-				touch 	: list 	( theme ).cell
-			} 																		,
-			text 		: 'Price'
+					...items [ 'head-text' ] ,
+					...appearance.cell
+				} ,
+				touch 	: items.cell
+			} ,
+			text 		: language.screens.portfolio.headers.price
 		} ,
 		{
-			press 		: () => {
-
-				// analytics.event 	( 'currencies' , 'order' , 'rank' 	);
-				// this.props.dispatch ( actions.order ( 'rank' 			));
-			} 																		, 
+			press 		: () => {} , 
 			styles 		: {
 				text 	: { 
-					...list 	( theme ) [ 'head-text' ] ,
-					...style 	( theme ).cell
-					//...active 	[ 'rank' 				]
-				} 																	,
-				touch 	: list 	( theme ).cell
-			} 																		,
-			text 		: 'Total'
+					...items [ 'head-text' ] ,
+					...appearance.cell
+				} ,
+				touch 	: items.cell
+			} ,
+			text 		: language.screens.portfolio.headers.total
 		}];
 	}
 
 	cells () {
 		
-		const theme = this.props.theme
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		return this.headers ().map (( item , index ) => {
 
 			const styles = index === 0 ? 	{
 				...item.styles.touch 		,
-				...style ( theme ).head 
+				...appearance.head 
 			} : item.styles.touch;
 
 			return (
@@ -175,7 +150,8 @@ export default connect (
 
 	header () {
 
-		const theme = this.props.theme;
+		const 	theme = this.props.theme 	,
+				items = list ( theme ) 		;
 	
 		if (
 			this.props.currencies.error 				|| 
@@ -190,8 +166,8 @@ export default connect (
 			<View>
 				<View 
 					style = {{ 
-						...list ( theme ).row , 
-						...list ( theme ).head 
+						...items.row , 
+						...items.head 
 					}}
 				>
 					{ this.cells ()}
@@ -200,43 +176,76 @@ export default connect (
 		);
 	}
 
-	refresh () {
-				
-		if ( this.props.currencies.items.length > api.limit ) {
-			
-			analytics.event 	( 
-				'portfolio' 	, 
-				'refresh' 		, 
-				'stream' 		, 
-				'user' 	
-			);
-			this.props.dispatch ( actions.stream ());
-		}
+	remove ( id ) {
 
-		else {
+		this.props.dispatch ( portfolio.delete ( id ));
+	}
+
+	refresh () {
 			
-			analytics.event 	( 
-				'portfolio' 	, 
-				'refresh' 		, 
-				'get' 			,
-				'user' 		
-			);
-			this.props.dispatch ( actions.get ());
-		}
+		analytics.event ( 
+			'portfolio' , 
+			'refresh' 	, 
+			'stream' 	,
+			'user' 		
+		);
+		this.props.dispatch ( actions.stream ());
 	}
 
 	row ( currency , section , row , highlight ) {
 		
-		const 	theme 	= this.props.theme 															,
-				style 	= row % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary 	,
-				data 	= this.props.currencies.items.find (( item ) => item.id === currency.id ) 	,
-				details = {
+		const 	theme 		= this.props.theme 															,
+				language 	= this.props.language 														,
+				styles 		= row % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary 	,
+				data 		= this.props.currencies.items.find (( item ) => item.id === currency.id ) 	,
+				details 	= data ? {
 					amount 	: currency.amount 	,
 					id 		: data.id 			,
 					name 	: data.name 		,
 					price 	: data.prices.usd 	,
 					total 	: parseFloat ( currency.amount ) * parseFloat ( data.prices.usd )
-				};
+				} 			: undefined ,
+				appearance 	= style ( theme );
+
+		// We unable to find the currency in the loaded results perhaps because it is outside the top 100
+		// Potentially the save currency no longers exists
+		// User has option to load the entire data set or remove it from their portfolio
+		if ( ! details ) {
+
+			return (
+				<View 		style 	= { appearance.missing.view 	}>
+					<Text 	
+						ellipsizeMode 	= 'tail'
+						numberOfLines 	= { 1 						}
+						style 			= { appearance.missing.text }
+						>
+						{ currency.name } { language.errors [ '500' ]}
+					</Text>
+					<View 	style 	= { appearance.missing.row 		}>
+						<TouchableOpacity 
+							onPress = { this.refresh 				}
+							style 	= { appearance.missing.icon 	}
+						>
+							<Ionicons
+								name 	= 'ios-refresh-outline'
+								size 	= { 32 					}
+								color 	= { theme.secondary 	}
+							/>
+						</TouchableOpacity>
+						<TouchableOpacity 
+							onPress = {() => this.remove ( currency.id )}
+							style 	= { appearance.missing.icon 		}
+						>
+							<Ionicons
+								name 	= 'ios-close-outline'
+								size 	= { 32 					}
+								color 	= { theme.negative 		}
+							/>
+						</TouchableOpacity>
+					</View>
+				</View>
+			);
+		}
 
 		return (
 			<Item
@@ -244,7 +253,7 @@ export default connect (
 				currency 	= { data 					}
 				language 	= { this.props.language 	}
 				navigation 	= { this.props.navigation 	}
-				style 		= { style 					}
+				style 		= { styles 					}
 				theme 		= { theme 					}
 			/>
 		);
@@ -265,13 +274,15 @@ export default connect (
 	total () {
 
 		const 	theme 		= this.props.theme 		,
-				language 	= this.props.language 	;
+				language 	= this.props.language 	,
+				appearance 	= style ( theme ) 		;
+
 		let 	total 		= 0 					;
 
 		this.props.portfolio.items.forEach (( item , index ) => {
 
 			const 	currency 	= this.props.currencies.items.find (( entry , index ) => item.id === entry.id ) ,
-					price 		= parseFloat ( currency.prices.usd );
+					price 		= currency ? parseFloat ( currency.prices.usd ) : undefined;
 
 			if ( ! isNaN (  price )) {
 				total += price * parseFloat ( item.amount );
@@ -281,11 +292,11 @@ export default connect (
 		total = ! isNaN ( total ) ? language.denominations.usd.symbol + numbers.format ( total.toFixed ( 2 )) : language.errors [ 500 ];
 
 		return (
-			<View 		style = { style ( theme ).total.view }>
-				<Text 	style = { style ( theme ).total.head }>
-					{ language.labels.total }
+			<View 		style = { appearance.total.view }>
+				<Text 	style = { appearance.total.head }>
+					{ language.labels.total 			}
 				</Text>
-				<Text 	style = { style ( theme ).total.col }>
+				<Text 	style = { appearance.total.col 	}>
 					{ total }
 				</Text>
 			</View>
@@ -295,12 +306,14 @@ export default connect (
 	render () {
 
 		const 	language 	= this.props.language 	,
-		theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				scenery 	= scene ( theme ) 		,
+				appearance 	= style ( theme ) 		;
 
 		if ( this.props.currencies.loading ) {
 
 			return (
-				<View 	style 	= { scene ( theme ).body 			}>
+				<View 	style 	= { scenery.body 			}>
 					<Loader 
 						loading = { this.props.currencies.loading 	}
 						size 	= 'large' 
@@ -327,25 +340,18 @@ export default connect (
 		if ( ! this.props.portfolio.items.length ) {
 
 			return (
-				<View 			style = { scene ( theme ).body 				}>
-					<View 		style = { style ( theme ) 	[ '404' ].view 	}>
-						<Text 	style = { style ( theme ) 	[ '404' ].text 	}>
-							{ language.screens.portfolio 	[ '404' ]}
+				<View 			style = { scenery.body 					}>
+					<View 		style = { appearance [ '404' ].view 	}>
+						<Text 	style = { appearance [ '404' ].text 	}>
+							{ language.screens.portfolio [ '404' 		]}
 						</Text>
 					</View>
 				</View>
 			);
 		}
 
-		// refresh = {
-		// 	<RefreshControl
-		// 		refreshing 	= { this.props.currencies.loading 	}
-		// 		onRefresh 	= { this.refresh 					}
-		// 	/>
-		// }
-
 		return 				(
-			<ScrollView style = { scene ( theme ).body 	}>		
+			<ScrollView style 	= { scenery.body 					}>
 				<List 
 					fixed 		= { true 							}
 					header 		= { this.header 					}
@@ -358,6 +364,5 @@ export default connect (
 				{ this.total ()}
 			</ScrollView>
 		);
-
 	}
 });

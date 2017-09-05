@@ -15,16 +15,18 @@ export default {
 		} ,
 
 		actions 		: {
-			all 		: 'tout' 			,
-			add 		: 'Ajouter' 		,
-			calculating : 'Calculateur...' 	,
-			cancel 		: 'Annuler' 		,
-			load 		: 'Charge' 			,
-			loading 	: 'Chargement...' 	,
-			refresh 	: 'Rafraîchir' 		,
-			return 		: 'Arrière' 		,
-			share 		: 'Partager' 		,
-			search 		: 'Entrez un terme de recherche' 
+			all 		: 'tout' 							,
+			add 		: 'Ajouter' 						,
+			calculating : 'Calculateur...' 					,
+			cancel 		: 'Annuler' 						,
+			load 		: 'Charge' 							,
+			loading 	: 'Chargement...' 					,
+			refresh 	: 'Rafraîchir' 						,
+			return 		: 'Arrière' 						,
+			remove 		: 'Retirer' 						,
+			share 		: 'Partager' 						,
+			search 		: 'Entrez un terme de recherche'  	,
+			update 		: 'Mettre à jour'
 		} ,
 	
 		denominations 	: {
@@ -102,8 +104,9 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Détail' ,
-				portfolio 	: 'Ajouter au portefeuille'
+				title 		: 'Détail' 						,
+				add 		: 'Ajouter au portefeuille' 	,
+				update 		: 'Mise à jour du portefeuille'
 			} ,
 
 			exchanges 		: {
@@ -117,6 +120,12 @@ export default {
 			portfolio 		: {
 				404 		: 'Vous n\'avez ajouté aucune devise à votre portefeuille. Ajoutez-les à partir de l\'écran de détail de la devise et nous serons en mesure de vous informer d\'une estimation de votre collection de pièces.' ,
 				description : 'Ajoutez {{placeholder}} à votre liste de portefeuille pour garder une trace de toutes vos pièces de monnaie et de leur valeur combinée.' ,
+				headers 	: {
+					amount 	: 'Montant' ,
+					name 	: 'Prénom' 	,
+					price 	: 'Prix' 	,
+					total 	: 'Total'
+				} ,
 				title 		: 'Portefeuille'
 			} ,
 

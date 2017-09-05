@@ -13,7 +13,19 @@ export default function (
 
 ) {
 
-	switch ( action.type ) {
+	switch ( action.type ) {		
+
+		case constants.reset :
+
+			return Object.assign (
+				{} 		,
+				state 	,
+				{
+					error 	: null 														,
+					items 	: state.items.filter (( item ) => item.id !== action.id ) 	,
+					loading : false
+				}
+			);
 		
 		case constants.setup :
 		
@@ -39,7 +51,8 @@ export default function (
 			else {
 				items.push ({
 					amount 	: action.amount ,
-					id 		: action.id
+					id 		: action.id 	,
+					name 	: action.name
 				});
 			}
 

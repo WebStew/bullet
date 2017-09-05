@@ -15,16 +15,18 @@ export default {
 		} ,
 
 		actions 		: {
-			all 		: 'herşey' 			,
-			add 		: 'Eklemek' 		,
-			calculating : 'Hesaplama...' 	,
-			cancel 		: 'İptal etmek' 	,
-			load 		: 'Yük' 			,
-			loading 	: 'Yükleniyor...' 	,
-			refresh 	: 'Yenile' 			,
-			return 		: 'Geri' 			,
-			share 		: 'Pay' 			,
-			search 		: 'Lütfen bir arama terimi girin' 
+			all 		: 'herşey' 							,
+			add 		: 'Eklemek' 						,
+			calculating : 'Hesaplama...' 					,
+			cancel 		: 'İptal etmek' 					,
+			load 		: 'Yük' 							,
+			loading 	: 'Yükleniyor...' 					,
+			refresh 	: 'Yenile' 							,
+			return 		: 'Geri' 							,
+			remove 		: 'Kaldır' 							,
+			share 		: 'Pay' 							,
+			search 		: 'Lütfen bir arama terimi girin' 	,
+			update 		: 'Güncelleştirme'
 		} ,
 	
 		denominations 	: {
@@ -102,8 +104,9 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Detay' ,
-				portfolio 	: 'Portföyüne ekle'
+				title 		: 'Detay' 					,
+				add 		: 'Portföyüne ekle' 		,
+				update 		: 'Portföyü güncelle'
 			} ,
 
 			exchanges 		: {
@@ -117,6 +120,12 @@ export default {
 			portfolio 		: {
 				404 		: 'Portföyünüze para birimi eklemediniz. Lütfen bunları para birimi detay ekranından ekleyin ve bozuk para grubunuz için tahmini bir değer önerebiliriz.' ,
 				description : 'Tüm madeni paralarınızı ve bunların birleşik değerlerini takip etmek için portföy listesine {{placeholder}} ekleyin.' ,
+				headers 	: {
+					amount 	: 'Tutar' 	,
+					name 	: 'Isim' 	,
+					price 	: 'Fiyat' 	,
+					total 	: 'Toplam'
+				} ,
 				title 		: 'Portföy'
 			} ,
 

@@ -37,8 +37,9 @@ export default connect (
 
 	languages () {
 
-		const 	current = this.props.language ,
-				theme 	= this.props.theme;
+		const 	current 	= this.props.language 	,
+				theme 		= this.props.theme 		,
+				appearance 	= style ( theme ) 		;
 
 		return Object.keys ( languages ).map (( language , index ) => {
 
@@ -54,13 +55,13 @@ export default connect (
 						this.props.dispatch ( actions.save ( language 			));
 					}}
 					style 	= {{
-						...style ( theme ).control ,
+						...appearance.control ,
 						...{
 							backgroundColor : background
 						}
 					}}
 				>
-					<Text style = { style ( theme ).text 			}>
+					<Text style = { appearance.text 				}>
 						{ languages [ language ].names [ current.id ]}
 					</Text>
 					<Ionicons
@@ -75,10 +76,11 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 	= this.props.theme 	,
+				scenery = scene ( theme ) 	;
 
 		return 				(
-			<ScrollView style = { scene ( theme ).body 	}>
+			<ScrollView style = { scenery.body }>
 				{ this.languages ()}
 			</ScrollView>
 		);

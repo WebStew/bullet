@@ -6,7 +6,6 @@ export default ( theme ) => {
 	return {
 
 		default : {
-
 			borderWidth 		: 1 	,
 			borderRadius 		: 3 	,
 			marginHorizontal 	: 15 	,
@@ -17,10 +16,8 @@ export default ( theme ) => {
 		} ,
 
 		notification : {
-
 			backgroundColor : theme.positive ,
 			borderColor 	: colors.shade ( theme.positive , -0.15 ) ,
-
 		}
 	};
 };

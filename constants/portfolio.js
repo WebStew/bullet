@@ -4,9 +4,10 @@
  * @type {Object}
  */
 export default {
-	get 	: 'portfolio:get' 	,
-	reset 	: 'portfolio:reset' ,
-	save 	: 'portfolio:save' 	,
-	set 	: 'portfolio:set' 	,
+	delete 	: 'portfolio:delete' 	,
+	get 	: 'portfolio:get' 		,
+	reset 	: 'portfolio:reset' 	,
+	save 	: 'portfolio:save' 		,
+	set 	: 'portfolio:set' 		,
 	setup 	: 'portfolio:setup'
 };

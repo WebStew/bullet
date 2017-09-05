@@ -4,6 +4,5 @@
  * @type {Object}
  */
 export default {
-
 	navigate : 'navigate'
 };

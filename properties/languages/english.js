@@ -15,16 +15,18 @@ export default {
 		} ,
 
 		actions 		: {
-			all 		: 'all' 			,
-			add 		: 'Add' 			,
-			calculating : 'Calculating...' 	,
-			cancel 		: 'Cancel' 			,
-			load 		: 'Load' 			,
-			loading 	: 'Loading...' 		,
-			refresh 	: 'Refresh' 		,
-			return 		: 'Back' 			,
-			share 		: 'Share' 			,
-			search 		: 'Please enter a search term' 
+			all 		: 'all' 						,
+			add 		: 'Add' 						,
+			calculating : 'Calculating...' 				,
+			cancel 		: 'Cancel' 						,
+			load 		: 'Load' 						,
+			loading 	: 'Loading...' 					,
+			refresh 	: 'Refresh' 					,
+			return 		: 'Back' 						,
+			remove 		: 'Remove' 						,
+			share 		: 'Share' 						,
+			search 		: 'Please enter a search term' 	,
+			update 		: 'Update'
 		} ,
 	
 		denominations 	: {
@@ -102,8 +104,9 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Detail' ,
-				portfolio 	: 'Add to portfolio'
+				title 		: 'Detail' 				,
+				add 		: 'Add to portfolio' 	,
+				update 		: 'Update portfolio'
 			} ,
 
 			exchanges 		: {
@@ -117,6 +120,12 @@ export default {
 			portfolio 		: {
 				404 		: 'You have not added any currencies to your portfolio. Please add them from the currency detail screen and we\'ll be able to advise you of an estimated worth for your coin collection' ,
 				description : 'Add {{placeholder}} to your portfolio list to keep a track of all your coins and their combined worth.' ,
+				headers 	: {
+					amount 	: 'Amount' 	,
+					name 	: 'Name' 	,
+					price 	: 'Price' 	,
+					total 	: 'Total'
+				} ,
 				title 		: 'Portfolio'
 			} ,
 

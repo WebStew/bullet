@@ -16,27 +16,23 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		return (
-
 			<TouchableOpacity 
-				style  	= { style ( theme ).back.control 	}
-				onPress = { this.props.press 				}
+				style  	= { appearance.back.control }
+				onPress = { this.props.press 		}
 			>
-
 				<Ionicons
-					name 	= { this.props.icon 			}
-					size 	= { 18 							}
-					color 	= { theme.secondary 			}
+					name 	= { this.props.icon }
+					size 	= { 18 				}
+					color 	= { theme.secondary }
 				/>
-
-				<Text style = { style ( theme ).back.text 	}>
-					{ this.props.value 						}
+				<Text style = { appearance.back.text 	}>
+					{ this.props.value 					}
 				</Text>
-				
 			</TouchableOpacity>
 		);
-
 	}
 });

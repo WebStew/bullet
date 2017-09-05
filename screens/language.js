@@ -61,19 +61,21 @@ export default connect (
 
 	render () {
 
-		const 	language 	= this.props.language ,
-				theme 		= this.props.theme;
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		,
+				scenery 	= scene ( theme ) 		,
+				appearance 	= style ( theme ) 		;
 				
 		return 				(
-			<ScrollView style 	= { scene ( theme ).body 									}>
+			<ScrollView style = { scenery.body }>
 				<Heading 
 					theme 	= { theme 														}
 					title 	= { strings.capitalise ( language.screens.translations.title 	)}
 					type 	= { 1 															}
 				/>
-				<View 	style 	= { style ( theme ).body 			}>
-					<Text style = { style ( theme ).text 			}>
-						{ language.screens.translations.body 		}
+				<View 	style 	= { appearance.body 			}>
+					<Text style = { appearance.text 			}>
+						{ language.screens.translations.body 	}
 					</Text>
 					<Button
 						press = { this.translations 					}

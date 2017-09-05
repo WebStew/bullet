@@ -29,24 +29,26 @@ export default {
 				transaction.executeSql ( 
 					'CREATE TABLE IF NOT EXISTS portfolio ( ' 	+ 
 						'id TEXT NOT NULL PRIMARY KEY , 	' 	+
-						'amount TEXT NOT NULL ' 				+ 
+						'amount TEXT NOT NULL ,' 				+ 
+						'name TEXT NOT NULL ' 					+ 
 					');' 
 				);
 			});
 		} ,
 
-		set 	: ( id , amount , callback ) => {
+		set 	: ( id , amount , name , callback ) => {
 
 			return connection.transaction (( transaction ) => {
 
 				transaction.executeSql ( 
-					'INSERT OR REPLACE INTO portfolio ( id , amount ) ' +
-					'VALUES ( ? , ? );' 								,
+					'INSERT OR REPLACE INTO portfolio ( id , amount , name ) ' 	+
+					'VALUES ( ? , ? , ? );' 									,
 					[ 
-						id 												, 
-						amount
-					] 													,
-					callback 											,
+						id 														, 
+						amount 													,
+						name
+					] 															,
+					callback 													,
 					error
 				);
 			})
@@ -55,6 +57,8 @@ export default {
 		get 	: ( callback ) => {
 
 			return connection.transaction (( transaction ) => {
+				
+				//transaction.executeSql ( "DROP TABLE IF EXISTS portfolio"  );
 
 				transaction.executeSql (
 					'SELECT * FROM portfolio' 	,
@@ -66,7 +70,7 @@ export default {
 			});
 		} ,
 		
-		reset 	: ( id , callback ) => {
+		delete 	: ( id , callback ) => {
 			
 			return connection.transaction (( transaction ) => {
 

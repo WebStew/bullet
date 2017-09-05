@@ -15,16 +15,18 @@ export default {
 		} ,
 
 		actions 		: {
-			all 		: 'mọi điều' 	,
-			add 		: 'Thêm vào' 	,
-			calculating : 'Tính...' 	,
-			cancel 		: 'Hủy' 		,
-			load 		: 'Tải' 		,
-			loading 	: 'Tải...' 		,
-			refresh 	: 'Tải lại' 	,
-			return 		: 'Trở lại' 	,
-			share 		: 'Chia sẻ' 	,
-			search 		: 'Vui lòng nhập cụm từ tìm kiếm' 
+			all 		: 'mọi điều' 						,
+			add 		: 'Thêm vào' 						,
+			calculating : 'Tính...' 						,
+			cancel 		: 'Hủy' 							,
+			load 		: 'Tải' 							,
+			loading 	: 'Tải...' 							,
+			refresh 	: 'Tải lại' 						,
+			return 		: 'Trở lại' 						,
+			remove 		: 'Tẩy' 							,
+			share 		: 'Chia sẻ' 						,
+			search 		: 'Vui lòng nhập cụm từ tìm kiếm' 	,
+			update 		: 'Cập nhật'
 		} ,
 	
 		denominations 	: {
@@ -102,8 +104,9 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Chi tiết' ,
-				portfolio 	: 'Thêm vào danh mục đầu tư'
+				title 		: 'Chi tiết' 					,
+				add 		: 'Thêm vào danh mục đầu tư' 	,
+				update 		: 'Cập nhật danh mục đầu tư'
 			} ,
 
 			exchanges 		: {
@@ -117,6 +120,12 @@ export default {
 			portfolio 		: {
 				404 		: 'Bạn chưa thêm bất kỳ loại tiền tệ nào vào danh mục đầu tư của mình. Vui lòng thêm chúng từ màn hình chi tiết tiền tệ và chúng tôi sẽ có thể cho bạn biết giá trị ước tính cho bộ sưu tập tiền xu của bạn' ,
 				description : 'Thêm {{placeholder}} vào danh mục danh mục đầu tư của bạn để theo dõi tất cả đồng tiền của bạn và giá trị kết hợp của chúng.' ,
+				headers 	: {
+					amount 	: 'Số tiền' ,
+					name 	: 'Tên' 	,
+					price 	: 'Giá bán' ,
+					total 	: 'Toàn bộ'
+				} ,
 				title 		: 'Danh mục'
 			} ,
 

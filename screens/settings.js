@@ -80,7 +80,8 @@ export default connect (
 	contents () {
 
 		const 	navigate 	= this.props.navigation.navigate 	,
-				theme 		= this.props.theme 					;
+				theme 		= this.props.theme 					,
+				appearance 	= style ( theme ) 					;
 
 		return this.settings ().map (( setting , index ) => {
 
@@ -91,13 +92,13 @@ export default connect (
 					key 	= { index 						}
 					onPress = {() => navigate ( setting.url )}
 					style 	= {{ 
-						...style ( theme ).control ,
+						...appearance.control ,
 						...{
 							backgroundColor : background
 						}
 					}}
 				>
-					<Text style = { style ( theme ).text 		}>
+					<Text style = { appearance.text 			}>
 						{ setting.name }
 					</Text>
 					<Ionicons
@@ -113,10 +114,11 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 	= this.props.theme 	,
+				scenery = scene ( theme ) 	;
 
-		return 				(
-			<ScrollView style = { scene ( theme ).body }>
+		return 	(
+			<ScrollView style = { scenery.body }>
 				{ this.contents ()}
 			</ScrollView>
 		);

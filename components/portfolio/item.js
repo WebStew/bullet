@@ -33,71 +33,68 @@ export default class Item extends React.Component {
 
 		const 	currency 	= this.props.details 	,
 				language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				items 		= list 	( theme ) 		,
+				appearance 	= style ( theme ) 		;
 
 		return (
-
 			<View>
 				<TouchableOpacity 
 					style 	= {{
-						...list ( theme ).row 	,
+						...items.row 	,
 						...this.props.style
 					}} 
 					onPress = { this.detail 	}
 				>
-
 					<View style = {{
-						...list 	( theme ).cell ,
-						...style 	( theme ).head 
+						...items.cell ,
+						...appearance.head 
 					}}>
 						<Image 	
-							style 	= { style ( theme ).icon }
+							style 	= { appearance.icon }
 							source 	= {{
 								uri : images.currencies.small ( currency.id ) 
 							}}
 						/>
-						
 						<Text 
 							numberOfLines 	= { 1 }
+							ellipsizeMode 	= 'tail'
 							style 			= {{
-								...list 	( theme ) [ 'cell-text' ] ,
-								...style 	( theme ).name
+								...items [ 'cell-text' ] ,
+								...appearance.name
 							}}
 						>
 							{ currency.name }
 						</Text>
 					</View>
-
 					<Text 
 						numberOfLines 	= { 1 }
 						style 			= {{
-							...list 	( theme ).cell 				,
-							...list 	( theme ) [ 'cell-text' ] 	,
-							...style 	( theme ).cell
+							...items.cell 				,
+							...items [ 'cell-text' ] 	,
+							...appearance.cell
 						}}
 					>
 						{ numbers.format ( currency.amount		)}
 					</Text>
-		
 					<Text 
 						numberOfLines 	= { 1 }
 						style 			= {{
-							...list 	( theme ).cell 				,
-							...list 	( theme ) [ 'cell-text' ] 	,
-							...style 	( theme ).cell
+							...items.cell 				,
+							...items [ 'cell-text' ] 	,
+							...appearance.cell
 						}}>
 						{ currency.price ? language.denominations.usd.symbol + numbers.format ( currency.price ) : language.errors [ 500 ]}
 					</Text>
-		
 					<Text 
 						numberOfLines 	= { 1 }
 						style 			= {{
-							...list 	( theme ).cell 				,
-							...list 	( theme ) [ 'cell-text' ] 	,
-							...style 	( theme ).cell
+							...items.cell 				,
+							...items [ 'cell-text' ] 	,
+							...appearance.cell
 						}}
 					>
-						{ currency.total ? language.denominations.usd.symbol + numbers.format ( currency.total.toFixed ( 2 )) : language.errors [ 500 ]}
+						{ currency.total ? language.denominations.usd.symbol + numbers.format ( currency.total.toFixed ( 2 )) : '0'}
 					</Text>
 				</TouchableOpacity>
 			</View>

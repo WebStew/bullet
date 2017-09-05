@@ -4,9 +4,7 @@
  * @type {Object}
  */
 export default {
-
 	get 	: 'theme:get' 	,
 	save 	: 'theme:save' 	,
-	set 	: 'theme:set'
-	
+	set 	: 'theme:set'	
 };

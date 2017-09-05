@@ -94,13 +94,14 @@ export default class ChartTree extends React.Component {
 
 	row ( item , section , row , highlight ) {
 
-		const theme = this.props.theme;
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		return ( 
-			<View 	style = { style ( theme ).tree.bar.view }>
+			<View 	style = { appearance.tree.bar.view }>
 				<View 
 					style = {{
-						...style ( theme ).tree.bar.highlight , 
+						...appearance.tree.bar.highlight , 
 						...{
 							height : item
 						}
@@ -112,11 +113,12 @@ export default class ChartTree extends React.Component {
 
 	section ( section ) {
 
-		const theme = this.props.theme;
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		return (
-			<View style 	= { style ( theme ).tree.section.view }>
-				<Text style = { style ( theme ).tree.section.text }>
+			<View style 	= { appearance.tree.section.view }>
+				<Text style = { appearance.tree.section.text }>
 					{ this.format ( section )}
 				</Text>
 			</View>
@@ -145,12 +147,13 @@ export default class ChartTree extends React.Component {
 
 		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
-				name 		= this.props.name 		;
+				name 		= this.props.name 		,
+				appearance 	= style ( theme ) 		;
 
 		if ( this.props.loading ) {
 			
 			return (
-				<View style = { style ( theme ).tree.loading }>
+				<View style = { appearance.tree.loading 	}>
 					<Loader
 						loading 	= { this.props.loading 	}
 						size 		= 'small'
@@ -173,11 +176,10 @@ export default class ChartTree extends React.Component {
 			);
 		}
 
-		this.setScales ();
-
-		return 				(
+		this.setScales 	();
+		return 			(
 			
-			<View style = { style ( theme ).tree.view }>
+			<View style = { appearance.tree.view }>
 
 				{ this.header ()}
 
@@ -195,7 +197,7 @@ export default class ChartTree extends React.Component {
 					renderSectionHeader  			= { this.section 					}
 					showsHorizontalScrollIndicator 	= { false 							}
 					showsVerticalScrollIndicator 	= { false 							}
-					style 							= { style ( theme ).tree.chart 		}
+					style 							= { appearance.tree.chart 			}
 					theme 							= { theme 							}
 				/>
 

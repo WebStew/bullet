@@ -15,16 +15,18 @@ export default {
 		} ,
 
 		actions 		: {
-			all 		: 'alle' 			,
-			add 		: 'Hinzufügen' 		,
-			calculating : 'Berechnen...' 	,
-			cancel 		: 'Stornieren' 		,
-			load 		: 'Belastung' 		,
-			loading 	: 'Laden...' 		,
-			refresh 	: 'Erneuern' 		,
-			return 		: 'Zurück' 			,
-			share 		: 'Aktie' 			,
-			search 		: 'Bitte geben Sie einen Suchbegriff ein' 
+			all 		: 'alle' 									,
+			add 		: 'Hinzufügen' 								,
+			calculating : 'Berechnen...' 							,
+			cancel 		: 'Stornieren' 								,
+			load 		: 'Belastung' 								,
+			loading 	: 'Laden...' 								,
+			refresh 	: 'Erneuern' 								,
+			return 		: 'Zurück' 									,
+			remove 		: 'Entfernen' 								,
+			share 		: 'Aktie' 									,
+			search 		: 'Bitte geben Sie einen Suchbegriff ein' 	,
+			update 		: 'Aktualisieren'
 		} ,
 	
 		denominations 	: {
@@ -102,8 +104,9 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Detail' ,
-				portfolio 	: 'Zum Portfolio hinzufügen'
+				title 		: 'Detail' 						,
+				add 		: 'Zum Portfolio hinzufügen' 	,
+				update 		: 'Portfolio aktualisieren'
 			} ,
 
 			exchanges 		: {
@@ -117,6 +120,12 @@ export default {
 			portfolio 		: {
 				404 		: 'Sie haben Ihrem Portfolio keine Währungen hinzugefügt. Bitte fügen Sie sie aus dem Währungsdetailbildschirm hinzu und wir beraten Sie gerne von einem geschätzten Wert für Ihre Münzsammlung' ,
 				description : 'Fügen Sie {{placeholder}} zu Ihrer Portfolio-Liste hinzu, um einen Überblick über alle Ihre Münzen und ihre kombinierten Wert zu halten.' ,
+				headers 	: {
+					amount 	: 'Menge' 	,
+					name 	: 'Name' 	,
+					price 	: 'Preis' 	,
+					total 	: 'Gesamt'
+				} ,
 				title 		: 'Mappe'
 			} ,
 

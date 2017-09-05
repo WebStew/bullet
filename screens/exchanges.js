@@ -53,7 +53,8 @@ export default connect (
 
 		return exchanges.map (( exchange , index ) => {
 
-			const background = index % 2 === 0 ? theme.primary : theme.base;
+			const 	background 	= index % 2 === 0 ? theme.primary : theme.base ,
+					appearance 	= style ( theme );
 
 			return (
 				<TouchableOpacity 
@@ -64,13 +65,13 @@ export default connect (
 						Linking.openURL ( exchange.url 							)
 					}}
 					style 	= {{
-						...style ( theme ).control 						,
+						...appearance.control 						,
 						...{
 							backgroundColor : background
 						}
 					}}
 				>
-					<Text style = { style ( theme ).text }>
+					<Text style = { appearance.text }>
 						{ exchange.name }
 					</Text>
 					<Ionicons
@@ -85,10 +86,11 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme
+		const 	theme 	= this.props.theme 	,
+				scenery = scene ( theme ) 	;
 
 		return 				(
-			<ScrollView style = { scene ( theme ).body 	}>
+			<ScrollView style = { scenery.body }>
 				{ this.exchanges ()}
 			</ScrollView>
 		);

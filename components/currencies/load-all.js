@@ -41,7 +41,8 @@ export default connect (
 	render () {
 
 		const 	theme 		= this.props.theme 		,
-				language 	= this.props.language 	;
+				language 	= this.props.language 	,
+				appearance 	= style ( theme ) 		;
 		let 	action;
 
 		if ( this.props.currencies.loading ) {
@@ -53,11 +54,11 @@ export default connect (
 
 		return ( 
 			<TouchableOpacity 
-				style  	= { style ( theme ).left.control 	}
-				onPress = { this.refresh 					}
+				style  	= { appearance.left.control }
+				onPress = { this.refresh 			}
 			>
-				<Text style = { style ( theme ).left.text 	}>
-					{ action 								}
+				<Text style = { appearance.left.text 	}>
+					{ action 							}
 				</Text>	
 			</TouchableOpacity>
 		);

@@ -18,6 +18,33 @@ export default ( theme ) => {
 			textAlign 		: 'right'
 		} ,
 
+		missing : {
+
+			icon 	: {
+				marginLeft 	: 15 , 
+				marginTop 	: 2 
+			} ,
+
+			row 	: { 
+				alignItems 		: 'center' 	,
+				flexDirection 	: 'row' 	, 
+				justifyContent 	: 'center'
+			} ,
+
+			text 	: {
+				color 		: theme.body 	,
+				flex 		: 1 			,
+				fontSize 	: 14
+			} ,
+
+			view 	: { 
+				alignItems 			: 'center' 	,
+				flexDirection 		: 'row' 	, 
+				justifyContent 		: 'center' 	,
+				paddingHorizontal 	: 10 
+			}
+		} ,
+
 		head 	: {
 			flex 			: 2 ,
 			flexDirection 	: 'row'

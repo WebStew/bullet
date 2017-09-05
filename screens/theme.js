@@ -43,14 +43,14 @@ export default connect (
 	constructor ( props ) {
 		super 	( props );
 
-		this.themes 		= this.themes.bind 			( this );
+		this.themes = this.themes.bind ( this );
 	}
 
 	themes () {
 
 		const theme = this.props.theme;
 
-		analytics.event 	( 'theme' , 'send' , 'email' );
+		analytics.event ( 'theme' , 'send' , 'email' );
 		Linking.openURL ( 
 			'mailto://' + application.email + '?subject=Theme Request&body=' + JSON.stringify ( 
 				theme 	, 
@@ -61,19 +61,21 @@ export default connect (
 
 	render () {
 
-		const 	language 	= this.props.language ,
-				theme 		= this.props.theme;
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		,
+				scenery 	= scene ( theme ) 		,
+				appearance 	= style ( theme ) 		;
 
-		return 				(
-			<ScrollView style 	= { scene ( theme ).body 							}>
+		return 	(
+			<ScrollView style = { scenery.body }>
 				<Heading 
 					theme 	= { theme 												}
 					title 	= { strings.capitalise ( language.screens.themes.title 	)}
 					type 	= { 1 													}
 				/>
-				<View 	style 	= { style ( theme ).body 		}>
-					<Text style = { style ( theme ).text 		}>
-						{ language.screens.themes.body 			}
+				<View 	style 	= { appearance.body 		}>
+					<Text style = { appearance.text 		}>
+						{ language.screens.themes.body 		}
 					</Text>					
 					<Button
 						press = { this.themes 						}

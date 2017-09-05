@@ -13,7 +13,6 @@ export default class Headings extends React.Component {
 				style 	= styles ( theme ) [ type ] ;
 
 		return (
-	
 			<Text style = { style  } >
 				{ this.props.title }
 			</Text>

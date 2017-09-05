@@ -13,8 +13,7 @@ import 		numbers 				from '../../utilities/numbers';
 export default class Item extends React.Component {
 
 	constructor ( props ) {
-
-		super ( props );
+		super 	( props );
 
 		this.detail = this.detail.bind ( this );
 	}
@@ -33,76 +32,74 @@ export default class Item extends React.Component {
 
 		const 	currency 	= this.props.currency 	,
 				language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				items 		= list 	( theme ) 		,
+				appearance 	= style ( theme ) 		;
 
 		return (
 
 			<View>
 				<TouchableOpacity 
 					style 	= {{
-						...list ( theme ).row 	,
+						...items.row 	,
 						...this.props.style
 					}} 
 					onPress = { this.detail 	}
 				>
-
 					<View style = {{
-						...list 	( theme ).cell ,
-						...style 	( theme ).head 
+						...items.cell ,
+						...appearance.head 
 					}}>
 						<Image 	
-							style 	= { style ( theme ).icon }
+							style 	= { appearance.icon }
 							source 	= {{
 								uri : images.currencies.small ( currency.id ) 
 							}}
 						/>
 						
 						<Text 
+							ellipsizeMode 	= 'tail'
 							numberOfLines 	= { 1 }
 							style 			= {{
-								...list 	( theme ) [ 'cell-text' ] ,
-								...style 	( theme ).name
+								...items [ 'cell-text' ] ,
+								...appearance.name
 							}}
 						>
 							{ currency.name }
 						</Text>
 					</View>
-
 					<Text 
 						numberOfLines 	= { 1 }
 						style 			= {{
-							...list 	( theme ).cell 				,
-							...list 	( theme ) [ 'cell-text' ] 	,
-							...style 	( theme ).text
+							...items.cell 				,
+							...items [ 'cell-text' ] 	,
+							...appearance.text
 						}}
 					>
 						{ currency.rating ? numbers.format ( currency.rating ) : language.errors [ 500 ]}
 					</Text>
-
 					<Integer 
 						language 	= { language 			}
 						style 		= {{
-							...list 	( theme ).cell 				,
-							...list 	( theme ) [ 'cell-text' ] 	,
-							...style 	( theme ).change
+							...items.cell 				,
+							...items [ 'cell-text' ] 	,
+							...appearance.text
 						}}
 						suffix 		= '%'
 						theme 		= { theme 				}
 						type 		= 'highlight' 
 						value 		= { currency.change.day }
 					/>
-
 					<Text 
 						numberOfLines 	= { 1 }
 						style 			= {{
-							...list 	( theme ).cell 				,
-							...list 	( theme ) [ 'cell-text' ] 	,
-							...style 	( theme ).price
+							...items.cell 				,
+							...items [ 'cell-text' ] 	,
+							...appearance.price
 						}}
 					>
 						{ currency.prices.usd ? language.denominations.usd.symbol + numbers.format ( currency.prices.usd ) : language.errors [ 500 ]}
 					</Text>
-						
 				</TouchableOpacity>
 			</View>
 		);

@@ -45,6 +45,27 @@ export default ( theme ) => {
 				paddingVertical 	: 10
 
 			}
+		} ,
+
+		tertiary : {
+			
+			text : {
+				color 		: theme.body 	,
+				fontSize 	: 18 			,
+				fontWeight 	: 'bold'
+			} ,
+
+			view : {
+				alignItems 			: 'center' 									,
+				backgroundColor 	: theme.negative 							,
+				borderColor 		: color.shade ( theme.negative , -0.25 ) 	,
+				borderRadius 		: 5 										,
+				borderWidth 		: 1 										,
+				marginBottom 		: 15 										,
+				paddingHorizontal 	: 15 										,
+				paddingVertical 	: 10
+
+			}
 		}
 	};
 };

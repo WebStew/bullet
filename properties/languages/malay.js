@@ -15,16 +15,18 @@ export default {
 		} ,
 
 		actions 		: {
-			all 		: 'Semua' 			,
-			add 		: 'Tambah' 			,
-			calculating : 'Menghitung...' 	,
-			cancel 		: 'Batalkan' 		,
-			load 		: 'Beban' 			,
-			loading 	: 'Memuatkan...' 	,
-			refresh 	: 'Menyegarkan' 	,
-			return 		: 'Belakang' 		,
-			share 		: 'Berkongsi' 		,
-			search 		: 'Sila masukkan istilah carian'
+			all 		: 'Semua' 							,
+			add 		: 'Tambah' 							,
+			calculating : 'Menghitung...' 					,
+			cancel 		: 'Batalkan' 						,
+			load 		: 'Beban' 							,
+			loading 	: 'Memuatkan...' 					,
+			refresh 	: 'Menyegarkan' 					,
+			return 		: 'Belakang' 						,
+			remove 		: 'Keluarkan' 						,
+			share 		: 'Berkongsi' 						,
+			search 		: 'Sila masukkan istilah carian' 	,
+			update 		: 'Kemas kini'
 		} ,
 	
 		denominations 	: {
@@ -102,8 +104,9 @@ export default {
 			} ,
 
 			detail 			: {
-				title 		: 'Terperinci' ,
-				portfolio 	: 'Tambah kepada portfolio'
+				title 		: 'Terperinci' 				,
+				add 		: 'Tambah kepada portfolio' ,
+				update 		: 'Kemas kini portfolio'
 			} ,
 
 			exchanges 		: {
@@ -117,6 +120,12 @@ export default {
 			portfolio 		: {
 				404 		: 'Anda belum menambahkan sebarang mata wang ke portfolio anda. Sila tambahkan mereka dari skrin terperinci mata wang dan kami akan dapat menasihati anda tentang nilai anggaran untuk pengumpulan duit syiling anda' ,
 				description : 'Tambah {{placeholder}} ke senarai portfolio anda untuk menyimpan trek semua syiling anda dan nilai gabungan mereka.' ,
+				headers 	: {
+					amount 	: 'Jumlah' ,
+					name 	: 'Nama' ,
+					price 	: 'Harga' ,
+					total 	: 'Jumlah'
+				} ,
 				title 		: 'Portfolio'
 			} ,
 

@@ -3,10 +3,11 @@ import constants from '../constants/portfolio';
 
 export default {
 	
-	get () {
+	delete ( id ) {
 
 		return {
-			type 	: constants.get
+			id 		: id ,
+			type 	: constants.delete
 		};
 	} ,
 	
@@ -17,21 +18,30 @@ export default {
 			type 	: constants.reset
 		};
 	} ,
+	
+	get () {
 
-	save ( id , amount ) {
+		return {
+			type 	: constants.get
+		};
+	} ,
+
+	save ( id , amount , name ) {
 
 		return {
 			amount 	: amount 	,
 			id 		: id 		,
+			name 	: name 		,
 			type 	: constants.save
 		};
 	} ,
 	
-	set ( id , amount ) {
+	set ( id , amount , name ) {
 
 		return {
 			amount 	: amount 	,
 			id 		: id 		,
+			name 	: name 		,
 			type 	: constants.set
 		};
 	} ,

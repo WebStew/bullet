@@ -41,7 +41,8 @@ export default connect (
 	render () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				appearance 	= style ( theme ) 		;
 
 		if ( ! this.props.search.on ) {
 			
@@ -49,11 +50,11 @@ export default connect (
 		}
 
 		return (
-			<View 		style = { style ( theme ).view 	}>
-				<View 	style = { style ( theme ).field }>
+			<View 		style = { appearance.view 	}>
+				<View 	style = { appearance.field 	}>
 
 					<TouchableOpacity
-						style 		= { style ( theme ).refresh }
+						style 		= { appearance.refresh 		}
 						 onPress 	= {() => this.set 	( null )}
 					>
 						<Ionicons
@@ -64,23 +65,23 @@ export default connect (
 					</TouchableOpacity>
 
 					<TextInput 
-						autoFocus 				= { true 						}
-						placeholder 			= { language.actions.search 	}
-						placeholderTextColor 	= { theme.disabled 				}
-						onChangeText 			= { this.set 					}
-						selectionColor 			= { theme.secondary 			}
-						style 					= { style ( theme ).input 		}
-						value 					= { this.props.search.value 	}
+						autoFocus 				= { true 					}
+						placeholder 			= { language.actions.search }
+						placeholderTextColor 	= { theme.disabled 			}
+						onChangeText 			= { this.set 				}
+						selectionColor 			= { theme.secondary 		}
+						style 					= { appearance.input 		}
+						value 					= { this.props.search.value }
 					/>
 
 					<TouchableOpacity
-						style 		= { style ( theme ).close 	}
-						 onPress 	= { this.off 				}
+						style 		= { appearance.close 	}
+						 onPress 	= { this.off 			}
 					>
 						<Ionicons
-							name 	= { 'ios-close-outline' 	}
-							size 	= { 32 						}
-							color 	= { theme.secondary 		}
+							name 	= { 'ios-close-outline' }
+							size 	= { 32 					}
+							color 	= { theme.negative 		}
 						/>
 					</TouchableOpacity>
 					

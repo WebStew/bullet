@@ -12,7 +12,9 @@ export default class NotFound extends React.Component {
 	render () {
 
 		const 	theme 		= this.props.theme 		,
-				language 	= this.props.language 	;
+				language 	= this.props.language 	,
+				appearance 	= style 	( theme ) 	,
+				arrange 	= layout 	( theme ) 	;
 
 		// Only render if the bull rating is zero
 		if (
@@ -24,25 +26,20 @@ export default class NotFound extends React.Component {
 		}
 
 		return (
-			
 			<View style = {{
-				...layout ().fill 	,
-				...layout ().row 	,
+				...arrange.fill ,
+				...arrange.row 	,
 				...bull ( theme ) [ '404' ]
 			}}>
-				
-				<View style 	= { style ( theme ).ajax.view 	}>
-
+				<View style 	= { appearance.ajax.view 	}>
 					<Ionicons
 						name 	= 'ios-pulse-outline'
-						size 	= { 64 							}
-						color 	= { theme.secondary 			}
+						size 	= { 64 						}
+						color 	= { theme.secondary 		}
 					/>
-
-					<Text style = { style ( theme ).ajax.text 	}>
-						{ language.screens.bull [ '404' 		]}
+					<Text style = { appearance.ajax.text 	}>
+						{ language.screens.bull [ '404' 	]}
 					</Text>
-
 				</View>
 			</View>
 		);

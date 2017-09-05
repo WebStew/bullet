@@ -132,12 +132,15 @@ export default connect (
 	render () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				appearance 	= style 	( theme ) 	,
+				scenery 	= scene 	( theme ) 	,
+				arrange 	= layout 	( theme ) 	;
 
 		if ( this.props.currencies.loading ) {
 
 			return (
-				<View  style 	= { scene ( theme ).body 			}>
+				<View  style 	= { scenery.body 					}>
 					<Loader 
 						loading = { this.props.currencies.loading 	}
 						size 	= 'large' 
@@ -162,20 +165,20 @@ export default connect (
 		}
 
 		return (
-			<TouchableWithoutFeedback 	onPress = { Keyboard.dismiss 		}>
-				<View 					style 	= { scene 	( theme ).body 	}>
-					<View 				style 	= { layout 	( theme ).fill 	}>
+			<TouchableWithoutFeedback 	onPress = { Keyboard.dismiss 	}>
+				<View 					style 	= { scenery.body 		}>
+					<View 				style 	= { arrange.fill 		}>
 						<TextInput 
 							defaultValue 	= { this.state.result 		}
 							editable 		= { false 					}
 							selectionColor 	= { theme.secondary 		}
-							style 			= { style ( theme ).result 	}
+							style 			= { appearance.result 		}
 						/>
 					</View>
 
-					<View 		style = { style ( theme ).pickers.view }>
+					<View 		style = { appearance.pickers.view }>
 						<View 	style = {{
-							...style ( theme ).pickers.column ,
+							...appearance.pickers.column ,
 							...{
 								marginLeft : 15
 							}
@@ -183,11 +186,11 @@ export default connect (
 							<Picker 
 								onValueChange 	= {( value ) => this.set ( 'from' , value 	)}
 								selectedValue 	= { this.state.from 						}
-								style 			= { style ( theme ).picker 					}>
+								style 			= { appearance.picker 						}>
 								{ this.options ()}
 							</Picker>
 						</View>
-						<View 	style 	= { style ( theme ).icon 		}>
+						<View 	style 	= { appearance.icon 			}>
 							<Ionicons
 								name 	= { 'ios-arrow-forward-outline' }
 								size 	= { 32 							}
@@ -195,7 +198,7 @@ export default connect (
 							/>
 						</View>
 						<View 	style = {{
-							...style ( theme ).pickers.column ,
+							...appearance.pickers.column ,
 							...{
 								marginRight : 15
 							}
@@ -203,14 +206,14 @@ export default connect (
 							<Picker 
 								onValueChange 	= {( value ) => this.set ( 'to' , value )}
 								selectedValue 	= { this.state.to 						}
-								style 			= { style ( theme ).picker 				}>
+								style 			= { appearance.picker 					}>
 								{ this.options ()}
 							</Picker>
 						</View>
 					</View>
 
-					<View 	style 			= {{
-						...layout ( theme ).center ,
+					<View style = {{
+						...arrange.center ,
 						...{
 							backgroundColor : theme.primary
 						}}}>
@@ -219,7 +222,7 @@ export default connect (
 							keyboardType 	= 'numeric' 
 							onChangeText 	= {( value ) => this.set ( 'base' , value 	)}
 							selectionColor 	= { theme.secondary 						}
-							style 			= { style ( theme ).input 					}
+							style 			= { appearance.input 						}
 						/>
 					</View>
 				</View>

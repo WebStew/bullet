@@ -26,6 +26,7 @@ export default connect (
 	state => ({
 		graphs 		: state.graphs 		,
 		language 	: state.language 	,
+		portfolio 	: state.portfolio 	,
 		theme 		: state.theme
 	})
 
@@ -82,23 +83,28 @@ export default connect (
 
 	render () {
 
-		const 	currency 	= this.props.navigation.state.params.currency 	,
-				language 	= this.props.language 							,
-				theme 		= this.props.theme 								;
+		const 	currency 	= this.props.navigation.state.params.currency 										,
+				language 	= this.props.language 																,
+				theme 		= this.props.theme 																	,
+				portfolioed = this.props.portfolio.items.find (( item , index ) => item.id === currency.id ) 	,
+				action 		= portfolioed ? language.screens.detail.update : language.screens.detail.add 		,
+				scenery 	= scene 	( theme ) 																,
+				arrange 	= layout 	( theme ) 																,
+				appearance 	= style 	( theme ) 																;
 
 		analytics.screen 	( 'detail:' + currency.name 			);
 		return 				(
-			<ScrollView style = { scene 	( theme ).body 			}>
-				<View 	style = { layout 	( theme ).fill 			}>
+			<ScrollView style = { scenery.body 	}>
+				<View 	style = { arrange.fill 	}>
 					<View 	
 						style = {{
-							...layout 	( theme ).row ,
-							...scene 	( theme ).header
+							...arrange.row 		,
+							...scenery.header
 						}}
 					>
 
 						<Image 	
-							style 	= { style ( theme ).icon }
+							style 	= { appearance.icon }
 							source 	= {{
 								uri : images.currencies.large ( currency.id ) 
 							}}
@@ -120,26 +126,28 @@ export default connect (
 						theme 		= { theme 							}
 					/>
 
-					<View 	style 	= { style ( theme ).button 			}>
+					<View 	style 	= { appearance.button 				}>
 						<Button
 							press 	= {() => {
+								
 								this.setState ({
 									modal : true
 								});
 							}}
-							theme = { theme 							}
-							value = { language.screens.detail.portfolio }
+							theme = { theme 	}
+							value = { action 	}
 						/>
 					</View>
 					
 					<Modal 
-						active 		= { this.state.modal 	}
-						amount 		= { this.state.amount 	}
-						currency 	= { currency 			}
-						dispatch 	= { this.props.dispatch }
-						language 	= { language 			}
-						reset 		= { this.close 			}
-						theme 		= { theme 				}
+						active 		= { this.state.modal 		}
+						amount 		= { this.state.amount 		}
+						currency 	= { currency 				}
+						dispatch 	= { this.props.dispatch 	}
+						language 	= { language 				}
+						portfolio 	= { this.props.portfolio 	}
+						reset 		= { this.close 				}
+						theme 		= { theme 					}
 					/>
 
 					<Sections  

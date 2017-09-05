@@ -160,11 +160,12 @@ export default connect (
 		const 	{ routes } = navigation.state ,
 
 				// Prepend '-1', so there are always at least 2 items in inputRange
-				inputRange = [ -1 , ...routes.map (( x : * , i : number ) => i )];
+				inputRange = [ -1 , ...routes.map (( x : * , i : number ) => i )] ,
+				appearance = styles ( this.props.theme );
 
 		return (
 			<Animated.View style ={[ 
-				styles ( this.props.theme ).tabBar, 
+				appearance.tabBar, 
 				style
 			]}>
 				{ routes.map (( route : NavigationRoute , index : number ) => {
@@ -191,7 +192,7 @@ export default connect (
 						>
 							<Animated.View
 								style = {[
-									styles ( this.props.theme ).tab , 
+									appearance.tab , 
 									{ 
 										backgroundColor , 
 										justifyContent 

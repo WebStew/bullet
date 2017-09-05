@@ -120,16 +120,22 @@ export default connect (
 
 	cells () {
 
-		const theme = this.props.theme
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		return this.headers ().map (( item , index ) => {
+
+			const styles = index === 0 ? 	{
+				...item.styles.touch 		,
+				...appearance.head 
+			} : item.styles.touch;
 
 			return (
 
 				<TouchableOpacity 
 					key 			= { index 					}
 					onPress 		= { item.press.bind ( this )}
-					style 			= { item.styles.touch 		}
+					style 			= { styles 					}
 				>
 					<Text  
 						numberOfLines 	= { 1 					} 
@@ -146,7 +152,8 @@ export default connect (
 
 		const 	items 		= this.data () 			,
 				language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				appearance 	=  style ( theme ) 		;
 
 		if ( this.props.currencies.loading ) {
 			
@@ -176,11 +183,11 @@ export default connect (
 		}
 
 		return ( 
-			<View 		style = { style ( theme ) [ '404' ].view 			}>
-				<Text 	style = { style ( theme ) [ '404' ].text 			}>
-					{ language.screens.currencies.none + ' "' 				}
-					<Text style = { style ( theme ) [ '404' ].term 			}>
-						{ this.props.search.value + '"' 					}
+			<View 		style = { appearance [ '404' ].view 	}>
+				<Text 	style = { appearance [ '404' ].text 	}>
+					{ language.screens.currencies.none + ' "' 	}
+					<Text style = { appearance [ '404' ].term 	}>
+						{ this.props.search.value + '"' 		}
 					</Text>
 				</Text>
 			</View> 
@@ -200,7 +207,10 @@ export default connect (
 	headers () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				appearance 	= style ( theme ) 		,
+				items 		= list 	( theme ) 		;
+
 		let 	active 		= {} 					;
 
 		active [ this.props.currencies.order ] = {
@@ -208,76 +218,77 @@ export default connect (
 		};
 
 		return [{
-			press 		: () => {
+			press : () => {
 
 				analytics.event 	( 'currencies' , 'order' , 'rank' 	);
 				this.props.dispatch ( actions.order ( 'rank' 			));
-			} 																		, 
-			styles 		: {
-				text 	: { 
-					...list 	( theme ) [ 'head-text' ] 							,
-					...active 	[ 'rank' 				]
-				} 																	,
-				touch 	: {
-					...list 	( theme ) .cell 									,
-					...style 	( theme ) .head
+			} ,
+			styles : {
+				text : { 
+					...items 	[ 'head-text' 	] ,
+					...active 	[ 'rank' 		]
+				} ,
+				touch : {
+					...items.cell ,
+					...appearance.head
 				}
-			} 																		,
-			text 		: language.screens.currencies.headers.rank
-		} 																			,
+			} ,
+			text : language.screens.currencies.headers.rank
+		} ,
 		{
-			press 		: () => {
+			press : () => {
 
 				analytics.event 	( 'currencies' , 'order' , 'rating' 	);
 				this.props.dispatch ( actions.order ( 'rating' 				));
-			} 																		,
-			styles 		: {
-				text 	: {
-					...list 	( theme ) [ 'head-text' 	] 						,
-					...style 	( theme ) .text  									,
-					...active 	[ 'rating' 					]
-				} 																	,
-				touch 	: list 	( theme ) .cell
-			} 																		,
-			text 		: language.screens.currencies.headers.rating
-		} 																			,
+			} ,
+			styles : {
+				text : {
+					...items 	[ 'head-text' 	] 	,
+					...appearance.text 				,
+					...active 	[ 'rating' 		]
+				} ,
+				touch : items.cell
+			} ,
+			text : language.screens.currencies.headers.rating
+		} ,
 		{
-			press 		: () => {
+			press : () => {
 
 				analytics.event 	( 'currencies' , 'order' , 'change' );
 				this.props.dispatch ( actions.order ( 'change' 			));
-			} 																		,
-			styles 		: {
-				text 	: {
-					...list 	( theme ) [ 'head-text' ] 							,
-					...style 	( theme ) .change  									,
-					...active 	[ 'change' 				]
-				} 																	,
-				touch 	: list 	( theme ) .cell 
-			} 																		,
-			text 		: language.screens.currencies.headers.change
+			} ,
+			styles : {
+				text : {
+					...items 	[ 'head-text' 	] 	,
+					...appearance.text 				,
+					...active 	[ 'change' 		]
+				} ,
+				touch : items.cell 
+			} ,
+			text : language.screens.currencies.headers.change
 		} ,
 		{
-			press 		: () => {
+			press : () => {
 
 				analytics.event 	( 'currencies' , 'order' , 'price' 	);
 				this.props.dispatch ( actions.order ( 'price' 			));
-			} 																		,
-			styles 		: {
-				text 	: {
-					...list 	( theme ) [ 'head-text' 	] 						,
-					...style 	( theme ) .price  									,
+			} ,
+			styles : {
+				text : {
+					...items 	[ 'head-text' 	] 	,
+					...appearance.price 			,
 					...active 	[ 'price' 		]
 				} ,
-				touch 	: list 	( theme ).cell
+				touch : items.cell
 			} ,
-			text 		: language.screens.currencies.headers.price
+			text : language.screens.currencies.headers.price
 		}];
 	}
 
 	header () {
 
-		const theme = this.props.theme;
+		const 	theme = this.props.theme 	,
+				items = list ( theme ) 		;
 
 		if (
 			this.props.currencies.items.lenght === 0 || 
@@ -291,8 +302,8 @@ export default connect (
 			<View>
 				<View 
 					style = {{ 
-						...list ( theme ).row , 
-						...list ( theme ).head 
+						...items.row , 
+						...items.head 
 					}}
 				>
 					{ this.cells ()}
@@ -304,7 +315,8 @@ export default connect (
 	render () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				scenery 	= scene ( theme ) 		;
 
 		if ( this.props.currencies.error ) {
 
@@ -322,7 +334,7 @@ export default connect (
 
 		return 				(
 
-			<View style = { scene ( theme ).body 	}>
+			<View style = { scenery.body }>
 				<SearchInput  	/>
 				{ this.contents ()}
 			</View>

@@ -21,6 +21,7 @@ export default function ( state : Object = {}) {
 				analytics.navigate 	,
 				language.get 		,
 				language.save 		,
+				portfolio.delete 	,
 				portfolio.get 		,
 				portfolio.save 		,
 				theme.get 			,

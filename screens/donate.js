@@ -77,19 +77,21 @@ export default connect (
 
 	render () {
 
-		const 	language 	= this.props.language ,
-				theme 		= this.props.theme;
+		const 	language 	= this.props.language 	,
+				theme 		= this.props.theme 		,
+				scenery 	= scene ( theme ) 		,
+				appearance 	= style ( theme ) 		;
 				
-		return 				(
-			<ScrollView style 	= { scene ( theme ).body 		}>
+		return (
+			<ScrollView style 	= { scenery.body 					}>
 				<Heading 
-					theme 	= { theme 							}
-					title 	= { language.screens.donate.title 	}
-					type 	= { 1 								}
+					theme 		= { theme 							}
+					title 		= { language.screens.donate.title 	}
+					type 		= { 1 								}
 				/>
-				<View 	style 	= { style ( theme ).body 		}>
-					<Text style = { style ( theme ).text 		}>
-						{ language.screens.donate.body 			}
+				<View 	style 	= { appearance.body 				}>
+					<Text style = { appearance.text 				}>
+						{ language.screens.donate.body 				}
 					</Text>
 					{ this.wallets ()}
 				</View>

@@ -20,10 +20,6 @@ export default ( theme ) => {
 			}
 		} ,
 
-		change 	: {
-			textAlign : 'center'
-		} ,
-
 		head 	: {
 			flex 			: 2 	,
 			flexDirection 	: 'row'
@@ -44,7 +40,7 @@ export default ( theme ) => {
 		} ,
 
 		text 	: {
-			textAlign 	: 'left'
+			textAlign 	: 'right'
 		}
 	};
 };

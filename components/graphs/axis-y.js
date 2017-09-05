@@ -8,16 +8,17 @@ export default class AxisY extends React.Component {
 
 	render () {
 
-		const 	theme = this.props.theme;
-		let 	cells = this.props.data.map (( item , index ) => {
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
+		let 	cells = this.props.data.map (( item , index ) => {
 
 			return (
 				<View 
-					key 	= { index 								}
-					style 	= { style ( theme ).tree.axis.y.cell 	}
+					key 	= { index 						}
+					style 	= { appearance.tree.axis.y.cell }
 				>
-					<Text style = { style ( theme ).tree.axis.y.text }>
+					<Text style = { appearance.tree.axis.y.text }>
 						{ item }
 					</Text>
 				</View>
@@ -25,7 +26,7 @@ export default class AxisY extends React.Component {
 		});
 
 		return (
-			<View style = { style ( theme ).tree.axis.y.view }>
+			<View style = { appearance.tree.axis.y.view }>
 				{ cells }
 			</View>
 		);

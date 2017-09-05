@@ -17,7 +17,11 @@ export default class Overview extends React.Component {
 	render () {
 
 		const 	theme 		= this.props.theme 		,
-				language 	= this.props.language 	;
+				language 	= this.props.language 	,
+				arrange 	= layout 	( theme ) 	,
+				scenery 	= scene 	( theme ) 	,
+				appearance 	= style 	( theme ) 	,
+				bulls 		= bull 		( theme ) 	;
 
 		// If we're loading, there is no bull or an error - don't draw Le Bull
 		if ( 
@@ -29,30 +33,25 @@ export default class Overview extends React.Component {
 		}
 
 		return (
-
-			<View 	style = { layout ( theme ).fill }>
+			<View 	style = { arrange.fill }>
 				<View 	
 					style = {{
-						...layout 	( theme ).row 	,
-						...scene 	( theme ).header
+						...arrange.row 	,
+						...scenery.header
 					}}
 				>
-
 					<Image 	
-						style 	= { bull ( theme ).icon 						}
+						style 	= { bulls.icon }
 						source 	= {{
 							uri : images.currencies.large ( this.props.bull.id 	) 
 						}}
-					/>
-					
+					/>	
 					<Heading 
 						theme 	= { theme 															}
 						title 	= { this.props.bull.name + ' ( ' +  this.props.bull.symbol + ' )' 	} 
 						type 	= '1'
 					/>
-
 				</View>
-
 				<Sections 
 					language 	= { language 	}
 					theme 		= { theme 		}
@@ -128,22 +127,19 @@ export default class Overview extends React.Component {
 
 					]} 
 				/>
-
 				<View style 	= {{
-					...bull 	( theme ).view 	,
-					...style 	( theme ).body			
+					...bulls.view 	,
+					...appearance.body			
 				}}>
 					<Heading 
 						theme 	= { theme 							}
 						title 	= { language.screens.bull.rating 	}
 						type 	= '2'
 					/>
-
-					<Text style = { bull ( theme ).notice 															}>
-						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors 	)}
+					<Text style = { bulls.notice }>
+						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors )}
 					</Text>
-
-					<Text style = { bull ( theme ).rating 			}>
+					<Text style = { bulls.rating }>
 						{ this.props.bull.rating ? numbers.format ( this.props.bull.rating 	) : language.errors [ '500' ]}
 					</Text>
 				</View>

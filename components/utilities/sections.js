@@ -12,22 +12,24 @@ export default class Sections extends React.Component {
 	sections () {
 
 		const 	language 	= this.props.language 	,
-				theme 		= this.props.theme 		;
+				theme 		= this.props.theme 		,
+				appearance 	= style 	( theme ) 	,
+				arrange 	= layout 	( theme ) 	;
 	
 		return this.props.sections.map (( section , index ) => {
 
-			let stripe 	= index % 2 === 0 ? style ( theme ).body : { ...style ( theme ).body , ...style ( theme ).stripe } ,
+			let stripe 	= index % 2 === 0 ? appearance.body : { ...appearance.body , ...appearance.stripe } ,
 				data 	= section.data.map (( item , index ) => {
 
 					return ( 
 						<View 	
-							style 	= { layout ( theme ).row 	} 
-							key 	= { index 					}
+							style 	= { arrange.row } 
+							key 	= { index 		}
 						>
 							<Text 
 								style = {{
-									...layout 	( theme ).fill ,
-									...style 	( theme ).row
+									...arrange.fill ,
+									...appearance.row
 								}}
 							>
 								{ item.property }
@@ -36,8 +38,8 @@ export default class Sections extends React.Component {
 								language 	= { language 	}
 								prefix 		= { item.prefix }
 								style 		= {{
-									...layout 	( theme ).fill ,
-									...style 	( theme ).row
+									...arrange.fill ,
+									...appearance.row
 								}}
 								suffix 		= { item.suffix }
 								theme 		= { theme 		}
@@ -49,9 +51,8 @@ export default class Sections extends React.Component {
 				}); 
 
 			return (
-
-				<View 	key 	= { index 			}
-						style 	= { stripe 			}
+				<View 	key 	= { index 	}
+						style 	= { stripe 	}
 				>
 					<Heading 
 						theme 	= { theme 			}
@@ -61,17 +62,16 @@ export default class Sections extends React.Component {
 					{ data }
 				</View>
 			);
-
 		});
-
 	}
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		return (
-			<View style = { style ( theme ).view }>
+			<View style = { appearance.view }>
 				{ this.sections ()}
 			</View>
 		);

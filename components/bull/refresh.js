@@ -40,7 +40,8 @@ export default connect (
 
 	render () {
 
-		const theme = this.props.theme;
+		const 	theme 		= this.props.theme 	,
+				appearance 	= style ( theme ) 	;
 
 		if ( this.props.bull.loading ) {
 			return null;
@@ -49,8 +50,8 @@ export default connect (
 		return ( 
 			
 			<TouchableOpacity 
-				onPress = { this.refresh 				}
-				style 	= { style ( theme ).right.icon 	}
+				onPress = { this.refresh 			}
+				style 	= { appearance.right.icon 	}
 			>
 
 				<Ionicons
