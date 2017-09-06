@@ -46,11 +46,6 @@ export default {
 			ajax 			: 'Terdapat ralat untuk mendapatkan semula data. Sila cuba lagi.' 	,
 			default 		: 'Oops - ralat telah berlaku. Sila mulakan semula aplikasi.'
 		} ,
-		
-		labels : {
-			amount 	: 'Jumlah' ,
-			total 	: 'Jumlah'
-		} ,
 
 		screens : {
 

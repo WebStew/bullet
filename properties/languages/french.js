@@ -46,11 +46,6 @@ export default {
 			ajax 			: 'Une erreur s\'est produite lors de la récupération des données. Veuillez réessayer.' ,
 			default 		: 'Oups: une erreur s\'est produite. Redémarrez l\'application.'
 		} ,
-		
-		labels : {
-			amount 	: 'Montant' ,
-			total 	: 'Total'
-		} ,
 
 		screens : {
 

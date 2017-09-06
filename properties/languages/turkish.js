@@ -46,11 +46,6 @@ export default {
 			ajax 			: 'Verilerin alınmasında bir hata oluştu. Lütfen tekrar deneyin.' ,
 			default 		: 'Hata! Bir hata oluştu. Lütfen uygulamayı yeniden başlatın.'
 		} ,
-		
-		labels : {
-			amount 	: 'Tutar' ,
-			total 	: 'Genel Toplam'
-		} ,
 
 		screens : {
 

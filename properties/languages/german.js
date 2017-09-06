@@ -46,11 +46,6 @@ export default {
 			ajax 			: 'Es gab einen Fehler beim Abrufen der Daten. Bitte versuche es erneut.' ,
 			default 		: 'Oops - ein Fehler ist aufgetreten. Bitte starten Sie die Anwendung neu.'
 		} ,
-		
-		labels : {
-			amount 	: 'Menge' ,
-			total 	: 'Gesamt'
-		} ,
 
 		screens : {
 

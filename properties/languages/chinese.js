@@ -47,11 +47,6 @@ export default {
 			default 		: '糟糕 - 发生错误. 请重新启动应用程序。'
 		} ,
 
-		labels : {
-			amount	: '量' ,
-			total 	: '总'
-		} ,
-
 		screens : {
 
 			bull 			: {

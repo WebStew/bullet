@@ -46,11 +46,6 @@ export default {
 			ajax 			: 'Đã xảy ra lỗi khi truy xuất dữ liệu. Vui lòng thử lại.' ,
 			default 		: 'Rất tiếc - đã xảy ra lỗi. Vui lòng khởi động lại ứng dụng.'
 		} ,
-		
-		labels : {
-			amount 	: 'Số tiền' ,
-			total 	: 'Toàn bộ'
-		} ,
 
 		screens : {
 

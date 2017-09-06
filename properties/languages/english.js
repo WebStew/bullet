@@ -46,11 +46,6 @@ export default {
 			ajax 			: 'There was an error retrieving the data. Please try again.' ,
 			default 		: 'Oops - an error has occurred. Please restart the application.'
 		} ,
-		
-		labels : {
-			amount 	: 'Amount' ,
-			total 	: 'Total'
-		} ,
 
 		screens : {
 

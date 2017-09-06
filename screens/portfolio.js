@@ -213,7 +213,10 @@ export default connect (
 		if ( ! details ) {
 
 			return (
-				<View 		style 	= { appearance.missing.view 	}>
+				<View 		style 	= {{
+					...appearance.missing.view ,
+					...styles
+				}}>
 					<Text 	
 						ellipsizeMode 	= 'tail'
 						numberOfLines 	= { 1 						}
@@ -222,24 +225,24 @@ export default connect (
 						{ currency.name } { language.errors [ '500' ]}
 					</Text>
 					<View 	style 	= { appearance.missing.row 		}>
+					<TouchableOpacity 
+						onPress = {() => this.remove ( currency.id )}
+						style 	= { appearance.missing.icon 		}
+					>
+						<Ionicons
+							name 	= 'ios-close-outline'
+							size 	= { 32 					}
+							color 	= { theme.negative 		}
+						/>
+					</TouchableOpacity>
 						<TouchableOpacity 
-							onPress = { this.refresh 				}
-							style 	= { appearance.missing.icon 	}
+							onPress = { this.refresh 			}
+							style 	= { appearance.missing.icon }
 						>
 							<Ionicons
 								name 	= 'ios-refresh-outline'
 								size 	= { 32 					}
 								color 	= { theme.secondary 	}
-							/>
-						</TouchableOpacity>
-						<TouchableOpacity 
-							onPress = {() => this.remove ( currency.id )}
-							style 	= { appearance.missing.icon 		}
-						>
-							<Ionicons
-								name 	= 'ios-close-outline'
-								size 	= { 32 					}
-								color 	= { theme.negative 		}
 							/>
 						</TouchableOpacity>
 					</View>
@@ -292,11 +295,11 @@ export default connect (
 		total = ! isNaN ( total ) ? language.denominations.usd.symbol + numbers.format ( total.toFixed ( 2 )) : language.errors [ 500 ];
 
 		return (
-			<View 		style = { appearance.total.view }>
-				<Text 	style = { appearance.total.head }>
-					{ language.labels.total 			}
+			<View 		style = { appearance.total.view 		}>
+				<Text 	style = { appearance.total.head 		}>
+					{ language.screens.portfolio.headers.total 	}
 				</Text>
-				<Text 	style = { appearance.total.col 	}>
+				<Text 	style = { appearance.total.col 			}>
 					{ total }
 				</Text>
 			</View>

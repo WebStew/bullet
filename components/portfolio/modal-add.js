@@ -134,10 +134,10 @@ export default class Dialogue extends React.Component {
 					<Text style 	= { appearance.text }>
 						{ language.screens.portfolio.description.replace ( '{{placeholder}}' , currency.name )}
 					</Text>
-					<View 			style 	= { appearance.field 		}>
-						<View 		style 	= { appearance.label.view 	}>
-							<Text 	style 	= { appearance.label.text 	}>
-								{ language.labels.amount 				}
+					<View 			style 	= { appearance.field 			}>
+						<View 		style 	= { appearance.label.view 		}>
+							<Text 	style 	= { appearance.label.text 		}>
+								{ language.screens.portfolio.headers.amount }
 							</Text>
 						</View>
 						<TextInput 
