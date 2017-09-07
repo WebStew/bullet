@@ -10,8 +10,9 @@ import { 	max ,
 import 		Error 			from '../errors/ajax';
 import 		Loader 			from '../utilities/loader';
 import 		AxisY 			from './axis-y';
+import 		Bar 			from './bar';
+import 		Header 			from './header';
 import 		device 			from '../../properties/device';
-import 		colour 			from '../../utilities/colors';
 import 		numbers 		from '../../utilities/numbers';
 import 		analytics 		from '../../utilities/analytics';
 import 		style 			from '../../styles/graphs';
@@ -107,38 +108,28 @@ export default class ChartTree extends React.Component {
 				right 		= end 		? 2 : 1 				;
 			
 		return ( 
-			<View 	style = {{
-				...appearance.tree.bar.view ,
-				...{
-					paddingLeft 	: left ,
-					paddingRight 	: right
-				}
-			}}>
-				<View 
-					style = {{
-						...appearance.tree.bar.highlight , 
-						...{
-							backgroundColor : pigment 							,
-							borderColor 	: colour.shade ( pigment , -0.25 ) 	,
-							paddingTop 		: item.value
-						}
+				<Bar 
+					style 		= { appearance.tree.bar }
+					color 		= { pigment 			}
+					value 		= { item.value 			}
+					padding 	= {{
+						left 	: left ,
+						right 	: right
 					}}
 				/>
-			</View>
 		);
 	}
 
 	section ({ section }) {
 
-		const 	theme 		= this.props.theme 	,
-				appearance 	= style ( theme ) 	;
+		const 	theme 		= this.props.theme 				,
+				appearance 	= style ( theme ).tree.section 	;
 
 		return (
-			<View 		style = { appearance.tree.section.view 	}>
-				<Text	style = { appearance.tree.section.text 	}>
-					{ section.title }
-				</Text>
-			</View>
+			<Header 
+				style = { appearance 	}
+				value = { section.title }
+			/>
 		);
 	}
 
@@ -201,7 +192,7 @@ export default class ChartTree extends React.Component {
 				{ this.header ()}
 				<SectionList 
 					horizontal 						= { true 							}
-					initialNumToRender 				= { Math.round ( device.width / 5 	)}
+					initialNumToRender 				= { Math.round ( device.width / 15 	)}
 					renderItem 						= { this.row 						}
 					renderSectionHeader 			= { this.section 					}
 					sections 						= { this.sections 					()}	
