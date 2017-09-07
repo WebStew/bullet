@@ -22,7 +22,10 @@ export default connect (
 				appearance 	= style ( theme ) 		;
 
 		return ( 
-			<Text style = { appearance.title }>
+			<Text 
+				numberOfLines 	= { 1 					}
+				style 			= { appearance.title 	}
+			>
 				{ title }
 			</Text>
 		);

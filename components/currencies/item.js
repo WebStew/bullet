@@ -10,7 +10,7 @@ import 		style 					from '../../styles/currencies';
 import 		images 					from '../../api/images';
 import 		numbers 				from '../../utilities/numbers';
 
-export default class Item extends React.Component {
+export default class Item extends React.PureComponent {
 
 	constructor ( props ) {
 		super 	( props );

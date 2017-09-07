@@ -1,19 +1,19 @@
 
 import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
-import {	RefreshControl 		,
+import {	FlatList 			,
 			Text 				,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		Error 					from '../components/errors/ajax';
-import 		List 					from '../components/utilities/list';
 import 		Currency 				from '../components/currencies/item';
 import 		All 					from '../components/currencies/load-all';
 import 		SearchIcon 				from '../components/search/icon';
 import 		SearchInput 			from '../components/search/input';
 import 		Header 					from '../components/currencies/header';
 import 		actions 				from '../actions/currencies';
+import 		device 					from '../properties/device';
 import 		list 					from '../styles/list';
 import 		style 					from '../styles/currencies';
 import 		scene 					from '../styles/scene';
@@ -65,14 +65,17 @@ export default connect (
 		this.separator 	= this.separator.bind 	( this );
 	}
 
-	row ( currency , section , row , highlight ) {
+	row ({ 
+		index , 
+		item 
+	}) {
 
 		const 	theme = this.props.theme ,
-				style = row % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary;
+				style = index % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary;
 
 		return ( 
 			<Currency
-				currency 	= { currency 				}
+				currency 	= { item 					}
 				language 	= { this.props.language 	}
 				navigation 	= { this.props.navigation 	}
 				style 		= { style 					}
@@ -146,52 +149,6 @@ export default connect (
 
 			);
 		});
-	}
-
-	contents () {
-
-		const 	items 		= this.data () 			,
-				language 	= this.props.language 	,
-				theme 		= this.props.theme 		,
-				appearance 	=  style ( theme ) 		;
-
-		if ( this.props.currencies.loading ) {
-			
-			return null;
-		}
-
-		if ( items.length ) {
-
-			return (
-
-				<List 
-					fixed 	= { true 							}
-					header 	= { this.header 					}
-					items 	= { items 							}
-					loading = { this.props.currencies.loading 	}
-					refresh = {
-						<RefreshControl
-							refreshing 	= { this.props.currencies.loading 	}
-							onRefresh 	= { this.refresh 					}
-						/>
-					}
-					row 		= { this.row 			}
-					separator 	= { this.separator 		}
-					theme 		= { theme 				}
-				/>
-			);
-		}
-
-		return ( 
-			<View 		style = { appearance [ '404' ].view 	}>
-				<Text 	style = { appearance [ '404' ].text 	}>
-					{ language.screens.currencies.none + ' "' 	}
-					<Text style = { appearance [ '404' ].term 	}>
-						{ this.props.search.value + '"' 		}
-					</Text>
-				</Text>
-			</View> 
-		);
 	}
 
 	data () {
@@ -291,7 +248,7 @@ export default connect (
 				items = list ( theme ) 		;
 
 		if (
-			this.props.currencies.items.lenght === 0 || 
+			this.props.currencies.items.length === 0 || 
 			this.props.currencies.error 
 		) {
 			
@@ -299,15 +256,8 @@ export default connect (
 		}
 
 		return (
-			<View>
-				<View 
-					style = {{ 
-						...items.row , 
-						...items.head 
-					}}
-				>
-					{ this.cells ()}
-				</View>
+			<View style = { items.head }>
+				{ this.cells ()}
 			</View>
 		);
 	}
@@ -316,7 +266,8 @@ export default connect (
 
 		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
-				scenery 	= scene ( theme ) 		;
+				scenery 	= scene ( theme ) 		,
+				appearance 	= style ( theme ) 		;
 
 		if ( this.props.currencies.error ) {
 
@@ -332,11 +283,29 @@ export default connect (
 			);
 		}
 
-		return 				(
-
+		return (
 			<View style = { scenery.body }>
 				<SearchInput  	/>
-				{ this.contents ()}
+				{ this.header ()}
+				<FlatList
+					data 					= { this.data 						()}
+					ItemSeparatorComponent 	= { this.separator 					}
+					initialNumToRender 		= { Math.round ( device.height / 10 )}
+					keyExtractor 			= {( item , index ) => index 		}
+					ListEmptyComponent 		= {
+						<View 		style 	= { appearance [ '404' ].view 		}>
+							<Text 	style 	= { appearance [ '404' ].text 		}>
+								{ language.screens.currencies.none + ' "' 		}
+								<Text style = { appearance [ '404' ].term 		}>
+									{ this.props.search.value + '"' 			}
+								</Text>
+							</Text>
+						</View> 
+					}
+					onRefresh 				= { this.refresh 					}
+					refreshing 				= { this.props.currencies.loading 	}
+					renderItem 				= { this.row 						}
+				/>
 			</View>
 		);
 	}

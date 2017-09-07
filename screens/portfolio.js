@@ -1,15 +1,13 @@
 
 import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
-import { 	ScrollView 			,
+import { 	FlatList 			,
 			Text 				,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
-
 import 		Error 					from '../components/errors/ajax';
 import 		Item 					from '../components/portfolio/item';
-import 		List 					from '../components/utilities/list';
 import 		Loader 					from '../components/utilities/loader';
 import 		Header 					from '../components/portfolio/header';
 import 		actions 				from '../actions/currencies';
@@ -163,15 +161,8 @@ export default connect (
 		}
 
 		return (
-			<View>
-				<View 
-					style = {{ 
-						...items.row , 
-						...items.head 
-					}}
-				>
-					{ this.cells ()}
-				</View>
+			<View style = { items.head }>
+				{ this.cells ()}
 			</View>
 		);
 	}
@@ -192,18 +183,21 @@ export default connect (
 		this.props.dispatch ( actions.stream ());
 	}
 
-	row ( currency , section , row , highlight ) {
+	row ({
+		index ,
+		item
+	}) {
 		
-		const 	theme 		= this.props.theme 															,
-				language 	= this.props.language 														,
-				styles 		= row % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary 	,
-				data 		= this.props.currencies.items.find (( item ) => item.id === currency.id ) 	,
+		const 	theme 		= this.props.theme 																,
+				language 	= this.props.language 															,
+				styles 		= index % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary 		,
+				data 		= this.props.currencies.items.find (( currency ) => currency.id === item.id ) 	,
 				details 	= data ? {
-					amount 	: currency.amount 	,
+					amount 	: item.amount 		,
 					id 		: data.id 			,
 					name 	: data.name 		,
 					price 	: data.prices.usd 	,
-					total 	: parseFloat ( currency.amount ) * parseFloat ( data.prices.usd )
+					total 	: parseFloat ( item.amount ) * parseFloat ( data.prices.usd )
 				} 			: undefined ,
 				appearance 	= style ( theme );
 
@@ -222,19 +216,19 @@ export default connect (
 						numberOfLines 	= { 1 						}
 						style 			= { appearance.missing.text }
 						>
-						{ currency.name } { language.errors [ '500' ]}
+						{ item.name } { language.errors [ '500' ]}
 					</Text>
 					<View 	style 	= { appearance.missing.row 		}>
-					<TouchableOpacity 
-						onPress = {() => this.remove ( currency.id )}
-						style 	= { appearance.missing.icon 		}
-					>
-						<Ionicons
-							name 	= 'ios-close-outline'
-							size 	= { 32 					}
-							color 	= { theme.negative 		}
-						/>
-					</TouchableOpacity>
+						<TouchableOpacity 
+							onPress = {() => this.remove ( item.id )}
+							style 	= { appearance.missing.icon 	}
+						>
+							<Ionicons
+								name 	= 'ios-close-outline'
+								size 	= { 32 					}
+								color 	= { theme.negative 		}
+							/>
+						</TouchableOpacity>
 						<TouchableOpacity 
 							onPress = { this.refresh 			}
 							style 	= { appearance.missing.icon }
@@ -340,32 +334,26 @@ export default connect (
 			);
 		}
 
-		if ( ! this.props.portfolio.items.length ) {
-
-			return (
-				<View 			style = { scenery.body 					}>
-					<View 		style = { appearance [ '404' ].view 	}>
-						<Text 	style = { appearance [ '404' ].text 	}>
-							{ language.screens.portfolio [ '404' 		]}
-						</Text>
-					</View>
-				</View>
-			);
-		}
-
 		return 				(
-			<ScrollView style 	= { scenery.body 					}>
-				<List 
-					fixed 		= { true 							}
-					header 		= { this.header 					}
-					items 		= { this.props.portfolio.items 		}
-					loading 	= { this.props.currencies.loading 	}
-					row 		= { this.row 						}
-					separator 	= { this.separator 					}
-					theme 		= { theme 							}
+			<View style = { scenery.body }>
+				{ this.header ()}
+				<FlatList 
+					data 					= { this.props.portfolio.items 	}
+					ItemSeparatorComponent 	= { this.separator 				}
+					keyExtractor 			= {( item , index ) => index 	}
+					ListEmptyComponent 		= {
+						<View 		style 	= { scenery.body 				}>
+							<View 	style 	= { appearance [ '404' ].view 	}>
+								<Text style = { appearance [ '404' ].text 	}>
+									{ language.screens.portfolio [ '404' 	]}
+								</Text>
+							</View>
+						</View>
+					}
+					renderItem 				= { this.row 					}
 				/>
 				{ this.total ()}
-			</ScrollView>
+			</View>
 		);
 	}
 });

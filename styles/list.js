@@ -19,9 +19,11 @@ export default ( theme ) => {
 		} ,
 
 		head : {
-			backgroundColor 	: theme.chrome ,
-			borderBottomColor 	: theme.border ,
-			borderBottomWidth 	: 1
+			backgroundColor 	: theme.chrome 	,
+			borderBottomColor 	: theme.border 	,
+			borderBottomWidth 	: 1 		 	,
+			flexDirection 		: 'row' 		,
+			paddingHorizontal 	: 10
 		} ,
 
 		'head-text' : {
