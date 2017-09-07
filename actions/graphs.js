@@ -66,6 +66,12 @@ export default {
 
 				});
 		}
-	}
+	} ,
 
+	reset () {
+		
+		return {
+			type 	: constants.reset
+		};
+	}
 };

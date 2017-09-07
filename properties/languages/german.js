@@ -130,7 +130,7 @@ export default {
 
 			share 			: {
 				title 		: 'Cryptobullography' ,
-				summary 	: 'Finde den neuesten Stier auf dem Krypto-Markt, der den größten Lärm macht!'
+				summary 	: 'Finde den neuesten Stier auf dem Krypto-Markt, der den größten Lärm macht! #Cryptobullography'
 			} ,
 
 			theme 			: {

@@ -1,4 +1,8 @@
 
+import device from '../properties/device';
+
+const height = Math.round ( device.height / 3 ) + 8;
+
 export default ( theme ) => {
 
 	return {
@@ -27,7 +31,7 @@ export default ( theme ) => {
 						borderBottomWidth 	: 1 			,
 						borderRightWidth 	: 1 			,
 						borderTopWidth 		: 1 			,
-						height 				: 150 			,
+						height 				: height 		,
 						flexDirection 		: 'column'
 					}
 				}
@@ -36,30 +40,34 @@ export default ( theme ) => {
 			bar : { 
 
 				highlight : {
-					backgroundColor 	: theme.positive 	,
-					borderColor 		: theme.border 		,
-					borderBottomWidth 	: 1 				,
-					width 				: 5
+					backgroundColor 	: theme.primary ,
+					borderColor 		: theme.border 	,
+					borderRadius 		: 5 			,
+					borderWidth 		: 1 			,
+					width 				: 15
 				} ,
 
 				view : {
-					borderColor 	: theme.border 	,
-					borderTopWidth 	: 1 			,
-					flex 			: 1 			, 
-					flexDirection 	: 'column' 		,
-					justifyContent 	: 'flex-end'
+					borderBottomWidth 	: 1 			,
+					borderColor 		: theme.border 	,
+					borderTopWidth 		: 1 			,
+					flex 				: 1 			, 
+					flexDirection 		: 'column' 		,
+					justifyContent 		: 'flex-end' 	,
+					paddingHorizontal 	: 1 			,
+					paddingVertical 	: 2
 				}
 			} ,
 
 			chart : {
 				flex 	: 1 , 
-				height 	: 150
+				height 	: height
 			} ,
 
 			loading : { 
 				flex 			: 1 		, 
-				flexDirection 	: 'column'		, 
-				height 			: 150 		,
+				flexDirection 	: 'column'	, 
+				height 			: height	,
 				justifyContent 	: 'center' 	,
 				paddingVertical : 15
 			} ,
@@ -67,23 +75,24 @@ export default ( theme ) => {
 			section : {
 
 				text : {
-					color 			: theme.body 	,
-					bottom 			: -65 					,
-					fontSize 		: 10 					,
-					left 			: -68 					,
-					transform 	: [{ 
-						rotate 	: '270deg'
-					}] ,
-					width : 150
+					color 			: theme.body 						,
+					bottom 			: - ( Math.round ( height / 2.25 )) ,
+					fontSize 		: 14 								,
+					fontWeight 		: 'bold' 							,
+					left 			: - ( Math.round ( height / 2.25 )) ,
+					transform 		: [{ 
+						rotate 		: '270deg'
+					}] 													,
+					width 			: height
 				} ,
 
 				view : {
-					backgroundColor 	: theme.primary 	,
-					borderLeftWidth 	: 1 					,
-					borderRightWidth 	: 1 					,
+					backgroundColor 	: theme.primary ,
+					borderLeftWidth 	: 1 			,
+					borderRightWidth 	: 1 			,
 					borderColor 		: theme.border 	,
-					height 				: 150 					,
-					width 				: 16
+					height 				: height 		,
+					width 				: 25
 				}
 			} ,
 

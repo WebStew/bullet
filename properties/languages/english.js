@@ -130,7 +130,7 @@ export default {
 
 			share 			: {
 				title 		: 'Cryptobullography' ,
-				summary 	: 'Find the latest bull on the cryptocurrency market making the biggest noise!'
+				summary 	: 'Find the latest bull on the cryptocurrency market making the biggest noise! #Cryptobullography'
 			} ,
 
 			theme 			: {

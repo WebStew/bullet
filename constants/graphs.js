@@ -6,5 +6,6 @@
 export default {
 	error 	: 'graphs:error' 	, 	
 	get 	: 'graphs:get' 		,
+	reset 	: 'graphs:reset' 	,
 	set 	: 'graphs:set'
 };

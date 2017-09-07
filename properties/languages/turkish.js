@@ -130,7 +130,7 @@ export default {
 
 			share 			: {
 				title 		: 'Cryptobullography' ,
-				summary 	: 'En büyük gürültüyü veren kriptokrasi pazarında en son boğayı bulun!'
+				summary 	: 'En büyük gürültüyü veren kriptokrasi pazarında en son boğayı bulun! #Cryptobullography'
 			} ,
 
 			theme 			: {

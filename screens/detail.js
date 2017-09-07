@@ -74,6 +74,11 @@ export default connect (
 		this.props.dispatch ( actions.get ( currency.id 						));
 	}
 
+	componentWillUnmount () {
+
+		this.props.dispatch ( actions.reset ());
+	}
+
 	close () {
 
 		this.setState ({ 
@@ -124,6 +129,18 @@ export default connect (
 						loading 	= { this.props.graphs.loading 		}
 						name 		= { currency.name 					}
 						theme 		= { theme 							}
+						refresh 	= {() => {
+
+							analytics.event ( 
+								'graph' 		, 
+								'get' 			, 
+								currency.name 	, 
+								'user'
+							);
+							this.props.dispatch ( 
+								actions.get ( currency.id )
+							);
+						}}
 					/>
 
 					<View 	style 	= { appearance.button 				}>

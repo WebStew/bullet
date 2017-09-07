@@ -130,7 +130,7 @@ export default {
 
 			share 			: {
 				title 		: 'Cryptobullographie' ,
-				summary 	: 'Trouvez le dernier Bull sur le marché de la cryptocurrence qui fait le plus gros bruit!'
+				summary 	: 'Trouvez le dernier Bull sur le marché de la cryptocurrence qui fait le plus gros bruit! #Cryptobullography'
 			} ,
 
 			theme 			: {

@@ -36,6 +36,19 @@ export default function (
 					loading : true
 				}
 			);
+			
+			
+		case constants.reset 	:
+
+			return Object.assign (
+				{} 		,
+				state 	,
+				{
+					loading : true 	,
+					prices 	: {} 	,
+					volume 	: {}
+				}
+			);
 
 
 		case constants.set 		:

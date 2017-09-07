@@ -1,6 +1,6 @@
 
 import 		React 			from 'react';
-import { 	ListView ,
+import { 	SectionList ,
 			Text 		,
 			View		} 	from 'react-native';
 import { 	scaleLinear } 	from 'd3-scale';
@@ -10,8 +10,8 @@ import { 	max ,
 import 		Error 			from '../errors/ajax';
 import 		Loader 			from '../utilities/loader';
 import 		AxisY 			from './axis-y';
-import 		time 			from '../../constants/time';
 import 		device 			from '../../properties/device';
+import 		colour 			from '../../utilities/colors';
 import 		numbers 		from '../../utilities/numbers';
 import 		analytics 		from '../../utilities/analytics';
 import 		style 			from '../../styles/graphs';
@@ -19,15 +19,7 @@ import 		style 			from '../../styles/graphs';
 export default class ChartTree extends React.Component {
 
 	constructor ( props ) {
-
-		super ( props );
-
-		this.datasource = new ListView.DataSource ({
-			getSectionData 			: ( data , section 			) => data [ section ] 				,
-			getRowData 				: ( data , section , row 	) => data [ section + ':' + row ] 	,
-			rowHasChanged 			: ( old , update 			) => old !== update 				,
-			sectionHeaderHasChanged : ( old , update 			) => old !== update
-		});
+		super 	( props );
 
 		this.header 	= this.header.bind 		( this 		);
 		this.row 		= this.row.bind 		( this 		);
@@ -35,40 +27,47 @@ export default class ChartTree extends React.Component {
 		this.format 	= timeFormat 			( '%B, %Y' 	);
 	}
 
-	data () {
+	sections () {
 
-		let blob 		= {} ,
-			sections 	= [] ,
-			rows 		= [] ;
+		let sections = [];
 
-		this.props.data.forEach (( item , index ) => {
+		this.props.data.reverse ().forEach (( data , index ) => {
 
-			let section;
-			
-			if ( index === 0 || item [ 0 ] - blob [ sections [ 0 ]] > time.month ) {
+			const 	scaled 	= parseInt 		( this.scales.height ( data [ 1 ]) , 10 ) 	,
+					title 	= this.format 	( data [ 0 ]) 								,
+					item 	= {
+						key 	: data [ 0 ] + ':' + index ,
+						value 	: scaled 
+					};
+
+			if ( 
+				scaled 
+				&& ( 
+					index === 0 || 
+					sections [ sections.length - 1 ].title !== title
+				)
+			) {
 				
-				sections.unshift 	( index );
-				rows.unshift 		([]);
-				
-				blob [ index ] 	= item [ 0 	];
-				section 		= index + ':' + index;
+				sections.push ({
+					data 	: [ item ] ,
+					title 	: title
+				});
 			}
 
-			else {
+			else if ( scaled ) {
 
-				section = sections [ 0 ] + ':' + index;
+				sections [ sections.length - 1 ].data.push ( item );
 			}
-			rows [ 0 ].unshift ( index );
-			blob [ section ] = parseInt ( this.scales.height ( item [ 1 ]) , 10 );
 		});
 
-		return this.datasource.cloneWithRowsAndSections ( blob , sections , rows );
+		return sections;
 	}
 
 	header () {
 
 		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		;
+
 		let 	data 		= this.props.data 		,
 				values 		= {} 					;
 	
@@ -92,18 +91,36 @@ export default class ChartTree extends React.Component {
 		);
 	}
 
-	row ( item , section , row , highlight ) {
+	row ({ 
+		index 	,
+		item 	,
+		section
+	}) {
 
 		const 	theme 		= this.props.theme 	,
-				appearance 	= style ( theme ) 	;
-
+				appearance 	= style ( theme ) 	,
+				climbing 	= section.data [ index + 1 ] 	? item.value >= section.data [ index + 1 ].value 	: true 				,
+				pigment 	= climbing 						? theme.positive 									: theme.negative 	,
+				beginning 	= ! index 							,
+				end 		= index === section.data.length - 1 ,
+				left 		= beginning ? 2 : 1 				,
+				right 		= end 		? 2 : 1 				;
+			
 		return ( 
-			<View 	style = { appearance.tree.bar.view }>
+			<View 	style = {{
+				...appearance.tree.bar.view ,
+				...{
+					paddingLeft 	: left ,
+					paddingRight 	: right
+				}
+			}}>
 				<View 
 					style = {{
 						...appearance.tree.bar.highlight , 
 						...{
-							height : item
+							backgroundColor : pigment 							,
+							borderColor 	: colour.shade ( pigment , -0.25 ) 	,
+							paddingTop 		: item.value
 						}
 					}}
 				/>
@@ -111,15 +128,15 @@ export default class ChartTree extends React.Component {
 		);
 	}
 
-	section ( section ) {
+	section ({ section }) {
 
 		const 	theme 		= this.props.theme 	,
 				appearance 	= style ( theme ) 	;
 
 		return (
-			<View style 	= { appearance.tree.section.view }>
-				<Text style = { appearance.tree.section.text }>
-					{ this.format ( section )}
+			<View 		style = { appearance.tree.section.view 	}>
+				<Text	style = { appearance.tree.section.text 	}>
+					{ section.title }
 				</Text>
 			</View>
 		);
@@ -127,18 +144,16 @@ export default class ChartTree extends React.Component {
 
 	setScales () {
 
-		const data = this.props.data;
-
 		this.scales = {
 			
 			height : scaleLinear ()
 				.domain ([ 
 					0 ,
-					max ( data , ( item ) => item [ 1 ])
+					max ( this.props.data , ( item ) => item [ 1 ])
 				])
 				.range ([ 
 					0 , 
-					150 
+					device.height / 3
 				])
 		};
 	}
@@ -167,40 +182,33 @@ export default class ChartTree extends React.Component {
 
 			analytics.screen 	( 'graph:' + name + ':500' 	);
 			return 				(
-				<Error 
-					error 	= { this.props.error 				}
-					press 	= { this.props.refresh 				}
-					text 	= { language.errors.ajax 			}
-					theme 	= { theme 							}
-				/>
+				<View style = {{
+					height 	: Math.round ( device.height / 3 ) + 8
+				}}>
+					<Error 
+						error 	= { this.props.error 		}
+						press 	= { this.props.refresh 		}
+						text 	= { language.errors.ajax 	}
+						theme 	= { theme 					}
+					/>
+				</View>
 			);
 		}
 
 		this.setScales 	();
 		return 			(
-			
 			<View style = { appearance.tree.view }>
-
 				{ this.header ()}
-
-				<ListView
-					contentOffset 					= {{ x : 1 							}}
-					enableEmptySections 			= { true 							}
-					dataSource 						= { this.data 						()}
+				<SectionList 
 					horizontal 						= { true 							}
 					initialNumToRender 				= { Math.round ( device.width / 5 	)}
-					onChangeVisibleRows 			= {() => {
-
-						analytics.event 			( 'graph' , 'scroll' , name 		);
-					}}
-					renderRow 						= { this.row 						}
-					renderSectionHeader  			= { this.section 					}
+					renderItem 						= { this.row 						}
+					renderSectionHeader 			= { this.section 					}
+					sections 						= { this.sections 					()}	
 					showsHorizontalScrollIndicator 	= { false 							}
 					showsVerticalScrollIndicator 	= { false 							}
 					style 							= { appearance.tree.chart 			}
-					theme 							= { theme 							}
 				/>
-
 			</View>
 		);
 

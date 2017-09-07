@@ -130,7 +130,7 @@ export default {
 
 			share 			: {
 				title 		: 'Cryptobullography' ,
-				summary 	: '找到最新的斗牛市场上最大的噪音！'
+				summary 	: '找到最新的斗牛市场上最大的噪音！#Cryptobullography'
 			} ,
 
 			theme 			: {

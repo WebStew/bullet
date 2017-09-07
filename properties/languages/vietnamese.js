@@ -130,7 +130,7 @@ export default {
 
 			share 			: {
 				title 		: 'Cryptobullography' ,
-				summary 	: 'Tìm con bò mới nhất trên thị trường cryptocurrency làm cho tiếng ồn lớn nhất!'
+				summary 	: 'Tìm con bò mới nhất trên thị trường cryptocurrency làm cho tiếng ồn lớn nhất! #Cryptobullography'
 			} ,
 
 			theme 			: {

@@ -4,10 +4,10 @@
 		"description" : "The latest Bull on crytpo coins and blockchain tokens.",
 		"slug" : "bullet",
 		"privacy" : "public",
-		"sdkVersion" : "18.0.0",
+		"sdkVersion" : "20.0.0",
 		"version" : "2.0.1",
 		"orientation" : "portrait",
-		"primaryColor" : "#333",
+		"primaryColor" : "#000",
 		"icon" : "./assets/icons/application.png",
 		"notification" : {
 			"icon" : "./assets/icons/notification-icon.png",

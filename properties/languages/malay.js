@@ -130,7 +130,7 @@ export default {
 
 			share 			: {
 				title 		: 'Cryptobullography' ,
-				summary 	: 'Cari lembu terbaru di pasaran cryptocurrency yang membuat bunyi terbesar!'
+				summary 	: 'Cari lembu terbaru di pasaran cryptocurrency yang membuat bunyi terbesar! #Cryptobullography'
 			} ,
 
 			theme 			: {
