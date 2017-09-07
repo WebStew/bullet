@@ -3,7 +3,7 @@ export default {
 
 	email 		: 'cryptobullography@gmail.com' ,
 	name 		: 'Cryptobullography' 			,
-	version 	: 'v2.0.1' 						,
+	version 	: 'v4.1.0' 						,
 
 	stores 		: {
 		apple 	: 'https://itunes.apple.com/gb/app/crypto-coin-bull/id1257246245?mt=8' 		,

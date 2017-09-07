@@ -61,9 +61,9 @@ export default StackNavigator ({
 			screen 	: Detail
 		} ,
 
-		donate 		: {
-			screen 	: Donate
-		} ,
+		// donate 		: {
+		// 	screen 	: Donate
+		// } ,
 
 		exchanges 	: {
 			screen 	: Exchanges
