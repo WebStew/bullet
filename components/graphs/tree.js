@@ -45,7 +45,10 @@ export default class ChartTree extends React.Component {
 				scaled 
 				&& ( 
 					index === 0 || 
-					sections [ sections.length - 1 ].title !== title
+					(
+						sections [ sections.length - 1 ] && 
+						sections [ sections.length - 1 ].title !== title
+					)
 				)
 			) {
 				
@@ -55,7 +58,7 @@ export default class ChartTree extends React.Component {
 				});
 			}
 
-			else if ( scaled ) {
+			else if ( scaled && sections [ sections.length - 1 ]) {
 
 				sections [ sections.length - 1 ].data.push ( item );
 			}
@@ -192,7 +195,7 @@ export default class ChartTree extends React.Component {
 				{ this.header ()}
 				<SectionList 
 					horizontal 						= { true 							}
-					initialNumToRender 				= { Math.round ( device.width / 15 	)}
+					initialNumToRender 				= { Math.round ( device.width / 16 	)}
 					renderItem 						= { this.row 						}
 					renderSectionHeader 			= { this.section 					}
 					sections 						= { this.sections 					()}	

@@ -42,9 +42,9 @@ export default ( theme ) => {
 				highlight : {
 					backgroundColor 	: theme.primary ,
 					borderColor 		: theme.border 	,
-					borderRadius 		: 5 			,
+					borderRadius 		: 8 			,
 					borderWidth 		: 1 			,
-					width 				: 15
+					width 				: 16
 				} ,
 
 				view : {
