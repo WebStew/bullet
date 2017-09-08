@@ -24,7 +24,7 @@ export default class Bar extends React.PureComponent {
 						...style.highlight , 
 						...{
 							backgroundColor : color 							,
-							borderColor 	: colour.shade ( color , -0.25 ) 	,
+							borderColor 	: colour.shade ( color , -0.5 ) 	,
 							paddingTop 		: this.props.value
 						}
 					}}

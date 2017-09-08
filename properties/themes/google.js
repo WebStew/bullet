@@ -14,14 +14,14 @@ export default {
 		id 				: 'google' 	,
 
 		base 			: '#fff' 	,
-		body 			: '#176ced' ,
+		body 			: '#545454' ,
 		border 			: '#fad76f' ,
 		chrome 			: '#fff' 	,
 		disabled 		: '#444' 	,
 		negative 		: '#da452f' ,
 		positive 		: '#03a15b' ,
 		primary 		: '#fff' 	,
-		secondary 		: '#da452f' ,
-		loader 			: '#da452f'
+		secondary 		: '#176ced' ,
+		loader 			: '#176ced'
 	}
 };

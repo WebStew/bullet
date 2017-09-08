@@ -14,14 +14,14 @@ export default {
 		id 				: 'windows' ,
 
 		base 			: '#fff' 	,
-		body 			: '#000' 	,
-		border 			: '#c0c0c0' ,
-		chrome 			: '#000080' ,
+		body 			: '#0e0e0e' ,
+		border 			: '#6b6c6e' ,
+		chrome 			: '#0001b3' ,
 		disabled 		: '#c0c0c0' ,
-		negative 		: '#cc0000' ,
-		positive 		: '#00e134' ,
-		primary 		: '#fff' 	,
+		negative 		: '#b30001' ,
+		positive 		: '#01b300' ,
+		primary 		: '#c5c6cb' ,
 		secondary 		: '#fff' 	,
-		loader 			: '#000080'
+		loader 			: '#0001b3'
 	}
 };

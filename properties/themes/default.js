@@ -15,7 +15,7 @@ export default {
 
 		base 			: '#fff' 	,
 		body 			: '#333' 	,
-		border 			: '#dcdcdc' ,
+		border 			: '#cdcdcd' ,
 		chrome 			: '#fff' 	,
 		disabled 		: '#acacac' ,
 		negative 		: '#cc0000' ,

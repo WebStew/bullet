@@ -66,8 +66,7 @@ export default ( theme ) => {
 				color 				: theme.body 	, 
 				flex 				: 3 			, 
 				fontSize 			: 14 			, 
-				fontWeight 			: 'bold'		, 
-				paddingHorizontal 	: 10 			,
+				fontWeight 			: 'bold'		,
 				textAlign 			: 'right'
 			} ,
 
@@ -76,14 +75,14 @@ export default ( theme ) => {
 				flex 				: 1 			, 
 				fontSize 			: 14 			, 
 				fontWeight 			: 'bold' 		, 
-				paddingHorizontal 	: 10 
+				paddingLeft 		: 20 
 			} ,
 
 			view : {
-				borderBottomWidth 	: 5 			,
-				borderBottomColor 	: theme.border 	,
-				borderTopWidth 		: 4 			,
+				backgroundColor 	: theme.chrome 	,
 				borderTopColor 		: theme.border 	,
+				borderTopWidth 		: 1 			,
+				paddingHorizontal 	: 10 			,
 				paddingVertical 	: 15 			,
 				flexDirection 		: 'row'
 			}

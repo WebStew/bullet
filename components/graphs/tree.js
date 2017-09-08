@@ -195,7 +195,7 @@ export default class ChartTree extends React.Component {
 				{ this.header ()}
 				<SectionList 
 					horizontal 						= { true 							}
-					initialNumToRender 				= { Math.round ( device.width / 16 	)}
+					initialNumToRender 				= { Math.round ( device.width / 10 	)}
 					renderItem 						= { this.row 						}
 					renderSectionHeader 			= { this.section 					}
 					sections 						= { this.sections 					()}	

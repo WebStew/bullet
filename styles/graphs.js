@@ -42,9 +42,9 @@ export default ( theme ) => {
 				highlight : {
 					backgroundColor 	: theme.primary ,
 					borderColor 		: theme.border 	,
-					borderRadius 		: 8 			,
+					borderRadius 		: 5 			,
 					borderWidth 		: 1 			,
-					width 				: 16
+					width 				: 10
 				} ,
 
 				view : {
@@ -76,10 +76,10 @@ export default ( theme ) => {
 
 				text : {
 					color 			: theme.body 						,
-					bottom 			: - ( Math.round ( height / 2.25 )) ,
+					bottom 			: - ( Math.round ( height / 2.3 )) ,
 					fontSize 		: 14 								,
 					fontWeight 		: 'bold' 							,
-					left 			: - ( Math.round ( height / 2.25 )) ,
+					left 			: - ( Math.round ( height / 2.225 )) ,
 					transform 		: [{ 
 						rotate 		: '270deg'
 					}] 													,
