@@ -169,7 +169,7 @@ export default connect (
 			press : () => {
 
 				analytics.event 	( 'currencies' , 'order' , 'rank' 	);
-				this.props.dispatch ( actions.order ( 'rank' 			));
+				this.props.dispatch ( actions.order 	( 'rank' 		));
 			} ,
 			styles : {
 				text : { 
@@ -186,8 +186,8 @@ export default connect (
 		{
 			press : () => {
 
-				analytics.event 	( 'currencies' , 'order' , 'rating' 	);
-				this.props.dispatch ( actions.order ( 'rating' 				));
+				analytics.event 	( 'currencies' , 'order' , 'rating' );
+				this.props.dispatch ( actions.order 	( 'rating' 		));
 			} ,
 			styles : {
 				text : {
@@ -203,7 +203,7 @@ export default connect (
 			press : () => {
 
 				analytics.event 	( 'currencies' , 'order' , 'change' );
-				this.props.dispatch ( actions.order ( 'change' 			));
+				this.props.dispatch ( actions.order 	( 'change' 		));
 			} ,
 			styles : {
 				text : {
@@ -219,7 +219,7 @@ export default connect (
 			press : () => {
 
 				analytics.event 	( 'currencies' , 'order' , 'price' 	);
-				this.props.dispatch ( actions.order ( 'price' 			));
+				this.props.dispatch ( actions.order 	( 'price' 		));
 			} ,
 			styles : {
 				text : {

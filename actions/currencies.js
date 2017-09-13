@@ -74,6 +74,8 @@ const 	currencies = {
 
 export default {
 
+	order 		: currencies.order 		,
+
 	get ( currency ) {
 
 		return function ( dispatch ) {
@@ -100,7 +102,5 @@ export default {
 				.then 			(( data 				) => callbacks.normalise 	( data , dispatch , currency 	))
 				.catch 			(( data 				) => callbacks.error 		( data , dispatch 				));
 		}
-	} ,
-
-	order : currencies.order
+	}
 };

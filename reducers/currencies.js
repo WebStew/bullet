@@ -53,61 +53,45 @@ export default function (
 
 		case constants.order :
 
-			let sorted;
-		
-			switch ( action.order ) {
+			const methods = {
 
-				case 'change' : 
-						
-					sorted = state.items.sort (( a , b ) => {
+					change 	( a , b ) {
 
 						return ( b.change.day - a.change.day );
 
-					});
+					} ,
+
+					price 	( a , b ) {
+
+						return ( b.prices.fiat - a.prices.fiat );
+					} ,
 					
-					break;
-
-				case 'price' : 
-						
-					sorted = state.items.sort (( a , b ) => {
-
-						return ( b.prices.usd - a.prices.usd );
-
-					});
-
-					break;
-
-				case 'rank' : 
-						
-					sorted = state.items.sort (( a , b ) => {
+					rank 	( a , b ) {
 
 						return ( a.rank - b.rank );
+					} ,
 
-					});
-					
-					break;
-
-				case 'rating' : 
+					rating 	( a , b ) {
 						
-					sorted = state.items.sort (( a , b ) => {
-
 						if ( isNaN ( a.rating ) || isNaN ( b.rating )) {
 
 							return a.rating > b.rating ? 1 : -1;
 						}
 
 						return b.rating - a.rating;
-					});
-					
-					break;
-			}
+					}
+				} ,
+		
+				items = state.items.slice ( 0 );
+		
 
 			return Object.assign (
 				{} 		,
 				state 	,
 				{
-					order 	: action.order  ,
-					items 	: sorted
+					ordering 	: false 		,
+					order 		: action.order  ,
+					items 		: items.sort ( methods [ action.order ])
 				}
 			);
 
