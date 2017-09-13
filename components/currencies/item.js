@@ -10,8 +10,7 @@ import 		style 					from '../../styles/currencies';
 import 		images 					from '../../api/images';
 import 		numbers 				from '../../utilities/numbers';
 
-// Change to Pure Component and flatten props
-export default class Item extends React.Component {
+export default class Item extends React.PureComponent {
 
 	constructor ( props ) {
 		super 	( props );

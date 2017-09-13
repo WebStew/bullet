@@ -307,6 +307,7 @@ export default connect (
 				<SearchInput  	/>
 				{ this.header ()}
 				<FlatList
+					theme 					= { theme 							}
 					data 					= { this.data 						()}
 					ItemSeparatorComponent 	= { this.separator 					}
 					initialNumToRender 		= { Math.round ( device.height / 10 )}
