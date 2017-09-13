@@ -53,96 +53,98 @@ export default class Overview extends React.Component {
 						type 	= '1'
 					/>
 				</View>
-				<Sections 
-					language 	= { language 	}
-					theme 		= { theme 		}
-					sections 	= {[
-
-						{
-							title 		: language.screens.bull.changes.title 			,
-							data 		: [
-								{
-									property 	: language.screens.bull.changes.hour 	,
-									suffix 		: '%' 									,
-									type 		: 'highlight' 							,
-									value 		: this.props.bull.change.hour
-								} 														, 
-								{
-									property 	: language.screens.bull.changes.day 	,
-									suffix 		: '%' 									,
-									type 		: 'highlight' 							,
-									value 		: this.props.bull.change.day
-								} 														,
-								{
-									property 	: language.screens.bull.changes.week 	,
-									suffix 		: '%' 									,
-									type 		: 'highlight' 							,
-									value 		: this.props.bull.change.week
-								}
-							]
-						} ,
-
-						{
-							title 		: language.screens.bull.values.title 			,
-							data 		: [
-								{
-									prefix 		: currency.symbol 						,
-									property 	: currency.names [ language.id ] 		,
-									value 		: this.props.bull.prices.fiat
-								} , 
-								{
-									prefix 		: language.denominations.btc.symbol 	,
-									property 	: language.denominations.btc.name 		,
-									value 		: this.props.bull.prices.btc
-								}
-							]
-						} ,
-
-						{
-							title 		: language.screens.bull.market.title 			,
-							data 		: [
-								{
-									prefix 		: currency.symbol 						,
-									property 	: language.screens.bull.market.cap 		,
-									value 		: this.props.bull.market
-								} 														,
-								{
-									property 	: language.screens.bull.market.rank 	,
-									value 		: numbers.rank ( this.props.bull.rank )
-								} 														,
-								{
-									property 	: language.screens.bull.market.available ,
-									value 		: this.props.bull.supply.available
-								} 														, 
-								{
-									property 	: language.screens.bull.market.total 	,
-									value 		: this.props.bull.supply.total
-								} 														, 
-								{
-									prefix 		: currency.symbol 						,
-									property 	: language.screens.bull.market.volume 	,
-									value 		: this.props.bull.volume
-								}
-							]
-						}
-
-					]} 
-				/>
-				<View style 	= {{
-					...bulls.view 	,
-					...appearance.body			
-				}}>
+				<View style 	= { bulls.view }>
 					<Heading 
 						theme 	= { theme 							}
 						title 	= { language.screens.bull.rating 	}
 						type 	= '2'
 					/>
-					<Text style = { bulls.notice }>
-						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors )}
-					</Text>
 					<Text style = { bulls.rating }>
 						{ this.props.bull.rating ? numbers.format ( this.props.bull.rating 	) : language.errors [ '500' ]}
 					</Text>
+					<Text style = { bulls.notice }>
+						{ language.screens.bull.description }
+					</Text>
+					<Text style = { bulls.notice }>
+						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors )}
+					</Text>
+				</View>
+				<View style = { bulls.stripe }>
+					<Sections 
+						language 	= { language 	}
+						theme 		= { theme 		}
+						sections 	= {[
+
+							// {
+							// 	title 		: language.screens.bull.changes.title 			,
+							// 	data 		: [
+							// 		{
+							// 			property 	: language.screens.bull.changes.hour 	,
+							// 			suffix 		: '%' 									,
+							// 			type 		: 'highlight' 							,
+							// 			value 		: this.props.bull.change.hour
+							// 		} 														, 
+							// 		{
+							// 			property 	: language.screens.bull.changes.day 	,
+							// 			suffix 		: '%' 									,
+							// 			type 		: 'highlight' 							,
+							// 			value 		: this.props.bull.change.day
+							// 		} 														,
+							// 		{
+							// 			property 	: language.screens.bull.changes.week 	,
+							// 			suffix 		: '%' 									,
+							// 			type 		: 'highlight' 							,
+							// 			value 		: this.props.bull.change.week
+							// 		}
+							// 	]
+							// } ,
+
+							{
+								title 		: language.screens.bull.values.title 			,
+								data 		: [
+									{
+										prefix 		: currency.symbol 						,
+										property 	: currency.names [ language.id ] 		,
+										value 		: this.props.bull.prices.fiat
+									} , 
+									{
+										prefix 		: language.denominations.btc.symbol 	,
+										property 	: language.denominations.btc.name 		,
+										value 		: this.props.bull.prices.btc
+									}
+								]
+							} ,
+
+							// {
+							// 	title 		: language.screens.bull.market.title 			,
+							// 	data 		: [
+							// 		{
+							// 			prefix 		: currency.symbol 						,
+							// 			property 	: language.screens.bull.market.cap 		,
+							// 			value 		: this.props.bull.market
+							// 		} 														,
+							// 		{
+							// 			property 	: language.screens.bull.market.rank 	,
+							// 			value 		: numbers.rank ( this.props.bull.rank )
+							// 		} 														,
+							// 		{
+							// 			property 	: language.screens.bull.market.available ,
+							// 			value 		: this.props.bull.supply.available
+							// 		} 														, 
+							// 		{
+							// 			property 	: language.screens.bull.market.total 	,
+							// 			value 		: this.props.bull.supply.total
+							// 		} 														, 
+							// 		{
+							// 			prefix 		: currency.symbol 						,
+							// 			property 	: language.screens.bull.market.volume 	,
+							// 			value 		: this.props.bull.volume
+							// 		}
+							// 	]
+							// }
+
+						]} 
+					/>
 				</View>
 			</View>
 		);

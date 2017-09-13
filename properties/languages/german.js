@@ -55,6 +55,8 @@ export default {
 					title 	: 'Bewegung' 		,
 					week 	: 'Letzte Woche'
 				} ,
+				
+				description : 'Die Bull-Rating ist eine Zahl, die auf dem Gesamtvolumen der Münzen basiert, die in den letzten 24 Stunden durch Marktkapitalisierung, Preis und neueste Trending Zeitrahmenwechsel bewegt werden. Der Zeitrahmen kann so wenig wie eine Stunde oder höchstens einen Tag sein. Je höher diese Zahl ist, desto wahrscheinlicher ist die Währung in einer positiven Richtung.' ,
 
 				notice 		: 'Diese Bewertung basiert auf einer Berechnung von den Top-{{placeholder}} Krypto-Währungen.' ,
 

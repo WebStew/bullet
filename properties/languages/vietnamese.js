@@ -55,6 +55,8 @@ export default {
 					title 	: 'Phong trào' 		,
 					week 	: 'Tuần trước'
 				} ,
+				
+				description : 'Xếp hạng Bull là một con số dựa trên tổng khối lượng tiền xu di chuyển trong 24 giờ qua theo giới hạn thị trường, giá cả và sự thay đổi khung thời gian mới nhất Khung thời gian có thể chỉ là một giờ hoặc nhiều nhất một ngày. Con số này càng cao thì đồng tiền có xu hướng theo hướng tích cực.' ,
 
 				notice 		: 'Xếp hạng này được dựa trên tính toán từ tiền tệ hàng đầu {{placeholder}} crypto.' ,
 

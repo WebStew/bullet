@@ -55,6 +55,8 @@ export default {
 					title 	: 'Hareket' 	,
 					week 	: 'Geçen hafta'
 				} ,
+				
+				description : 'Bull derecelendirmesi, son 24 saat içinde hareket eden madalyonların toplam hacminin piyasa değeri, fiyat ve son trend zaman aralığına göre değişen bir sayıdır. Zaman aralığı, bir saat veya en fazla bir gün olabilir. Bu sayı ne kadar yüksek olursa para olumlu yönde artacaktır.' ,
 
 				notice 		: 'Bu derecelendirme, üst {{placeholder}} kripto para biriminden bir hesaplamaya dayanır.' ,
 

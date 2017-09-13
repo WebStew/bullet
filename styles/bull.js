@@ -7,6 +7,10 @@ export default ( theme ) => {
 			backgroundColor : theme.base
 		} ,
 
+		button 				: {
+			padding 		: 15
+		} ,
+
 		icon 				: {
 			height 			: 32 			,
 			marginLeft 		: 15 			,
@@ -16,18 +20,28 @@ export default ( theme ) => {
 
 		notice 				: {
 			color 			: theme.body 	,
-			paddingBottom 	: 5
+			paddingBottom 	: 15
 		} ,
 
 		rating 				: {
 			color 			: theme.positive 	,
 			flexDirection 	: 'row' 			,
-			fontSize 		: 36 				,
+			fontSize 		: 100 				,
+			paddingBottom 	: 15 				,
 			textAlign 		: 'center'
 		} ,
 
-		view 				: {
+		stripe 				: {
 			backgroundColor : theme.primary
+		} ,
+
+		view 				: {
+			backgroundColor 	: theme.base 	,
+			borderColor 		: theme.border 	,
+			borderTopWidth 		: 1 			,
+			paddingBottom 		: 5 			,
+			paddingHorizontal 	: 15 			,
+			paddingTop 			: 15
 		}
 	};
 };

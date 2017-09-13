@@ -56,6 +56,8 @@ export default {
 					week 	: 'Last Week'
 				} ,
 
+				description : 'The Bull rating is a number based off the total volume of coins moved in the last 24 hours by market cap, price and latest trending time frame change The time frame can be as little as an hour or at most a day. The higher this number is the more likely the currency is trending in a positive direction.' ,
+
 				notice 		: 'This rating is based off of a calculation from the top {{placeholder}} crypto currencies.' ,
 
 				market 			: {

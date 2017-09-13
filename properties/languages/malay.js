@@ -55,6 +55,8 @@ export default {
 					title 	: 'Pergerakan' 		,
 					week 	: 'Minggu lepas'
 				} ,
+				
+				description : 'Penarafan Bull adalah angka yang didasarkan pada jumlah keseluruhan koin yang dipindahkan dalam 24 jam terakhir oleh topi pasaran, harga dan perubahan jangka masa tren terkini. Rangka masa boleh menjadi kurang dari sejam atau paling banyak sehari. Semakin tinggi angka ini adalah semakin besar mata wang sedang berubah arah.' ,
 
 				notice 		: 'Enarafan ini didasarkan pada pengiraan dari {{placeholder}} mata wang utama crypto.' ,
 

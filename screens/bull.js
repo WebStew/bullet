@@ -8,6 +8,7 @@ import { 	Platform 		,
 import { 	Ionicons 		} 	from '@expo/vector-icons';
 import 		Error 				from '../components/errors/ajax';
 import 		Action 				from '../components/utilities/header-action';
+import 		Button 				from '../components/utilities/button';
 import 		Loader 				from '../components/utilities/loader';
 import 		Header 				from '../components/bull/header';
 import 		Overview 			from '../components/bull/overview';
@@ -15,6 +16,7 @@ import 		NotFound 			from '../components/bull/404';
 import 		Refresh 			from '../components/bull/refresh';
 import 		actions 			from '../actions/currencies';
 import 		scene 				from '../styles/scene';
+import 		style 				from '../styles/bull'; 			
 import 		api 				from '../api/currencies';
 import 		analytics 			from '../utilities/analytics';
 import 		application 		from '../configuration/application';
@@ -99,7 +101,8 @@ export default connect (
 
 		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
-				scenery 	= scene ( theme ) 		;
+				scenery 	= scene ( theme ) 		,
+				appearance 	= style ( theme ) 		;
 
 		if ( this.props.bull.loading ) {
 
@@ -149,6 +152,20 @@ export default connect (
 					language 	= { language 			}
 					theme 		= { theme 				}
 				/>
+				<View style 	=  { appearance.button 	}>
+					<Button
+						press 	= {() => {
+							this.props.navigation.navigate 	( 
+								'detail' , 
+								{
+									item : this.props.bull
+								}
+							);
+						}}
+						theme = { theme 							}
+						value = { language.screens.detail.title 	}
+					/>
+				</View>
 			</ScrollView>
 		);
 

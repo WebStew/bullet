@@ -55,6 +55,8 @@ export default {
 					title 	: 'Mouvement' 		,
 					week 	: 'La semaine dernière'
 				} ,
+				
+				description : 'La note de Bull est un nombre basé sur le volume total de pièces de monnaie déplacé au cours des dernières 24 heures par le plafonnement du marché, le prix et le dernier changement de délai de tendance. Le délai peut être d\'une heure ou au plus jour. Plus ce nombre est élevé, plus il est probable que la devise se manifeste dans une direction positive.' ,
 
 				notice 		: 'Cette notation est basée sur un calcul des principales monnaies cryptographiques {{placeholder}}.' ,
 
