@@ -12,6 +12,7 @@ export default connect (
 
 	state => ({
 		bull 		: state.bull 		,
+		currency 	: state.currency 	,
 		language 	: state.language 	,
 		theme 		: state.theme
 	})
@@ -26,16 +27,15 @@ export default connect (
 
 	refresh () {
 
-		if ( this.props.bull.competitors > api.limit ) {
+		const action = this.props.bull.competitors > api.limit ? 'stream' : 'get';
 
-			analytics.event 	( 'bull' , 'refresh' , 'stream' , 'user' 	);
-			this.props.dispatch ( actions.stream 							());
-		}
-		else {
-
-			analytics.event 	( 'bull' , 'refresh' , 'get' , 'user' 		);
-			this.props.dispatch ( actions.get 								());
-		}
+		analytics.event ( 
+			'bull' 		, 
+			'refresh' 	, 
+			action 		,
+			'user' 
+		);
+		this.props.dispatch ( actions [ action ] ( this.props.currency.id ));
 	}
 
 	render () {
@@ -44,22 +44,20 @@ export default connect (
 				appearance 	= style ( theme ) 	;
 
 		if ( this.props.bull.loading ) {
+			
 			return null;
 		}
 
-		return ( 
-			
+		return (
 			<TouchableOpacity 
 				onPress = { this.refresh 			}
 				style 	= { appearance.right.icon 	}
 			>
-
 				<Ionicons
 					name 	= { 'ios-refresh-outline' 	}
 					size 	= { 32 						}
 					color 	= { theme.secondary 		}
 				/>
-				
 			</TouchableOpacity>
 		);
 	}

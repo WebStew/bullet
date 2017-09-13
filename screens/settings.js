@@ -49,6 +49,10 @@ export default connect (
 				name 	: language.screens.exchanges.title 		,
 				url 	: 'exchanges'
 			} ,
+			{
+				name 	: language.screens.currency.title 		,
+				url 	: 'currency'
+			} ,
 
 			{
 				name 	: language.screens.theme.title 			,
@@ -70,10 +74,10 @@ export default connect (
 				url 	: 'language'
 			} ,
 			
-			// {
-			// 	name 	: language.screens.donate.title  		,
-			// 	url 	: 'donate'
-			// }
+			{
+				name 	: language.screens.donate.title  		,
+				url 	: 'donate'
+			}
 		];
 	}
 

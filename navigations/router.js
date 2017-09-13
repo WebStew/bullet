@@ -5,6 +5,7 @@ import { 	StackNavigator 	,
 import 		TabBar 				from '../components/navigations/tabbar-bottom';
 import 		Bull 				from '../screens/bull';
 import 		Converter 			from '../screens/converter';
+import 		Currency 			from '../screens/currency';
 import 		Currencies 			from '../screens/currencies';
 import 		Detail				from '../screens/detail';
 import 		Exchanges 			from '../screens/exchanges';
@@ -57,13 +58,17 @@ export default StackNavigator ({
 			screen 	: Root
 		} ,
 
+		currency 	: {
+			screen 	: Currency
+		} ,
+
 		detail 		: {
 			screen 	: Detail
 		} ,
 
-		// donate 		: {
-		// 	screen 	: Donate
-		// } ,
+		donate 		: {
+			screen 	: Donate
+		} ,
 
 		exchanges 	: {
 			screen 	: Exchanges

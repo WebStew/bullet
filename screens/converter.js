@@ -16,13 +16,15 @@ import 		style 							from '../styles/converter';
 import 		actions 						from '../actions/currencies';
 import 		api 							from '../api/currencies';
 import 		analytics 						from '../utilities/analytics';
+import 		array 							from '../utilities/array';
 
 export default connect (
 
 	state => ({
+		currency 	: state.currency 	,
 		currencies 	: state.currencies	,
 		language 	: state.language 	,
-		theme 		: state.theme
+		theme 		: state.theme 		
 	})
 
 ) ( class Converter extends React.Component {
@@ -50,55 +52,44 @@ export default connect (
 
 	constructor ( props ) {
 		super 	( props );
-
-		this.calculate 	= this.calculate.bind 	( this );
-		this.set 		= this.set.bind 		( this );
-		this.refresh 	= this.refresh.bind 	( this );
-		this.state 		= {
-			base 		: '1' 		,
-			from 		: 'bitcoin' ,
-			result		: '1' 		,
-			to 			: 'bitcoin'
+		
+		this.calculate 			= this.calculate.bind 	( this );
+		this.set 				= this.set.bind 		( this );
+		this.refresh 			= this.refresh.bind 	( this );
+		this.state 				= {
+			base 	: '1' 		,
+			from 	: 'bitcoin' ,
+			result	: '1' 		,
+			to 		: 'bitcoin'
 		};
 	}
 
 	refresh () {
-		
-		if ( this.props.currencies.items.length > api.limit ) {
 
-			analytics.event 	( 
-				'converter' 	, 
-				'refresh' 		, 
-				'stream' 		, 
-				'user' 	
-			);
-			this.props.dispatch ( actions.stream ());
-		}
+		const action = this.props.currencies.items.length > api.limit ? 'stream' : 'get';
 
-		else {
-			
-			analytics.event 	( 
-				'converter' 	, 
-				'refresh' 		, 
-				'get' 			,
-				'user' 		
-			);
-			this.props.dispatch ( actions.get ());
-		}
+		analytics.event ( 
+			'converter' , 
+			'refresh' 	, 
+			action 		, 
+			'user' 	
+		);
+		this.props.dispatch ( actions [ action ] ( this.props.currency.id ));
 	}
 
 	options () {
 
-		const theme = this.props.theme;
+		const 	theme = this.props.theme ,
+				items = this.props.currencies.items.slice ( 0 );
 
-		return this.props.currencies.items.map (( currency , index ) => {
+		return array.alphabeticalise ( items , 'name' ).map (( currency , index ) => {
 
 			return ( 
 				<Picker.Item 
-					color 	= { theme.body 				}
-					key 	= { index 					}
-					label 	= { currency.name 			}
-					value 	= { currency.id 			}
+					color 	= { theme.body 		}
+					key 	= { index 			}
+					label 	= { currency.name 	}
+					value 	= { currency.id 	}
 				/>
 			);
 		});

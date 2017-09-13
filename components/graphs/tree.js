@@ -81,14 +81,15 @@ export default class ChartTree extends React.Component {
 		values.opening 	= ( values.min + values.middle 	) / 2;
 		values.closing 	= ( values.max + values.middle 	) / 2;
 
+		// The GRAPH API DOES NOT SUPPORT MULTI CURRENCY YET
 		return ( 
 			<AxisY 
 				data = {[ 
-					language.denominations.usd.symbol + numbers.format ( values.max.toFixed 	( 2 )) ,
-					language.denominations.usd.symbol + numbers.format ( values.closing.toFixed ( 2 )) ,
-					language.denominations.usd.symbol + numbers.format ( values.middle.toFixed 	( 2 )) ,
-					language.denominations.usd.symbol + numbers.format ( values.opening.toFixed ( 2 )) ,
-					language.denominations.usd.symbol + numbers.format ( values.min.toFixed 	( 2 ))
+					'$' + numbers.format ( values.max.toFixed 		( 2 )) ,
+					'$' + numbers.format ( values.closing.toFixed 	( 2 )) ,
+					'$' + numbers.format ( values.middle.toFixed 	( 2 )) ,
+					'$' + numbers.format ( values.opening.toFixed 	( 2 )) ,
+					'$' + numbers.format ( values.min.toFixed 		( 2 ))
 				]} 
 				theme = { theme }
 			/> 
@@ -190,9 +191,10 @@ export default class ChartTree extends React.Component {
 		}
 
 		this.setScales 	();
+		
+		// { this.header ()}
 		return 			(
 			<View style = { appearance.tree.view }>
-				{ this.header ()}
 				<SectionList 
 					horizontal 						= { true 							}
 					initialNumToRender 				= { Math.round ( device.width / 10 	)}

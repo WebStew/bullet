@@ -34,10 +34,6 @@ export default {
 			btc 		: {
 				name 	: '比特币' 	,
 				symbol 	: 'BTC'
-			} ,
-			usd 		: {
-				name 	: '美元' 	,
-				symbol 	: '$'
 			}
 		} ,
 
@@ -80,6 +76,10 @@ export default {
 					title 		: '价格'
 				}
 
+			} ,
+
+			currency 		: {
+				title 		: '首选货币'
 			} ,
 
 			currencies 		: {

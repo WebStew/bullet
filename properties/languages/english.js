@@ -34,10 +34,6 @@ export default {
 			btc 		: {
 				name 	: 'BitCoin' 	,
 				symbol 	: 'BTC'
-			} ,
-			usd 		: {
-				name 	: 'US Dollar' 	,
-				symbol 	: '$'
 			}
 		} ,
 
@@ -80,6 +76,10 @@ export default {
 					title 		: 'Prices'
 				}
 
+			} ,
+
+			currency 		: {
+				title 		: 'Preferred currency'
 			} ,
 
 			currencies 		: {

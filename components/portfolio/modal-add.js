@@ -75,30 +75,42 @@ export default class Dialogue extends React.Component {
 
 	reset () {
 
-			analytics.event 	( 'portfolio' , 'remove' , this.props.currency.name );
-			this.props.reset 	();
-			this.props.dispatch ( 
-				actions.delete 	( this.props.currency.id )
-			);
+		const item = this.props.item;
+
+		analytics.event ( 
+			'portfolio' , 
+			'remove' 	, 
+			item.name 
+		);
+		this.props.reset 	();
+		this.props.dispatch ( 
+			actions.delete 	( item.id )
+		);
 	}
 
 	set () {
 
-		analytics.event 	( 'portfolio' , 'add' 	, this.props.currency.name 	);
+		const item = this.props.item;
+
+		analytics.event ( 
+			'portfolio' , 
+			'add' 		, 
+			item.name 
+		);
 		this.props.reset 	();
 		this.props.dispatch ( 
 			actions.save 	( 
-				this.props.currency.id 	, 
-				this.state.amount 		,
-				this.props.currency.name
+				item.id 			, 
+				this.state.amount 	,
+				item.name
 			)
 		);
 	}
 
 	componentWillMount () {
 		
-		const 	currency 	= this.props.currency ,
-				portfolioed = this.props.portfolio.items.find (( item , index ) => item.id === currency.id );
+		const 	item 		= this.props.item ,
+				portfolioed = this.props.portfolio.items.find (( value , index ) => value.id === item.id );
 			
 		if ( portfolioed ) {
 
@@ -110,12 +122,12 @@ export default class Dialogue extends React.Component {
 
 	render () {
 
-		const 	language 	= this.props.language 																,
-				theme 		= this.props.theme 																	,
-				currency 	= this.props.currency 																,
-				portfolioed = this.props.portfolio.items.find (( item , index ) => item.id === currency.id ) 	,
-				action 		= portfolioed ? language.actions.update : language.actions.add 						,
-				appearance 	= style ( theme ) 																	;
+		const 	language 	= this.props.language 															,
+				theme 		= this.props.theme 																,
+				item 		= this.props.item 																,
+				portfolioed = this.props.portfolio.items.find (( value , index ) => value.id === item.id ) 	,
+				action 		= portfolioed ? language.actions.update : language.actions.add 					,
+				appearance 	= style ( theme ) 																;
 
 		return (
 			<Modal 
@@ -132,7 +144,7 @@ export default class Dialogue extends React.Component {
 						type 		= '2'
 					/>
 					<Text style 	= { appearance.text }>
-						{ language.screens.portfolio.description.replace ( '{{placeholder}}' , currency.name )}
+						{ language.screens.portfolio.description.replace ( '{{placeholder}}' , item.name )}
 					</Text>
 					<View 			style 	= { appearance.field 			}>
 						<View 		style 	= { appearance.label.view 		}>

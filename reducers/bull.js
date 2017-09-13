@@ -10,7 +10,7 @@ export default function (
 		error 		: null 	,
 		id 			: null 	,
 		loading 	: true 	,
-		market 		: {} 	,
+		market 		: null 	,
 		name 		: null 	,
 		prices 		: {} 	,
 		rank 		: null 	,
@@ -18,7 +18,7 @@ export default function (
 		supply 		: {} 	,
 		symbol 		: null 	,
 		updated 	: null 	,
-		volume 		: {}
+		volume 		: null
 	} , 
 
 	action 	= {}

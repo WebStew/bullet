@@ -1,5 +1,14 @@
 
 export default [
+	
+	{
+		brand 		: {
+			primary 	: '#2b71b1' ,
+			secondary 	: '#f8f8f8'
+		} ,
+		name 		: 'Coinbase' ,
+		url 		: 'https://www.coinbase.com/join/591ea5b87e4844089e92e8ae'
+	} ,
 
 	{
 		brand 		: {
@@ -17,15 +26,6 @@ export default [
 		} ,
 		name 		: 'CEX.IO' ,
 		url 		: 'https://cex.io/r/0/up107577742/0/'
-	} ,
-
-	{
-		brand 		: {
-			primary 	: '#2b71b1' ,
-			secondary 	: '#f8f8f8'
-		} ,
-		name 		: 'Coinbase' ,
-		url 		: 'https://www.coinbase.com/join/591ea5b87e4844089e92e8ae'
 	} ,
 	
 	{

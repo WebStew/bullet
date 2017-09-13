@@ -24,6 +24,7 @@ import 		analytics 			from '../utilities/analytics';
 export default connect (
 
 	state => ({
+		currency 	: state.currency 	,
 		graphs 		: state.graphs 		,
 		language 	: state.language 	,
 		portfolio 	: state.portfolio 	,
@@ -36,7 +37,7 @@ export default connect (
 
 		const 	language 	= screenProps.language 					,
 				theme 		= screenProps.theme 					,
-				name 		= navigation.state.params.currency.name ;
+				name 		= navigation.state.params.item.name ;
 
 		return {
 
@@ -50,7 +51,7 @@ export default connect (
 			headerRight 	: <Image 
 				style 		= { banner ( theme ).icon }
 				source 		= {{
-					uri 	: images.currencies.small ( navigation.state.params.currency.id ) 
+					uri 	: images.currencies.small ( navigation.state.params.item.id ) 
 				}}
 			/>
 		};
@@ -68,16 +69,16 @@ export default connect (
 
 	componentWillMount () {
 
-		const currency = this.props.navigation.state.params.currency;
+		const item = this.props.navigation.state.params.item;
 
-		analytics.event 	( 'graph' , 'get' , currency.name , 'application' 	);
-		this.props.dispatch ( actions.get ( currency.id 						));
+		analytics.event 	( 'graph' , 'get' , item.name , 'application' 	);
+		this.props.dispatch ( actions.get ( item.id 						));
 	}
 
-	componentWillUnmount () {
+	// componentWillUnmount () {
 
-		this.props.dispatch ( actions.reset ());
-	}
+	// 	this.props.dispatch ( actions.reset ());
+	// }
 
 	close () {
 
@@ -88,19 +89,20 @@ export default connect (
 
 	render () {
 
-		const 	currency 	= this.props.navigation.state.params.currency 										,
-				language 	= this.props.language 																,
-				theme 		= this.props.theme 																	,
-				portfolioed = this.props.portfolio.items.find (( item , index ) => item.id === currency.id ) 	,
-				action 		= portfolioed ? language.screens.detail.update : language.screens.detail.add 		,
-				scenery 	= scene 	( theme ) 																,
-				arrange 	= layout 	( theme ) 																,
-				appearance 	= style 	( theme ) 																;
+		const 	item 		= this.props.navigation.state.params.item 										,
+				currency 	= this.props.currency 															,
+				language 	= this.props.language 															,
+				theme 		= this.props.theme 																,
+				portfolioed = this.props.portfolio.items.find (( value , index ) => value.id === item.id ) 	,
+				action 		= portfolioed ? language.screens.detail.update : language.screens.detail.add 	,
+				scenery 	= scene 	( theme ) 															,
+				arrange 	= layout 	( theme ) 															,
+				appearance 	= style 	( theme ) 															;
 
-		analytics.screen 	( 'detail:' + currency.name 			);
+		analytics.screen 	( 'detail:' + item.name );
 		return 				(
-			<ScrollView style = { scenery.body 	}>
-				<View 	style = { arrange.fill 	}>
+			<ScrollView style = { scenery.body 		}>
+				<View 	style = { arrange.fill 		}>
 					<View 	
 						style = {{
 							...arrange.row 		,
@@ -111,13 +113,13 @@ export default connect (
 						<Image 	
 							style 	= { appearance.icon }
 							source 	= {{
-								uri : images.currencies.large ( currency.id ) 
+								uri : images.currencies.large ( item.id ) 
 							}}
 						/>
 						
 						<Heading 
-							title 	= { currency.name + ' ( ' +  currency.symbol + ' )' } 
-							theme 	= { theme 											}
+							title 	= { item.name + ' ( ' +  item.symbol + ' )' } 
+							theme 	= { theme 									}
 							type 	= '1'
 						/>
 					</View>
@@ -127,23 +129,23 @@ export default connect (
 						error 		= { this.props.graphs.error 		}
 						language 	= { language 						}
 						loading 	= { this.props.graphs.loading 		}
-						name 		= { currency.name 					}
+						name 		= { item.name 						}
 						theme 		= { theme 							}
 						refresh 	= {() => {
 
 							analytics.event ( 
-								'graph' 		, 
-								'get' 			, 
-								currency.name 	, 
+								'graph' 	, 
+								'get' 		, 
+								item.name 	, 
 								'user'
 							);
 							this.props.dispatch ( 
-								actions.get ( currency.id )
+								actions.get ( item.id )
 							);
 						}}
 					/>
 
-					<View 	style 	= { appearance.button 				}>
+					<View 	style 	= { appearance.button }>
 						<Button
 							press 	= {() => {
 								
@@ -159,7 +161,7 @@ export default connect (
 					<Modal 
 						active 		= { this.state.modal 		}
 						amount 		= { this.state.amount 		}
-						currency 	= { currency 				}
+						item 		= { item 					}
 						dispatch 	= { this.props.dispatch 	}
 						language 	= { language 				}
 						portfolio 	= { this.props.portfolio 	}
@@ -178,19 +180,19 @@ export default connect (
 										property 	: language.screens.bull.changes.hour 	,
 										suffix 		: '%' 									,
 										type 		: 'highlight' 							,
-										value 		: currency.change.hour
+										value 		: item.change.hour
 									} 														, 
 									{
 										property 	: language.screens.bull.changes.day 	,
 										suffix 		: '%' 									,
 										type 		: 'highlight' 							,
-										value 		: currency.change.day
+										value 		: item.change.day
 									} 														,
 									{
 										property 	: language.screens.bull.changes.week 	,
 										suffix 		: '%' 									,
 										type 		: 'highlight' 							,
-										value 		: currency.change.week
+										value 		: item.change.week
 									}
 								]
 							} ,
@@ -199,14 +201,14 @@ export default connect (
 								title 		: language.screens.bull.values.title 		,
 								data 		: [
 									{
-										prefix 		: language.denominations.usd.symbol ,
-										property 	: language.denominations.usd.name 	,
-										value 		: currency.prices.usd
+										prefix 		: currency.symbol 					,
+										property 	: currency.names [ language.id ] 	,
+										value 		: item.prices.fiat
 									} , 
 									{
 										prefix 		: language.denominations.btc.symbol ,
 										property 	: language.denominations.btc.name 	,
-										value 		: currency.prices.btc
+										value 		: item.prices.btc
 									}
 								]
 							} ,
@@ -217,33 +219,32 @@ export default connect (
 									{
 										property 	: language.screens.bull.rating 			,
 										type 		: 'highlight' 							,
-										value 		: numbers.format ( currency.rating )
+										value 		: numbers.format ( item.rating )
 									} 														,
 									{
-										prefix 		: language.denominations.usd.symbol 	,
+										prefix 		: currency.symbol 						,
 										property 	: language.screens.bull.market.cap 		,
-										value 		: currency.market.usd
+										value 		: item.market
 									} 														,
 									{
 										property 	: language.screens.bull.market.rank 	,
-										value 		: numbers.rank ( currency.rank )
+										value 		: numbers.rank ( item.rank )
 									} 														,
 									{
 										property 	: language.screens.bull.market.available ,
-										value 		: currency.supply.available
+										value 		: item.supply.available
 									} 														, 
 									{
 										property 	: language.screens.bull.market.total 	,
-										value 		: currency.supply.total
+										value 		: item.supply.total
 									} 														, 
 									{
-										prefix 		: language.denominations.usd.symbol 	,
+										prefix 		: currency.symbol 						,
 										property 	: language.screens.bull.market.volume 	,
-										value 		: currency.volume.usd
+										value 		: item.volume
 									}
 								]
 							}
-
 						]}
 					/>
 				</View>

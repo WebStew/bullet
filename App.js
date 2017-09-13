@@ -4,6 +4,7 @@ import { 	Provider 	} 	from 'react-redux';
 import { 	AppLoading 	} 	from 'expo';
 import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		Main 			from './screens/main';
+import 		currency 		from './actions/currency';
 import 		language 		from './actions/language';
 import 		theme 			from './actions/theme';
 import 		portfolio 		from './actions/portfolio';
@@ -66,6 +67,10 @@ export default class Application extends React.Component {
 		store.dispatch 	( theme.get 	());
 		store.dispatch 	( language.get 	());
 		store.dispatch 	( portfolio.get ());
+
+		// Getting a users preferred currency is the catalyst to kicking off the correct calls to the currencies.
+		// Once we know this we know what currency conversion to use
+		store.dispatch 	( currency.get 	());
 	}
 
 	render () {

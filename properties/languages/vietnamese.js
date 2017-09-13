@@ -34,10 +34,6 @@ export default {
 			btc 		: {
 				name 	: 'BitCoin' 	,
 				symbol 	: 'BTC'
-			} ,
-			usd 		: {
-				name 	: 'Đô la Mỹ' 	,
-				symbol 	: '$'
 			}
 		} ,
 
@@ -80,6 +76,10 @@ export default {
 					title 		: 'Giá'
 				}
 
+			} ,
+			
+			currency 		: {
+				title 		: 'Tiền tệ ưa thích'
 			} ,
 
 			currencies 		: {

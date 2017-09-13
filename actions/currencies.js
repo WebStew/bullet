@@ -57,9 +57,9 @@ const 	currencies = {
 		} ,
 
 		// Rewrite the API response to our data schema			
-		normalise ( data , dispatch ) {
+		normalise ( data , dispatch , currency ) {
 
-			const normalised = schematic.get ( data );
+			const normalised = schematic.get ( data , currency );
 
 			dispatch ( currencies.set 	( normalised ));
 			dispatch ( bull.set 		( normalised ));
@@ -74,31 +74,31 @@ const 	currencies = {
 
 export default {
 
-	get () {
+	get ( currency ) {
 
 		return function ( dispatch ) {
 
 			callbacks.get ( dispatch );
 
 			// Get the currencies
-			return api.get ()
-				.then 	( callbacks.response 	)
-				.then 	(( data 				) => callbacks.normalise 	( data , dispatch ))
-				.catch 	(( data 				) => callbacks.error 		( data , dispatch ));
+			return api.get 	( currency 				)
+				.then 		( callbacks.response 	)
+				.then 		(( data 				) => callbacks.normalise 	( data , dispatch , currency 	))
+				.catch 		(( data 				) => callbacks.error 		( data , dispatch 				));
 		}
 	} ,
 
-	stream () {
+	stream ( currency ) {
 
 		return function ( dispatch ) {
 
 			callbacks.get ( dispatch );
 
 			// Get the currencies
-			return api.stream ()
-				.then 	( callbacks.response 	)
-				.then 	(( data 				) => callbacks.normalise 	( data , dispatch ))
-				.catch 	(( data 				) => callbacks.error 		( data , dispatch ));
+			return api.stream 	( currency 				)
+				.then 			( callbacks.response 	)
+				.then 			(( data 				) => callbacks.normalise 	( data , dispatch , currency 	))
+				.catch 			(( data 				) => callbacks.error 		( data , dispatch 				));
 		}
 	} ,
 

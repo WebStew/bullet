@@ -11,6 +11,7 @@ import 		analytics 				from '../../utilities/analytics';
 export default connect (
 
 	state => ({
+		currency 	: state.currency 	,
 		currencies 	: state.currencies 	,
 		language 	: state.language 	,
 		theme 		: state.theme
@@ -26,16 +27,15 @@ export default connect (
 
 	refresh () {
 
-		if ( this.props.currencies.items.length > api.limit ) {
+		const action = this.props.currencies.items.length > api.limit ? 'get' : 'stream';
 
-			analytics.event 	( 'currencies' , 'load' , 'get' , 'user' 	);
-			this.props.dispatch ( actions.get 								());
-		}
-		else {
-
-			analytics.event 	( 'currencies' , 'load' , 'stream' , 'user' );
-			this.props.dispatch ( actions.stream 							());
-		}
+		analytics.event 	( 
+			'currencies' 	, 
+			'load' 			, 
+			action 			, 
+			'user' 
+		);
+		this.props.dispatch ( actions [ action ] ( this.props.currency.id ));
 	}
 
 	render () {

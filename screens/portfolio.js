@@ -24,6 +24,7 @@ import 		analytics 				from '../utilities/analytics';
 export default connect (
 
 	state => ({
+		currency 	: state.currency 	,
 		currencies 	: state.currencies 	,
 		portfolio 	: state.portfolio 	,
 		language 	: state.language 	,
@@ -180,7 +181,7 @@ export default connect (
 			'stream' 	,
 			'user' 		
 		);
-		this.props.dispatch ( actions.stream ());
+		this.props.dispatch ( actions.stream ( this.props.currency.id ));
 	}
 
 	row ({
@@ -191,13 +192,15 @@ export default connect (
 		const 	theme 		= this.props.theme 																,
 				language 	= this.props.language 															,
 				styles 		= index % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary 		,
+
+				// Figure a better way to do this. We shouldn't loop the currency array for every row
 				data 		= this.props.currencies.items.find (( currency ) => currency.id === item.id ) 	,
 				details 	= data ? {
 					amount 	: item.amount 		,
 					id 		: data.id 			,
 					name 	: data.name 		,
-					price 	: data.prices.usd 	,
-					total 	: parseFloat ( item.amount ) * parseFloat ( data.prices.usd )
+					price 	: data.prices.fiat 	,
+					total 	: parseFloat ( item.amount ) * parseFloat ( data.prices.fiat )
 				} 			: undefined ,
 				appearance 	= style ( theme );
 
@@ -246,8 +249,9 @@ export default connect (
 
 		return (
 			<Item
-				details 	= { details 				}
-				currency 	= { data 					}
+				currency 	= { this.props.currency 	}
+				item 		= { details 				}
+				data 		= { data 					}
 				language 	= { this.props.language 	}
 				navigation 	= { this.props.navigation 	}
 				style 		= { styles 					}
@@ -278,15 +282,15 @@ export default connect (
 
 		this.props.portfolio.items.forEach (( item , index ) => {
 
-			const 	currency 	= this.props.currencies.items.find (( entry , index ) => item.id === entry.id ) ,
-					price 		= currency ? parseFloat ( currency.prices.usd ) : undefined;
+			const 	currency 	= this.props.currencies.items.find (( entry ) => item.id === entry.id ) ,
+					price 		= currency ? parseFloat ( currency.prices.fiat ) : undefined;
 
 			if ( ! isNaN (  price )) {
 				total += price * parseFloat ( item.amount );
 			}
 		});
 
-		total = ! isNaN ( total ) ? language.denominations.usd.symbol + numbers.format ( total.toFixed ( 2 )) : language.errors [ 500 ];
+		total = ! isNaN ( total ) ? this.props.currency.symbol + numbers.format ( total.toFixed ( 2 )) : language.errors [ 500 ];
 
 		return (
 			<View 		style = { appearance.total.view 		}>

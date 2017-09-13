@@ -7,7 +7,10 @@ const 	limit 	= 100 ,
 		api 	= {
 			domain 	: 'https://api.coinmarketcap.com' 	,
 			path 	:'/v1/ticker/' 						,
-			params 	: '?limit=' + limit 				,
+			params 	: {
+				limit 		: '?limit=' + limit 		,
+				currency 	: 'convert='
+			} 											,
 			headers : {
 				Accept 	: 'application/json' 			,
 				headers : {
@@ -18,9 +21,11 @@ const 	limit 	= 100 ,
 
 export default {
 	
-	get 	: async function () {
+	get 	: async function ( currency ) {
 
-		return environment.data.mock ? currencies : fetch ( api.domain + api.path + api.params , {
+		const url = api.domain + api.path + api.params.limit + '&' + api.params.currency + currency;
+
+		return environment.data.mock ? currencies : fetch ( url , {
 			...api.headers ,
 			method : 'GET'
 		});
@@ -28,9 +33,11 @@ export default {
 
 	limit 	: limit ,
 
-	stream 	: async function () {
+	stream 	: async function ( currency ) {
 
-		return environment.data.mock ? currencies : fetch ( api.domain + api.path , {
+		const url = api.domain + api.path + '?' + api.params.currency + currency;
+
+		return environment.data.mock ? currencies : fetch ( url , {
 			...api.headers ,
 			method : 'GET'
 		});

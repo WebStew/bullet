@@ -23,6 +23,7 @@ export default connect (
 
 	state => ({
 		bull 		: state.bull 		,
+		currency 	: state.currency 	,
 		language 	: state.language 	,
 		theme 		: state.theme
 	})
@@ -79,21 +80,19 @@ export default connect (
 		super 	( props );
 		
 		this.refresh = this.refresh.bind ( this );
-		this.refresh ();
 	}
 
 	refresh () {
 
-		if ( this.props.bull.competitors > api.limit ) {
-			
-			analytics.event 	( 'bull' , 'load' , 'stream' , 'application' );
-			this.props.dispatch ( actions.stream 							());
-		}
-		else {
-
-			analytics.event 	( 'bull' , 'load' , 'get' , 'application' 	);
-			this.props.dispatch ( actions.get 								());
-		}
+		const action = this.props.bull.competitors > api.limit ? 'stream' : 'get';
+		
+		analytics.event ( 
+			'bull' 		,
+			'load' 		,
+			action 		,
+			'application' 
+		);
+		this.props.dispatch ( actions [ action ] ( this.props.currency.id ));
 	}
 
 	render () {
@@ -145,6 +144,7 @@ export default connect (
 		return 				(
 			<ScrollView style 	= { scenery.body 		}>
 				<Overview 
+					currency 	= { this.props.currency }
 					bull 		= { this.props.bull 	}
 					language 	= { language 			}
 					theme 		= { theme 				}

@@ -24,14 +24,15 @@ export default class Item extends React.PureComponent {
 		this.props.navigation.navigate 	( 
 			'detail' , 
 			{
-				currency : this.props.currency
+				item : this.props.data
 			}
 		);
 	}
 
 	render () {
 
-		const 	currency 	= this.props.details 	,
+		const 	currency 	= this.props.currency 	,
+				item 		= this.props.item 		,
 				language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
 				items 		= list 	( theme ) 		,
@@ -44,7 +45,7 @@ export default class Item extends React.PureComponent {
 						...items.row 	,
 						...this.props.style
 					}} 
-					onPress = { this.detail 	}
+					onPress = { this.detail }
 				>
 					<View style = {{
 						...items.cell ,
@@ -53,7 +54,7 @@ export default class Item extends React.PureComponent {
 						<Image 	
 							style 	= { appearance.icon }
 							source 	= {{
-								uri : images.currencies.small ( currency.id ) 
+								uri : images.currencies.small ( item.id ) 
 							}}
 						/>
 						<Text 
@@ -64,7 +65,7 @@ export default class Item extends React.PureComponent {
 								...appearance.name
 							}}
 						>
-							{ currency.name }
+							{ item.name }
 						</Text>
 					</View>
 					<Text 
@@ -75,7 +76,7 @@ export default class Item extends React.PureComponent {
 							...appearance.cell
 						}}
 					>
-						{ numbers.format ( currency.amount		)}
+						{ numbers.format ( item.amount		)}
 					</Text>
 					<Text 
 						numberOfLines 	= { 1 }
@@ -84,7 +85,7 @@ export default class Item extends React.PureComponent {
 							...items [ 'cell-text' ] 	,
 							...appearance.cell
 						}}>
-						{ currency.price ? language.denominations.usd.symbol + numbers.format ( currency.price ) : language.errors [ 500 ]}
+						{ item.price ? currency.symbol + numbers.format ( item.price ) : language.errors [ 500 ]}
 					</Text>
 					<Text 
 						numberOfLines 	= { 1 }
@@ -94,7 +95,7 @@ export default class Item extends React.PureComponent {
 							...appearance.cell
 						}}
 					>
-						{ currency.total ? language.denominations.usd.symbol + numbers.format ( currency.total.toFixed ( 2 )) : '0'}
+						{ item.total ? currency.symbol + numbers.format ( item.total.toFixed ( 2 )) : '0' }
 					</Text>
 				</TouchableOpacity>
 			</View>

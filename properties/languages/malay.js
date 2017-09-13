@@ -34,10 +34,6 @@ export default {
 			btc 		: {
 				name 	: 'BitCoin' 	,
 				symbol 	: 'BTC'
-			} ,
-			usd 		: {
-				name 	: 'Dolar AS' 	,
-				symbol 	: '$'
 			}
 		} ,
 
@@ -85,6 +81,10 @@ export default {
 			converter 		: {
 				title 		: 'Penukar' ,
 				placeholder : 'Jumlah'
+			} ,
+			
+			currency 		: {
+				title 		: 'Mata wang pilihan'
 			} ,
 
 			currencies 		: {

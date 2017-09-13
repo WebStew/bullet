@@ -18,6 +18,7 @@ export default class Overview extends React.Component {
 
 		const 	theme 		= this.props.theme 		,
 				language 	= this.props.language 	,
+				currency 	= this.props.currency 	,
 				arrange 	= layout 	( theme ) 	,
 				scenery 	= scene 	( theme ) 	,
 				appearance 	= style 	( theme ) 	,
@@ -85,9 +86,9 @@ export default class Overview extends React.Component {
 							title 		: language.screens.bull.values.title 			,
 							data 		: [
 								{
-									prefix 		: language.denominations.usd.symbol 	,
-									property 	: language.denominations.usd.name 		,
-									value 		: this.props.bull.prices.usd
+									prefix 		: currency.symbol 						,
+									property 	: currency.names [ language.id ] 		,
+									value 		: this.props.bull.prices.fiat
 								} , 
 								{
 									prefix 		: language.denominations.btc.symbol 	,
@@ -101,9 +102,9 @@ export default class Overview extends React.Component {
 							title 		: language.screens.bull.market.title 			,
 							data 		: [
 								{
-									prefix 		: language.denominations.usd.symbol 	,
+									prefix 		: currency.symbol 						,
 									property 	: language.screens.bull.market.cap 		,
-									value 		: this.props.bull.market.usd
+									value 		: this.props.bull.market
 								} 														,
 								{
 									property 	: language.screens.bull.market.rank 	,
@@ -118,9 +119,9 @@ export default class Overview extends React.Component {
 									value 		: this.props.bull.supply.total
 								} 														, 
 								{
-									prefix 		: language.denominations.usd.symbol 	,
+									prefix 		: currency.symbol 						,
 									property 	: language.screens.bull.market.volume 	,
-									value 		: this.props.bull.volume.usd
+									value 		: this.props.bull.volume
 								}
 							]
 						}

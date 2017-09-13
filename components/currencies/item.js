@@ -10,7 +10,8 @@ import 		style 					from '../../styles/currencies';
 import 		images 					from '../../api/images';
 import 		numbers 				from '../../utilities/numbers';
 
-export default class Item extends React.PureComponent {
+// Change to Pure Component and flatten props
+export default class Item extends React.Component {
 
 	constructor ( props ) {
 		super 	( props );
@@ -23,7 +24,7 @@ export default class Item extends React.PureComponent {
 		this.props.navigation.navigate 	( 
 			'detail' , 
 			{
-				currency : this.props.currency
+				item : this.props.item
 			}
 		);
 	}
@@ -31,6 +32,7 @@ export default class Item extends React.PureComponent {
 	render () {
 
 		const 	currency 	= this.props.currency 	,
+				item 		= this.props.item 		,
 				language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
 				items 		= list 	( theme ) 		,
@@ -53,7 +55,7 @@ export default class Item extends React.PureComponent {
 						<Image 	
 							style 	= { appearance.icon }
 							source 	= {{
-								uri : images.currencies.small ( currency.id ) 
+								uri : images.currencies.small ( item.id ) 
 							}}
 						/>
 						
@@ -65,7 +67,7 @@ export default class Item extends React.PureComponent {
 								...appearance.name
 							}}
 						>
-							{ currency.name }
+							{ item.name }
 						</Text>
 					</View>
 					<Text 
@@ -76,7 +78,7 @@ export default class Item extends React.PureComponent {
 							...appearance.text
 						}}
 					>
-						{ currency.rating ? numbers.format ( currency.rating ) : language.errors [ 500 ]}
+						{ item.rating ? numbers.format ( item.rating ) : language.errors [ 500 ]}
 					</Text>
 					<Integer 
 						language 	= { language 			}
@@ -88,7 +90,7 @@ export default class Item extends React.PureComponent {
 						suffix 		= '%'
 						theme 		= { theme 				}
 						type 		= 'highlight' 
-						value 		= { currency.change.day }
+						value 		= { item.change.day }
 					/>
 					<Text 
 						numberOfLines 	= { 1 }
@@ -98,7 +100,7 @@ export default class Item extends React.PureComponent {
 							...appearance.price
 						}}
 					>
-						{ currency.prices.usd ? language.denominations.usd.symbol + numbers.format ( currency.prices.usd ) : language.errors [ 500 ]}
+						{ item.prices.fiat ? currency.symbol + numbers.format ( item.prices.fiat ) : language.errors [ 500 ]}
 					</Text>
 				</TouchableOpacity>
 			</View>
