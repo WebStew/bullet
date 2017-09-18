@@ -15,6 +15,7 @@ import 		Action 					from '../components/utilities/header-action';
 import 		Back 					from '../components/utilities/back';
 import 		Loader 					from '../components/utilities/loader';
 import 		Header 					from '../components/news/header';
+import 		Refresh 				from '../components/news/refresh';
 import 		actions 				from '../actions/news';
 import 		style 					from '../styles/news';
 import 		scene 					from '../styles/scene';
@@ -62,7 +63,8 @@ export default connect (
 				}}
 				value 	= { language.actions.share }
 			/> ,
-			headerTitle : <Header 		/> ,
+			headerRight : <Refresh 	/> ,
+			headerTitle : <Header 	/> ,
 			tabBarIcon 	: ({ focused }) => {
 
 				return (

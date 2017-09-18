@@ -32,7 +32,9 @@ export default ( theme ) => {
 						borderRightWidth 	: 1 			,
 						borderTopWidth 		: 1 			,
 						height 				: height 		,
-						flexDirection 		: 'column'
+						flexDirection 		: 'column' 		,
+						paddingLeft 		: 10 			,
+						paddingRight 		: 5
 					}
 				}
 			} ,
