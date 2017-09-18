@@ -1,13 +1,18 @@
 
 import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
-import { 	ScrollView 			,
+import { 	Platform 			,
+			ScrollView 			,
+			Share 				,
 			Text 				,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
+import 		Action 					from '../components/utilities/header-action';
 import 		scene 					from '../styles/scene';
 import 		style 					from '../styles/list-control';
+import 		application 			from '../configuration/application';
+import 		analytics 				from '../utilities/analytics';
 
 export default connect (
 
@@ -24,7 +29,30 @@ export default connect (
 				theme 		= screenProps.theme 	;
 
 		return {
+			headerLeft 	: <Action 
+				icon 	= 'ios-share-outline'
+				press 	= {() => {
 
+					const 	platform 	= Platform.OS ,
+							link 		= platform === 'ios' ? application.stores.apple : application.stores.google;
+
+					analytics.event ( 'cryptobullography' , 'share' , 'open' , platform );
+					Share.share 	(
+						{
+							message 	: language.screens.share.summary 	,
+							title 		: language.screens.share.title 		,
+							url 		: link
+						} , 
+						{
+							dialogTitle : language.screens.share.title 		,
+							tintColor 	: theme.chrome
+						}
+					)
+					.then 	(() 		=> analytics.event ( 'cryptobullography' , 'share' , 'success' 	, platform 	))
+					.catch 	(( error ) 	=> analytics.event ( 'cryptobullography' , 'share' , 'error' 	, platform 	));
+				}}
+				value 	= { language.actions.share }
+			/> ,
 			title 		: language.screens.settings.title ,
 			tabBarIcon 	: ({ focused }) => {
 

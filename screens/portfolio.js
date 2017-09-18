@@ -2,12 +2,15 @@
 import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
 import { 	FlatList 			,
+			Platform 			,
+			Share 				,
 			Text 				,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import 		Error 					from '../components/errors/ajax';
 import 		Item 					from '../components/portfolio/item';
+import 		Action 					from '../components/utilities/header-action';
 import 		Loader 					from '../components/utilities/loader';
 import 		Header 					from '../components/portfolio/header';
 import 		actions 				from '../actions/currencies';
@@ -20,6 +23,7 @@ import 		seperator 				from '../styles/seperators';
 import 		stripe 					from '../styles/stripe';
 import 		numbers 				from '../utilities/numbers';
 import 		analytics 				from '../utilities/analytics';
+import 		application 			from '../configuration/application';
 
 export default connect (
 
@@ -39,6 +43,30 @@ export default connect (
 				theme 		= screenProps.theme 	;
 
 		return {
+			headerLeft 	: <Action 
+				icon 	= 'ios-share-outline'
+				press 	= {() => {
+
+					const 	platform 	= Platform.OS ,
+							link 		= platform === 'ios' ? application.stores.apple : application.stores.google;
+
+					analytics.event ( 'cryptobullography' , 'share' , 'open' , platform );
+					Share.share 	(
+						{
+							message 	: language.screens.share.summary 	,
+							title 		: language.screens.share.title 		,
+							url 		: link
+						} , 
+						{
+							dialogTitle : language.screens.share.title 		,
+							tintColor 	: theme.chrome
+						}
+					)
+					.then 	(() 		=> analytics.event ( 'cryptobullography' , 'share' , 'success' 	, platform 	))
+					.catch 	(( error ) 	=> analytics.event ( 'cryptobullography' , 'share' , 'error' 	, platform 	));
+				}}
+				value 	= { language.actions.share }
+			/> ,
 			headerTitle : <Header 		/> ,
 			tabBarIcon 	: ({ focused }) => {
 

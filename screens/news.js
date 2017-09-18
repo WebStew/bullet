@@ -3,12 +3,15 @@ import 		React 					from 'react';
 import { 	connect 			} 	from 'react-redux';
 import {	FlatList 			,
 			Linking 			,
+			Platform 			,
+			Share 				,
 			Text 				,
 			TouchableOpacity 	,
 			View 				} 	from 'react-native';
 import { 	Ionicons 			} 	from '@expo/vector-icons';
 import {	timeFormat 			} 	from 'd3-time-format';
 import 		Error 					from '../components/errors/ajax';
+import 		Action 					from '../components/utilities/header-action';
 import 		Back 					from '../components/utilities/back';
 import 		Loader 					from '../components/utilities/loader';
 import 		Header 					from '../components/news/header';
@@ -17,6 +20,7 @@ import 		style 					from '../styles/news';
 import 		scene 					from '../styles/scene';
 import 		seperator 				from '../styles/seperators';
 import 		analytics 				from '../utilities/analytics';
+import 		application 			from '../configuration/application';
 
 export default connect (
 
@@ -34,9 +38,29 @@ export default connect (
 				theme 	= screenProps.theme 	;
 
 		return {
-			headerLeft : <Back 
-				press 	= {() => navigation.goBack 	()} 
-				value 	= { language.actions.return }
+			headerLeft 	: <Action 
+				icon 	= 'ios-share-outline'
+				press 	= {() => {
+
+					const 	platform 	= Platform.OS ,
+							link 		= platform === 'ios' ? application.stores.apple : application.stores.google;
+
+					analytics.event ( 'cryptobullography' , 'share' , 'open' , platform );
+					Share.share 	(
+						{
+							message 	: language.screens.share.summary 	,
+							title 		: language.screens.share.title 		,
+							url 		: link
+						} , 
+						{
+							dialogTitle : language.screens.share.title 		,
+							tintColor 	: theme.chrome
+						}
+					)
+					.then 	(() 		=> analytics.event ( 'cryptobullography' , 'share' , 'success' 	, platform 	))
+					.catch 	(( error ) 	=> analytics.event ( 'cryptobullography' , 'share' , 'error' 	, platform 	));
+				}}
+				value 	= { language.actions.share }
 			/> ,
 			headerTitle : <Header 		/> ,
 			tabBarIcon 	: ({ focused }) => {
@@ -63,7 +87,7 @@ export default connect (
 	}
 
 	componentWillMount () {
-		
+
 		this.props.dispatch ( actions.get ());
 	} 
 
