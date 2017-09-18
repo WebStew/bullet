@@ -62,10 +62,10 @@ export default connect (
 					onPress = {() => {
 						
 						analytics.event ( 'exchange' , 'open' , exchange.name 	);
-						Linking.openURL ( exchange.url 							)
+						Linking.openURL ( exchange.url 							);
 					}}
 					style 	= {{
-						...appearance.control 						,
+						...appearance.control ,
 						...{
 							backgroundColor : background
 						}

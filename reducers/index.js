@@ -6,6 +6,7 @@ import 		currencies 			from './currencies';
 import 		graphs 				from './graphs';
 import 		language 			from './language';
 import 		navigation 			from './navigation';
+import 		news 				from './news';
 import 		portfolio 			from './portfolio';
 import 		search 				from './search';
 import 		theme 				from './theme';
@@ -17,6 +18,7 @@ export default combineReducers ({
 	graphs 		,
 	language 	,
 	navigation 	,
+	news 		,
 	portfolio 	,
 	search 		,
 	theme

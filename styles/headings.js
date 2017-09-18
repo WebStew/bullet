@@ -18,10 +18,10 @@ export default ( theme ) => {
 		// H2
 		2 : {
 
-			color 			: colour.shade ( theme.body , -0.25 ) 		,
-			fontSize 		: 18 										,
-			fontWeight 		: 'bold' 									,
-			marginBottom 	: 12
+			color 				: colour.shade ( theme.body , -0.25 ) 	,
+			fontSize 			: 18 									,
+			fontWeight 			: 'bold' 								,
+			marginBottom 		: 12
 			
 		}
 	};

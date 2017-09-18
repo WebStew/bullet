@@ -50,6 +50,10 @@ export default connect (
 				url 	: 'exchanges'
 			} ,
 			{
+				name 	: language.screens.converter.title 		,
+				url 	: 'converter'
+			} ,
+			{
 				name 	: language.screens.currency.title 		,
 				url 	: 'currency'
 			} ,

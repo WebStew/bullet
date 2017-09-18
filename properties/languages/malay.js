@@ -21,6 +21,7 @@ export default {
 			cancel 		: 'Batalkan' 						,
 			load 		: 'Beban' 							,
 			loading 	: 'Memuatkan...' 					,
+			more 		: 'Baca lebih lanjut' 				,
 			refresh 	: 'Menyegarkan' 					,
 			return 		: 'Belakang' 						,
 			remove 		: 'Keluarkan' 						,
@@ -86,7 +87,7 @@ export default {
 			} ,
 			
 			currency 		: {
-				title 		: 'Mata wang pilihan'
+				title 		: 'Tukar mata wang'
 			} ,
 
 			currencies 		: {
@@ -112,6 +113,10 @@ export default {
 
 			language 		: {
 				title 		: 'Tukar bahasa'
+			} ,
+			
+			news 			: {
+				title 		: 'Berita'
 			} ,
 
 			portfolio 		: {

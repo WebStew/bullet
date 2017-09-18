@@ -192,9 +192,9 @@ export default class ChartTree extends React.Component {
 
 		this.setScales 	();
 		
-		// { this.header ()}
 		return 			(
 			<View style = { appearance.tree.view }>
+				{ this.header ()}
 				<SectionList 
 					horizontal 						= { true 							}
 					initialNumToRender 				= { Math.round ( device.width / 10 	)}

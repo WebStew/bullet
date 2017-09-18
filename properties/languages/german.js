@@ -21,6 +21,7 @@ export default {
 			cancel 		: 'Stornieren' 								,
 			load 		: 'Belastung' 								,
 			loading 	: 'Laden...' 								,
+			more 		: 'Weiterlesen' 							,
 			refresh 	: 'Erneuern' 								,
 			return 		: 'Zurück' 									,
 			remove 		: 'Entfernen' 								,
@@ -81,7 +82,7 @@ export default {
 			} ,
 			
 			currency 		: {
-				title 		: 'Bevorzugte Währung'
+				title 		: 'Währung ändern'
 			} ,
 
 			currencies 		: {
@@ -114,6 +115,10 @@ export default {
 				title 		: 'Sprache ändern'
 			} ,
 			
+			news 			: {
+				title 		: 'Nachrichten'
+			} ,
+
 			portfolio 		: {
 				404 		: 'Sie haben Ihrem Portfolio keine Währungen hinzugefügt. Bitte fügen Sie sie aus dem Währungsdetailbildschirm hinzu und wir beraten Sie gerne von einem geschätzten Wert für Ihre Münzsammlung' ,
 				description : 'Fügen Sie {{placeholder}} zu Ihrer Portfolio-Liste hinzu, um einen Überblick über alle Ihre Münzen und ihre kombinierten Wert zu halten.' ,

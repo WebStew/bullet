@@ -71,7 +71,8 @@ export default ( theme ) => {
 		title 	: {
 			color 		: theme.body 	,
 			fontSize 	: 18 			,
-			fontWeight 	: 'normal'
+			fontWeight 	: 'normal' 		,
+			textAlign 	: 'center'
 		}
 	};
 };

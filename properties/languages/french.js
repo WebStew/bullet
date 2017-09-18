@@ -21,6 +21,7 @@ export default {
 			cancel 		: 'Annuler' 						,
 			load 		: 'Charge' 							,
 			loading 	: 'Chargement...' 					,
+			more 		: 'Lire la suite' 					,
 			refresh 	: 'Rafraîchir' 						,
 			return 		: 'Arrière' 						,
 			remove 		: 'Retirer' 						,
@@ -81,7 +82,7 @@ export default {
 			} ,
 			
 			currency 		: {
-				title 		: 'Devise préférée'
+				title 		: 'Changer de devise'
 			} ,
 
 			currencies 		: {
@@ -124,6 +125,10 @@ export default {
 					total 	: 'Total'
 				} ,
 				title 		: 'Portefeuille'
+			} ,
+
+			news 			: {
+				title 		: 'Nouvelles'
 			} ,
 
 			settings 		: {

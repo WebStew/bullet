@@ -7,7 +7,8 @@ import { 	Keyboard 					,
 			TouchableWithoutFeedback 	,
 			View 						} 	from 'react-native';
 import { 	Ionicons 					} 	from '@expo/vector-icons';
-import 		Error 					from '../components/errors/ajax';
+import 		Error 							from '../components/errors/ajax';
+import 		Back 							from '../components/utilities/back';
 import 		Loader 							from '../components/utilities/loader';
 import 		Header 							from '../components/converter/header';
 import 		layout 							from '../styles/layout';
@@ -35,17 +36,22 @@ export default connect (
 				theme 		= screenProps.theme 	;
 
 		return {
+			headerLeft 	: <Back 
+				press 	= {() => navigation.goBack 	()} 
+				theme 	= { theme 					}
+				value 	= { language.actions.return }
+			/> ,
 			headerTitle : <Header /> ,
-			tabBarIcon 	: ({ focused }) => {
+			// tabBarIcon 	: ({ focused }) => {
 
-				return (
-					<Ionicons
-						name 	= 'ios-calculator-outline'
-						size 	= { 32 											}
-						color 	= { focused ? theme.disabled : theme.secondary 	}
-					/>
-				);
-			} ,
+			// 	return (
+			// 		<Ionicons
+			// 			name 	= 'ios-calculator-outline'
+			// 			size 	= { 32 											}
+			// 			color 	= { focused ? theme.disabled : theme.secondary 	}
+			// 		/>
+			// 	);
+			// } ,
 			title 		: language.screens.converter.title
 		};
 	};

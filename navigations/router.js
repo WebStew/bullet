@@ -11,6 +11,7 @@ import 		Detail				from '../screens/detail';
 import 		Exchanges 			from '../screens/exchanges';
 import 		Language 			from '../screens/language';
 import 		Languages 			from '../screens/languages';
+import 		News 				from '../screens/news';
 import 		Portfolio 			from '../screens/portfolio';
 import 		Settings 			from '../screens/settings';
 import 		Theme 				from '../screens/theme';
@@ -32,9 +33,9 @@ const Root = TabNavigator (
 		portfolio 	: {
 			screen 	: Portfolio
 		} ,
-
-		converter 	: {
-			screen 	: Converter
+		
+		news 		: {
+			screen 	: News
 		} ,
 
 		settings 	: {
@@ -76,6 +77,10 @@ export default StackNavigator ({
 
 		language 	: {
 			screen 	: Language
+		} ,
+
+		converter 	: {
+			screen 	: Converter
 		} ,
 
 		theme 		: {

@@ -21,6 +21,7 @@ export default {
 			cancel 		: '取消' 				,
 			load 		: '加载' 				,
 			loading 	: '载入中...' 			,
+			more 		: '阅读更多' 			,
 			remove 		: '去掉' 				,
 			refresh 	: '刷新' 				,
 			return 		: '背部' 				,
@@ -81,7 +82,7 @@ export default {
 			} ,
 
 			currency 		: {
-				title 		: '首选货币'
+				title 		: '更改货币'
 			} ,
 
 			currencies 		: {
@@ -112,6 +113,10 @@ export default {
 
 			language 		: {
 				title 		: '改变语言'
+			} ,
+
+			news 			: {
+				title 		: '新闻'
 			} ,
 
 			portfolio 		: {

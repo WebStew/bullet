@@ -21,6 +21,7 @@ export default {
 			cancel 		: 'İptal etmek' 					,
 			load 		: 'Yük' 							,
 			loading 	: 'Yükleniyor...' 					,
+			more 		: 'Daha fazla oku' 					,
 			refresh 	: 'Yenile' 							,
 			return 		: 'Geri' 							,
 			remove 		: 'Kaldır' 							,
@@ -81,7 +82,7 @@ export default {
 			} ,
 			
 			currency 		: {
-				title 		: 'Tercih edilen para birimi'
+				title 		: 'Para birimini değiştir'
 			} ,
 
 			currencies 		: {
@@ -114,6 +115,10 @@ export default {
 				title 		: 'Dili değiştir'
 			} ,
 			
+			news 			: {
+				title 		: 'Haber'
+			} ,
+
 			portfolio 		: {
 				404 		: 'Portföyünüze para birimi eklemediniz. Lütfen bunları para birimi detay ekranından ekleyin ve bozuk para grubunuz için tahmini bir değer önerebiliriz.' ,
 				description : 'Tüm madeni paralarınızı ve bunların birleşik değerlerini takip etmek için portföy listesine {{placeholder}} ekleyin.' ,

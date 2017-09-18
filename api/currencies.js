@@ -42,5 +42,4 @@ export default {
 			method : 'GET'
 		});
 	}
-
 };

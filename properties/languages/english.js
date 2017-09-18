@@ -21,6 +21,7 @@ export default {
 			cancel 		: 'Cancel' 						,
 			load 		: 'Load' 						,
 			loading 	: 'Loading...' 					,
+			more 		: 'Read more' 					,
 			refresh 	: 'Refresh' 					,
 			return 		: 'Back' 						,
 			remove 		: 'Remove' 						,
@@ -81,7 +82,7 @@ export default {
 			} ,
 
 			currency 		: {
-				title 		: 'Preferred currency'
+				title 		: 'Change currency'
 			} ,
 
 			currencies 		: {
@@ -111,7 +112,11 @@ export default {
 			} ,
 
 			language 		: {
-				title 			: 'Change language'
+				title 		: 'Change language'
+			} ,
+			
+			news 			: {
+				title 		: 'News'
 			} ,
 			
 			portfolio 		: {

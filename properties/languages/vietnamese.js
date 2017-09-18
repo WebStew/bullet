@@ -21,6 +21,7 @@ export default {
 			cancel 		: 'Hủy' 							,
 			load 		: 'Tải' 							,
 			loading 	: 'Tải...' 							,
+			more 		: 'Đọc thêm' 						,
 			refresh 	: 'Tải lại' 						,
 			return 		: 'Trở lại' 						,
 			remove 		: 'Tẩy' 							,
@@ -81,7 +82,7 @@ export default {
 			} ,
 			
 			currency 		: {
-				title 		: 'Tiền tệ ưa thích'
+				title 		: 'Thay đổi tiền tệ'
 			} ,
 
 			currencies 		: {
@@ -112,6 +113,10 @@ export default {
 
 			language 		: {
 				title 		: 'Thay đổi ngôn ngữ'
+			} ,
+			
+			news 			: {
+				title 		: 'Tin tức'
 			} ,
 			
 			portfolio 		: {

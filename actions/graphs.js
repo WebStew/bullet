@@ -36,7 +36,7 @@ export default {
 
 	get ( id ) {
 
-		return function ( dispatch ) {
+		return ( dispatch ) => {
 
 			dispatch ( graphs.get ());
 
@@ -44,14 +44,14 @@ export default {
 			return api.get ( id )
 
 				// Transform the reponse
-				.then ( function ( response ) {
+				.then (( response ) => {
 
 					return environment.data.mock ? response : response.json ();
 
 				})
 				
 				// Dispatch the data
-				.then ( function ( data ) {
+				.then (( data ) => {
 
 					const normalised = schematic.get ( data );
 

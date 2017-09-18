@@ -78,7 +78,7 @@ export default {
 
 	get ( currency ) {
 
-		return function ( dispatch ) {
+		return ( dispatch ) => {
 
 			callbacks.get ( dispatch );
 
@@ -92,7 +92,7 @@ export default {
 
 	stream ( currency ) {
 
-		return function ( dispatch ) {
+		return ( dispatch ) => {
 
 			callbacks.get ( dispatch );
 
