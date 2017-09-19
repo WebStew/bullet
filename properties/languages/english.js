@@ -15,6 +15,7 @@ export default {
 		} ,
 
 		actions 		: {
+			ad 			: 'Sponsored' 					,
 			all 		: 'all' 						,
 			add 		: 'Add' 						,
 			calculating : 'Calculating...' 				,

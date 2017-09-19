@@ -15,6 +15,7 @@ export default {
 		} ,
 
 		actions 		: {
+			ad 			: 'Sponsor' 						,
 			all 		: 'herşey' 							,
 			add 		: 'Eklemek' 						,
 			calculating : 'Hesaplama...' 					,

@@ -15,6 +15,7 @@ export default {
 		} ,
 
 		actions 		: {
+			ad 			: 'Gefördert' 								,
 			all 		: 'alle' 									,
 			add 		: 'Hinzufügen' 								,
 			calculating : 'Berechnen...' 							,

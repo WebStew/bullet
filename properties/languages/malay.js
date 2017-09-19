@@ -15,6 +15,7 @@ export default {
 		} ,
 
 		actions 		: {
+			ad 			: 'Ditaja' 							,
 			all 		: 'Semua' 							,
 			add 		: 'Tambah' 							,
 			calculating : 'Menghitung...' 					,

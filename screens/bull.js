@@ -10,6 +10,7 @@ import 		Error 				from '../components/errors/ajax';
 import 		Action 				from '../components/utilities/header-action';
 import 		Button 				from '../components/utilities/button';
 import 		Loader 				from '../components/utilities/loader';
+import 		Advert 				from '../components/adverts/button';
 import 		Header 				from '../components/bull/header';
 import 		Overview 			from '../components/bull/overview';
 import 		NotFound 			from '../components/bull/404';
@@ -20,6 +21,7 @@ import 		style 				from '../styles/bull';
 import 		api 				from '../api/currencies';
 import 		analytics 			from '../utilities/analytics';
 import 		application 		from '../configuration/application';
+import 		adverts 			from '../configuration/adverts';
 
 export default connect (
 
@@ -144,7 +146,7 @@ export default connect (
 			);
 		}
 
-		return 				(
+		return 					(
 			<ScrollView style 	= { scenery.body 		}>
 				<Overview 
 					currency 	= { this.props.currency }
@@ -162,12 +164,21 @@ export default connect (
 								}
 							);
 						}}
-						theme = { theme 							}
-						value = { language.screens.detail.title 	}
+						theme = { theme 						}
+						value = { language.screens.detail.title }
+					/>
+					<Advert 
+						id 			= { adverts.bull.button [ 0 ]}
+						language 	= { language 				}
+						theme 		= { theme 					} 
+					/>
+					<Advert 
+						id 			= { adverts.bull.button [ 1 ]}
+						language 	= { language 				}
+						theme 		= { theme 					} 
 					/>
 				</View>
 			</ScrollView>
 		);
-
 	}
 });

@@ -15,6 +15,7 @@ export default {
 		} ,
 
 		actions 		: {
+			ad 			: 'Tài trợ' 						,
 			all 		: 'mọi điều' 						,
 			add 		: 'Thêm vào' 						,
 			calculating : 'Tính...' 						,

@@ -7,6 +7,7 @@ import { 	Image 			,
 			TextInput 		} 	from 'react-native';
 import { 	connect 		} 	from 'react-redux';
 import 		actions 			from '../actions/graphs';
+//import 		Advert 				from '../components/adverts/button';
 import 		Button 				from '../components/utilities/button';
 import 		Back 				from '../components/utilities/back';
 import 		Heading 			from '../components/utilities/headings';
@@ -20,6 +21,7 @@ import 		scene 				from '../styles/scene';
 import 		style 				from '../styles/detail';
 import 		numbers 			from '../utilities/numbers';
 import 		analytics 			from '../utilities/analytics';
+//import 		adverts 			from '../configuration/adverts';
 
 export default connect (
 
@@ -109,21 +111,18 @@ export default connect (
 							...scenery.header
 						}}
 					>
-
 						<Image 	
 							style 	= { appearance.icon }
 							source 	= {{
 								uri : images.currencies.large ( item.id ) 
 							}}
-						/>
-						
+						/>	
 						<Heading 
 							title 	= { item.name + ' ( ' +  item.symbol + ' )' } 
 							theme 	= { theme 									}
 							type 	= '1'
 						/>
 					</View>
-
 					<Tree 
 						data 		= { this.props.graphs.prices.usd 	}
 						error 		= { this.props.graphs.error 		}
@@ -144,7 +143,6 @@ export default connect (
 							);
 						}}
 					/>
-
 					<View 	style 	= { appearance.button }>
 						<Button
 							press 	= {() => {
@@ -157,7 +155,6 @@ export default connect (
 							value = { action 	}
 						/>
 					</View>
-					
 					<Modal 
 						active 		= { this.state.modal 		}
 						amount 		= { this.state.amount 		}
@@ -168,7 +165,6 @@ export default connect (
 						reset 		= { this.close 				}
 						theme 		= { theme 					}
 					/>
-
 					<Sections  
 						language 	= { language 	}
 						theme 		= { theme 		}

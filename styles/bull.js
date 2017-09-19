@@ -8,7 +8,7 @@ export default ( theme ) => {
 		} ,
 
 		button 				: {
-			padding 		: 15
+			paddingHorizontal 	: 15
 		} ,
 
 		icon 				: {

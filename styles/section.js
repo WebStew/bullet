@@ -19,7 +19,7 @@ export default ( theme ) => {
 		} ,
 
 		view 	: {
-			borderTopColor 		: theme.border ,
+			borderTopColor 		: theme.border 	,
 			borderTopWidth 		: 1
 		}
 	};

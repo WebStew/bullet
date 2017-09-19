@@ -15,6 +15,7 @@ export default {
 		} ,
 
 		actions 		: {
+			ad 			: 'Sponsorisé' 						,
 			all 		: 'tout' 							,
 			add 		: 'Ajouter' 						,
 			calculating : 'Calculateur...' 					,

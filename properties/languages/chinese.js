@@ -15,6 +15,7 @@ export default {
 		} ,
 
 		actions 		: {
+			ad 			: '赞助商' 			,
 			all 		: '所有' 				,
 			add 		: '加' 				,
 			calculating : '计算...' 			,

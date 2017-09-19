@@ -1,7 +1,9 @@
 
 import 		React 			from 'react';
 import { 	Provider 	} 	from 'react-redux';
-import { 	AppLoading 	} 	from 'expo';
+import { 	AppLoading 	,
+			Constants 	,
+			FacebookAds } 	from 'expo';
 import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		Main 			from './screens/main';
 import 		currency 		from './actions/currency';
@@ -26,7 +28,6 @@ export default class Application extends React.Component {
 		try {
 
 			await cache.assets ({
-
 				images 	: [] ,
 				fonts 	: [
 					Ionicons.font ,
@@ -35,11 +36,10 @@ export default class Application extends React.Component {
 					}
 				]
 			});
-
 		} 
 		
 		catch ( error ) {
-			console.log 	( error.message 			);
+			console.log 	( error.message );
 		} 
 		
 		finally {
@@ -47,9 +47,7 @@ export default class Application extends React.Component {
 			this.setState ({
 				cache : true
 			});
-		
 		}
-		
 	}
 
 	componentWillMount () {
@@ -71,6 +69,12 @@ export default class Application extends React.Component {
 		// Getting a users preferred currency is the catalyst to kicking off the correct calls to the currencies.
 		// Once we know this we know what currency conversion to use
 		store.dispatch 	( currency.get 	());
+
+		// Send test ads to the device if in development mode
+		if ( __DEV__ ) {
+
+			FacebookAds.AdSettings.addTestDevice ( Constants.deviceId );
+		}
 	}
 
 	render () {

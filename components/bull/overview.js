@@ -69,7 +69,12 @@ export default class Overview extends React.Component {
 						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors )}
 					</Text>
 				</View>
-				<View style = { bulls.stripe }>
+				<View style = {{
+					...bulls.stripe ,
+					...{
+						marginBottom : 15
+					}
+				}}>
 					<Sections 
 						language 	= { language 	}
 						theme 		= { theme 		}
