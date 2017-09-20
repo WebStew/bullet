@@ -92,7 +92,7 @@ export default StackNavigator ({
 		} ,
 
 		languages 	: {
-			screen 		: Languages
+			screen 	: Languages
 		}
 	} ,
 

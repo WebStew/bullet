@@ -69,6 +69,7 @@ export default ( theme ) => {
 		} ,
 	
 		title 	: {
+			alignSelf 	: 'center' 		,
 			color 		: theme.body 	,
 			fontSize 	: 18 			,
 			fontWeight 	: 'normal' 		,
