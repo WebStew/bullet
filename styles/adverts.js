@@ -4,6 +4,15 @@ export default ( theme ) => {
 
 	return {
 
+		body : {
+			backgroundColor 	: theme.primary ,
+			borderTopWidth 		: 1 			,
+			borderColor 		: theme.border 	,
+			paddingBottom 		: 5 			,
+			paddingHorizontal 	: 15 			,
+			paddingTop 			: 12
+		} ,
+
 		button : {
 
 			cta : {
@@ -13,51 +22,55 @@ export default ( theme ) => {
 			} ,
 
 			column : { 
-				flex 			: 1 		, 
+				flex 			: 1 			,
 				flexDirection 	: 'column'
 			} ,
-
-			icon : {
-				borderColor 	: theme.border 	,
-				borderRadius 	: 3 			,
-				borderWidth 	: 1 			,
-				height 			: 50 			,
-				marginRight 	: 5 			,
-				width 			: 50
-			} ,
-
-			label : {
-				backgroundColor 	: theme.base 	,
-				borderColor 		: theme.border 	,
-				borderWidth 		: 1 			,
-				color 				: theme.body 	,
-				fontSize 			: 12 			,
-				paddingHorizontal 	: 5 			,
-				paddingVertical 	: 2 			,
-				position 			: 'absolute' 	,
-				right 				: 10 			,
-				top 				: -10 			,
-				zIndex 				: 1
-			} ,
-
-			title : {
-				color 			: theme.body 	,
-				fontSize 		: 18 			,
-				fontWeight 		: 'bold' 		,
-				marginBottom 	: 2 			,
-				paddingTop 		: 5
-			} ,
-
-			view : {
+			
+			content : {
 				backgroundColor 	: theme.chrome 	,
 				borderColor 		: theme.border 	,
 				borderRadius 		: 5 			,
 				borderWidth 		: 1 			,
 				flexDirection 		: 'row' 		,
-				marginBottom 		: 15 			,
-				paddingLeft 		: 5 			,
-				paddingRight 		: 15 			,
-				paddingVertical 	: 5
+				padding 			: 5
+			} ,
+
+			description : {
+				color 			: theme.body 	,
+				flex 			: 1 			,
+				fontSize 		: 14 			,
+				marginBottom 	: 4
+			} ,
+
+			icon : {
+				borderColor 	: theme.border 	,
+				borderWidth 	: 1 			,
+				height 			: 70 			,
+				marginRight 	: 5 			,
+				borderRadius 	: 5 			,
+				width 			: 70
+			} ,
+
+			label : {
+				color 			: theme.body 	,
+				fontSize 		: 12 			,
+				marginBottom 	: 3 			,
+				marginRight 	: 5 			,
+				textAlign 		: 'right'
+			} ,
+
+			title : {
+				color 			: theme.body 	,
+				flex 			: 1 			,
+				fontSize 		: 18 			,
+				fontWeight 		: 'bold' 		,
+				marginBottom 	: 3 			,
+				paddingTop 		: 1
+			} ,
+
+			view : {
+				flexDirection 	: 'column' ,
+				marginBottom 	: 10
 			}
 		}
 	};

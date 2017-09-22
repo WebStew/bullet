@@ -16,8 +16,9 @@ import 		Overview 			from '../components/bull/overview';
 import 		NotFound 			from '../components/bull/404';
 import 		Refresh 			from '../components/bull/refresh';
 import 		actions 			from '../actions/currencies';
+import 		ads 				from '../styles/adverts';
 import 		scene 				from '../styles/scene';
-import 		style 				from '../styles/bull'; 			
+import 		style 				from '../styles/bull';
 import 		api 				from '../api/currencies';
 import 		analytics 			from '../utilities/analytics';
 import 		application 		from '../configuration/application';
@@ -103,6 +104,7 @@ export default connect (
 
 		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
+				ad 			= ads 	( theme ) 		,
 				scenery 	= scene ( theme ) 		,
 				appearance 	= style ( theme ) 		;
 
@@ -167,6 +169,8 @@ export default connect (
 						theme = { theme 						}
 						value = { language.screens.detail.title }
 					/>
+				</View>
+				<View 	style 		= { ad.body 				}>
 					<Advert 
 						id 			= { adverts.bull.button [ 0 ]}
 						language 	= { language 				}

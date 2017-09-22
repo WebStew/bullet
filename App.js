@@ -73,7 +73,7 @@ export default class Application extends React.Component {
 		// Send test ads to the device if in development mode
 		if ( __DEV__ ) {
 
-			FacebookAds.AdSettings.addTestDevice ( Constants.deviceId );
+			FacebookAds.AdSettings.addTestDevice ( FacebookAds.AdSettings.currentDeviceHash );
 		}
 	}
 

@@ -106,10 +106,10 @@ export default connect (
 				url 	: 'language'
 			} ,
 			
-			{
-				name 	: language.screens.donate.title  		,
-				url 	: 'donate'
-			}
+			// {
+			// 	name 	: language.screens.donate.title  		,
+			// 	url 	: 'donate'
+			// }
 		];
 	}
 

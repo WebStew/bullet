@@ -5,7 +5,7 @@
 		"slug" : "bullet",
 		"privacy" : "public",
 		"sdkVersion" : "20.0.0",
-		"version" : "4.1.0",
+		"version" : "6.1.0",
 		"orientation" : "portrait",
 		"primaryColor" : "#000",
 		"icon" : "./assets/icons/application.png",
@@ -24,7 +24,7 @@
 		},
 		"android": {
 			"package": "com.webstew.bullet" ,
-			"versionCode": 4
+			"versionCode": 5
 		} ,
 		"ios" : {
 			"bundleIdentifier": "com.webstew.bullet" ,

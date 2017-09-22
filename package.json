@@ -1,6 +1,6 @@
 {
   "name": "bullet",
-  "version": "4.1.0",
+  "version": "6.1.0",
   "description": "Find the latest Bull and on the crypto market.",
   "author": "Stuart Pretorius",
   "main": "node_modules/expo/AppEntry.js",

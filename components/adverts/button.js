@@ -23,25 +23,38 @@ const 	manager 	= ( id ) => new FacebookAds.NativeAdsManager ( id , 1 ) 		,
 						<Text 	style = { appearance.label 	}>
 							{ language.actions.ad }
 						</Text>
-						<Image 
-							source 	= {{
-								uri : advert.icon
-							}}
-							style 	= { appearance.icon 	}
-						/>
-						<View style = { appearance.column 	}>
-							<Text 
-								numberOfLines 	= { 1 					}
-								style 			= { appearance.title 	}
-							>
-								{ advert.title }
-							</Text>
-							<Text 
-								numberOfLines 	= { 1 				}
-								style 			= { appearance.cta 	}
-							>
-								{ advert.callToActionText }
-							</Text>
+						<View 	style = { appearance.content }>
+							<Image 
+								source 	= {{
+									uri : advert.icon
+								}}
+								style 	= { appearance.icon 	}
+							/>
+							<View style = { appearance.column 	}>
+								<View>
+									<Text 
+										numberOfLines 	= { 1 					}
+										style 			= { appearance.title 	}
+									>
+										{ advert.title }
+									</Text>
+								</View>
+								<View>
+									<Text 
+										numberOfLines 	= { 1 					}
+										style 			= { appearance.description 	}>
+										{ advert.description }
+									</Text>
+								</View>
+								<View>
+									<Text 
+										numberOfLines 	= { 1 				}
+										style 			= { appearance.cta 	}
+									>
+										{ advert.callToActionText }
+									</Text>
+								</View>
+							</View>
 						</View>
 					</View>
 				);
