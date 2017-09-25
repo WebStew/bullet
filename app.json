@@ -29,6 +29,18 @@
 		"ios" : {
 			"bundleIdentifier": "com.webstew.bullet" ,
 			"supportsTablet" : true
+		} ,
+		"hooks": {
+			"postPublish": [
+				{
+					"file": "sentry-expo/upload-sourcemaps",
+					"config": {
+						"organization": "stuart-pretorius",
+						"project": "cryptobullography",
+						"authToken": "79ac4c78a1f311e79a9d4201c0a8d03a"
+					}
+				}
+			]
 		}
 	}
 }

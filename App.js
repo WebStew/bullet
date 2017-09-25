@@ -4,16 +4,20 @@ import { 	Provider 	} 	from 'react-redux';
 import { 	AppLoading 	,
 			Constants 	,
 			FacebookAds } 	from 'expo';
+import 		Sentry 			from 'sentry-expo';
 import { 	Ionicons 	} 	from '@expo/vector-icons';
 import 		Main 			from './screens/main';
 import 		currency 		from './actions/currency';
 import 		language 		from './actions/language';
 import 		theme 			from './actions/theme';
 import 		portfolio 		from './actions/portfolio';
+import 		application 	from './configuration/application';
 import 		database 		from './configuration/database';
 import 		configuration 	from './configuration/store';
 import 		analytics 		from './utilities/analytics';
 import 		cache 			from './utilities/cache';
+
+Sentry.config ( application.sentry ).install ();
 
 const store = configuration ();
 
@@ -59,7 +63,7 @@ export default class Application extends React.Component {
 		database.settings.setup 	();
 
 		// Setup the analytics
-		analytics.setup 		();
+		analytics.setup ();
 
 		// Get any data from the local databases
 		store.dispatch 	( theme.get 	());

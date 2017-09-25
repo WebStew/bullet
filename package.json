@@ -24,10 +24,11 @@
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "sentry-expo": "^1.6.0"
   },
   "devDependencies": {
-	"jest-expo": "~20.0.0" ,
-	"sentry-expo" : "~1.6.0"
+    "jest-expo": "~20.0.0",
+    "sentry-expo": "~1.6.0"
   }
 }
