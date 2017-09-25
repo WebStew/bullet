@@ -258,7 +258,8 @@ export default connect (
 		const 	language 	= this.props.language 	,
 				theme 		= this.props.theme 		,
 				scenery 	= scene ( theme ) 		,
-				appearance 	= style ( theme ) 		;
+				appearance 	= style ( theme ) 		,
+				data 		= this.data () 			;
 
 
 		if ( this.props.currencies.loading ) {
@@ -288,17 +289,20 @@ export default connect (
 			);
 		}
 
-		if ( ! this.props.currencies.items.length && ! this.props.currencies.loading ) {
+		if ( ! data.length && ! this.props.currencies.loading ) {
 
 			return (
-				<View 		style 	= { appearance [ '404' ].view 	}>
-					<Text 	style 	= { appearance [ '404' ].text 	}>
-						{ language.screens.currencies.none + ' "' 	}
-						<Text style = { appearance [ '404' ].term 	}>
-							{ this.props.search.value + '"' 		}
+				<View style = { scenery.body }>
+					<SearchInput  	/>
+					<View 		style 	= { appearance [ '404' ].view 	}>
+						<Text 	style 	= { appearance [ '404' ].text 	}>
+							{ language.screens.currencies.none + ' "' 	}
+							<Text style = { appearance [ '404' ].term 	}>
+								{ this.props.search.value + '"' 		}
+							</Text>
 						</Text>
-					</Text>
-				</View> 
+					</View> 
+				</View>
 			);
 		}
 
@@ -308,7 +312,7 @@ export default connect (
 				{ this.header ()}
 				<FlatList
 					theme 					= { theme 							}
-					data 					= { this.data 						()}
+					data 					= { data 							}
 					ItemSeparatorComponent 	= { this.separator 					}
 					initialNumToRender 		= { Math.round ( device.height / 10 )}
 					keyExtractor 			= {( item , index ) => index 		}
