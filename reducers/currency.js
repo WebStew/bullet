@@ -6,7 +6,6 @@ import currencies 	from '../properties/currencies';
 
 export default function (
 
-	// We set the default to the first theme in our theme properties
 	state 	= {
 		id 		: null 	,
 		loading : true 	,

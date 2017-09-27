@@ -54,7 +54,7 @@ export default class Item extends React.PureComponent {
 						<Image 	
 							style 	= { appearance.icon }
 							source 	= {{
-								uri : images.currencies.small ( item.id ) 
+								uri : images.currencies.medium ( item.id ) 
 							}}
 						/>
 						<Text 

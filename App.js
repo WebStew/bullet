@@ -43,7 +43,7 @@ export default class Application extends React.Component {
 		} 
 		
 		catch ( error ) {
-			console.log 	( error.message );
+			console.log ( error.message );
 		} 
 		
 		finally {
@@ -75,10 +75,10 @@ export default class Application extends React.Component {
 		store.dispatch 	( currency.get 	());
 
 		// Send test ads to the device if in development mode
-		// if ( __DEV__ ) {
+		if ( __DEV__ ) {
 
-		// 	FacebookAds.AdSettings.addTestDevice ( FacebookAds.AdSettings.currentDeviceHash );
-		// }
+			FacebookAds.AdSettings.addTestDevice ( FacebookAds.AdSettings.currentDeviceHash );
+		}
 	}
 
 	render () {
