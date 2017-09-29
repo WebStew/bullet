@@ -8,8 +8,9 @@ export default ( theme ) => {
 		back 	: {
 
 			control : {
-				flexDirection : 'row' ,
-				paddingLeft : 10
+				alignItems 		: 'center' 	,
+				flexDirection 	: 'row' 	,
+				paddingLeft 	: 10
 			} ,
 
 			text : {
@@ -24,8 +25,9 @@ export default ( theme ) => {
 		left 	: {
 
 			control : {
-				flexDirection 	: 'row' ,
-				paddingLeft 	: 5 	,
+				alignItems 		: 'center' 	,
+				flexDirection 	: 'row'		,
+				paddingLeft 	: 5 		,
 				paddingRight 	: 10
 			} ,
 
@@ -40,8 +42,9 @@ export default ( theme ) => {
 		right 	: {
 
 			control : {
-				flexDirection : 'row' ,
-				paddingRight : 10
+				alignItems 		: 'center' 	,
+				flexDirection 	: 'row' 	,
+				paddingRight 	: 10
 			} ,
 
 			text : {
@@ -59,7 +62,8 @@ export default ( theme ) => {
 
 		header 	: {
 			backgroundColor 	: theme.chrome 	,
-			borderBottomColor 	: theme.chrome
+			borderBottomColor 	: theme.chrome 	,
+			elevation 			: 0
 		} ,
 
 		icon : {

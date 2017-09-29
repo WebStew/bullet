@@ -45,15 +45,14 @@ export default connect (
 				icon 	= 'ios-share-outline'
 				press 	= {() => {
 
-					const 	platform 	= Platform.OS ,
-							link 		= platform === 'ios' ? application.stores.apple : application.stores.google;
+					const 	platform 	= Platform.OS;
 
 					analytics.event ( 'cryptobullography' , 'share' , 'open' , platform );
 					Share.share 	(
 						{
 							message 	: language.screens.share.summary 	,
 							title 		: language.screens.share.title 		,
-							url 		: link
+							url 		: application.store ()
 						} , 
 						{
 							dialogTitle : language.screens.share.title 		,
