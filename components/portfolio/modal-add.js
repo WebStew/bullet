@@ -1,9 +1,9 @@
 
 import 		React 				from 'react';
-import { 	Text 			,
+import { 	Modal 			,
+			Text 			,
 			TextInput 		,
 			View 			} 	from 'react-native';
-import 		Modal 				from 'react-native-modal'
 import 		actions 			from '../../actions/portfolio';
 import 		Button 				from '../utilities/button';
 import 		Heading 			from '../utilities/headings';
@@ -131,49 +131,49 @@ export default class Dialogue extends React.Component {
 
 		return (
 			<Modal 
-				animationIn 		= 'zoomIn'
-				animationOut 		= 'zoomOut'
-				backdropColor 		= { theme.chrome 		}
-				onBackButtonPress 	= { this.props.reset 	}
-				onBackdropPress 	= { this.props.reset 	}
-				isVisible 			= { this.props.active 	}>
-				<View 	style 		= { appearance.view 	}>
-					<Heading 
-						title 		= { action 	}
-						theme 		= { theme 	}
-						type 		= '2'
-					/>
-					<Text style 	= { appearance.text }>
-						{ language.screens.portfolio.description.replace ( '{{placeholder}}' , item.name )}
-					</Text>
-					<View 			style 	= { appearance.field 			}>
-						<View 		style 	= { appearance.label.view 		}>
-							<Text 	style 	= { appearance.label.text 		}>
-								{ language.screens.portfolio.headers.amount }
-							</Text>
+				animationType 		= 'fade'
+				onRequestClose 		= { this.props.reset 	}
+				transparent 		= { true 				}
+				visible 			= { this.props.active 	}>
+				<View 		style 	= { appearance.overlay 	}>
+					<View 	style 	= { appearance.view 	}>
+						<Heading 
+							title 	= { action 	}
+							theme 	= { theme 	}
+							type 	= '2'
+						/>
+						<Text style = { appearance.text }>
+							{ language.screens.portfolio.description.replace ( '{{placeholder}}' , item.name )}
+						</Text>
+						<View 			style 	= { appearance.field 			}>
+							<View 		style 	= { appearance.label.view 		}>
+								<Text 	style 	= { appearance.label.text 		}>
+									{ language.screens.portfolio.headers.amount }
+								</Text>
+							</View>
+							<TextInput 
+								onBlur 			= { this.blur 			}
+								onChangeText  	= { this.amount 		}
+								onFocus 		= { this.focus 			}
+								keyboardType 	= 'numeric'
+								selectionColor 	= { theme.secondary 	}
+								style 			= { appearance.input 	}
+								value 			= { this.state.amount 	}
+							/>
 						</View>
-						<TextInput 
-							onBlur 			= { this.blur 			}
-							onChangeText  	= { this.amount 		}
-							onFocus 		= { this.focus 			}
-							keyboardType 	= 'numeric'
-							selectionColor 	= { theme.secondary 	}
-							style 			= { appearance.input 	}
-							value 			= { this.state.amount 	}
+						<Button
+							press 	= { this.set  	}
+							theme 	= { theme 		}
+							value 	= { action 		}
+						/>
+						{ this.remove ( portfolioed )}
+						<Button
+							press 	= { this.props.reset 		}
+							theme 	= { theme 					}
+							value 	= { language.actions.cancel }
+							type 	= 'secondary'
 						/>
 					</View>
-					<Button
-						press 	= { this.set  	}
-						theme 	= { theme 		}
-						value 	= { action 		}
-					/>
-					{ this.remove ( portfolioed )}
-					<Button
-						press 	= { this.props.reset 		}
-						theme 	= { theme 					}
-						value 	= { language.actions.cancel }
-						type 	= 'secondary'
-					/>
 				</View>
 			</Modal>
 		);

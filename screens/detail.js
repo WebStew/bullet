@@ -62,11 +62,11 @@ export default connect (
 	constructor ( props ) {
 		super 	( props );
 
-		this.close = this.close.bind ( this );
-		this.state = { 
-			amount 	: 0 ,
-			modal 	: false 
+		this.close 	= this.close.bind ( this );
+		this.state 	= {
+			modal 	: false
 		};
+ 
 	}
 
 	componentWillMount () {

@@ -1,4 +1,6 @@
 
+import device from '../properties/device';
+
 export default ( theme ) => {
 
 	return {
@@ -34,6 +36,13 @@ export default ( theme ) => {
 				paddingRight 	: 10 
 			}
 		} ,
+		
+		overlay : {
+			backgroundColor : 'rgba( 51 , 51 , 51 , 0.8 )' 	,
+			flexDirection 	: 'column' 						,
+			height 			: device.height 				,
+			justifyContent 	: 'center'
+		} ,
 
 		text : { 
 			fontSize 		: 14 			,
@@ -46,8 +55,9 @@ export default ( theme ) => {
 			borderColor 		: theme.border 	,
 			borderRadius 		: 5 			, 
 			borderWidth 		: 1 			, 
+			marginHorizontal 	: 15 			,
 			paddingHorizontal 	: 15 			, 
-			paddingTop 			: 15 
+			paddingTop 			: 15
 		}
 	};
 };
