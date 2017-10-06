@@ -7,6 +7,19 @@ export default ( theme ) => {
 			backgroundColor : theme.base
 		} ,
 
+		'500' : {
+			color 			: theme.negative 	,
+			borderColor 	: theme.negative 	,
+			borderRadius 	: 5 				,
+			borderWidth 	: 1 				,
+			fontSize 		: 21 				,
+			fontWeight 		: 'bold' 			,
+			marginBottom 	: 25 				,
+			marginTop 		: 15 				,
+			padding 		: 15 				,
+			textAlign 		: 'center'
+		} ,
+
 		button 				: {
 			paddingHorizontal 	: 15
 		} ,

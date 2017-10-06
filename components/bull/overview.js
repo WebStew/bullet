@@ -1,6 +1,7 @@
 
 import 		React 			from 'react';
-import { 	Image 		,
+import { 	Animated 	,
+			Image 		,
 			Text 		,
 			View 		} 	from 'react-native';
 import 		Heading 		from '../utilities/headings';
@@ -13,6 +14,52 @@ import 		images 			from '../../api/images';
 import 		numbers 		from '../../utilities/numbers';
 
 export default class Overview extends React.Component {
+
+	constructor ( props ) {
+		super 	( props );
+
+		this.state = {
+			fade 	: new Animated.Value ( 0 )
+		};
+	}
+
+	componentDidMount () {
+
+		Animated.timing (
+			this.state.fade ,
+			{
+				toValue 	: 1, 
+				duration 	: 500
+			}
+		).start ();
+	}
+
+	rating () {
+
+		const 	theme 		= this.props.theme 		,
+				language 	= this.props.language 	,
+				bulls 		= bull ( theme ) 		;
+
+		if ( this.props.bull.rating ) {
+
+			return (	
+				<Animated.Text 
+					style = {{
+						...bulls.rating ,
+						opacity : this.state.fade
+					}}
+				>
+					{ numbers.format ( this.props.bull.rating )}
+				</Animated.Text>
+			);
+		}
+
+		return (
+			<Text style = { bulls [ '500']}>
+				{ language.screens.bull.rating + ' ' + language.errors [ '500' ]}
+			</Text>
+		);
+	}
 
 	render () {
 
@@ -59,10 +106,8 @@ export default class Overview extends React.Component {
 						title 	= { language.screens.bull.rating 	}
 						type 	= '2'
 					/>
-					<Text style = { bulls.rating }>
-						{ this.props.bull.rating ? numbers.format ( this.props.bull.rating 	) : language.errors [ '500' ]}
-					</Text>
-					<Text style = { bulls.notice }>
+					{ this.rating ()}
+					<Text style = { bulls.notice 			}>
 						{ language.screens.bull.description }
 					</Text>
 					<Text style = { bulls.notice }>
