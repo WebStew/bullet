@@ -147,7 +147,8 @@ export default connect (
 		// If there is a search term - filter the currencies by it
 		return this.props.search.value ? this.props.currencies.items.filter (( item , index ) => {
 
-			return item.name.toLowerCase ().indexOf ( this.props.search.value.toLowerCase ()) > -1;
+			// Filter if the currency matches the name of symbol of a token
+			return item.name.toLowerCase ().indexOf ( this.props.search.value.toLowerCase ()) > -1 || item.symbol.toLowerCase ().indexOf ( this.props.search.value.toLowerCase ()) > -1;
 
 		}) : this.props.currencies.items;
 	}

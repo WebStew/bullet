@@ -32,7 +32,7 @@ export default {
 
 				prices : {
 					btc 	: currency [ 'price_btc' ] 	? parseFloat ( currency [ 'price_btc' ]) 	: null ,
-					fiat 	: fiat.price 				? parseFloat ( fiat.price ).toFixed ( 2 ) 	: null
+					fiat 	: fiat.price 				? parseFloat ( fiat.price ) 				: null
 				} ,
 
 				rank 	: parseFloat ( currency [ 'rank' ]) ,

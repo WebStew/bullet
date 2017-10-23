@@ -76,7 +76,7 @@ export default class Item extends React.PureComponent {
 							...appearance.cell
 						}}
 					>
-						{ numbers.format ( item.amount		)}
+						{ numbers.format ( item.amount	)}
 					</Text>
 					<Text 
 						numberOfLines 	= { 1 }
@@ -85,7 +85,7 @@ export default class Item extends React.PureComponent {
 							...items [ 'cell-text' ] 	,
 							...appearance.cell
 						}}>
-						{ item.price ? currency.symbol + numbers.format ( item.price ) : language.errors [ 500 ]}
+						{ item.price ? currency.symbol + numbers.format ( item.price.toFixed ( 2 )) : language.errors [ 500 ]}
 					</Text>
 					<Text 
 						numberOfLines 	= { 1 }

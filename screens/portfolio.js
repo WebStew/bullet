@@ -220,15 +220,18 @@ export default connect (
 				language 	= this.props.language 															,
 				styles 		= index % 2 === 0 ? stripe ( theme ).secondary : stripe ( theme ).primary 		,
 
+				// Baseline European values of 50,00 which is the same as 50.00
+				amount 		= parseFloat ( item.amount.replace ( ',' , '.' )) 								,
+
 				// Figure a better way to do this. We shouldn't loop the currency array for every row
 				data 		= this.props.currencies.items.find (( currency ) => currency.id === item.id ) 	,
 				details 	= data ? {
-					amount 	: item.amount 		,
-					id 		: data.id 			,
-					name 	: data.name 		,
-					price 	: data.prices.fiat 	,
-					total 	: parseFloat ( item.amount ) * parseFloat ( data.prices.fiat )
-				} 			: undefined ,
+					amount 	: amount 																		,
+					id 		: data.id 																		,
+					name 	: data.name 																	,
+					price 	: data.prices.fiat 																,
+					total 	: amount * parseFloat ( data.prices.fiat )
+				} 			: undefined 																	,
 				appearance 	= style ( theme );
 
 		// We unable to find the currency in the loaded results perhaps because it is outside the top 100

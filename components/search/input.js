@@ -65,6 +65,8 @@ export default connect (
 					</TouchableOpacity>
 
 					<TextInput 
+						autoCapitalize 			= 'none'
+						autoCorrect 			= { false 					}
 						autoFocus 				= { true 					}
 						placeholder 			= { language.actions.search }
 						placeholderTextColor 	= { theme.disabled 			}

@@ -99,7 +99,7 @@ export default class Item extends React.PureComponent {
 							...appearance.price
 						}}
 					>
-						{ item.prices.fiat ? currency.symbol + numbers.format ( item.prices.fiat ) : language.errors [ 500 ]}
+						{ item.prices.fiat ? currency.symbol + numbers.format ( item.prices.fiat.toFixed ( 2 )) : language.errors [ 500 ]}
 					</Text>
 				</TouchableOpacity>
 			</View>
