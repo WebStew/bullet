@@ -4,6 +4,7 @@ export default {
 	midnight : {
 		names 	: {
 			en 	: 'Sith Lord' 			,
+			es 	: 'Lord Sith' 			,
 			de 	: 'Sith Herr' 			,
 			fr 	: 'Sith Lord' 			,
 			ms 	: 'Sith Tuan' 			,

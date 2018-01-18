@@ -4,6 +4,7 @@ export default {
 	killbill : {
 		names 	: {
 			en 	: 'Kill Bill' 					,
+			es 	: 'Kill Bill' 					,
 			de 	: 'Kill Bill' 					,
 			fr 	: 'Kill Bill' 					,
 			ms 	: 'Bunuh Rang Undang-Undang' 	,

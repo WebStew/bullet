@@ -6,6 +6,7 @@ export default {
 		id 		: 'en' 				,
 		names 	: {
 			en 	: 'English' 		,
+			es 	: 'Inglés' 			,
 			de 	: 'Englisch' 		,
 			fr 	: 'Anglais' 		,
 			ms 	: 'Bahasa Inggeris' ,

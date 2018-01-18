@@ -6,6 +6,7 @@ export default {
 		id 		: 'ms' 			,
 		names 	: {
 			en 	: 'Malay' 		,
+			es 	: 'Malayo' 		,
 			de 	: 'Malaiisch' 	,
 			fr 	: 'Malais' 		,
 			ms 	: 'Melayu' 		,

@@ -4,6 +4,7 @@ export default {
 	lagoon : {
 		names 	: {
 			en 	: 'Blue Lagoon' 		,
+			es 	: 'Laguna Azul' 		,
 			de 	: 'Blaue Lagune' 		,
 			fr 	: 'Lagon bleu' 			,
 			ms 	: 'Lagun Biru' 			,

@@ -6,6 +6,7 @@ export default {
 		id 		: 'tr' 				,
 		names 	: {
 			en 	: 'Turkish' 		,
+			es 	: 'Turco' 			,
 			de 	: 'Türkisch' 		,
 			fr 	: 'Turc' 			,
 			ms 	: 'Turki' 			,

@@ -4,6 +4,7 @@ export default {
 	heineken : {
 		names 	: {
 			en 	: 'Heineken' 			,
+			es 	: 'Heineken' 			,
 			de 	: 'Heineken' 			,
 			fr 	: 'Heineken' 			,
 			ms 	: 'Heineken' 			,

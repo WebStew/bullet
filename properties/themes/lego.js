@@ -4,6 +4,7 @@ export default {
 	lego : {
 		names 	: {
 			en 	: 'Everything is awesome' 	,
+			es 	: 'Todo es asombroso' 		,
 			de 	: 'Hier ist alles super' 	,
 			fr 	: 'Tout est génial' 		,
 			ms 	: 'Semuanya hebat' 			,

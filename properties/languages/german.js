@@ -6,6 +6,7 @@ export default {
 		id 		: 'de' 			,
 		names  	: {
 			en 	: 'German' 		,
+			es 	: 'Alemán' 		,
 			de 	: 'Deutsche' 	,
 			fr 	: 'Allemand' 	,
 			ms 	: 'Jerman' 		,

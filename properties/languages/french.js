@@ -6,6 +6,7 @@ export default {
 		id 		: 'fr' 				,
 		names 	: {
 			en 	: 'French' 			,
+			es 	: 'Francés' 		,
 			de 	: 'Französisch' 	,
 			fr  : 'Français' 		,
 			ms 	: 'Perancis' 		,

@@ -4,6 +4,7 @@ export default {
 	facebook : {
 		names 	: {
 			en 	: 'TheFacebook' 			,
+			es 	: 'El Facebook' 			,
 			de 	: 'DasFacebook' 			,
 			fr 	: 'LeFacebook' 				,
 			ms 	: 'TheFacebook' 			,

@@ -4,6 +4,7 @@ export default {
 	twitter : {
 		names 	: {
 			en 	: 'Twitter' 		,
+			es 	: 'Gorjeo' 			,
 			de 	: 'Twitter' 		,
 			fr 	: 'Gazouillement' 	,
 			ms 	: 'Twitter' 		,

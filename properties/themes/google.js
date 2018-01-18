@@ -4,6 +4,7 @@ export default {
 	google : {
 		names 	: {
 			en 	: 'Google' 			,
+			es 	: 'Google' 			,
 			de 	: 'Google' 			,
 			fr 	: 'Google' 			,
 			ms 	: 'Google' 			,

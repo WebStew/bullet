@@ -6,6 +6,7 @@ export default {
 		id 		: 'vi' 				,
 		names 	: {
 			en 	: 'Vietnamese' 		,
+			es 	: 'Vietnamita' 		,
 			de 	: 'Vietnamesisch' 	,
 			fr 	: 'Vietnamien' 		,
 			ms 	: 'Bahasa Inggeris' ,
