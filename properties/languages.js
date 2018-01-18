@@ -14,7 +14,7 @@ export default {
 	...french 		,
 	...german 		,
 	...malay 		,
-	...spanish 		,
+	//...spanish 		,
 	...turkish 		,
 	...vietnamese
 };

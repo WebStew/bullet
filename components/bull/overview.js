@@ -4,14 +4,17 @@ import { 	Animated 	,
 			Image 		,
 			Text 		,
 			View 		} 	from 'react-native';
+import 		Advert 			from '../../components/adverts/button';
 import 		Heading 		from '../utilities/headings';
 import 		Sections 		from '../utilities/sections';
+import 		ad 				from '../../styles/adverts';
 import 		layout 			from '../../styles/layout';
 import 		style 			from '../../styles/section';
 import 		scene 			from '../../styles/scene';
 import 		bull 			from '../../styles/bull';
 import 		images 			from '../../api/images';
 import 		numbers 		from '../../utilities/numbers';
+import 		adverts 		from '../../configuration/adverts';
 
 export default class Overview extends React.Component {
 
@@ -66,6 +69,7 @@ export default class Overview extends React.Component {
 		const 	theme 		= this.props.theme 		,
 				language 	= this.props.language 	,
 				currency 	= this.props.currency 	,
+				ads 		= ad 		( theme ) 	,
 				arrange 	= layout 	( theme ) 	,
 				scenery 	= scene 	( theme ) 	,
 				appearance 	= style 	( theme ) 	,
@@ -113,6 +117,18 @@ export default class Overview extends React.Component {
 					<Text style = { bulls.notice }>
 						{ language.screens.bull.notice.replace ( '{{placeholder}}' , this.props.bull.competitors )}
 					</Text>
+				</View>
+				<View 	style 		= { ads.body 				}>
+					<Advert 
+						id 			= { adverts.bull.button [ 0 ]}
+						language 	= { language 				}
+						theme 		= { theme 					} 
+					/>
+					<Advert 
+						id 			= { adverts.bull.button [ 1 ]}
+						language 	= { language 				}
+						theme 		= { theme 					} 
+					/>
 				</View>
 				<View style = {{
 					...bulls.stripe ,

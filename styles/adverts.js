@@ -5,12 +5,9 @@ export default ( theme ) => {
 	return {
 
 		body : {
-			backgroundColor 	: theme.primary ,
-			borderTopWidth 		: 1 			,
-			borderColor 		: theme.border 	,
+			marginBottom 		: 5 			,
 			paddingBottom 		: 5 			,
-			paddingHorizontal 	: 15 			,
-			paddingTop 			: 12
+			paddingHorizontal 	: 15
 		} ,
 
 		button : {
@@ -54,7 +51,7 @@ export default ( theme ) => {
 			label : {
 				color 			: theme.body 	,
 				fontSize 		: 12 			,
-				marginBottom 	: 3 			,
+				marginBottom 	: 5 			,
 				marginRight 	: 5 			,
 				textAlign 		: 'right'
 			} ,
