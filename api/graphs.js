@@ -3,7 +3,7 @@ import environment 	from '../configuration/environment';
 import graphs 		from '../mock/graphs';
 
 const api = {
-		domain 	: 'https://graphs.coinmarketcap.com' 	,
+		domain 	: 'https://graphs2.coinmarketcap.com' 	,
 		path 	:'/currencies/' 						,
 		headers : {
 			Accept 	: 'application/json' 				,
